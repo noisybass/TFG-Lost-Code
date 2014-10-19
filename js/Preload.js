@@ -30,6 +30,6 @@ TFG.Preload.prototype = {
   },
 
   create:function(){
-    this.state.start('MainMenu');
+    this.game.state.start('MainMenu');
   }
 }

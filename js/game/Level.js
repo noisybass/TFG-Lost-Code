@@ -24,11 +24,11 @@ Level.prototype = {
 	update: function() {
 		this.game.physics.arcade.collide(this.player.hero, this.layer);
     this.player.move();
+    if (player.fallingDown()) player.die();
 	},
 
 	render: function() {
 		this.game.debug.text( "", 32, 32);
 	},
-
 
 };

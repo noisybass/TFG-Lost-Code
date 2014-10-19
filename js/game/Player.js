@@ -20,10 +20,13 @@ Player.prototype = {
 	create: function(x,y,key,frame) {
 		this.hero = this.game.add.sprite(x,y,key,frame);
     this.game.physics.enable(this.hero);
-    this.hero.body.collideWorldBounds = true;
+    this.hero.body.collideWorldBounds = false;
     this.game.camera.follow(this.hero);
 
     this.addAnimations();
+
+
+    this.hero.body.collideWorldBounds = true; //Should the Body collide with the World bounds?
 
     // Create the player's input controls
     this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -33,12 +36,6 @@ Player.prototype = {
 
 	update: function() {
 
-	},
-
-	render: function() {
-    this.game.debug.text(this.hero.body.blocked.down,32,10);
-    this.game.debug.text(this.cursors.left.isDown,100,10);
-		this.game.debug.bodyInfo(this.hero,32,32);
 	},
 
   addAnimations: function() {
@@ -68,6 +65,26 @@ Player.prototype = {
       else if (this.direction == State.LOOKINGRIGHT) this.hero.play('standUpRight');
 			this.hero.body.velocity.x = 0;
 		}
-  }
+  },
+
+  fallingDown: function () {
+    return this.game.world.bounds.bottom - this.hero.body.height == this.hero.world.y;
+  },
+
+  die: function() {
+      //this.game.state.start('Game');
+      //Have I to erase the object?? or it erases itself?
+      this.hero.body.x = 32;
+      this.hero.body.y = 32;
+  },
+
+  render: function() {
+    this.game.debug.text(this.hero.body.blocked.down,32,10);
+    this.game.debug.text(this.cursors.left.isDown,100,10);
+    this.game.debug.text(this.game.world.bounds.bottom - this.hero.body.height,150,10);
+    this.game.debug.text(this.hero.world.x,200,10);
+    this.game.debug.text(this.hero.world.y,250,10);
+    this.game.debug.bodyInfo(this.hero,32,32);
+	}
 
 };

@@ -1,20 +1,17 @@
 == TFG ==
 
-* Protagonista se mueve a la derecha e izquierda con sus respectivas animaciones.
+* Al caer el player al vacio, muere, es decir reaparece en el inicio del nivel
 
-===  Carga de Imágenes   ===
+===  Estrategia   ===
 
-* Spritesheet del player
-* Spritesheet de nivel de prueba
-* sheet que utiliza el nivel de prueba
+* comprobar si esta chocando con la parte de abajo del canvas, y si es asi hacemos...
 
-=== Incorporaciones al canvas  ===
+==== Dos maneras para morir/reaparecer ====
 
-* Nivel de prueba
-* player
+* 1: hacer this.game.state.start('Game'); con lo cual vuelve al preload del Game y carga de nuevo
+     los datos sobrescribiendolos sobre las mismas variables.
 
-=== Incorpraciones al codigo ===
+* 2: directamente cambiarle las coordenadas x e y para que reaparezca donde antes.
 
-* clase Player
-* clase Level
-* Enumerado State, que comprueba si esta mirando a la izquierda o a la derecha
+* Pienso que tendremos que aplicar el primer caso para cuando se te acaben las vidas y salgas del nivel,
+  pero mientras queden  vidas, pienso que es menos costoso cambiar las coordenadas y ya esta.

@@ -18,6 +18,6 @@ TFG.Boot.prototype = {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
     this.game.physics.arcade.gravity.y = 250;
 
-		this.state.start('Preload');
+		this.game.state.start('Preload');
 	}
 };
