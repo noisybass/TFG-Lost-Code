@@ -2,6 +2,8 @@ var TFG = TFG || {};
 
 TFG.Game = function () {};
 
+// LOS ENEMIGOS SE HACEN CON GRUPOS POR EL MOMENTO
+
 TFG.Game.prototype = {
 	create: function () {
 		// Set world dimensions...

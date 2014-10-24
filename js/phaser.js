@@ -16246,8 +16246,8 @@ Phaser.StateManager.prototype = {
     */
     start: function (key, clearWorld, clearCache) {
 
-        // console.log('-----------------------------------------------------------------------------------------');
-        // console.log('START:', key);
+        console.log('-----------------------------------------------------------------------------------------');
+        console.log('START:', key);
 
         if (typeof clearWorld === "undefined") { clearWorld = true; }
         if (typeof clearCache === "undefined") { clearCache = false; }
