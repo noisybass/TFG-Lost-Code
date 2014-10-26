@@ -13,6 +13,9 @@ Player = function(game) {
 	// Player constants
 	this.MAX_VELOCITY_X = 150;
 	this.MAX_VELOCITY_Y = 150;
+
+  //Player life
+  this.hearts = 3;
 };
 
 Player.prototype = {
@@ -72,19 +75,25 @@ Player.prototype = {
   },
 
   die: function() {
-      //this.game.state.start('Game');
-      //Have I to erase the object?? or it erases itself?
+    if (this.hearts > 1){
       this.hero.body.x = 32;
       this.hero.body.y = 32;
+      --this.hearts;
+    }
+    else{
+    //Have I to erase the object?? or it erases itself?
+      this.game.state.start('MainMenu');
+    }
   },
 
   render: function() {
-    this.game.debug.text(this.hero.body.blocked.down,32,10);
+    this.game.debug.text("Hearts: " + this.hearts ,32,10);
+    /*this.game.debug.text(this.hero.body.blocked.down,32,10);
     this.game.debug.text(this.cursors.left.isDown,100,10);
     this.game.debug.text(this.game.world.bounds.bottom - this.hero.body.height,150,10);
     this.game.debug.text(this.hero.world.x,200,10);
     this.game.debug.text(this.hero.world.y,250,10);
-    this.game.debug.bodyInfo(this.hero,32,32);
+    this.game.debug.bodyInfo(this.hero,32,32);*/
 	}
 
 };

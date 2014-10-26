@@ -1,17 +1,9 @@
-== TFG ==
+TFG
+==
 
-* Al caer el player al vacio, muere, es decir reaparece en el inicio del nivel
+Player con vidas
+----------------
 
-===  Estrategia   ===
-
-* comprobar si esta chocando con la parte de abajo del canvas, y si es asi hacemos...
-
-==== Dos maneras para morir/reaparecer ====
-
-* 1: hacer this.game.state.start('Game'); con lo cual vuelve al preload del Game y carga de nuevo
-     los datos sobrescribiendolos sobre las mismas variables.
-
-* 2: directamente cambiarle las coordenadas x e y para que reaparezca donde antes.
-
-* Pienso que tendremos que aplicar el primer caso para cuando se te acaben las vidas y salgas del nivel,
-  pero mientras queden  vidas, pienso que es menos costoso cambiar las coordenadas y ya esta.
+* Modificacion bastante simple, el jugador tiene un contador de vidas (corazones).
+* Si el jugador muere, se le resta y vuelve al punto de control de ese nivel.
+* Si el jugador se queda sin vidas, vuelve a la pantalla de seleccion de niveles.
