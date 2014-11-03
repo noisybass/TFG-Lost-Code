@@ -20,7 +20,7 @@ TFG.Preload.prototype = {
     this.load.spritesheet('goomba','assets/images/goomba.png',32,32,12);
 
     //Level assets
-    this.load.tilemap('map', 'assets/level/mario3.json', null, Phaser.Tilemap.TILED_JSON);
+    this.load.tilemap('map', 'assets/level/mario4.json', null, Phaser.Tilemap.TILED_JSON);
 		this.load.spritesheet('sheet','assets/images/sheet.png',34,34,49);
     //Others..
     this.load.image('space', 'assets/images/space.png');

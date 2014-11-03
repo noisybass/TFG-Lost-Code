@@ -27,5 +27,6 @@ TFG.Game.prototype = {
 
   render: function (){
     player.render();
+    level.render();
   }
 }
