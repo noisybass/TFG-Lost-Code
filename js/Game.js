@@ -30,3 +30,4 @@ TFG.Game.prototype = {
     level.render();
   }
 }
+
