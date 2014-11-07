@@ -1,9 +1,9 @@
 Level = function(game) {
 	this.game       = game;
-	this.map        = null;
-	this.player     = null;
-	this.layer      = null;
-  //this.fx       = null; // Audio manager 
+  this.map        = null;
+  this.player     = null;
+  this.layer      = null;
+  this.fx         = null; // Audio manager 
   this.goombas    = null;
   this.coins      = null;
   this.audio_coin = null;
@@ -17,8 +17,6 @@ Level.prototype = {
 
 	create: function(player) {
 		this.player = player;
-
-    this.game.physics.arcade.gravity.y = this.GRAVITY;
 
 		this.map = this.game.add.tilemap('map');
 
@@ -41,38 +39,24 @@ Level.prototype = {
 
     this.goombas.forEach(this.goombaAnimation,this);
 
-    this.layer  = this.map.createLayer('CapaPatrones');
-    
-    // Esto falla con level0_copia.json, que tiene 3 capas mas, no se por que..
-    /*
-    this.layer1 = this.map.createLayer('Fondo1');
+    this.layer = this.map.createLayer('CapaPatrones');
 
-    this.layer2 = this.map.createLayer('Fondo2');
-
-    this.layer3 = this.map.createLayer('Fondo3');
-    */
     this.layer.resizeWorld();
-
-    // Sound manager
-    
-    this.audio_coin = this.game.add.audio('sound_collect')
-    
 	},
 
 
 	update: function() {
-		this.game.physics.arcade.collide(this.player.hero, this.layer);
+		this.game.physics.arcade.collide(this.player.sprite, this.layer);
     this.game.physics.arcade.collide(this.goombas,this.layer);
     this.game.physics.arcade.collide(this.goombas,this.goombas);
-    this.game.physics.arcade.overlap(this.player.hero, this.coins, this.pickCoin, null, this);
+    this.game.physics.arcade.overlap(this.player.sprite, this.coins, this.pickCoin, null, this);
 
-    if (this.game.physics.arcade.collide(this.player.hero, this.goombas)) 
-      this.player.die();
+    if (this.game.physics.arcade.collide(this.player.sprite, this.goombas)) this.player.die();
 
     this.player.move();
     this.player.jump();
     this.player.goDown();
-    
+
     if (player.fallingDown()) 
       player.die();
 
@@ -84,10 +68,12 @@ Level.prototype = {
   pickCoin: function(player,coin) {
     this.score++;
     coin.destroy();
-    this.audio_coin.play();
+    //this.audio_coin.play();
   },
 
   goombaMove: function(enemy) {
+
+
     if (enemy.body.blocked.left || enemy.body.touching.left)
       enemy.direction = State.LOOKINGRIGHT;
     else if (enemy.body.blocked.right || enemy.body.touching.right)
@@ -108,8 +94,8 @@ Level.prototype = {
   },
 
 	render: function() {
-     this.game.debug.text("Score: " + this.score + " Lifes: " + this.player.hearts,32,10);
-  },
+    this.game.debug.text("Score: " + this.score + " Lifes: " + this.player.hearts,32,10);
+	},
 
   /* Create coins from JSON map*/
   createCoins: function() {

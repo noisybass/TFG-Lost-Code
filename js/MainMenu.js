@@ -20,4 +20,3 @@ TFG.MainMenu.prototype = {
     }
   }
 }
-

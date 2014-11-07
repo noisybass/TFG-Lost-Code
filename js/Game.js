@@ -16,7 +16,7 @@ TFG.Game.prototype = {
     this.game.stage.backgroundColor = '#000';
     player = new Player(this.game);
     level = new Level(this.game);
-    player.create(0, 500, 'player',0)
+    player.create(0, 500, 'player',0);
     level.create(player);
   },
 
@@ -30,4 +30,3 @@ TFG.Game.prototype = {
     level.render();
   }
 }
-
