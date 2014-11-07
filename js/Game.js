@@ -1,13 +1,13 @@
 var TFG = TFG || {};
 
-TFG.Game = function() {};
+TFG.Game = function(){};
 
 var player;
 var level;
 
 TFG.Game.prototype = {
 
-  create: function() {
+  create: function (){
     // Set world dimensions...
     // Set level...
     // Create player...
@@ -16,16 +16,16 @@ TFG.Game.prototype = {
     this.game.stage.backgroundColor = '#000';
     player = new Player(this.game);
     level = new Level(this.game);
-    player.create(32, 32, 'player',0)
+    player.create(0, 500, 'player',0)
     level.create(player);
   },
 
-  update: function() {
+  update: function (){
     player.update();
     level.update();
   },
 
-  render: function() {
+  render: function (){
     player.render();
     level.render();
   }

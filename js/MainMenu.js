@@ -1,10 +1,10 @@
 var TFG = TFG || {};
 
-TFG.MainMenu = function() {};
+TFG.MainMenu = function(){};
 
 TFG.MainMenu.prototype = {
 
-  create: function() {
+  create: function(){
     // Menu settings...
     // Start game text
     this.game.stage.backgroundColor = '#fff';
@@ -14,7 +14,7 @@ TFG.MainMenu.prototype = {
     t.anchor.set(0.5);
   },
 
-  update: function() {
+  update: function(){
     if(this.game.input.activePointer.justPressed()) {
       this.game.state.start('Game');
     }

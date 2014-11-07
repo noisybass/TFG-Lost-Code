@@ -1,17 +1,24 @@
 Level = function(game) {
-	this.game     = game;
-	this.map      = null;
-	this.player   = null;
-	this.layer    = null;
-  this.goombas  = null;
-  this.coins    = null;
-  this.score    = 0;
+	this.game       = game;
+	this.map        = null;
+	this.player     = null;
+	this.layer      = null;
+  //this.fx       = null; // Audio manager 
+  this.goombas    = null;
+  this.coins      = null;
+  this.audio_coin = null;
+  this.score      = 0;
+
+  // Constants
+  this.GRAVITY = 500;
 };
 
 Level.prototype = {
 
 	create: function(player) {
 		this.player = player;
+
+    this.game.physics.arcade.gravity.y = this.GRAVITY;
 
 		this.map = this.game.add.tilemap('map');
 
@@ -21,7 +28,7 @@ Level.prototype = {
     this.map.setCollisionByExclusion([1,2]);
 
     // Coins
-    this.loadCoins();
+    this.createCoins();
 
     //First enemy
     this.goombas = this.game.add.group();
@@ -34,9 +41,22 @@ Level.prototype = {
 
     this.goombas.forEach(this.goombaAnimation,this);
 
-    this.layer = this.map.createLayer('CapaPatrones');
+    this.layer  = this.map.createLayer('CapaPatrones');
+    
+    // Esto falla con level0_copia.json, que tiene 3 capas mas, no se por que..
+    /*
+    this.layer1 = this.map.createLayer('Fondo1');
 
+    this.layer2 = this.map.createLayer('Fondo2');
+
+    this.layer3 = this.map.createLayer('Fondo3');
+    */
     this.layer.resizeWorld();
+
+    // Sound manager
+    
+    this.audio_coin = this.game.add.audio('sound_collect')
+    
 	},
 
 
@@ -44,28 +64,30 @@ Level.prototype = {
 		this.game.physics.arcade.collide(this.player.hero, this.layer);
     this.game.physics.arcade.collide(this.goombas,this.layer);
     this.game.physics.arcade.collide(this.goombas,this.goombas);
-    this.game.physics.arcade.overlap(this.sprite, this.coins, this.pickCoin, null, this);
+    this.game.physics.arcade.overlap(this.player.hero, this.coins, this.pickCoin, null, this);
 
-    if (this.game.physics.arcade.collide(this.player.hero, this.goombas)) this.player.die();
+    if (this.game.physics.arcade.collide(this.player.hero, this.goombas)) 
+      this.player.die();
 
     this.player.move();
     this.player.jump();
     this.player.goDown();
     
-    if (player.fallingDown()) player.die();
+    if (player.fallingDown()) 
+      player.die();
 
     this.goombas.forEach(this.goombaMove,this);
     //if (this.goombas)
 	},
 
+  /* Called when player collides with a coin*/
   pickCoin: function(player,coin) {
     this.score++;
     coin.destroy();
+    this.audio_coin.play();
   },
 
   goombaMove: function(enemy) {
-
-
     if (enemy.body.blocked.left || enemy.body.touching.left)
       enemy.direction = State.LOOKINGRIGHT;
     else if (enemy.body.blocked.right || enemy.body.touching.right)
@@ -86,19 +108,27 @@ Level.prototype = {
   },
 
 	render: function() {
+     this.game.debug.text("Score: " + this.score + " Lifes: " + this.player.hearts,32,10);
+  },
 
-	},
+  /* Create coins from JSON map*/
+  createCoins: function() {
+    this.coins = this.game.add.group();
+    this.coins.enableBody = true;
+    this.map.createFromObjects('CapaObjetos', tiledId.coinId , 'coin', 0, true, false, this.coins);
+    this.coins.callAll('animations.add', 'animations', 'anim_coin', [0,1,2], 5, true);
+    this.coins.callAll('animations.play', 'animations', 'anim_coin');
+    this.coins.forEach(
+      function (coin) {
+            coin.body.gravity.y = (-1) * this.GRAVITY;
+      });
+    
+  },
 
-  loadCoins: function() {/*
-      this.coins = this.game.add.group();
-      for (var i=0;i<=400;i=i+100) {
-        this.coins.create(200+i, 400, 'coin');
-      }
-      this.coins.forEach(function (coin) {
-        this.game.physics.enable(coin, Phaser.Physics.ARCADE);
-        coin.body.collideWorldBounds = true;
-        coin.body.gravity = 0;
-      });*/
+  coinAnimation: function(coin) {
+    coin.animations.add('round',[1,2],5,true);
+    coin.animations.play('round');
+
   }
 
 };

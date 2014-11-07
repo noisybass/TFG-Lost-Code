@@ -12,7 +12,6 @@
          "y":0
         }, 
         {
-         "draworder":"topdown",
          "height":12,
          "name":"CapaObjetos",
          "objects":[
@@ -24,7 +23,6 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
@@ -39,12 +37,25 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
                  "x":407,
                  "y":331
+                }, 
+                {
+                 "gid":28,
+                 "height":0,
+                 "name":"coin",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":137,
+                 "y":201
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -58,7 +69,6 @@
     {
 
     },
- "renderorder":"right-down",
  "tileheight":34,
  "tilesets":[
         {
