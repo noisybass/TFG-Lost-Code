@@ -12,27 +12,37 @@ TFG.Preload.prototype = {
     // loading bar.
     this.load.setPreloadSprite(this.preloadBar);
 
-    // Load game assets
-    //Player assets
-    this.load.spritesheet('player','assets/images/mario_small.png',32,32,27);
+    /////// Load game assets ///////////
+        this.loadPlayerAssets();
 
-    //Enemies assets
-    this.load.spritesheet('goomba','assets/images/goomba.png',32,32,12);
+        this.loadLevelAssets();
 
-    //Level assets
-    this.load.tilemap('map', 'assets/level/mario4.json', null, Phaser.Tilemap.TILED_JSON);
-		this.load.spritesheet('sheet','assets/images/sheet.png',34,34,49);
-    //Others..
-    this.load.image('space', 'assets/images/space.png');
-    this.load.image('rock', 'assets/images/rock.png');
-    this.load.spritesheet('playership', 'assets/images/player.png');
-    this.load.spritesheet('power', 'assets/images/power.png');
-    this.load.image('playerParticle', 'assets/images/player-particle.png');
-    this.load.audio('collect', 'assets/audio/collect.ogg');
-    this.load.audio('explosion', 'assets/audio/explosion.ogg');
+        this.loadEnemiesAssets();
+
+        this.loadObjectsAssets();
   },
 
   create:function(){
     this.game.state.start('MainMenu');
+  },
+
+  loadPlayerAssets: function() {
+    this.load.spritesheet('player','assets/images/mario_small.png',32,32,27);
+    this.game.load.image('jug_agachado', 'assets/images/jugador_agachado.png');
+    this.game.load.image('jug','assets/images/jugador.png');
+  },
+
+  loadLevelAssets: function() {
+    this.load.tilemap('map', 'assets/level/level0.json', null, Phaser.Tilemap.TILED_JSON);
+    this.load.spritesheet('sheet','assets/images/sheet.png',34,34,49);
+  },
+
+  loadEnemiesAssets: function() {
+    this.load.spritesheet('goomba','assets/images/goomba.png',32,32,12);
+  },
+
+  loadObjectsAssets: function() {
+    this.game.load.spritesheet('coin', 'assets/images/coins.png',34,34,3);
+    this.game.load.spritesheet('spritesheet_eBlock', 'assets/images/eBlocks.png', 34,32,3);
   }
 }
