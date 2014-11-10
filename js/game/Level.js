@@ -7,7 +7,6 @@ Level = function(game) {
   this.goombas    = null;
   this.coins      = null;
   this.audio_coin = null;
-  this.score      = 0;
 
   // Constants
   this.GRAVITY = 500;
@@ -16,6 +15,7 @@ Level = function(game) {
 Level.prototype = {
 
 	create: function(player) {
+
 		this.player = player;
 
 		this.map = this.game.add.tilemap('map');
@@ -66,8 +66,13 @@ Level.prototype = {
 
   /* Called when player collides with a coin*/
   pickCoin: function(player,coin) {
-    this.score++;
+    // Removes the coin from the screen
     coin.destroy();
+
+    // Add and update the score
+    hud.score++;
+    hud.scoreText.text = hud.scoreString + hud.score;
+    
     //this.audio_coin.play();
   },
 

@@ -17,10 +17,6 @@ Player = function(game) {
   // Player constants
   this.MAX_VELOCITY_X = 150;
   this.MAX_VELOCITY_Y = 350;
-
-
-  //Player life
-  this.hearts = 3;
 };
 
 Player.prototype = {
@@ -81,10 +77,13 @@ Player.prototype = {
   },
 
   die: function() {
-    if (this.hearts > 1){
+    if (hud.lives > 1){
       this.sprite.body.x = 32;
       this.sprite.body.y = 32;
-      --this.hearts;
+
+      // Update the lives
+      hud.lives--;
+      hud.livesText.text = hud.livesString + hud.lives;
     }
     else{
     //Have I to erase the object?? or it erases itself?
