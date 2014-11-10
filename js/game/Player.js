@@ -40,8 +40,17 @@ Player.prototype = {
 
 
 	update: function() {
-
+    this.game.physics.arcade.overlap(this.sprite, level.hearts, this.collectHeart, null, this);
 	},
+
+  collectHeart: function(player, heart) {
+    // Removes the heart from the screen
+    heart.destroy();
+
+    // Add and uodate the lives
+    hud.lives++;
+    hud.livesText.text = hud.livesString + hud.lives;
+  },
 
   addAnimations: function() {
     this.sprite.animations.add('moveLeft',[15,16,17],5,true);

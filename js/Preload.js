@@ -44,5 +44,6 @@ TFG.Preload.prototype = {
   loadObjectsAssets: function() {
     this.game.load.spritesheet('coin', 'assets/images/coins.png',34,34,3);
     this.game.load.spritesheet('spritesheet_eBlock', 'assets/images/eBlocks.png', 34,32,3);
+    this.game.load.image('heart', 'assets/images/heart.png');
   }
 }

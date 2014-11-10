@@ -112,6 +112,34 @@
                  "width":0,
                  "x":1732,
                  "y":407
+                }, 
+                {
+                 "gid":90,
+                 "height":0,
+                 "name":"Heart",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":544,
+                 "y":442
+                }, 
+                {
+                 "gid":90,
+                 "height":0,
+                 "name":"Heart",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":918,
+                 "y":544
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -171,6 +199,21 @@
          "spacing":0,
          "tileheight":32,
          "tilewidth":32
+        }, 
+        {
+         "firstgid":90,
+         "image":"..\/images\/heart.png",
+         "imageheight":34,
+         "imagewidth":34,
+         "margin":0,
+         "name":"heart",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":34,
+         "tilewidth":34
         }],
  "tilewidth":34,
  "version":1,

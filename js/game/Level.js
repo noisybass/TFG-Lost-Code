@@ -6,6 +6,7 @@ Level = function(game) {
   this.fx         = null; // Audio manager 
   this.goombas    = null;
   this.coins      = null;
+  this.hearts     = null;
   this.audio_coin = null;
 
   // Constants
@@ -22,11 +23,15 @@ Level.prototype = {
 
     this.map.addTilesetImage('sheet');
     this.map.addTilesetImage('goomba');
+    this.map.addTilesetImage('heart');
 
     this.map.setCollisionByExclusion([1,2]);
 
     // Coins
     this.createCoins();
+
+    // Hearts
+    this.createHearts();
 
     //First enemy
     this.goombas = this.game.add.group();
@@ -98,10 +103,6 @@ Level.prototype = {
     enemy.direction = State.LOOKINGLEFT;
   },
 
-	render: function() {
-    this.game.debug.text("Score: " + this.score + " Lifes: " + this.player.hearts,32,10);
-	},
-
   /* Create coins from JSON map*/
   createCoins: function() {
     this.coins = this.game.add.group();
@@ -114,6 +115,16 @@ Level.prototype = {
             coin.body.gravity.y = (-1) * this.GRAVITY;
       });
     
+  },
+
+  createHearts: function() {
+    this.hearts = this.game.add.group();
+    this.hearts.enableBody = true;
+    this.map.createFromObjects('CapaObjetos', tiledId.heartId, 'heart', 0, true, false, this.hearts);
+    this.hearts.forEach(
+      function (coin) {
+            coin.body.gravity.y = (-1) * this.GRAVITY;
+      });
   },
 
   coinAnimation: function(coin) {
