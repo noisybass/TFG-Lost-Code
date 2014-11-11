@@ -12,10 +12,6 @@ TFG.Game.prototype = {
 
     // Set background color
     this.game.stage.backgroundColor = '#000';
-    
-    // Creates player
-    player = new Player(this.game);
-    player.create(0, 500, 'player',0);
 
     // Creates the HUD
     hud = new HUD(this.game);
@@ -23,9 +19,12 @@ TFG.Game.prototype = {
 
     // Creates the level
     level = new Level(this.game);
-    level.create(player);
+    level.create();
 
-    
+    // Creates player
+    player = new Player(this.game);
+    player.create(0, 500, 'player',0);
+     
   },
 
   update: function (){

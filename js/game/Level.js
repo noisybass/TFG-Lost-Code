@@ -1,7 +1,6 @@
 Level = function(game) {
 	this.game       = game;
   this.map        = null;
-  this.player     = null;
   this.layer      = null;
   this.fx         = null; // Audio manager 
   this.goombas    = null;
@@ -15,9 +14,7 @@ Level = function(game) {
 
 Level.prototype = {
 
-	create: function(player) {
-
-		this.player = player;
+	create: function() {
 
 		this.map = this.game.add.tilemap('map');
 
@@ -25,7 +22,11 @@ Level.prototype = {
     this.map.addTilesetImage('goomba');
     this.map.addTilesetImage('heart');
 
-    this.map.setCollisionByExclusion([1,2]);
+    this.map.setCollision([4,11,15,18,32,38,45,49]);
+
+    this.layer = this.map.createLayer('CapaPatrones');
+
+    this.layer.resizeWorld();
 
     // Coins
     this.createCoins();
@@ -44,21 +45,19 @@ Level.prototype = {
 
     this.goombas.forEach(this.goombaAnimation,this);
 
-    this.layer = this.map.createLayer('CapaPatrones');
-
-    this.layer.resizeWorld();
+    
 	},
 
 
 	update: function() {
-		this.game.physics.arcade.collide(this.player.sprite, this.layer);
+		this.game.physics.arcade.collide(player.sprite, this.layer);
     this.game.physics.arcade.collide(this.goombas,this.layer);
     this.game.physics.arcade.collide(this.goombas,this.goombas);
-    this.game.physics.arcade.overlap(this.player.sprite, this.coins, this.pickCoin, null, this);
+    this.game.physics.arcade.overlap(player.sprite, this.coins, this.pickCoin, null, this);
 
-    this.player.move();
-    this.player.jump();
-    this.player.goDown();
+    player.move();
+    player.jump();
+    player.goDown();
 
     if (player.fallingDown()) 
       player.die();
