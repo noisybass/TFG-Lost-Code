@@ -1,10 +1,10 @@
 var TFG = TFG || {};
 
-TFG.Game = function() {
-  var hud    = null;
-  var player = null;
-  var level  = null;
-};
+TFG.Game = function() {};
+
+var hud    = null;
+var player = null;
+var level  = null;
 
 TFG.Game.prototype = {
 

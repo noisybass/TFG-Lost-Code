@@ -56,8 +56,6 @@ Level.prototype = {
     this.game.physics.arcade.collide(this.goombas,this.goombas);
     this.game.physics.arcade.overlap(this.player.sprite, this.coins, this.pickCoin, null, this);
 
-    if (this.game.physics.arcade.collide(this.player.sprite, this.goombas)) this.player.die();
-
     this.player.move();
     this.player.jump();
     this.player.goDown();
@@ -66,7 +64,6 @@ Level.prototype = {
       player.die();
 
     this.goombas.forEach(this.goombaMove,this);
-    //if (this.goombas)
 	},
 
   /* Called when player collides with a coin*/

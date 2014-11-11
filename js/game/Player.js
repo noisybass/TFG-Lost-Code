@@ -41,6 +41,7 @@ Player.prototype = {
 
 	update: function() {
     this.game.physics.arcade.overlap(this.sprite, level.hearts, this.collectHeart, null, this);
+    this.game.physics.arcade.overlap(this.sprite, level.goombas, this.goombaCollision, null, this);
 	},
 
   collectHeart: function(player, heart) {
@@ -50,6 +51,17 @@ Player.prototype = {
     // Add and uodate the lives
     hud.lives++;
     hud.livesText.text = hud.livesString + hud.lives;
+  },
+
+  goombaCollision: function(player, goomba) {
+    if(goomba.body.touching.up) {
+      goomba.destroy();
+
+      this.sprite.body.velocity.y = this.MAX_VELOCITY_Y * (-1);
+      this.jumpTime = this.game.time.now + 750;
+    }
+    else
+      this.die();
   },
 
   addAnimations: function() {
