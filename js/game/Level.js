@@ -6,6 +6,7 @@ Level = function(game) {
   this.goombas    = null;
   this.coins      = null;
   this.hearts     = null;
+  movePlatforms   = null;
   this.audio_coin = null;
 
   // Constants
@@ -35,16 +36,10 @@ Level.prototype = {
     this.createHearts();
 
     //First enemy
-    this.goombas = this.game.add.group();
-    this.goombas.enableBody = true;
+    this.createGoombas();
 
-    /*Could be add the methods here? like this.goombas.move();
-    or something like that*/
-
-    this.map.createFromObjects('CapaObjetos', tiledId.goombaId , 'goomba', 0, true, false, this.goombas);
-
-    this.goombas.forEach(this.goombaAnimation,this);
-
+    //Move platforms
+    this.createMovePlatforms();
     
 	},
 
@@ -75,6 +70,18 @@ Level.prototype = {
     hud.scoreText.text = hud.scoreString + hud.score;
     
     //this.audio_coin.play();
+  },
+
+  createGoombas: function() {
+    this.goombas = this.game.add.group();
+    this.goombas.enableBody = true;
+
+    /*NOTA: supongo que haremos una clase para meter los 
+    goombas y tal.*/
+
+    this.map.createFromObjects('CapaObjetos', tiledId.goombaId , 'goomba', 0, true, false, this.goombas);
+
+    this.goombas.forEach(this.goombaAnimation,this);
   },
 
   goombaMove: function(enemy) {
@@ -127,6 +134,10 @@ Level.prototype = {
     coin.animations.add('round',[1,2],5,true);
     coin.animations.play('round');
 
+  },
+
+  createMovePlatforms: function() {
+    this.movePlatforms = this.game.add.group();
   }
 
 };
