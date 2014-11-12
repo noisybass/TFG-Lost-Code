@@ -118,8 +118,8 @@ Player.prototype = {
     this.game.debug.text(this.cursors.left.isDown,100,10);
     this.game.debug.text(this.game.world.bounds.bottom - this.sprite.body.height,150,10);
     this.game.debug.text(this.sprite.world.x,200,10);
-    this.game.debug.text(this.sprite.world.y,250,10);
-    this.game.debug.bodyInfo(this.sprite,32,32);*/
+    this.game.debug.text(this.sprite.world.y,250,10);*/
+    this.game.debug.bodyInfo(this.sprite,32,64);
 	},
 
   jump: function() {
@@ -130,7 +130,7 @@ Player.prototype = {
    },
 
   playerCanJump: function() {
-    return this.sprite.body.onFloor() && this.game.time.now > this.jumpTime;
+    return (this.sprite.body.onFloor() || this.sprite.body.touching.down) && this.game.time.now > this.jumpTime;
   },
 
   // agacharse
