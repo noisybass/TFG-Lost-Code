@@ -30,6 +30,10 @@ TFG.Game.prototype = {
   update: function (){
     player.update();
     level.update();
+  },
+
+  render: function (){
+    player.render();
   }
 
 }

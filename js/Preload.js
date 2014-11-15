@@ -27,23 +27,24 @@ TFG.Preload.prototype = {
   },
 
   loadPlayerAssets: function() {
-    this.load.spritesheet('player','assets/images/mario_small.png',32,32,27);
+    this.game.load.spritesheet('player','assets/images/mario_small.png',32,32,27);
     this.game.load.image('jug_agachado', 'assets/images/jugador_agachado.png');
     this.game.load.image('jug','assets/images/jugador.png');
   },
 
   loadLevelAssets: function() {
-    this.load.tilemap('map', 'assets/level/mario-level.json', null, Phaser.Tilemap.TILED_JSON);
-    this.load.spritesheet('sheet','assets/images/sheet.png',34,34,49);
+    this.game.load.tilemap('map', 'assets/level/mario-level.json', null, Phaser.Tilemap.TILED_JSON);
+    this.game.load.spritesheet('sheet','assets/images/sheet.png',34,34,49);
   },
 
   loadEnemiesAssets: function() {
-    this.load.spritesheet('goomba','assets/images/goomba.png',32,32,12);
+    this.game.load.spritesheet('goomba','assets/images/goomba.png',32,32,12);
   },
 
   loadObjectsAssets: function() {
     this.game.load.spritesheet('coin', 'assets/images/coins.png',34,34,3);
     this.game.load.spritesheet('spritesheet_eBlock', 'assets/images/eBlocks.png', 34,32,3);
     this.game.load.image('heart', 'assets/images/heart.png');
+    this.game.load.image('shiftingPlatform', 'assets/images/platform.png');
   }
 }
