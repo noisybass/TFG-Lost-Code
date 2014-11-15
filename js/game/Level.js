@@ -7,7 +7,6 @@ Level = function(game) {
   this.coins                    = null;
   this.hearts                   = null;
   this.shiftingPlatforms        = null;
-  this.shiftingPlatformsLimits  = null;
   this.audio_coin               = null;
 
   // Constants
@@ -51,17 +50,17 @@ Level.prototype = {
 	update: function() {
 		this.game.physics.arcade.collide(player.sprite, this.layer);
     this.game.physics.arcade.collide(this.goombas, this.layer);
-    this.game.physics.arcade.collide(player.sprite, this.shiftingPlatforms, this.platformsCollision, null, this);
+    this.game.physics.arcade.collide(player.sprite, this.shiftingPlatforms);
     this.game.physics.arcade.collide(this.goombas, this.goombas);
     this.game.physics.arcade.overlap(player.sprite, this.coins, this.pickCoin, null, this);
 
-    this.game.physics.arcade.collide(this.shiftingPlatforms, this.shiftingPlatformsLimits, this.platformsMove, null, this);
+    this.platformsMove();
 
     player.move();
     player.jump();
     player.goDown();
 
-    if (player.fallingDown()) {
+    if(player.fallingDown()) {
       player.die();
     }
 
@@ -80,27 +79,15 @@ Level.prototype = {
     //this.audio_coin.play();
   },
 
-  platformsCollision: function (player, platform) {
-    if (player.body.touching.down && platform.body.touching.up || player.body.touching.up && platform.body.touching.down){
-      player.body.velocity.y = 0;
-    }
-  },
-
-  platformsMove: function (platform, platformLimit) {
-    if (platform.body.touching.right && platformLimit.body.touching.left){
-      var velocity = this.platform_velocity;
-      this.shiftingPlatforms.forEach(
-      function (platformBlock) {
-        platformBlock.body.velocity.x = velocity * (-1);
+  platformsMove: function () {
+    var currentTime = this.game.time.now;
+    this.shiftingPlatforms.forEach(
+      function (platform) {
+        if(currentTime > platform.moveTime) {
+          platform.body.velocity.x   = (-1) * platform.body.velocity.x;
+          platform.moveTime          = Number(platform.timeToMove) + currentTime;
+        }
       });
-    }
-    else if (platform.body.touching.left && platformLimit.body.touching.right){
-      var velocity = this.platform_velocity;
-      this.shiftingPlatforms.forEach(
-      function (platformBlock) {
-        platformBlock.body.velocity.x = velocity;
-      });
-    }
   },
 
   createGoombas: function() {
@@ -165,28 +152,18 @@ Level.prototype = {
 
   createShiftingPlatforms: function() {
     var velocity = this.platform_velocity;
+    var gravity = this.GRAVITY;
+    var currentTime = this.game.time.now;
     this.shiftingPlatforms = this.game.add.group();
     this.shiftingPlatforms.enableBody = true;
-    this.map.createFromObjects('CapaObjetos', tiledId.shiftingPlatforms, 'sheet', tiledId.shiftingPlatforms - 1, true, false, this.shiftingPlatforms);
+    this.map.createFromObjects('CapaObjetos', tiledId.shiftingPlatforms, 'shiftingPlatform', 0, true, false, this.shiftingPlatforms);
     this.shiftingPlatforms.forEach(
       function (platformBlock) {
         platformBlock.body.allowGravity = false; /*The gravity it doesn't affect*/
-        //platformBlock.body.immovable    = true;
-        platformBlock.body.velocity.x   = velocity; 
-        platformBlock.body.moves        = false;
+        platformBlock.body.immovable    = true;
+        platformBlock.body.velocity.x   = velocity;
+        platformBlock.moveTime          = Number(platformBlock.timeToMove) + currentTime;
       });
-    this.createShiftingPlatformsLimits();
   },
-
-  createShiftingPlatformsLimits: function() {
-    this.shiftingPlatformsLimits = this.game.add.group();
-    this.shiftingPlatformsLimits.enableBody = true;
-    this.map.createFromObjects('CapaObjetos', tiledId.shiftingPlatformsLimits, 'sheet', 35, true, false, this.shiftingPlatformsLimits);
-    this.shiftingPlatformsLimits.forEach(
-      function (platformBlock) {
-        platformBlock.body.allowGravity = false;
-        platformBlock.body.immovable = true;
-      });
-  }
 
 };

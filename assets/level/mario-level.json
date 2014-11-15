@@ -347,139 +347,34 @@
                  "y":544
                 }, 
                 {
-                 "gid":14,
+                 "gid":91,
                  "height":0,
                  "name":"",
                  "properties":
                     {
-
+                     "timeToMove":"600"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":484,
-                 "y":358
+                 "x":1004,
+                 "y":433
                 }, 
                 {
-                 "gid":14,
+                 "gid":91,
                  "height":0,
                  "name":"",
                  "properties":
                     {
-
+                     "timeToMove":"700"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":449,
-                 "y":358
-                }, 
-                {
-                 "gid":14,
-                 "height":0,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":554,
-                 "y":358
-                }, 
-                {
-                 "gid":14,
-                 "height":0,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":659,
-                 "y":358
-                }, 
-                {
-                 "gid":14,
-                 "height":0,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":624,
-                 "y":358
-                }, 
-                {
-                 "gid":14,
-                 "height":0,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":519,
-                 "y":358
-                }, 
-                {
-                 "gid":14,
-                 "height":0,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":589,
-                 "y":358
-                }, 
-                {
-                 "gid":36,
-                 "height":0,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":190,
-                 "y":355
-                }, 
-                {
-                 "gid":36,
-                 "height":0,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":926,
-                 "y":357
+                 "x":1684,
+                 "y":389
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -509,6 +404,13 @@
             },
          "spacing":0,
          "tileheight":34,
+         "tileproperties":
+            {
+             "13":
+                {
+                 "TimeToMove":"500"
+                }
+            },
          "tilewidth":34
         }, 
         {
@@ -558,18 +460,18 @@
         }, 
         {
          "firstgid":91,
-         "image":"..\/..\/..\/crapn_stuff.gif",
-         "imageheight":898,
-         "imagewidth":1460,
+         "image":"..\/images\/platform.png",
+         "imageheight":32,
+         "imagewidth":170,
          "margin":0,
-         "name":"crapn_stuff",
+         "name":"platform",
          "properties":
             {
 
             },
          "spacing":0,
-         "tileheight":34,
-         "tilewidth":34
+         "tileheight":32,
+         "tilewidth":170
         }],
  "tilewidth":34,
  "version":1,

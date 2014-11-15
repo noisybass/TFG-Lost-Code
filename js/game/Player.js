@@ -113,13 +113,13 @@ Player.prototype = {
   },
 
   render: function() {
-    //this.game.debug.text("Hearts: " + this.hearts ,32,10);
+    //this.game.debug.text("Time: " + this.game.time.now ,32,64);
     /*this.game.debug.text(this.sprite.body.blocked.down,32,10);
     this.game.debug.text(this.cursors.left.isDown,100,10);
     this.game.debug.text(this.game.world.bounds.bottom - this.sprite.body.height,150,10);
     this.game.debug.text(this.sprite.world.x,200,10);
     this.game.debug.text(this.sprite.world.y,250,10);*/
-    this.game.debug.bodyInfo(this.sprite,32,64);
+    //this.game.debug.bodyInfo(this.sprite,32,64);
 	},
 
   jump: function() {
