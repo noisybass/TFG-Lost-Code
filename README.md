@@ -1,6 +1,7 @@
 TFG
 ==
 
+<<<<<<< HEAD
 Insercion de enemigo (Walker)
 -----------------------------
 
@@ -18,3 +19,5 @@ entre si el que muere es el player.
 
 * Todavia no se como distribuir los enemigos, ahora que sabemos hacerlos
 estaria bien hablarlo, por lo tanto quedaría poner el codigo en bonito/elegante.
+=======
+>>>>>>> eb6798deaebab2b478c9e27c8cffb3087987af85

@@ -51,16 +51,15 @@ Player.prototype = {
     this.game.physics.arcade.overlap(this.sprite, level.throwers_hammer, this.throwerHammerCollision, null, this);
 	},
 
-
   collectHeart: function(player, heart) {
     // Removes the heart from the screen
     heart.destroy();
+
 
     // Add and update the lives
     hud.lives++;
     hud.livesText.text = hud.livesString + hud.lives;
   },
-
 
   goombaCollision: function(player, goomba) {
     if (goomba.body.touching.up) {
@@ -147,9 +146,15 @@ Player.prototype = {
     }
   },
 
-
-  render: function() {},
-
+  render: function() {
+    //this.game.debug.text("Time: " + this.game.time.now ,32,64);
+    /*this.game.debug.text(this.sprite.body.blocked.down,32,10);
+    this.game.debug.text(this.cursors.left.isDown,100,10);
+    this.game.debug.text(this.game.world.bounds.bottom - this.sprite.body.height,150,10);
+    this.game.debug.text(this.sprite.world.x,200,10);
+    this.game.debug.text(this.sprite.world.y,250,10);*/
+    //this.game.debug.bodyInfo(this.sprite,32,64);
+  },
 
   jump: function() {
     if ( this.jumpButton.isDown && this.playerCanJump() ) {
@@ -164,9 +169,8 @@ Player.prototype = {
      }
    },
 
-
   playerCanJump: function() {
-    return this.sprite.body.onFloor() && this.game.time.now > this.jumpTime;
+    return (this.sprite.body.onFloor() || this.sprite.body.touching.down) && this.game.time.now > this.jumpTime;
   },
 
 
@@ -187,16 +191,15 @@ Player.prototype = {
     if ( this.cursors.down.isDown && this.playerCanGoDown() ) {    
       if (this.direction == State.LOOKINGLEFT) this.sprite.play('player_animation_goDownLeft', 1);
       else if (this.direction == State.LOOKINGRIGHT) this.sprite.play('player_animation_goDownRight', 1);
-      this.player_velocity_x = 80;
-     }
-
-     else {
-        this.player_velocity_x = 150;
-     }
+        this.player_velocity_x = 80;
+       }
+    else {
+      this.player_velocity_x = 150;
+    }
   },
 
-  /* Checks if player can go down */
-  playerCanGoDown: function() { 
+
+  playerCanGoDown: function() {    // AGACHARSE
     return this.sprite.body.onFloor();
   }
 

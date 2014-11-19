@@ -1,30 +1,33 @@
 Level = function(game) {
-	this.game             = game;
-  this.map              = null;
-  this.layer            = null;
-  this.fx               = null; // Audio manager 
-  this.goombas          = null; // Group for Walker enemies
-  this.throwers         = null; // Group for Thrower enemies
-  this.throwers_hammer  = null; // Group for Thrower hammers
-  this.coins            = null; // Group for coins
-  this.hearts           = null; // Group for hearts lifes
-  this.audio_coin       = null;
+	this.game                     = game;
+  this.map                      = null;
+  this.layer                    = null;
+  this.fx                       = null; // Audio manager 
+  this.goombas                  = null;
+  this.coins                    = null;
+  this.hearts                   = null;
+  this.throwers                 = null; // Group for Thrower enemies
+  this.throwers_hammer          = null; // Group for Thrower hammers
+  this.shiftingPlatforms        = null;
+  this.audio_coin               = null;
 
   // Constants
   this.GRAVITY = 500;
+  this.platform_velocity = 50;
 };
 
 Level.prototype = {
 
 	create: function() {
 
+    this.game.physics.arcade.gravity.y = this.GRAVITY;
 		this.map = this.game.add.tilemap('map');
 
     this.map.addTilesetImage('sheet');
     this.map.addTilesetImage('goomba');
     this.map.addTilesetImage('heart');
 
-    this.map.setCollision([4,11,15,18,32,38,45,49]);
+    this.map.setCollision([4,11,13,15,18,32,38,45,49]);
 
     this.layer = this.map.createLayer('CapaPatrones');
 
@@ -37,46 +40,41 @@ Level.prototype = {
     this.createHearts();
 
     //First enemy
-    this.goombas            = this.game.add.group();
-    this.goombas.enableBody = true;
-
-    /*Could be add the methods here? like this.goombas.move();
-    or something like that*/
-
-    this.map.createFromObjects('CapaObjetos', tiledId.goombaId , 'goomba', 0, true, false, this.goombas);
-
-    this.goombas.forEach(this.goombaAnimation,this);
+    this.createGoombas();
 
     // Second enemy: thrower
     this.createThrowers();
 
+    //Move platforms
+    this.createShiftingPlatforms();
 	},
 
 
 	update: function() {
 		this.game.physics.arcade.collide(player.sprite, this.layer);
-    this.game.physics.arcade.collide(this.goombas,this.layer);
-    this.game.physics.arcade.collide(this.goombas,this.goombas);
+    this.game.physics.arcade.collide(this.goombas, this.layer);
+    this.game.physics.arcade.collide(player.sprite, this.shiftingPlatforms);
     this.game.physics.arcade.collide(this.throwers, this.layer);
-
+    this.game.physics.arcade.collide(this.goombas, this.goombas);
     this.game.physics.arcade.overlap(player.sprite, this.coins, this.pickCoin, null, this);
 
+    this.platformsMove();
 
     player.move();
-    player.goDown();
     player.run();
     player.jump();
+    player.goDown();
 
-    if (player.fallingDown()) 
+    if(player.fallingDown()) {
       player.die();
+    }
 
-
-    this.goombas.forEach(this.goombaMove, this);
+    this.goombas.forEach(this.goombaMove,this);
     this.throwers.forEach(this.throwerMove, this);
 	},
 
   /* Called when player collides with a coin*/
-  pickCoin: function(player,coin) {
+  pickCoin: function(player, coin) {
     // Removes the coin from the screen
     coin.destroy();
 
@@ -164,6 +162,30 @@ Level.prototype = {
       });
   },
 
+  platformsMove: function () {
+    var currentTime = this.game.time.now;
+    this.shiftingPlatforms.forEach(
+      function (platform) {
+        if(currentTime > platform.moveTime) {
+          platform.body.velocity.x   = (-1) * platform.body.velocity.x;
+          platform.moveTime          = Number(platform.timeToMove) + currentTime;
+        }
+      });
+  },
+
+  createGoombas: function() {
+    this.goombas = this.game.add.group();
+    this.goombas.enableBody = true;
+    this.map.createFromObjects('CapaObjetos', tiledId.goombaId , 'goomba', 0, true, false, this.goombas);
+    this.goombas.forEach(
+      function (enemy) {
+        enemy.animations.add('move',[1,0],5,true);
+        //Initialize
+        enemy.body.velocity.x = -50;
+        enemy.direction = State.LOOKINGLEFT;      
+      });
+  },
+
   goombaAnimation: function(enemy){
     enemy.animations.add('move', [1,0], 5, true);
     //Initialize
@@ -219,6 +241,28 @@ Level.prototype = {
     this.game.physics.enable(sprite, Phaser.Physics.ARCADE);
     sprite.animations.add('thrower_animation_hammer', [0,1,2,3], 5, true);
     sprite.animations.play('thrower_animation_hammer');
-  }
+  },
+
+  coinAnimation: function(coin) {
+    coin.animations.add('round',[1,2],5,true);
+    coin.animations.play('round');
+
+  },
+
+  createShiftingPlatforms: function() {
+    var velocity = this.platform_velocity;
+    var gravity = this.GRAVITY;
+    var currentTime = this.game.time.now;
+    this.shiftingPlatforms = this.game.add.group();
+    this.shiftingPlatforms.enableBody = true;
+    this.map.createFromObjects('CapaObjetos', tiledId.shiftingPlatforms, 'shiftingPlatform', 0, true, false, this.shiftingPlatforms);
+    this.shiftingPlatforms.forEach(
+      function (platformBlock) {
+        platformBlock.body.allowGravity = false; /*The gravity it doesn't affect*/
+        platformBlock.body.immovable    = true;
+        platformBlock.body.velocity.x   = velocity;
+        platformBlock.moveTime          = Number(platformBlock.timeToMove) + currentTime;
+      });
+  },
 
 };

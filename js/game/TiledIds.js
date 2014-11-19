@@ -1,9 +1,7 @@
 var tiledId = function(){};
 
-tiledId.goombaId = 78;
-
-tiledId.throwerId = 91;
-
-tiledId.coinId 	 = 28;
-
-tiledId.heartId  = 90;
+tiledId.goombaId      			= 78;
+tiledId.coinId 	      			= 28;
+tiledId.heartId       			= 90;
+tiledId.shiftingPlatforms 		= 91;
+tiledId.throwerId               = 92;

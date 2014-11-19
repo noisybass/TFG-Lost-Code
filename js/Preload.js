@@ -32,12 +32,12 @@ TFG.Preload.prototype = {
   },
 
   loadLevelAssets: function() {
-    this.load.tilemap('map', 'assets/level/mario-level-copia.json', null, Phaser.Tilemap.TILED_JSON);
-    this.load.spritesheet('sheet','assets/images/sheet.png',34,34,49);
+    this.game.load.tilemap('map', 'assets/level/mario-level.json', null, Phaser.Tilemap.TILED_JSON);
+    this.game.load.spritesheet('sheet','assets/images/sheet.png',34,34,49);
   },
 
   loadEnemiesAssets: function() {
-    this.load.spritesheet('goomba','assets/images/goomba.png', 32, 32, 12);
+    this.game.load.spritesheet('goomba','assets/images/goomba.png',32,32,12);
     this.load.spritesheet('thrower_spritesheet', 'assets/images/thrower.png', 41, 70, 5);
     this.load.spritesheet('thrower_hammer_spritesheet', 'assets/images/thrower_hammer.png', 28, 28, 4);
   },
@@ -46,5 +46,6 @@ TFG.Preload.prototype = {
     this.game.load.spritesheet('coin', 'assets/images/coins.png',34,34,3);
     this.game.load.spritesheet('spritesheet_eBlock', 'assets/images/eBlocks.png', 34,32,3);
     this.game.load.image('heart', 'assets/images/heart.png');
+    this.game.load.image('shiftingPlatform', 'assets/images/platform.png');
   }
 }

@@ -16,7 +16,6 @@ TFG.Boot.prototype = {
 
 		// Physics system for movement
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
-    	this.game.physics.arcade.gravity.y = 500;
 
 		this.game.state.start('Preload');
 	}
