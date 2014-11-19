@@ -1,33 +1,35 @@
 var TFG = TFG || {};
 
-TFG.Game = function(){};
+TFG.Game = function() {};
 
-var player;
-var level;
+var hud    = null;
+var player = null;
+var level  = null;
 
 TFG.Game.prototype = {
 
   create: function (){
-    // Set world dimensions...
-    // Set level...
-    // Create player...
-    // Pongo el background de otro color para diferenciar, pero esto luego se quita
 
+    // Set background color
     this.game.stage.backgroundColor = '#000';
-    player = new Player(this.game);
+
+    // Creates the HUD
+    hud = new HUD(this.game);
+    hud.create();
+
+    // Creates the level
     level = new Level(this.game);
-    player.create(0, 500, 'player',0)
-    level.create(player);
+    level.create();
+
+    // Creates player
+    player = new Player(this.game);
+    player.create(0, 490  , 'player_large',0);
+     
   },
 
   update: function (){
     player.update();
     level.update();
-  },
-
-  render: function (){
-    player.render();
-    level.render();
   }
-}
 
+}

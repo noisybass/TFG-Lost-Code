@@ -1,6 +1,6 @@
 var TFG = TFG || {};
 
-TFG.Boot = function () {};
+TFG.Boot = function() {};
 
 // Setting game configuration and loading the assets for the loading screen
 TFG.Boot.prototype = {
@@ -8,7 +8,7 @@ TFG.Boot.prototype = {
 		// Assets we'll use in the loading screen
 		this.load.image('preloadbar', 'assets/images/preloader-bar.png');
 	},
-	create: function () {
+	create: function() {
 		// Loading screen will have a white background
 		this.game.stage.backgroundColor = '#fff';
 
@@ -16,7 +16,7 @@ TFG.Boot.prototype = {
 
 		// Physics system for movement
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
-    this.game.physics.arcade.gravity.y = 250;
+    	this.game.physics.arcade.gravity.y = 500;
 
 		this.game.state.start('Preload');
 	}
