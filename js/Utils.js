@@ -6,8 +6,7 @@
 
 var TFG = TFG || {};
 
-TFG.Utils = function(){};
-
+TFG.Utils = function() {};
 
 var generateInteger = function(game) {
 	return game.rnd.integer();
