@@ -47,6 +47,11 @@ Player.prototype = {
     this.game.physics.arcade.overlap(this.sprite, level.goombas, this.goombaCollision, null, this);
     this.game.physics.arcade.overlap(this.sprite, level.throwers, this.throwerCollision, null, this);
     this.game.physics.arcade.overlap(this.sprite, level.throwers_hammer, this.throwerHammerCollision, null, this);
+
+    this.move();
+    this.run();
+    this.jump();
+    this.goDown();
 	},
 
   /* */

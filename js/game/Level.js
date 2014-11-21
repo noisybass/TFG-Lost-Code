@@ -43,18 +43,17 @@ Level.prototype = {
 	update: function() {
 
 		this.game.physics.arcade.collide(player.sprite, this.layer);
-    this.game.physics.arcade.collide(this.goombas, this.layer);
     this.game.physics.arcade.collide(player.sprite, this.shifting_platforms);
-    this.game.physics.arcade.collide(this.throwers, this.layer);
-    this.game.physics.arcade.collide(this.goombas, this.goombas);
     this.game.physics.arcade.overlap(player.sprite, this.coins, this.pickCoin, null, this);
+    this.game.physics.arcade.collide(this.goombas, this.layer);
+    this.game.physics.arcade.collide(this.goombas);//The goombas collide with themselfs
+    this.game.physics.arcade.collide(this.throwers, this.layer);
+    
+    
+
+    player.update();
 
     this.platformsMove();
-
-    player.move();
-    player.run();
-    player.jump();
-    player.goDown();
 
     if(player.fallingDown()) {
       player.die();
