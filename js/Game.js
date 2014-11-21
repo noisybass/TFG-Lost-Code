@@ -8,7 +8,7 @@ var level  = null;
 
 TFG.Game.prototype = {
 
-  create: function (){
+  create: function(){
 
     // Set background color
     this.game.stage.backgroundColor = '#000';
@@ -23,16 +23,18 @@ TFG.Game.prototype = {
 
     // Creates player
     player = new Player(this.game);
-    player.create(0, 490  , 'player_large',0);
+    player.create(0, 490  , 'player_large_spritesheet',0);
      
   },
 
-  update: function (){
+  update: function(){
+
     player.update();
     level.update();
   },
 
-  render: function (){
+  render: function(){
+    
     player.render();
   }
 
