@@ -9,7 +9,7 @@ Cualquier duda, ver como lo formatea Phaser o cualquier ejemplo de su comunidad.
 - function() -> funcion vacia
 - function(arg1, arg2, ...) {
     // Cuerpo function
-};
+  };
 
 -Bloques if:
 
@@ -46,3 +46,4 @@ else {
 
 
 
+-Constantes en mayusculas
