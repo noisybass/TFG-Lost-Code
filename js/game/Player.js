@@ -28,13 +28,11 @@ Player.prototype = {
 	create: function(x,y,key,frame) {
 
 		this.sprite = this.game.add.sprite(x,y,key,frame);
-    this.sprite.body.collideWorldBounds = false;
-    this.addAnimations();
-    this.sprite.body.collideWorldBounds = true; //Should the Body collide with the World bounds?
-
     this.game.physics.enable(this.sprite);
     this.game.camera.follow(this.sprite);
-
+    this.addAnimations();
+    this.sprite.body.collideWorldBounds = true; //Should the Body collide with the World bounds?
+  
     // Create the player's input controls
     this.cursors    = this.game.input.keyboard.createCursorKeys();
     this.runButton  = this.game.input.keyboard.addKey(Phaser.Keyboard.C);

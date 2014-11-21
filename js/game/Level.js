@@ -8,7 +8,7 @@ Level = function(game) {
   this.hearts                   = null; // Group of heart lifes
   this.throwers                 = null; // Group for Thrower enemies
   this.throwers_hammer          = null; // Group for Thrower hammers
-  this.shiftingPlatforms        = null;
+  this.shifting_platforms       = null;
   this.audio_coin               = null;
 
   // Constants
@@ -23,9 +23,9 @@ Level.prototype = {
     this.game.physics.arcade.gravity.y = this.GRAVITY;
 		
     this.map = this.game.add.tilemap('map_tilemap');
-    this.map.addTilesetImage('sheet_spritesheet');
-    this.map.addTilesetImage('goomba_spritesheet');
-    this.map.addTilesetImage('heart_image');
+    this.map.addTilesetImage('sheet', 'sheet_spritesheet');
+    this.map.addTilesetImage('goomba', 'goomba_spritesheet');
+    this.map.addTilesetImage('heart', 'heart_image');
     this.map.setCollision([4,11,13,15,18,32,38,45,49]);
 
     this.layer = this.map.createLayer('CapaPatrones');
@@ -44,7 +44,7 @@ Level.prototype = {
 
 		this.game.physics.arcade.collide(player.sprite, this.layer);
     this.game.physics.arcade.collide(this.goombas, this.layer);
-    this.game.physics.arcade.collide(player.sprite, this.shiftingPlatforms);
+    this.game.physics.arcade.collide(player.sprite, this.shifting_platforms);
     this.game.physics.arcade.collide(this.throwers, this.layer);
     this.game.physics.arcade.collide(this.goombas, this.goombas);
     this.game.physics.arcade.overlap(player.sprite, this.coins, this.pickCoin, null, this);
@@ -161,7 +161,7 @@ Level.prototype = {
   platformsMove: function() {
 
     var currentTime = this.game.time.now;
-    this.shiftingPlatforms.forEach(
+    this.shifting_platforms.forEach(
       function(platform) {
         if(currentTime > platform.moveTime) {
           platform.body.velocity.x   = (-1) * platform.body.velocity.x;
@@ -175,10 +175,13 @@ Level.prototype = {
 
     this.goombas = this.game.add.group();
     this.goombas.enableBody = true;
-    this.map.createFromObjects('CapaObjetos', tiledId.goombaId , 'goomba', 0, true, false, this.goombas);
+    this.map.createFromObjects('CapaObjetos', tiledId.goombaId , 'goomba_spritesheet', 0, true, false, this.goombas);
     this.goombas.forEach(
-      function(enemy) {
-            this.goombaAnimation(enemy);   
+      function(enemy) {  
+          enemy.animations.add('goomba_animation_move', [1,0], 5, true);
+          //Initialize
+          enemy.body.velocity.x = -50;
+          enemy.direction       = State.LOOKINGLEFT;
       });
   },
 
@@ -211,7 +214,7 @@ Level.prototype = {
 
     this.hearts            = this.game.add.group();
     this.hearts.enableBody = true;
-    this.map.createFromObjects('CapaObjetos', tiledId.heartId, 'heart', 0, true, false, this.hearts);
+    this.map.createFromObjects('CapaObjetos', tiledId.heartId, 'heart_image', 0, true, false, this.hearts);
     this.hearts.forEach(
       function(coin) {
             coin.body.gravity.y = (-1) * this.GRAVITY;
@@ -260,10 +263,10 @@ Level.prototype = {
     var velocity = this.PLATFORM_VELOCITY;
     var gravity = this.GRAVITY;
     var currentTime = this.game.time.now;
-    this.shiftingPlatforms = this.game.add.group();
-    this.shiftingPlatforms.enableBody = true;
-    this.map.createFromObjects('CapaObjetos', tiledId.shiftingPlatforms, 'shifting_platform_image', 0, true, false, this.shiftingPlatforms);
-    this.shiftingPlatforms.forEach(
+    this.shifting_platforms = this.game.add.group();
+    this.shifting_platforms.enableBody = true;
+    this.map.createFromObjects('CapaObjetos', tiledId.shifting_platforms, 'shifting_platform_image', 0, true, false, this.shifting_platforms);
+    this.shifting_platforms.forEach(
       function (platformBlock) {
         platformBlock.body.allowGravity = false; /*The gravity it doesn't affect*/
         platformBlock.body.immovable    = true;
