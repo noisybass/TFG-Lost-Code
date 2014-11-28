@@ -47,6 +47,7 @@ Player.prototype = {
     this.game.physics.arcade.overlap(this.sprite, level.goombas, this.goombaCollision, null, this);
     this.game.physics.arcade.overlap(this.sprite, level.throwers, this.throwerCollision, null, this);
     this.game.physics.arcade.overlap(this.sprite, level.throwers_hammer, this.throwerHammerCollision, null, this);
+    this.game.physics.arcade.overlap(this.sprite, level.end_level, this.endLevelCollision, null, this);
 
     this.move();
     this.run();
@@ -234,6 +235,10 @@ Player.prototype = {
   /* */
   playerCanGoDown: function() {    // AGACHARSE
     return this.sprite.body.onFloor();
+  },
+
+  endLevelCollision: function() {
+    this.game.state.start('MainMenu');
   }
 
 };

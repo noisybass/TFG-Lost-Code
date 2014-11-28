@@ -8,6 +8,7 @@ Level = function(game) {
   this.hearts                   = null; // Group of heart lifes
   this.throwers                 = null; // Group for Thrower enemies
   this.throwers_hammer          = null; // Group for Thrower hammers
+  this.end_level                = null; // Group for Objects 
   this.shifting_platforms       = null;
   this.audio_coin               = null;
 
@@ -37,6 +38,7 @@ Level.prototype = {
     this.createGoombas();
     this.createThrowers();
     this.createShiftingPlatforms();
+    this.createEndLevel();
 	},
 
 
@@ -48,6 +50,7 @@ Level.prototype = {
     this.game.physics.arcade.collide(this.goombas, this.layer);
     this.game.physics.arcade.collide(this.goombas);//The goombas collide with themselfs
     this.game.physics.arcade.collide(this.throwers, this.layer);
+    this.game.physics.arcade.collide(this.end_level, this.layer);
     
     
 
@@ -271,6 +274,18 @@ Level.prototype = {
         platformBlock.body.immovable    = true;
         platformBlock.body.velocity.x   = velocity;
         platformBlock.moveTime          = Number(platformBlock.timeToMove) + currentTime;
+      });
+  },
+
+  /* Create shifting platforms from JSON map*/
+  createEndLevel: function() {
+
+    this.end_level = this.game.add.group();
+    this.end_level.enableBody = true;
+    this.map.createFromObjects('CapaObjetos', tiledId.end_level, 'sheet_spritesheet', tiledId.end_level-1, true, false, this.end_level);
+    this.end_level.forEach(
+      function (end) {
+        end.body.immovable    = true;
       });
   },
 
