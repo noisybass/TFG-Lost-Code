@@ -44,9 +44,10 @@ Player.prototype = {
 	update: function() {
 
     this.game.physics.arcade.overlap(this.sprite, level.hearts, this.collectHeart, null, this);
+    this.game.physics.arcade.overlap(this.sprite, coins, this.pickCoin, null, this);
     this.game.physics.arcade.overlap(this.sprite, level.goombas, this.goombaCollision, null, this);
-    this.game.physics.arcade.overlap(this.sprite, level.throwers, this.throwerCollision, null, this);
-    this.game.physics.arcade.overlap(this.sprite, level.throwers_hammer, this.throwerHammerCollision, null, this);
+    this.game.physics.arcade.overlap(this.sprite, throwers, this.throwerCollision, null, this);
+    this.game.physics.arcade.overlap(this.sprite, throwers_hammer, this.throwerHammerCollision, null, this);
 
     this.move();
     this.run();
@@ -63,6 +64,19 @@ Player.prototype = {
     // Add and update the lives
     hud.lives++;
     hud.livesText.text = hud.livesString + hud.lives;
+  },
+
+  /* Called when player collides with a coin*/
+  pickCoin: function(player, coin) {
+
+    // Removes the coin from the screen
+    coin.destroy();
+
+    // Add and update the score
+    hud.score++;
+    hud.scoreText.text = hud.scoreString + hud.score;
+    
+    //this.audio_coin.play();
   },
 
   /* */
