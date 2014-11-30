@@ -43,9 +43,9 @@ Player.prototype = {
 
 	update: function() {
 
-    this.game.physics.arcade.overlap(this.sprite, level.hearts, this.collectHeart, null, this);
+    this.game.physics.arcade.overlap(this.sprite, hearts, this.collectHeart, null, this);
     this.game.physics.arcade.overlap(this.sprite, coins, this.pickCoin, null, this);
-    this.game.physics.arcade.overlap(this.sprite, level.goombas, this.goombaCollision, null, this);
+    this.game.physics.arcade.overlap(this.sprite, goombas, this.goombaCollision, null, this);
     this.game.physics.arcade.overlap(this.sprite, throwers, this.throwerCollision, null, this);
     this.game.physics.arcade.overlap(this.sprite, throwers_hammer, this.throwerHammerCollision, null, this);
 
