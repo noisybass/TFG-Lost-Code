@@ -15,6 +15,15 @@ var throwers_hammer = null;
 
 TFG.Game.prototype = {
 
+  a: function() {
+    var text = $('#id-code-js').val();
+    //send to server and process response
+    // this.game.paused=true
+    console.log(this);
+    console.log(text);
+    eval(text);
+  },
+
   create: function(){
 
     // Set background color
@@ -31,6 +40,10 @@ TFG.Game.prototype = {
     // Creates player
     player = new Player(this.game);
     player.create(0, 490  , 'player_large_spritesheet',0);
+
+    var that = this;
+    $('#id-code-js-button').click(function() {that.a.call(that)});
+    
      
   },
 
