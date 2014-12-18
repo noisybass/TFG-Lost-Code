@@ -1,3 +1,11 @@
+1. Motivación y objetivos
+==========================
+
+> Desde siempre nos han apasionado los videojuegos. Pensamos que forman parte de la cultura de un país del mismo modo que el cine o el teatro. Forman parte de nuestra vida diaria y, además, son una forma muy agradable de enseñar nuevos contenidos. Por ello, hemos decidido enseñar el uso de un framework de javascript por medio de un videojuego.
+
+> Phaser se caracteriza por estar escrito en Javascript, la facilidad de uso y aprendizaje y, sobre todo, por la amplia comunidad que hay tras él. Nosotros mismos nos hemos visto involucrados en el aprendizaje de Phaser y de Javascript, motivación más para transmitir estos conocimientos a generaciones futuras.
+
+
 1.1 Objetivos
 -------------
 
