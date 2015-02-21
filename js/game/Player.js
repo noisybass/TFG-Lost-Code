@@ -190,6 +190,7 @@ Player.prototype = {
   jump: function() {
 
     if ( this.jumpButton.isDown && this.playerCanJump() ) {
+      this.sprite.height = 64;
       if (this.direction == State.LOOKINGLEFT) {
         this.sprite.play('player_animation_jumpLeft');
       }
@@ -232,7 +233,8 @@ Player.prototype = {
   /* */
   goDown: function() {
 
-    if ( this.cursors.down.isDown && this.playerCanGoDown() ) {    
+    if ( this.cursors.down.isDown && this.playerCanGoDown() ) {
+      this.sprite.height = 32;
       if (this.direction == State.LOOKINGLEFT) {
         this.sprite.play('player_animation_goDownLeft', 1);
       }
@@ -243,6 +245,7 @@ Player.prototype = {
     }
     else {
       this.player_velocity_x = 150;
+      //this.sprite.height = 64;
     }
   },
 

@@ -30,6 +30,7 @@ TFG.Preload.prototype = {
 
     this.load.spritesheet('player_small_spritesheet', 'assets/images/mario_small.png', 32, 32, 27);
     this.load.spritesheet('player_large_spritesheet', 'assets/images/mario_large.png', 32, 64, 28);
+    this.load.spritesheet('player_small_large_spritesheet', 'assets/images/mario_small_large.png', 32, 32, 84);
   },
 
   loadLevelAssets: function() {
