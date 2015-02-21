@@ -21,6 +21,9 @@ Player = function(game) {
   // Player constants
   this.MAX_VELOCITY_X = 150;
   this.MAX_VELOCITY_Y = 350;
+
+  //Empty Functions
+  this.moveLeft = null;
 };
 
 Player.prototype = {
@@ -51,9 +54,9 @@ Player.prototype = {
     this.game.physics.arcade.overlap(this.sprite, end_level, this.endLevelCollision, null, this);
 
     this.move();
-    this.run();
+    /*this.run();
     this.jump();
-    this.goDown();
+    this.goDown();*/
 	},
 
   /* */
@@ -130,18 +133,16 @@ Player.prototype = {
   move: function() {
 
     if ( this.cursors.left.isDown) {
-      this.sprite.play('player_animation_moveLeft', 5, true);
-			this.sprite.body.velocity.x = this.MAX_VELOCITY_X * (-1);
-      if (this.direction == State.LOOKINGRIGHT) {
-        this.direction = State.LOOKINGLEFT;
+        if (this.moveLeft == null){
+        var that = this;
+        $('#id-code-js-button').click(function() { that.a.call(that)});
+      }
+      else{
+        this.moveLeft();
       }
 		}
 		else if ( this.cursors.right.isDown) {
-		 	this.sprite.play('player_animation_moveRight', 5, true);
-      this.sprite.body.velocity.x = this.MAX_VELOCITY_X;
-      if (this.direction == State.LOOKINGLEFT) {
-        this.direction = State.LOOKINGRIGHT;
-      }
+		 	this.moveRight();
 		}
 		else {
       if (this.direction == State.LOOKINGLEFT) {
@@ -152,6 +153,33 @@ Player.prototype = {
       }
 			this.sprite.body.velocity.x = 0;
 		}
+  },
+
+  a: function() {
+    var text = $('#id-code-js').val();
+    //send to server and process response
+    // this.game.paused=true
+    console.log(this);
+    console.log(text);
+    this.moveLeft = function() {eval(text);};
+
+    this.moveLeft();
+  },
+
+  /*moveLeft: function() {
+    this.sprite.play('player_animation_moveLeft', 5, true);
+    this.sprite.body.velocity.x = this.MAX_VELOCITY_X * (-1);
+    if (this.direction == State.LOOKINGRIGHT) {
+      this.direction = State.LOOKINGLEFT;
+    }
+  },*/
+
+  moveRight: function() {
+    this.sprite.play('player_animation_moveRight', 5, true);
+    this.sprite.body.velocity.x = this.MAX_VELOCITY_X;
+    if (this.direction == State.LOOKINGLEFT) {
+      this.direction = State.LOOKINGRIGHT;
+    }
   },
 
   /* */

@@ -15,14 +15,14 @@ var throwers_hammer = null;
 
 TFG.Game.prototype = {
 
-  a: function() {
+  /*a: function() {
     var text = $('#id-code-js').val();
     //send to server and process response
     // this.game.paused=true
     console.log(this);
     console.log(text);
     eval(text);
-  },
+  },*/
 
   create: function(){
 
@@ -39,10 +39,10 @@ TFG.Game.prototype = {
 
     // Creates player
     player = new Player(this.game);
-    player.create(0, 490  , 'player_large_spritesheet',0);
+    player.create(70/*0*/, 0 /*490*/ , 'player_large_spritesheet',0);
 
     var that = this;
-    $('#id-code-js-button').click(function() {that.a.call(that)});
+    //$('#id-code-js-button').click(function() {that.a.call(that)});
     
      
   },
