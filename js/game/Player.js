@@ -23,10 +23,18 @@ Player = function(game) {
   this.MAX_VELOCITY_Y = 350;
 
   //Empty Functions
-  this.moveLeft = null;
+  /*this.func = null;
+  this.func_text = "";*/
+
+  this.moveLeft_text = "";
+  this.moveLeft = function(){};
+  this.jump_text = "";
+  this.jumpUser = function(){};
 };
 
 Player.prototype = {
+
+  
 
 	create: function(x,y,key,frame) {
 
@@ -54,9 +62,9 @@ Player.prototype = {
     this.game.physics.arcade.overlap(this.sprite, end_level, this.endLevelCollision, null, this);
 
     this.move();
-    /*this.run();
+    //this.run();
     this.jump();
-    this.goDown();*/
+    //this.goDown();
 	},
 
   /* */
@@ -129,17 +137,28 @@ Player.prototype = {
     this.sprite.animations.add('player_animation_goDownRight', [12]);
   },
 
+  a: function(textarea, func_text, func) {
+    var text = $(textarea).val();
+    //send to server and process response
+    // this.game.paused=true
+    console.log(this);
+    console.log(text);
+    console.log(textarea);
+
+    // This could be helpful to save in other file
+    // the fuctions configuration of the user.
+    eval("this." + func_text + " = text;");
+    eval("this." + func + " = " + "function (){ eval(this." + func_text + ");};");
+  },
 
   move: function() {
+    if (this.moveLeft_text == ""){
+          var that = this;
+          $('#id-code-js-button').click(function() { that.a.call(that, "#id-code-js", "moveLeft_text", "moveLeft")});
+    }
 
     if ( this.cursors.left.isDown) {
-        if (this.moveLeft == null){
-        var that = this;
-        $('#id-code-js-button').click(function() { that.a.call(that)});
-      }
-      else{
-        this.moveLeft();
-      }
+          this.moveLeft();
 		}
 		else if ( this.cursors.right.isDown) {
 		 	this.moveRight();
@@ -153,17 +172,6 @@ Player.prototype = {
       }
 			this.sprite.body.velocity.x = 0;
 		}
-  },
-
-  a: function() {
-    var text = $('#id-code-js').val();
-    //send to server and process response
-    // this.game.paused=true
-    console.log(this);
-    console.log(text);
-    this.moveLeft = function() {eval(text);};
-
-    this.moveLeft();
   },
 
   /*moveLeft: function() {
@@ -217,6 +225,13 @@ Player.prototype = {
   /* */
   jump: function() {
 
+    if (this.jump_text == ""){
+        var that = this;
+        $('#id-code-js-button2').click(function() { that.a.call(that, "#id-code-js2", "jump_text", "jumpUser")});
+      }
+        this.jumpUser();
+
+    /*
     if ( this.jumpButton.isDown && this.playerCanJump() ) {
       this.sprite.height = 64;
       if (this.direction == State.LOOKINGLEFT) {
@@ -233,6 +248,7 @@ Player.prototype = {
       }
       this.jumpTime = this.game.time.now + 750;
      }
+     */
    },
 
    /* */
