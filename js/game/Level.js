@@ -32,6 +32,7 @@ Level.prototype = {
     createThrowers(this.game);
     createShiftingPlatforms(this.game);
     createEndLevel(this.game);
+    createBlocks(this.game);
 	},
 
 
@@ -44,6 +45,8 @@ Level.prototype = {
     this.game.physics.arcade.collide(goombas); // Goombas collide with themselfs
     this.game.physics.arcade.collide(throwers, this.layer);
     this.game.physics.arcade.collide(end_level, this.layer);
+
+    this.game.physics.arcade.collide(blocks, this.layer);
 
     player.update();
 
