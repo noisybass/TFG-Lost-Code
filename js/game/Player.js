@@ -64,7 +64,7 @@ Player.prototype = {
     this.move();
     //this.run();
     this.jump();
-    //this.goDown();
+    this.goDown();
 	},
 
   /* */
