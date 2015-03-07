@@ -5,14 +5,14 @@
 			"description": "Aprende a moverte hacia la izquierda",
 			"base_code_1": "if (this.cursors.right.isDown) { this.sprite.play('player_animation_moveRight', 5, true); this.sprite.body.velocity.x = this.MAX_VELOCITY_X; if (this.direction == State.LOOKINGLEFT) {this.direction = State.LOOKINGRIGHT; } }",
 			"base_code_2": "else { if (this.direction == State.LOOKINGLEFT) { this.sprite.play('player_animation_standUpLeft'); } else if (this.direction == State.LOOKINGRIGHT) { this.sprite.play('player_animation_standUpRight'); } this.sprite.body.velocity.x = 0; }",
-			"target": "player.move"
+			"target": "move"
 		},
 		{
 			"goal": "jump",
 			"description": "Aprende a saltar",
 			"base_code_1": "",
 			"base_code_2": "",
-			"target": ""
+			"target": "jump"
 		}
 	]
 }

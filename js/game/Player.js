@@ -62,8 +62,8 @@ Player.prototype = {
     console.log("------------Colision con bloque-------------- ");
     console.log(block.data);
 
-    block.destroy();
-    this.game.paused=true
+    //block.destroy(); pienso que es mejor en la funcion a
+    this.game.paused=true;
 
     $('#id-code-js-1').text(block.data.base_code_1);
     $('#id-code-js-2').text(block.data.base_code_2);
@@ -153,7 +153,15 @@ Player.prototype = {
         this.direction = State.LOOKINGRIGHT;
       }
     }
-    
+    /*
+    else if (this.cursors.left.isDown) {
+      this.sprite.play('player_animation_moveLeft', 5, true);
+      this.sprite.body.velocity.x = this.MAX_VELOCITY_X * (-1);
+      if (this.direction == State.LOOKINGRIGHT) {
+        this.direction = State.LOOKINGLEFT;
+      }
+    }
+    */
 		else {
       if (this.direction == State.LOOKINGLEFT) {
         this.sprite.play('player_animation_standUpLeft');
@@ -190,6 +198,7 @@ Player.prototype = {
   /* */
   jump: function() {
 
+    /*
     if ( this.jumpButton.isDown && this.playerCanJump() ) {
       if (this.direction == State.LOOKINGLEFT) {
         this.sprite.play('player_animation_jumpLeft');
@@ -205,6 +214,7 @@ Player.prototype = {
       }
       this.jumpTime = this.game.time.now + 750;
      }
+     */
    },
 
    /* */

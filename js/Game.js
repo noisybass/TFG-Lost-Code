@@ -22,8 +22,11 @@ TFG.Game.prototype = {
     //send to server and process response
     //console.log(this);
     console.log(text1 + text2 + text3);
-    eval(text1 + text2 + text3);
-    this.game.paused=false
+    console.log(blocks.getChildAt(0).data.target);
+    //eval(text1 + text2 + text3);
+    eval("this." + blocks.getChildAt(0).data.target + " = function(){" + text1 + text2 + text3 + "};");
+    blocks.getChildAt(0).destroy();
+    this.game.paused=false;
   },
 
   create: function(){
@@ -44,7 +47,7 @@ TFG.Game.prototype = {
     player.create(100, 100  , 'player_large_spritesheet',0);
 
     var that = this;
-    $('#id-code-js-button').click(function() {that.a.call(that)});
+    $('#id-code-js-button').click(function() {that.a.call(player)});
     
     //console.log(player.move);
   },
