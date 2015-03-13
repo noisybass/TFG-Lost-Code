@@ -50,11 +50,28 @@ Player.prototype = {
     this.game.physics.arcade.overlap(this.sprite, throwers_hammer, this.throwerHammerCollision, null, this);
     this.game.physics.arcade.overlap(this.sprite, end_level, this.endLevelCollision, null, this);
 
+    this.game.physics.arcade.overlap(this.sprite, blocks, this.blockOverlap, null, this);
+
     this.move();
     this.run();
     this.jump();
     this.goDown();
 	},
+
+  blockOverlap: function(player, block) {
+    console.log("------------Colision con bloque-------------- ");
+    console.log(block.data);
+
+    //block.destroy(); pienso que es mejor en la funcion a
+    this.game.paused=true;
+
+    $('#id-code-js-1').text(block.data.base_code_1);
+    $('#id-code-js-2').text(block.data.base_code_2);
+    $('#id-code-js-textarea').prop('disabled', false);
+
+    //el tema seria aqui (o antes y meter todo esto en esa funcion tambien) llamar a un funcion block.noseque() que espere a que el usuario escriba y envie el codigo, y luego lo asigne a su target
+    
+  },
 
   /* */
   collectHeart: function(player, heart) {
@@ -129,20 +146,22 @@ Player.prototype = {
 
   move: function() {
 
-    if ( this.cursors.left.isDown) {
-      this.sprite.play('player_animation_moveLeft', 5, true);
-			this.sprite.body.velocity.x = this.MAX_VELOCITY_X * (-1);
-      if (this.direction == State.LOOKINGRIGHT) {
-        this.direction = State.LOOKINGLEFT;
-      }
-		}
-		else if ( this.cursors.right.isDown) {
-		 	this.sprite.play('player_animation_moveRight', 5, true);
+    if (this.cursors.right.isDown) {
+      this.sprite.play('player_animation_moveRight', 5, true);
       this.sprite.body.velocity.x = this.MAX_VELOCITY_X;
       if (this.direction == State.LOOKINGLEFT) {
         this.direction = State.LOOKINGRIGHT;
       }
-		}
+    }
+    /*
+    else if (this.cursors.left.isDown) {
+      this.sprite.play('player_animation_moveLeft', 5, true);
+      this.sprite.body.velocity.x = this.MAX_VELOCITY_X * (-1);
+      if (this.direction == State.LOOKINGRIGHT) {
+        this.direction = State.LOOKINGLEFT;
+      }
+    }
+    */
 		else {
       if (this.direction == State.LOOKINGLEFT) {
         this.sprite.play('player_animation_standUpLeft');
@@ -176,19 +195,10 @@ Player.prototype = {
     }
   },
 
-  render: function() {
-    //this.game.debug.text("Time: " + this.game.time.now ,32,64);
-    /*this.game.debug.text(this.sprite.body.blocked.down,32,10);
-    this.game.debug.text(this.cursors.left.isDown,100,10);
-    this.game.debug.text(this.game.world.bounds.bottom - this.sprite.body.height,150,10);
-    this.game.debug.text(this.sprite.world.x,200,10);
-    this.game.debug.text(this.sprite.world.y,250,10);*/
-    //this.game.debug.bodyInfo(this.sprite,32,64);
-  },
-
   /* */
   jump: function() {
 
+    /*
     if ( this.jumpButton.isDown && this.playerCanJump() ) {
       if (this.direction == State.LOOKINGLEFT) {
         this.sprite.play('player_animation_jumpLeft');
@@ -204,6 +214,7 @@ Player.prototype = {
       }
       this.jumpTime = this.game.time.now + 750;
      }
+     */
    },
 
    /* */

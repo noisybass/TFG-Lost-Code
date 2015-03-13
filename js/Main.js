@@ -19,3 +19,4 @@ TFG.game.state.add('MainMenu', TFG.MainMenu);
 TFG.game.state.add('Game', TFG.Game);
 
 TFG.game.state.start('Boot');
+

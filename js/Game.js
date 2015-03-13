@@ -15,6 +15,20 @@ var throwers_hammer = null;
 
 TFG.Game.prototype = {
 
+  a: function() {
+    var text1 = $('#id-code-js-1').text();
+    var text2 = $('#id-code-js-textarea').val();
+    var text3 = $('#id-code-js-2').text();
+    //send to server and process response
+    //console.log(this);
+    console.log(text1 + text2 + text3);
+    console.log(blocks.getChildAt(0).data.target);
+    //eval(text1 + text2 + text3);
+    eval("this." + blocks.getChildAt(0).data.target + " = function(){" + text1 + text2 + text3 + "};");
+    blocks.getChildAt(0).destroy();
+    this.game.paused=false;
+  },
+
   create: function(){
 
     // Set background color
@@ -30,19 +44,17 @@ TFG.Game.prototype = {
 
     // Creates player
     player = new Player(this.game);
-    player.create(0, 490  , 'player_large_spritesheet',0);
-     
+    player.create(100, 100  , 'player_large_spritesheet',0);
+
+    var that = this;
+    $('#id-code-js-button').click(function() {that.a.call(player)});
+    
+    //console.log(player.move);
   },
 
   update: function(){
 
     player.update();
     level.update();
-  },
-
-  render: function(){
-    
-    player.render();
   }
-
 }

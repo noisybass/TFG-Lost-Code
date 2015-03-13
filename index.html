@@ -3,6 +3,7 @@
 	<head>
 
 		<meta charset="utf-8" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<title> Game </title>
 
 		<script type="text/javascript" src="js/phaser.js"></script>
@@ -22,11 +23,32 @@
         <script type="text/javascript" src="js/game/enemies/Goomba.js"></script>
         <script type="text/javascript" src="js/game/others/ShiftingPlatforms.js"></script>
         <script type="text/javascript" src="js/game/others/EndLevel.js"></script>
+        <script type="text/javascript" src="js/game/others/Blocks.js"></script>
+
+
+        <style>
+			#game-canvas {
+				width: 60%;
+				float: left;
+			}
+			#text-canvas {
+				float: right;
+			}
+		</style>
 
 	</head>
 
 	<body>
-
 		<script src="js/Main.js"></script>
+		<div id="game-canvas"></div>
+		<div id="text-canvas">
+			
+				<p id="id-code-js-1"></p>
+				<textarea id="id-code-js-textarea" name="code-js" rows ="10" cols="40" disabled="true"></textarea>
+				<p id="id-code-js-2"></p>
+
+
+				<button id="id-code-js-button" type="button">asfgdsh</button>
+		</div>
 	</body>
 </html>
