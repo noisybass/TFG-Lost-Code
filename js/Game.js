@@ -31,8 +31,39 @@ TFG.Game.prototype = {
     var text = editor.getValue();
     console.log(text);
     eval("this." + blocks.getChildAt(0).data.target + "=" + text);
-    blocks.getChildAt(0).destroy()
-    this.game.paused = false;
+
+    //Activar Evento flecha Izquierda
+    this.cursors.left.isDown = true;
+
+    var x = this.sprite.body.velocity.x;
+    this.move();
+    var that = this;
+
+
+    /*module( "Aprendiendo a Mover a la izquierda" );
+    test( 'Problemas con la función move()', function() {
+        
+        ok( that.sprite.animations.currentAnim === that.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda");
+        ok( that.sprite.body.velocity.x == that.MAX_VELOCITY_X * (-1) , "Mover personaje a la izquierda.");
+        ok( that.direction == State.LOOKINGLEFT , "Cambiar sprite para que mire hacia la izquierda.");
+    } );*/
+
+    tw = new TWUnit();
+    tw.addAssert("Animation", that.sprite.animations.currentAnim === that.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
+    tw.addAssert("Direccion",that.direction == State.LOOKINGLEFT, "Cambiar sprite para que mire hacia la izquierda.", "Podrías mirar el objeto State, aver que se te ocurre...");
+    tw.addAssert("Velocidad", that.sprite.body.velocity.x == that.MAX_VELOCITY_X * (-1), "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
+    /*tw.addModule("Move");
+    tw.addAssert("PruebaSegundoModulo", true === true, "es una tonteria", "lo es");
+    tw.addModule("Prueba");
+    tw.runModules();*/
+    tw.runAsserts();
+    if (/*tw.modulesOk()*/ tw.assertsOk()){
+        blocks.getChildAt(0).destroy();
+        this.game.paused=false;
+    }
+
+    //Desactivar Evento flecha Izquierda
+    this.cursors.left.isDown = false;
   },
 
   create: function(){
