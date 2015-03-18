@@ -30,6 +30,7 @@ TFG.Game.prototype = {
     this.game.paused=false;*/
     var text = editor.getValue();
     console.log(text);
+    eval("this." + blocks.getChildAt(0).data.target + "=" + text);
     blocks.getChildAt(0).destroy()
     this.game.paused = false;
   },

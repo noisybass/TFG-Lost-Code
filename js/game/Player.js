@@ -30,13 +30,14 @@ Player.prototype = {
 		this.sprite = this.game.add.sprite(x,y,key,frame);
     this.game.physics.enable(this.sprite);
     this.game.camera.follow(this.sprite);
+    //this.game.camera.view.height = 100;
     this.addAnimations();
     this.sprite.body.collideWorldBounds = true; //Should the Body collide with the World bounds?
   
     // Create the player's input controls
     this.cursors    = this.game.input.keyboard.createCursorKeys();
     this.runButton  = this.game.input.keyboard.addKey(Phaser.Keyboard.C);
-    this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    //this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 	},
 
@@ -64,8 +65,10 @@ Player.prototype = {
 
     this.game.paused = true;
 
-    editor.setValue(block.data.code, -1);
-    addRanges(block.data.range1, block.data.range2);
+    editor.getSession().setValue(block.data.code, -1);
+    //addRanges(block.data.range1, block.data.range2);
+    editor.setReadOnly(false);
+    //this.game.input.keyboard.removeKeyCapture(Phaser.Keyboard.SPACEBAR);
   },
 
   /* */
@@ -208,8 +211,8 @@ Player.prototype = {
         this.sprite.body.velocity.y = this.MAX_VELOCITY_Y * (-1);
       }
       this.jumpTime = this.game.time.now + 750;
-     }
-     */
+     }*/
+     
    },
 
    /* */

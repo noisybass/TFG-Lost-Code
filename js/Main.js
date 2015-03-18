@@ -1,7 +1,7 @@
 // Pongo TFG de momento hasta que tengamos el nombre del juego
 var TFG = TFG || {};
 
-TFG.game = new Phaser.Game(800, 600, Phaser.AUTO, '');
+TFG.game = new Phaser.Game(750, 500, Phaser.AUTO, 'game-canvas');
 
 // Boot State: general game settings are defined, and the assets of the preloading screen are loaded (example the loading bar).
 // Nothing is shown to the user.
