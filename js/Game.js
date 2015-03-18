@@ -15,7 +15,8 @@ var throwers_hammer = null;
 
 TFG.Game.prototype = {
 
-  a: function() {
+  submitCode: function() {
+    /*
     var text1 = $('#id-code-js-1').text();
     var text2 = $('#id-code-js-textarea').val();
     var text3 = $('#id-code-js-2').text();
@@ -26,7 +27,11 @@ TFG.Game.prototype = {
     //eval(text1 + text2 + text3);
     eval("this." + blocks.getChildAt(0).data.target + " = function(){" + text1 + text2 + text3 + "};");
     blocks.getChildAt(0).destroy();
-    this.game.paused=false;
+    this.game.paused=false;*/
+    var text = editor.getValue();
+    console.log(text);
+    blocks.getChildAt(0).destroy()
+    this.game.paused = false;
   },
 
   create: function(){
@@ -47,7 +52,7 @@ TFG.Game.prototype = {
     player.create(100, 100  , 'player_large_spritesheet',0);
 
     var that = this;
-    $('#id-code-js-button').click(function() {that.a.call(player)});
+    $('#submit-button').click(function() {that.submitCode.call(player)});
     
     //console.log(player.move);
   },

@@ -62,15 +62,10 @@ Player.prototype = {
     console.log("------------Colision con bloque-------------- ");
     console.log(block.data);
 
-    //block.destroy(); pienso que es mejor en la funcion a
-    this.game.paused=true;
+    this.game.paused = true;
 
-    $('#id-code-js-1').text(block.data.base_code_1);
-    $('#id-code-js-2').text(block.data.base_code_2);
-    $('#id-code-js-textarea').prop('disabled', false);
-
-    //el tema seria aqui (o antes y meter todo esto en esa funcion tambien) llamar a un funcion block.noseque() que espere a que el usuario escriba y envie el codigo, y luego lo asigne a su target
-    
+    editor.setValue(block.data.code, -1);
+    addRanges(block.data.range1, block.data.range2);
   },
 
   /* */

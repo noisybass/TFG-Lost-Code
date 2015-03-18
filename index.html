@@ -2,8 +2,8 @@
 <html>
 	<head>
 
-		<meta charset="utf-8" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<meta charset="UTF-8">
+  		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title> Game </title>
 
 		<script type="text/javascript" src="js/phaser.js"></script>
@@ -25,13 +25,29 @@
         <script type="text/javascript" src="js/game/others/EndLevel.js"></script>
         <script type="text/javascript" src="js/game/others/Blocks.js"></script>
 
+        <script src="jQuery/jQuery.js" type="text/javascript" charset="utf-8"></script>
+
 
         <style>
+        	body {
+		        overflow: hidden;
+		    }
+		    #editor {
+		        margin: 0;
+		        width:100%;
+		        height:300px;
+		    }
+		    .readonly-highlight{
+		      background-color: red;
+		      opacity: 0.5;
+		      position: absolute;
+		    }
 			#game-canvas {
 				width: 60%;
 				float: left;
 			}
-			#text-canvas {
+			#code-editor {
+				width: 40%;
 				float: right;
 			}
 		</style>
@@ -39,16 +55,21 @@
 	</head>
 
 	<body>
-		<script src="js/Main.js"></script>
+		<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="ace/theme-monokai.js" type="text/javascript" charset="utf-8"></script>
+		<script src="ace/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+		<script src="ace/worker-javascript.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/Main.js" type="text/javascript" charset="utf-8"></script>
+
 		<div id="game-canvas"></div>
-		<div id="text-canvas">
-			
-				<p id="id-code-js-1"></p>
-				<textarea id="id-code-js-textarea" name="code-js" rows ="10" cols="40" disabled="true"></textarea>
-				<p id="id-code-js-2"></p>
-
-
-				<button id="id-code-js-button" type="button">asfgdsh</button>
+		<div id="code-editor">		
+				<div id="editor"></div>
+				<button id="submit-button" type="button">
+					Submit Code
+				</button>
 		</div>
+
+		<script src="ace/conf.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>
