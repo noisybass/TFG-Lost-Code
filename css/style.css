@@ -55,6 +55,7 @@ h3 {
 div.positive_test {
 	border-right: 10px solid rgb(0,200,0);
 	padding: 5px;
+	font-family: 'Indie Flower', cursive;
 }
 
 span.glyphicon.glyphicon-ok-sign {
@@ -64,6 +65,7 @@ span.glyphicon.glyphicon-ok-sign {
 div.negative_test {
 	border-right: 10px solid rgb(200,0,0);
 	padding: 5px;
+	font-family: 'Indie Flower', cursive;
 }
 
 span.glyphicon.glyphicon-remove-sign {
