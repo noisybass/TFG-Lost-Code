@@ -1,3 +1,8 @@
+var range1 = null;
+var range2 = null;
+var markerId1 = null;
+var markerId2 = null;
+
 var before = function (obj, method, wrapper) {
     var orig = obj[method];
     obj[method] = function() {
@@ -18,10 +23,10 @@ var addRanges = function(r1, r2) {
 
     var session = editor.getSession();
     var Range = require("ace/range").Range;
-    var range1 = new Range(r1[0], r1[1], r1[2], r1[3]);
-    var range2 = new Range(r2[0], r2[1], r2[2], r2[3]);
-    var markerId = session.addMarker(range1, "readonly-highlight");
-    var markerId = session.addMarker(range2, "readonly-highlight");
+    range1 = new Range(r1[0], r1[1], r1[2], r1[3]);
+    range2 = new Range(r2[0], r2[1], r2[2], r2[3]);
+    markerId1 = session.addMarker(range1, "readonly-highlight");
+    markerId2 = session.addMarker(range2, "readonly-highlight");
     
     editor.keyBinding.addKeyboardHandler({
         handleKeyboard : function(data, hash, keyString, keyCode, event) {
@@ -40,4 +45,20 @@ var addRanges = function(r1, r2) {
     range2.start  = session.doc.createAnchor(range2.start);
     range2.end    = session.doc.createAnchor(range2.end);
     range2.end.$insertRight = true;
+}
+
+var setTask = function() {
+    if (markerId1 || markerId2) {
+        restartEditor();
+    }
+    editor.getSession().setValue(currentTask.code, -1);
+    addRanges(currentTask.range1, currentTask.range2);
+    editor.setReadOnly(false);
+}
+
+var restartEditor = function() {
+    var session = editor.getSession();
+    var Range = require("ace/range").Range;
+    session.removeMarker(markerId1);
+    session.removeMarker(markerId2);
 }

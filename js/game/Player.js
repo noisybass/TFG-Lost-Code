@@ -19,8 +19,8 @@ Player = function(game) {
   this.player_velocity_x = 0;
 
   // Player constants
-  this.MAX_VELOCITY_X = 150;
-  this.MAX_VELOCITY_Y = 350;
+  this.walkSpeed = 150;
+  this.jumpSpeed = -250;
 };
 
 Player.prototype = {
@@ -64,12 +64,7 @@ Player.prototype = {
     this.game.paused = true;
     currentTask = block.data;
     block.destroy();
-
-    editor.getSession().setValue(currentTask.code, -1);
-    addRanges(currentTask.range1, currentTask.range2);
-    editor.setReadOnly(false);
-
-    block.destroy();
+    setTask();
   },
 
   /* */
@@ -144,10 +139,9 @@ Player.prototype = {
 
 
   move: function() {
-
     if (this.cursors.right.isDown) {
       this.sprite.play('player_animation_moveRight', 5, true);
-      this.sprite.body.velocity.x = this.MAX_VELOCITY_X;
+      this.sprite.body.velocity.x = this.walkSpeed;
       if (this.direction == State.LOOKINGLEFT) {
         this.direction = State.LOOKINGRIGHT;
       }
@@ -155,7 +149,7 @@ Player.prototype = {
     /*
     else if (this.cursors.left.isDown) {
       this.sprite.play('player_animation_moveLeft', 5, true);
-      this.sprite.body.velocity.x = this.MAX_VELOCITY_X * (-1);
+      this.sprite.body.velocity.x = -this.walkSpeed;
       if (this.direction == State.LOOKINGRIGHT) {
         this.direction = State.LOOKINGLEFT;
       }

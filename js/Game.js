@@ -16,65 +16,26 @@ var throwers_hammer = null;
 var currentTask = null;
 
 TFG.Game.prototype = {
+
   submitCode: function() {
-    /*
-    var text1 = $('#id-code-js-1').text();
-    var text2 = $('#id-code-js-textarea').val();
-    var text3 = $('#id-code-js-2').text();
-    //send to server and process response
-    //console.log(this);
-    console.log(text1 + text2 + text3);
-    console.log(blocks.getChildAt(0).data.target);
-    //eval(text1 + text2 + text3);
-    eval("this." + blocks.getChildAt(0).data.target + " = function(){" + text1 + text2 + text3 + "};");
-    blocks.getChildAt(0).destroy();
-    this.game.paused=false;*/
+
+    /* 1- Obtener el codigo */
     var text = editor.getValue();
-    console.log("Texto introducido:" + text);
-    eval("this." + currentTask.target + "=" + text);
 
-    //Activar Evento flecha Izquierda
-    this.cursors.left.isDown = true;
+    /* 2- Testear el codigo */
+    // Ejecutar la funcion de test correspondiente y obtener el resultado
 
-    var x = this.sprite.body.velocity.x;
-    this.move();
-    var that = this;
-
-    // Con modulos
-    /*
-    tw = new TWUnit();
-    tw.addAssert("Animation", that.sprite.animations.currentAnim === that.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
-    tw.addAssert("Direccion",that.direction == State.LOOKINGLEFT, "Cambiar sprite para que mire hacia la izquierda.", "Podrías mirar el objeto State, aver que se te ocurre...");
-    tw.addAssert("Velocidad", that.sprite.body.velocity.x == that.MAX_VELOCITY_X * (-1), "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
-    tw.addModule("Move");
-    tw.addAssert("PruebaSegundoModulo", true === true, "es una tonteria", "lo es");
-    tw.addModule("Prueba");
-    tw.runModules();
-
-     if (tw.modulesOk()){
-        blocks.getChildAt(0).destroy();
-        this.game.paused=false;
-    }
-    */
-    //Sin modulos
-    tw = new TWUnit();
-    tw.addAssert("Animation", that.sprite.animations.currentAnim === that.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
-    tw.addAssert("Direccion",that.direction == State.LOOKINGLEFT, "Cambiar sprite para que mire hacia la izquierda.", "Podrías mirar el objeto State, aver que se te ocurre...");
-    tw.addAssert("Velocidad", that.sprite.body.velocity.x == that.MAX_VELOCITY_X * (-1), "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
-    tw.runAsserts();
-
-    if (tw.assertsOk()){
-        currentTask = null;
+    /* 3.1- Si ha acertado ejecutamos su codigo, eliminamos el codigo del editor, currentTask = null y desbloqueamos el juego */
+    if (testMoveLeft(text)) {
+        eval(currentTask.target + "=" + text);
         editor.getSession().setValue("", -1);
-        this.game.paused=false;
+        currentTask = null;
+        this.game.paused = false;
     }
-   
 
-    //Desactivar Evento flecha Izquierda
-    this.cursors.left.isDown = false;
   },
 
-  create: function(){
+  create: function() {
 
     // Set background color
     this.game.stage.backgroundColor = '#009DFF';
@@ -93,8 +54,8 @@ TFG.Game.prototype = {
 
     var that = this;
     $('#submit-button').click(function() {that.submitCode.call(player)});
+    $('#restart-button').click(setTask);
     
-    //console.log(player.move);
   },
 
   update: function(){
@@ -102,4 +63,25 @@ TFG.Game.prototype = {
     player.update();
     level.update();
   }
+}
+
+
+var testMoveLeft = function (text) {
+
+    var fakePlayer = player;
+
+    eval("fakePlayer.move =" + text);
+
+    fakePlayer.cursors.left.isDown = true;
+    fakePlayer.move();
+    fakePlayer.cursors.left.isDown = false;
+
+    tw = new TWUnit();
+    tw.addAssert("Animation", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
+    tw.addAssert("Direccion", fakePlayer.direction == State.LOOKINGLEFT, "Cambiar sprite para que mire hacia la izquierda.", "Podrías mirar el objeto State, aver que se te ocurre...");
+    tw.addAssert("Velocidad", fakePlayer.sprite.body.velocity.x == fakePlayer.MAX_VELOCITY_X * (-1), "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
+    tw.runAsserts();
+
+
+    return tw.assertsOk();
 }
