@@ -5,7 +5,7 @@
 			"description": "Aprende a moverte hacia la izquierda",
 			"code": "function move() {\n\n\tif (this.cursors.right.isDown) {\n\t\tthis.sprite.play('player_animation_moveRight', 5, true);\n\t\tthis.sprite.body.velocity.x = this.MAX_VELOCITY_X;\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.direction = State.LOOKINGRIGHT;\n\t\t}\n\t}\n\n\n\n\telse {\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.sprite.play('player_animation_standUpLeft');\n\t\t}\n\t\telse if (this.direction == State.LOOKINGRIGHT) {\n\t\t\tthis.sprite.play('player_animation_standUpRight');\n\t\t}\n\t\tthis.sprite.body.velocity.x = 0;\n\t}\n}\n",
 			"target": "move",
-			"range1": [2,0,8,2],
+			"range1": [0,0,8,2],
 			"range2": [12,0,21,1]
 		},
 		{

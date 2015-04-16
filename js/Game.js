@@ -13,7 +13,7 @@ var goombas = null;
 var throwers = null;
 var throwers_hammer = null;
 
-var target = null;
+var currentTask = null;
 
 TFG.Game.prototype = {
   submitCode: function() {
@@ -31,7 +31,7 @@ TFG.Game.prototype = {
     this.game.paused=false;*/
     var text = editor.getValue();
     console.log("Texto introducido:" + text);
-    eval("this." + target + "=" + text);
+    eval("this." + currentTask.target + "=" + text);
 
     //Activar Evento flecha Izquierda
     this.cursors.left.isDown = true;
@@ -64,7 +64,7 @@ TFG.Game.prototype = {
     tw.runAsserts();
 
     if (tw.assertsOk()){
-        target = null;
+        currentTask = null;
         editor.getSession().setValue("", -1);
         this.game.paused=false;
     }
