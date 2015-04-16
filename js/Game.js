@@ -16,7 +16,6 @@ var throwers_hammer = null;
 var currentTask = null;
 
 TFG.Game.prototype = {
-
   submitCode: function() {
     /*
     var text1 = $('#id-code-js-1').text();
