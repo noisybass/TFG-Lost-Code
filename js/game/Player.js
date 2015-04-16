@@ -37,8 +37,6 @@ Player.prototype = {
     // Create the player's input controls
     this.cursors    = this.game.input.keyboard.createCursorKeys();
     this.runButton  = this.game.input.keyboard.addKey(Phaser.Keyboard.C);
-    //this.jumpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-
 	},
 
 
@@ -60,15 +58,17 @@ Player.prototype = {
 	},
 
   blockOverlap: function(player, block) {
-    console.log("------------Colision con bloque-------------- ");
-    console.log(block.data);
+    //console.log("------------Colision con bloque-------------- ");
+    //console.log(block.data);
 
     this.game.paused = true;
+    target = block.data.target;
 
     editor.getSession().setValue(block.data.code, -1);
-    //addRanges(block.data.range1, block.data.range2);
+    addRanges(block.data.range1, block.data.range2);
     editor.setReadOnly(false);
-    //this.game.input.keyboard.removeKeyCapture(Phaser.Keyboard.SPACEBAR);
+
+    block.destroy();
   },
 
   /* */

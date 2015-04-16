@@ -76,6 +76,6 @@ span.glyphicon.glyphicon-remove-sign {
 
 .readonly-highlight{
   background-color: red;
-  opacity: 0.5;
+  opacity: 0.2;
   position: absolute;
 }
