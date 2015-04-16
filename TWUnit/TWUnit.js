@@ -79,16 +79,16 @@ TWUnit.HtmlInteract = {
 			ol.innerHTML += "<div class='positive_test'>" +
 								"<span class='glyphicon glyphicon-ok-sign'>" +
 									//"<li id='assertList'>" + text + "</li>" +
-									text +
 								"</span>" + 
+								text +
 							"</div>";
 		}
 		else{
 			ol.innerHTML += "<div class='negative_test'>" +
 								"<span class='glyphicon glyphicon-remove-sign'>" +
 									//"<li id='assertList'>" + text + "</li>" +
-									text +
 								"</span>" +
+								text +
 							"</div>";
 		}
 		
