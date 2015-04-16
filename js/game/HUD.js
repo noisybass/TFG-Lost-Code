@@ -22,7 +22,7 @@ HUD.prototype = {
 		this.livesString = 'Lives: ';
 		this.livesText = this.game.add.text(0, 0, this.livesString + this.lives, { fontSize: '32px', fill: '#FFF' });
 		this.livesText.fixedToCamera = true;
-		this.livesText.cameraOffset.setTo(680, 16);
+		this.livesText.cameraOffset.setTo(580, 16);
 	}
 
 };
