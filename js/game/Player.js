@@ -62,10 +62,11 @@ Player.prototype = {
     //console.log(block.data);
 
     this.game.paused = true;
-    target = block.data.target;
+    currentTask = block.data;
+    block.destroy();
 
-    editor.getSession().setValue(block.data.code, -1);
-    addRanges(block.data.range1, block.data.range2);
+    editor.getSession().setValue(currentTask.code, -1);
+    addRanges(currentTask.range1, currentTask.range2);
     editor.setReadOnly(false);
 
     block.destroy();
