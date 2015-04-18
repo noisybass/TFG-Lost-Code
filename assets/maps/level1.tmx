@@ -1,67 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="15" tilewidth="70" tileheight="70">
- <tileset firstgid="1" name="cake-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/cake-sheet.png" width="512" height="512"/>
+ <tileset firstgid="1" name="grass-sheet" tilewidth="70" tileheight="70">
+  <image source="../img/map-tiles/grass-sheet.png" width="512" height="512"/>
  </tileset>
- <tileset firstgid="50" name="castle-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/castle-sheet.png" width="512" height="512"/>
+ <tileset firstgid="50" name="items-sheet" tilewidth="70" tileheight="70">
+  <image source="../img/map-tiles/items-sheet.png" width="700" height="700"/>
  </tileset>
- <tileset firstgid="99" name="choco-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/choco-sheet.png" width="512" height="512"/>
+ <tileset firstgid="150" name="buildings-sheet" tilewidth="70" tileheight="70">
+  <image source="../img/map-tiles/buildings-sheet.png" width="980" height="490"/>
  </tileset>
- <tileset firstgid="148" name="dirt-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/dirt-sheet.png" width="512" height="512"/>
+ <tileset firstgid="248" name="snail" tilewidth="57" tileheight="31">
+  <image source="../img/spritesheets/snail.png" width="228" height="31"/>
  </tileset>
- <tileset firstgid="197" name="grass-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/grass-sheet.png" width="512" height="512"/>
- </tileset>
- <tileset firstgid="246" name="items-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/items-sheet.png" width="700" height="700"/>
- </tileset>
- <tileset firstgid="346" name="buildings-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/buildings-sheet.png" width="980" height="490"/>
- </tileset>
- <tileset firstgid="444" name="metal-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/metal-sheet.png" width="512" height="512"/>
- </tileset>
- <tileset firstgid="493" name="purple-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/purple-sheet.png" width="512" height="512"/>
- </tileset>
- <tileset firstgid="542" name="sand-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/sand-sheet.png" width="512" height="512"/>
- </tileset>
- <tileset firstgid="591" name="snow-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/snow-sheet.png" width="512" height="512"/>
- </tileset>
- <tileset firstgid="640" name="tundra-sheet" tilewidth="70" tileheight="70">
-  <image source="../../../../../../home/zaru/TFG/assets/img/map-tiles/tundra-sheet.png" width="512" height="512"/>
- </tileset>
- <tileset firstgid="689" name="snail" tilewidth="57" tileheight="31">
-  <image source="../../../../../../home/zaru/TFG/assets/img/spritesheets/snail.png" width="228" height="31"/>
- </tileset>
- <tileset firstgid="693" name="slime" tilewidth="59" tileheight="28">
-  <image source="../../../../../../home/zaru/TFG/assets/img/spritesheets/slime.png" width="177" height="28"/>
+ <tileset firstgid="252" name="slime" tilewidth="59" tileheight="28">
+  <image source="../img/spritesheets/slime.png" width="177" height="28"/>
  </tileset>
  <layer name="Tile Layer 1" width="100" height="15">
   <data encoding="base64" compression="zlib">
-   eJztlr8KwjAQh5MnEBzd1UkfX5/ArZvQSR3c3ArOBRvaYjgvd1ev/km5D35IrInJfW0T5wzDMIwpUv96AhNh7Z3b+fT1vX/+DqP3UIC2MZxzk4swZdcH1p1rGzSHJveofWtyZVIh46TqDr0Yr0AHkODkmAjmIib1fHyLDfGu/Sc4B1pg3VMe5r5ND7VXBbj9KqzrFOWTa9SidVAj6SnAp5QhexSVbednhnhKuZMS+i9AAth3HGM+B/DeG+v+k+xRXCiv4ayx8m3e8R/3pyKdQw7ROlkmxqi6a3GG/BfWn4p0DjlE4wQbg6qD9NyoXUeuLrRO4BiSOnDnRu06cnehcfIAZfoLFA==
+   eJztlrsKwjAUhuvWTXBSBze3gnOfQXDsrk76+PoCJpBCOJ5be2ol5XzwUdI2178lqSrHcRxnibT/HsBCuAdfzPN39h5Gn0MNys5wdsG90k2qA9ddKjs8q+ApKx+DB8EGaYdad5iL8w3MABIzWRNiWeRQ/8dcPGbubyxSBlbgulM5XJI93F4VkfarOK9t5i/naMWaQYvYU4OrliF7FOcztXdG+qCy0xLrd8CKuCcx5X8Av72pvj/NHiXJ5RrPGrfkmPzz+pzaMZSgNZMr0UaTnuUO6Qurz6kdQwlaMsHa4NZBe260zqPULKyZwDY06yCdG63zKD0LSyYfInmJFQ==
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object gid="209" x="421" y="280"/>
-  <object gid="209" x="489" y="418"/>
-  <object gid="689" x="2038" y="742"/>
-  <object gid="689" x="2109" y="742"/>
-  <object gid="689" x="2178" y="742"/>
-  <object gid="689" x="2245" y="741"/>
-  <object gid="693" x="4347" y="347"/>
-  <object gid="689" x="6167" y="627"/>
-  <object gid="693" x="6445" y="627"/>
-  <object gid="209" x="1611" y="768"/>
-  <object gid="209" x="4059" y="350"/>
-  <object gid="209" x="4757" y="350"/>
-  <object gid="209" x="6718" y="631"/>
-  <object gid="209" x="420" y="631"/>
-  <object gid="209" x="489" y="770"/>
+  <object gid="13" x="421" y="280"/>
+  <object gid="13" x="489" y="418"/>
+  <object gid="248" x="2038" y="742"/>
+  <object gid="248" x="2109" y="742"/>
+  <object gid="248" x="2178" y="742"/>
+  <object gid="248" x="2245" y="741"/>
+  <object gid="252" x="4347" y="347"/>
+  <object gid="248" x="6167" y="627"/>
+  <object gid="252" x="6445" y="627"/>
+  <object gid="13" x="1611" y="768"/>
+  <object gid="13" x="4059" y="350"/>
+  <object gid="13" x="4757" y="350"/>
+  <object gid="13" x="6718" y="631"/>
+  <object gid="13" x="420" y="631"/>
+  <object gid="13" x="489" y="770"/>
  </objectgroup>
 </map>
