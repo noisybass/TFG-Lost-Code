@@ -38,7 +38,7 @@ TFG.Game.prototype = {
   create: function() {
 
     // Set background color
-    this.game.stage.backgroundColor = '#009DFF';
+    //this.game.stage.backgroundColor = '#009DFF';
 
     // Creates the HUD
     hud = new HUD(this.game);
@@ -50,7 +50,7 @@ TFG.Game.prototype = {
 
     // Creates player
     player = new Player(this.game);
-    player.create(0, 0 ,'player_spritesheet', 0);
+    player.create(150, 550 ,'player_spritesheet', 0);
 
     var that = this;
     $('#submit-button').click(function() {that.submitCode.call(player)});

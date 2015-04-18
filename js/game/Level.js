@@ -16,14 +16,18 @@ Level.prototype = {
 
     this.game.physics.arcade.gravity.y = this.GRAVITY;
 		
-    this.map = this.game.add.tilemap('prueba');
+    this.map = this.game.add.tilemap('level1');
     this.map.addTilesetImage('items-sheet', 'items-sheet');
+    this.map.addTilesetImage('buildings-sheet', 'buildings-sheet');
     this.map.addTilesetImage('grass-sheet', 'grass-sheet');
+    this.map.addTilesetImage('snail', 'snail_spritesheet');
+    this.map.addTilesetImage('slime', 'slime_spritesheet');
     //this.map.addTilesetImage('goomba', 'goomba_spritesheet');
     //this.map.addTilesetImage('heart', 'heart_image');
-    this.map.setCollision([0,1,2,3,4,5,6,7,8,9,10,11,12]);
+    //this.map.setCollision([0,1,2,3,4,5,6,7,8,9,10,11,12]);
+    this.map.setCollisionBetween(0,48);
 
-    this.layer = this.map.createLayer('Capa de Patrones 1');
+    this.layer = this.map.createLayer('Tile Layer 1');
     this.layer.resizeWorld();
 
     //createCoins(this.game);
