@@ -16,23 +16,24 @@ Level.prototype = {
 
     this.game.physics.arcade.gravity.y = this.GRAVITY;
 		
-    this.map = this.game.add.tilemap('map_tilemap');
-    this.map.addTilesetImage('sheet', 'sheet_spritesheet');
-    this.map.addTilesetImage('goomba', 'goomba_spritesheet');
-    this.map.addTilesetImage('heart', 'heart_image');
-    this.map.setCollision([4,11,13,15,18,32,38,45,49]);
+    this.map = this.game.add.tilemap('prueba');
+    this.map.addTilesetImage('items-sheet', 'items-sheet');
+    this.map.addTilesetImage('grass-sheet', 'grass-sheet');
+    //this.map.addTilesetImage('goomba', 'goomba_spritesheet');
+    //this.map.addTilesetImage('heart', 'heart_image');
+    this.map.setCollision([0,1,2,3,4,5,6,7,8,9,10,11,12]);
 
-    this.layer = this.map.createLayer('CapaPatrones');
+    this.layer = this.map.createLayer('Capa de Patrones 1');
     this.layer.resizeWorld();
 
-    createCoins(this.game);
-    createHearts(this.game);
+    //createCoins(this.game);
+    //createHearts(this.game);
 
-    createGoombas(this.game);
-    createThrowers(this.game);
-    createShiftingPlatforms(this.game);
-    createEndLevel(this.game);
-    createBlocks(this.game);
+    //createGoombas(this.game);
+    //createThrowers(this.game);
+    //createShiftingPlatforms(this.game);
+    //createEndLevel(this.game);
+    //createBlocks(this.game);
 	},
 
 
@@ -40,24 +41,24 @@ Level.prototype = {
 
 		this.game.physics.arcade.collide(player.sprite, this.layer);
 
-    this.game.physics.arcade.collide(player.sprite, shifting_platforms);
-    this.game.physics.arcade.collide(goombas, this.layer);
-    this.game.physics.arcade.collide(goombas); // Goombas collide with themselfs
-    this.game.physics.arcade.collide(throwers, this.layer);
-    this.game.physics.arcade.collide(end_level, this.layer);
+    //this.game.physics.arcade.collide(player.sprite, shifting_platforms);
+    //this.game.physics.arcade.collide(goombas, this.layer);
+    //this.game.physics.arcade.collide(goombas); // Goombas collide with themselfs
+    //this.game.physics.arcade.collide(throwers, this.layer);
+    //this.game.physics.arcade.collide(end_level, this.layer);
 
-    this.game.physics.arcade.collide(blocks, this.layer);
+    //this.game.physics.arcade.collide(blocks, this.layer);
 
     player.update();
 
-    platformsMove(this.game);
+    //platformsMove(this.game);
 
     if(player.fallingDown()) {
       player.die();
     }
 
-    goombas.forEach(goombaMove,this);
-    throwers.forEach(throwerMove, this);
+    //goombas.forEach(goombaMove,this);
+    //throwers.forEach(throwerMove, this);
 	},
 
 };

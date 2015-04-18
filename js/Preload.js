@@ -17,8 +17,8 @@ TFG.Preload.prototype = {
     // Load Assets
     this.loadPlayerAssets();
     this.loadLevelAssets();
-    this.loadEnemiesAssets();
-    this.loadObjectsAssets();
+    //this.loadEnemiesAssets();
+    //this.loadObjectsAssets();
   },
 
   create:function() {
@@ -28,14 +28,20 @@ TFG.Preload.prototype = {
 
   loadPlayerAssets: function() {
 
-    this.load.spritesheet('player_small_spritesheet', 'assets/images/mario_small.png', 32, 32, 27);
-    this.load.spritesheet('player_large_spritesheet', 'assets/images/mario_large.png', 32, 64, 28);
+    this.load.spritesheet('player_spritesheet', 'assets/img/spritesheets/player.png', 66.5, 83.5);
+
+    //this.load.spritesheet('player_small_spritesheet', 'assets/images/mario_small.png', 32, 32, 27);
+    //this.load.spritesheet('player_large_spritesheet', 'assets/images/mario_large.png', 32, 64, 28);
   },
 
   loadLevelAssets: function() {
 
-    this.game.load.tilemap('map_tilemap', 'assets/level/mario-level2.json', null, Phaser.Tilemap.TILED_JSON);
-    this.game.load.spritesheet('sheet_spritesheet','assets/images/sheet.png', 34, 34, 49);
+    this.game.load.tilemap('prueba', 'assets/maps/prueba.json', null, Phaser.Tilemap.TILED_JSON);
+    this.game.load.spritesheet('items-sheet','assets/img/map-tiles/items-sheet.png', 70, 70);
+    this.game.load.spritesheet('grass-sheet','assets/img/map-tiles/grass-sheet.png', 34, 34, 49);
+
+    //this.game.load.tilemap('map_tilemap', 'assets/level/mario-level2.json', null, Phaser.Tilemap.TILED_JSON);
+    //this.game.load.spritesheet('sheet_spritesheet','assets/images/sheet.png', 34, 34, 49);
   },
 
   loadEnemiesAssets: function() {

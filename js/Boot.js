@@ -6,7 +6,7 @@ TFG.Boot.prototype = {
 
 	preload: function() {
 
-		this.load.image('preloadbar_image', 'assets/images/preloader-bar.png');
+		this.load.image('preloadbar_image', 'assets/img/preloader-bar.png');
 	},
 
 	create: function() {

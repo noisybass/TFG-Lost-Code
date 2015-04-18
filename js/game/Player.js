@@ -31,7 +31,7 @@ Player.prototype = {
     this.game.physics.enable(this.sprite);
     this.game.camera.follow(this.sprite);
     //this.game.camera.view.height = 100;
-    this.addAnimations();
+    //this.addAnimations();
     this.sprite.body.collideWorldBounds = true; //Should the Body collide with the World bounds?
   
     // Create the player's input controls
@@ -47,9 +47,9 @@ Player.prototype = {
     this.game.physics.arcade.overlap(this.sprite, goombas, this.goombaCollision, null, this);
     this.game.physics.arcade.overlap(this.sprite, throwers, this.throwerCollision, null, this);
     this.game.physics.arcade.overlap(this.sprite, throwers_hammer, this.throwerHammerCollision, null, this);
-    this.game.physics.arcade.overlap(this.sprite, end_level, this.endLevelCollision, null, this);
+    //this.game.physics.arcade.overlap(this.sprite, end_level, this.endLevelCollision, null, this);
 
-    this.game.physics.arcade.overlap(this.sprite, blocks, this.blockOverlap, null, this);
+    //this.game.physics.arcade.overlap(this.sprite, blocks, this.blockOverlap, null, this);
 
     this.move();
     this.run();
