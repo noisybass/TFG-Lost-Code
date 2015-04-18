@@ -34,7 +34,7 @@ TFG.Preload.prototype = {
 
   loadLevelAssets: function() {
 
-    this.game.load.tilemap('map_tilemap', 'assets/level/mario-level.json', null, Phaser.Tilemap.TILED_JSON);
+    this.game.load.tilemap('map_tilemap', 'assets/level/mario-level2.json', null, Phaser.Tilemap.TILED_JSON);
     this.game.load.spritesheet('sheet_spritesheet','assets/images/sheet.png', 34, 34, 49);
   },
 

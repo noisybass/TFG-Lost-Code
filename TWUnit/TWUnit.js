@@ -184,7 +184,7 @@ TWUnit.HtmlInteract = {
 				twunit.innerHTML = "<ol id='moduleList'> </ol>";
 			}
 			else{
-				twunit.innerHTML = "<ol id='assertList'> </ol>";
+				twunit.innerHTML = "<div id='assertList'> </div>";
 			}
 		}
 	},
@@ -287,6 +287,7 @@ TWUnit.prototype = {
 	*/
 	runAsserts: function(iterator, moduleName){
 
+		// void module
 		if (!iterator && iterator != 0 && !moduleName){
 			TWUnit.HtmlInteract.htmlClear();
 			TWUnit.HtmlInteract.createHtmlCss();
@@ -294,6 +295,7 @@ TWUnit.prototype = {
 			allAssertsOk = this.allAssertsOk;
 			it = "";
 		}
+		// module with name
 		else{
 			list = this.modules[moduleName].asserts;
 			allAssertsOk = this.modules[moduleName].allAssertsOk;
