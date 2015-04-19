@@ -31,7 +31,7 @@ Player.prototype = {
     this.game.physics.enable(this.sprite);
     this.game.camera.follow(this.sprite);
     //this.game.camera.view.height = 100;
-    //this.addAnimations();
+    this.addAnimations();
     this.sprite.body.collideWorldBounds = true; //Should the Body collide with the World bounds?
   
     // Create the player's input controls
@@ -127,10 +127,10 @@ Player.prototype = {
   /* */
   addAnimations: function() {
 
-    this.sprite.animations.add('player_animation_moveLeft', [15,16,17]);
-    this.sprite.animations.add('player_animation_moveRight', [1,2,3]);
-    this.sprite.animations.add('player_animation_standUpLeft', [14]);
-    this.sprite.animations.add('player_animation_standUpRight', [0]);
+    this.sprite.animations.add('player_animation_moveLeft', [7,8]);
+    this.sprite.animations.add('player_animation_moveRight', [13,14]);
+    this.sprite.animations.add('player_animation_standUpLeft', [6]);
+    this.sprite.animations.add('player_animation_standUpRight', [12]);
     this.sprite.animations.add('player_animation_jumpLeft', [18]);
     this.sprite.animations.add('player_animation_jumpRight', [4]);
     this.sprite.animations.add('player_animation_goDownLeft', [26]);

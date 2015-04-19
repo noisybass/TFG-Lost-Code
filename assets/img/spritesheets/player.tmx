@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="6" height="4" tilewidth="133" tileheight="163">
  <tileset firstgid="1" name="Purple_Front1" tilewidth="132" tileheight="161">
-  <image source="../../../Platform pack/PNG/Characters/Purple_Front1.png" width="132" height="161"/>
+  <image source="../../../sprites/Platform pack/PNG/Characters/Purple_Front1.png" width="132" height="161"/>
  </tileset>
  <tileset firstgid="2" name="Purple_Front2" tilewidth="132" tileheight="163">
-  <image source="../../../Platform pack/PNG/Characters/Purple_Front2.png" width="132" height="163"/>
+  <image source="../../../sprites/Platform pack/PNG/Characters/Purple_Front2.png" width="132" height="163"/>
  </tileset>
  <tileset firstgid="3" name="Purple_Front3" tilewidth="133" tileheight="163">
-  <image source="../../../Platform pack/PNG/Characters/Purple_Front3.png" width="133" height="163"/>
+  <image source="../../../sprites/Platform pack/PNG/Characters/Purple_Front3.png" width="133" height="163"/>
  </tileset>
  <tileset firstgid="4" name="Purple_Left1" tilewidth="120" tileheight="162">
-  <image source="../../../Platform pack/PNG/Characters/Purple_Left1.png" width="120" height="162"/>
+  <image source="../../../sprites/Platform pack/PNG/Characters/Purple_Left1.png" width="120" height="162"/>
  </tileset>
  <tileset firstgid="5" name="Purple_Left2" tilewidth="120" tileheight="162">
-  <image source="../../../Platform pack/PNG/Characters/Purple_Left2.png" width="120" height="162"/>
+  <image source="../../../sprites/Platform pack/PNG/Characters/Purple_Left2.png" width="120" height="162"/>
  </tileset>
  <tileset firstgid="6" name="Purple_Left3" tilewidth="120" tileheight="162">
-  <image source="../../../Platform pack/PNG/Characters/Purple_Left3.png" width="120" height="162"/>
+  <image source="../../../sprites/Platform pack/PNG/Characters/Purple_Left3.png" width="120" height="162"/>
  </tileset>
  <tileset firstgid="7" name="Purple_Right1" tilewidth="120" tileheight="161">
-  <image source="../../../Platform pack/PNG/Characters/Purple_Right1.png" width="120" height="161"/>
+  <image source="../../../sprites/Platform pack/PNG/Characters/Purple_Right1.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="8" name="Purple_Right2" tilewidth="120" tileheight="161">
-  <image source="../../../Platform pack/PNG/Characters/Purple_Right2.png" width="120" height="161"/>
+  <image source="../../../sprites/Platform pack/PNG/Characters/Purple_Right2.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="9" name="Purple_Right3" tilewidth="120" tileheight="161">
-  <image source="../../../Platform pack/PNG/Characters/Purple_Right3.png" width="120" height="161"/>
+  <image source="../../../sprites/Platform pack/PNG/Characters/Purple_Right3.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="10" name="JumpLeft_MouthOpen_Purple" tilewidth="120" tileheight="161">
-  <image source="../../../AnimatedCharacters_Update 1.2/PNG/Characters/JumpLeft_MouthOpen_Purple.png" width="120" height="161"/>
+  <image source="../../../sprites/AnimatedCharacters_Update 1.2/PNG/Characters/JumpLeft_MouthOpen_Purple.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="11" name="JumpLeft_Smile_Purple" tilewidth="120" tileheight="161">
-  <image source="../../../AnimatedCharacters_Update 1.2/PNG/Characters/JumpLeft_Smile_Purple.png" width="120" height="161"/>
+  <image source="../../../sprites/AnimatedCharacters_Update 1.2/PNG/Characters/JumpLeft_Smile_Purple.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="12" name="JumpRight_MouthOpen_Purple" tilewidth="120" tileheight="161">
-  <image source="../../../AnimatedCharacters_Update 1.2/PNG/Characters/JumpRight_MouthOpen_Purple.png" width="120" height="161"/>
+  <image source="../../../sprites/AnimatedCharacters_Update 1.2/PNG/Characters/JumpRight_MouthOpen_Purple.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="13" name="JumpRight_Smile_Purple" tilewidth="120" tileheight="161">
-  <image source="../../../AnimatedCharacters_Update 1.2/PNG/Characters/JumpRight_Smile_Purple.png" width="120" height="161"/>
+  <image source="../../../sprites/AnimatedCharacters_Update 1.2/PNG/Characters/JumpRight_Smile_Purple.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="14" name="WalkLeft_MouthOpen_Purple3" tilewidth="120" tileheight="161">
-  <image source="../../../AnimatedCharacters_Update 1.2/PNG/Characters/WalkLeft_MouthOpen_Purple3.png" width="120" height="161"/>
+  <image source="../../../sprites/AnimatedCharacters_Update 1.2/PNG/Characters/WalkLeft_MouthOpen_Purple3.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="15" name="WalkLeft_MouthOpen_Purple2" tilewidth="120" tileheight="161">
-  <image source="../../../AnimatedCharacters_Update 1.2/PNG/Characters/WalkLeft_MouthOpen_Purple2.png" width="120" height="161"/>
+  <image source="../../../sprites/AnimatedCharacters_Update 1.2/PNG/Characters/WalkLeft_MouthOpen_Purple2.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="16" name="WalkLeft_MouthOpen_Purple1" tilewidth="120" tileheight="161">
-  <image source="../../../AnimatedCharacters_Update 1.2/PNG/Characters/WalkLeft_MouthOpen_Purple1.png" width="120" height="161"/>
+  <image source="../../../sprites/AnimatedCharacters_Update 1.2/PNG/Characters/WalkLeft_MouthOpen_Purple1.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="17" name="WalkRight_MouthOpen_Purple1" tilewidth="120" tileheight="161">
-  <image source="../../../AnimatedCharacters_Update 1.2/PNG/Characters/WalkRight_MouthOpen_Purple1.png" width="120" height="161"/>
+  <image source="../../../sprites/AnimatedCharacters_Update 1.2/PNG/Characters/WalkRight_MouthOpen_Purple1.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="18" name="WalkRight_MouthOpen_Purple2" tilewidth="120" tileheight="161">
-  <image source="../../../AnimatedCharacters_Update 1.2/PNG/Characters/WalkRight_MouthOpen_Purple2.png" width="120" height="161"/>
+  <image source="../../../sprites/AnimatedCharacters_Update 1.2/PNG/Characters/WalkRight_MouthOpen_Purple2.png" width="120" height="161"/>
  </tileset>
  <tileset firstgid="19" name="WalkRight_MouthOpen_Purple3" tilewidth="120" tileheight="161">
-  <image source="../../../AnimatedCharacters_Update 1.2/PNG/Characters/WalkRight_MouthOpen_Purple3.png" width="120" height="161"/>
+  <image source="../../../sprites/AnimatedCharacters_Update 1.2/PNG/Characters/WalkRight_MouthOpen_Purple3.png" width="120" height="161"/>
  </tileset>
  <layer name="Capa de Patrones 1" width="6" height="4">
   <data encoding="base64" compression="zlib">
