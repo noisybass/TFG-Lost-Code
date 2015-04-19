@@ -26,6 +26,7 @@ Level.prototype = {
     //this.map.addTilesetImage('heart', 'heart_image');
     //this.map.setCollision([0,1,2,3,4,5,6,7,8,9,10,11,12]);
     this.map.setCollisionBetween(0,48);
+    this.map.setCollision([81]);
 
     this.layer = this.map.createLayer('Tile Layer 1');
     this.layer.resizeWorld();
