@@ -20,7 +20,7 @@
  </tileset>
  <layer name="Tile Layer 1" width="100" height="15">
   <data encoding="base64" compression="zlib">
-   eJztlT0LwjAQhoOTXUQQBz/AQXAQBOf+BkFwcVc3f77+ABNIIJx3l2tTKyn3wIOkzVfvbY0xiqIoyhCp/72BgfCwvpj776gfRsihAm2lOUvrSujMj4F1T7UVnpH1GLV31k3CAzIPVXeYi/INzADiMpkSYlnEUN9HH7j/0EuP6+WQyiAXWHcqh7M3wJ1VjtR55Z5rEfnLZ8wlN4MaMVCBXylNzijOp5/vhKxBZSfFjb8CDXEtRZffAXz3unr/JGdUyq2hs9pb716un2Q8p3QPJTjOzONmnSPX1/5eLNaPEhvPKd1DCTapE5YHnIOrg2SttnWU7qEE22YC55DUwfWbEObWUbqHEmyTyQdy/opI
+   eJztlT0LwjAQhoOTXUQQBz/AQXAQBOf+BkFwcVc3f77+ABNIIBx3l2vTqin3wENJm6/eSxtjFEVRlCFS/3oDA+FhfTHP31E/jJBDBdpKc5bWldCZHwPrnmorPCPrMWrvrJuEB2Qequ4wlz5x3+zlC+t0DcwA4jKZEmJZxFDfR1+4d1lEcu/1T6QyyAXWncrh7A1wZ5UjdV6VRG4GNWKgAlcpTc4ozqef74SskZudG38FGuJeii6/A/gv6Op/IDmjUm4NndXeevdy/STjOaV7KMFxZh436xy5v/bPYrF+lNh4TukeSrBJnbA84BxcHSRrta2jdA8l2DYTOIekDq7fhDC3jtI9lGCbTD5SzIpI
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
@@ -30,7 +30,7 @@
   <object gid="249" x="2245" y="741"/>
   <object gid="249" x="6167" y="627"/>
   <object gid="253" x="6445" y="627"/>
-  <object gid="1" x="348" y="630"/>
+  <object gid="1" x="349" y="560"/>
   <object gid="1" x="492" y="774"/>
   <object gid="1" x="1609" y="766"/>
   <object gid="1" x="4059" y="347"/>
