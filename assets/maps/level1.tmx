@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="15" tilewidth="70" tileheight="70">
- <tileset firstgid="1" name="grass-sheet" tilewidth="70" tileheight="70">
+ <tileset firstgid="1" name="void-block" tilewidth="70" tileheight="70">
+  <image source="../img/map-tiles/void-block.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="2" name="grass-sheet" tilewidth="70" tileheight="70">
   <image source="../img/map-tiles/grass-sheet.png" width="490" height="490"/>
  </tileset>
- <tileset firstgid="50" name="items-sheet" tilewidth="70" tileheight="70">
+ <tileset firstgid="51" name="items-sheet" tilewidth="70" tileheight="70">
   <image source="../img/map-tiles/items-sheet.png" width="700" height="700"/>
  </tileset>
- <tileset firstgid="150" name="buildings-sheet" tilewidth="70" tileheight="70">
+ <tileset firstgid="151" name="buildings-sheet" tilewidth="70" tileheight="70">
   <image source="../img/map-tiles/buildings-sheet.png" width="980" height="490"/>
  </tileset>
- <tileset firstgid="248" name="snail" tilewidth="57" tileheight="31">
+ <tileset firstgid="249" name="snail" tilewidth="57" tileheight="31">
   <image source="../img/spritesheets/snail.png" width="228" height="31"/>
  </tileset>
- <tileset firstgid="252" name="slime" tilewidth="59" tileheight="28">
+ <tileset firstgid="253" name="slime" tilewidth="59" tileheight="28">
   <image source="../img/spritesheets/slime.png" width="177" height="28"/>
  </tileset>
  <layer name="Tile Layer 1" width="100" height="15">
   <data encoding="base64" compression="zlib">
-   eJztlT0LwjAQhuNkFxHEwQ9wEBwEwbm/QRBc3NXNn69/wAQSCOfd5drUSso98CBp89V7W2OMoiiKMkTqf29gIDysL+b+O+qHEXKoQFtpztK6EjrzY2DdU22FZ2Q9Ru2ddZPwgMxD1R3monwDM4C4TKaEWBYx1PfRB+4/9NLjejmkMsgF1p3K4ewNcGeVI3VeuedaRP7yGXPJzaBGDFTgV0qTM4rz6ec7IWtQ2Ulx469AQ1xL0eV3AN+9rt4/yRmVcmvorPbWu5frJxnPKd1DCY4z87hZ58j1tb8Xi/WjxMZzSvdQgk3qhOUB5+DqIFmrbR2leyjBtpnAOSR1cP0mhLl1lO6hBNtk8gEpVIgx
+   eJztlT0LwjAQhoOTXUQQBz/AQXAQBOf+BkFwcVc3f77+ABNIIJx3l2tTKyn3wIOkzVfvbY0xiqIoyhCp/72BgfCwvpj776gfRsihAm2lOUvrSujMj4F1T7UVnpH1GLV31k3CAzIPVXeYi/INzADiMpkSYlnEUN9HH7j/0EuP6+WQyiAXWHcqh7M3wJ1VjtR55Z5rEfnLZ8wlN4MaMVCBXylNzijOp5/vhKxBZSfFjb8CDXEtRZffAXz3unr/JGdUyq2hs9pb716un2Q8p3QPJTjOzONmnSPX1/5eLNaPEhvPKd1DCTapE5YHnIOrg2SttnWU7qEE22YC55DUwfWbEObWUbqHEmyTyQdy/opI
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object gid="248" x="2038" y="742"/>
-  <object gid="248" x="2109" y="742"/>
-  <object gid="248" x="2178" y="742"/>
-  <object gid="248" x="2245" y="741"/>
-  <object gid="252" x="4347" y="347"/>
-  <object gid="248" x="6167" y="627"/>
-  <object gid="252" x="6445" y="627"/>
-  <object gid="48" x="350" y="628"/>
-  <object gid="48" x="491" y="765"/>
-  <object gid="48" x="1610" y="768"/>
-  <object gid="48" x="4060" y="346"/>
-  <object gid="48" x="4759" y="346"/>
-  <object gid="48" x="6719" y="626"/>
+  <object gid="249" x="2038" y="742"/>
+  <object gid="249" x="2109" y="742"/>
+  <object gid="249" x="2178" y="742"/>
+  <object gid="249" x="2245" y="741"/>
+  <object gid="249" x="6167" y="627"/>
+  <object gid="253" x="6445" y="627"/>
+  <object gid="1" x="348" y="630"/>
+  <object gid="1" x="492" y="774"/>
+  <object gid="1" x="1609" y="766"/>
+  <object gid="1" x="4059" y="347"/>
+  <object gid="1" x="4761" y="347"/>
+  <object gid="1" x="6719" y="626"/>
  </objectgroup>
 </map>

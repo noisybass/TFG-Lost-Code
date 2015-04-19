@@ -1,7 +1,7 @@
 createBlocks = function(game) {
 	blocks = game.add.group()
 	blocks.enableBody = true;
-	level.map.createFromObjects('CapaObjetos', 1 , 'sheet_spritesheet', 0, true, false, this.blocks);
+	level.map.createFromObjects('Object Layer 1', tiledId.voidBlockId , 'void-block', 0, true, false, this.blocks);
 
 
 	$.getJSON( "js/game/others/goals.json", function(data) {

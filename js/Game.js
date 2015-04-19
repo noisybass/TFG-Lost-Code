@@ -38,7 +38,7 @@ TFG.Game.prototype = {
   create: function() {
 
     // Set background color
-    //this.game.stage.backgroundColor = '#009DFF';
+    this.game.stage.backgroundColor = '#009DFF';
 
     // Creates the HUD
     hud = new HUD(this.game);
