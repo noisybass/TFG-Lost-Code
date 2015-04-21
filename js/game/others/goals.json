@@ -6,15 +6,19 @@
 			"code": "function move() {\n\n\tif (this.cursors.right.isDown) {\n\t\tthis.sprite.play('player_animation_moveRight', 5, true);\n\t\tthis.sprite.body.velocity.x = this.walkSpeed;\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.direction = State.LOOKINGRIGHT;\n\t\t}\n\t}\n\n\n\n\telse {\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.sprite.play('player_animation_standUpLeft');\n\t\t}\n\t\telse if (this.direction == State.LOOKINGRIGHT) {\n\t\t\tthis.sprite.play('player_animation_standUpRight');\n\t\t}\n\t\tthis.sprite.body.velocity.x = 0;\n\t}\n}\n",
 			"target": "move",
 			"range1": [0,0,8,2],
-			"range2": [12,0,21,1]
+			"range2": [12,0,21,1],
+			"test": "if (testMoveLeft(text)) {eval(currentTask.target + \"=\" + text);editor.getSession().setValue(\"\", -1);currentTask = null;this.game.paused = false;}"
 		},
 		{
 			"goal": "jump",
 			"description": "Aprende a saltar",
-			"code": "var code;",
+			"code": "function jump(){\n\t if ( this.jumpButton.isDown && this.playerCanJump() ) { \n\n\t if (this.direction == State.LOOKINGLEFT) { \n\t\t  this.sprite.play('player_animation_jumpLeft'); \n\t } \n\t else if (this.direction == State.LOOKINGRIGHT) { \n\t\t  this.sprite.play('player_animation_jumpRight'); \n\t } \n\t if (this.runButton.isDown) { \n\t\t  this.sprite.body.velocity.y = this.MAX_VELOCITY_Y * (-1.2); \n\t } \n\t else { \n\t\t  this.sprite.body.velocity.y = this.MAX_VELOCITY_Y * (-1); \n\t } \n\t this.jumpTime = this.game.time.now + 750; \n} \n",
 			"target": "jump",
 			"range1": [0,0,0,0],
-			"range2": [0,0,0,0]
+			"range2": [0,0,0,0],
+			"test": ""
 		}
 	]
 }
+
+

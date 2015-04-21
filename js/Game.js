@@ -26,12 +26,14 @@ TFG.Game.prototype = {
     // Ejecutar la funcion de test correspondiente y obtener el resultado
 
     /* 3.1- Si ha acertado ejecutamos su codigo, eliminamos el codigo del editor, currentTask = null y desbloqueamos el juego */
-    if (testMoveLeft(text)) {
+    var test = currentTask.test;
+    eval(test);
+    /*if (testMoveLeft(text)) {
         eval(currentTask.target + "=" + text);
         editor.getSession().setValue("", -1);
         currentTask = null;
         this.game.paused = false;
-    }
+    }*/
 
   },
 
