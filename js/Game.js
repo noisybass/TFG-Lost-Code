@@ -26,14 +26,12 @@ TFG.Game.prototype = {
     // Ejecutar la funcion de test correspondiente y obtener el resultado
 
     /* 3.1- Si ha acertado ejecutamos su codigo, eliminamos el codigo del editor, currentTask = null y desbloqueamos el juego */
-    var test = currentTask.test;
-    eval(test);
-    /*if (testMoveLeft(text)) {
+    if (eval(currentTask.test)) {
         eval(currentTask.target + "=" + text);
         editor.getSession().setValue("", -1);
         currentTask = null;
         this.game.paused = false;
-    }*/
+    }
 
   },
 
@@ -90,21 +88,26 @@ var testMoveLeft = function (text) {
 
 var testJump = function (text) {
 
+    tw = new TWUnit();
     var fakePlayer = player;
 
     eval("fakePlayer.jump =" + text);
 
     fakePlayer.cursors.up.isDown = true;
-    fakePlayer.move();
-    fakePlayer.cursors.up.isDown = false;
 
-    tw = new TWUnit();
-    tw.addAssert("Animation", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "Cambiar la animación al saltar cuando el jugador mira a la izquierda", "Porque no pruebas con el play....");
-    tw.addModule("Si el jugador esta mirando a la izquierda");
+    fakePlayer.jump();
     tw.addAssert("Animation", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "Cambiar la animación al saltar cuando el jugador mira a la derecha", "Porque no pruebas con el play....");
     tw.addModule("Si el jugador esta mirando a la derecha");
+    fakePlayer.cursors.up.isDown = false;
 
-    tw.runmodules();
+    /*fakePlayer.cursors.up.isDown = true;
+    fakePlayer.direction = State.LOOKINGLEFT;
+    fakePlayer.jump();
+    tw.addAssert("Animation", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "Cambiar la animación al saltar cuando el jugador mira a la izquierda", "Porque no pruebas con el play....");
+    tw.addModule("Si el jugador esta mirando a la izquierda");
+    fakePlayer.cursors.up.isDown = false;*/
+
+    tw.runModules();
 
     return tw.modulesOk();
 

@@ -191,8 +191,8 @@ Player.prototype = {
   /* */
   jump: function() {
 
-    /*
-    if ( this.jumpButton.isDown && this.playerCanJump() ) {
+    
+    /*if ( this.cursors.up.isDown && this.playerCanJump() ) {
       if (this.direction == State.LOOKINGLEFT) {
         this.sprite.play('player_animation_jumpLeft');
       }
@@ -200,10 +200,10 @@ Player.prototype = {
         this.sprite.play('player_animation_jumpRight');
       }
       if (this.runButton.isDown) {
-        this.sprite.body.velocity.y = this.MAX_VELOCITY_Y * (-1.2);
+        this.sprite.body.velocity.y = this.jumpSpeed * (1.2);
       }
       else {
-        this.sprite.body.velocity.y = this.MAX_VELOCITY_Y * (-1);
+        this.sprite.body.velocity.y = this.jumpSpeed;
       }
       this.jumpTime = this.game.time.now + 750;
      }*/
