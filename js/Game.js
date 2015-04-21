@@ -87,3 +87,25 @@ var testMoveLeft = function (text) {
 
     return tw.assertsOk();
 }
+
+var testJump = function (text) {
+
+    var fakePlayer = player;
+
+    eval("fakePlayer.jump =" + text);
+
+    fakePlayer.cursors.up.isDown = true;
+    fakePlayer.move();
+    fakePlayer.cursors.up.isDown = false;
+
+    tw = new TWUnit();
+    tw.addAssert("Animation", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "Cambiar la animación al saltar cuando el jugador mira a la izquierda", "Porque no pruebas con el play....");
+    tw.addModule("Si el jugador esta mirando a la izquierda");
+    tw.addAssert("Animation", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "Cambiar la animación al saltar cuando el jugador mira a la derecha", "Porque no pruebas con el play....");
+    tw.addModule("Si el jugador esta mirando a la derecha");
+
+    tw.runmodules();
+
+    return tw.modulesOk();
+
+}
