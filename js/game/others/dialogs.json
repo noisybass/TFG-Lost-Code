@@ -1,0 +1,34 @@
+{
+	"dialogs": [
+
+		[
+			{"turn": 1, "text": "Hola Sara" },
+			{"turn": 2, "text": "Hola Pepe" },
+			{"turn": 2, "text": "Ayer no pare" },
+			{"turn": 1, "text": "¿Que tal estas?" },
+			{"turn": 2, "text": "Bien, ¿y tu?" },
+			{"turn": 1, "text": "Bien tambien, aunque anoche se lio un poco" },
+			{"turn": 2, "text": "¿y eso?" },
+			{"turn": 1, "text": "¿Tu que crees..?" }
+		
+		],
+
+		[
+			{"turn": 1, "text": "Dialogo 2" }
+		]
+	],
+
+	"configs": [
+
+		[
+			{"turn": 1, "src": "Dialogs/img/pepe.png", "color": "blue"},
+			{"turn": 2, "src": "Dialogs/img/sara.png", "color": "rgb(206, 0, 143)"}
+		],
+
+		[	
+			{"turn": 1, "src": "Dialogs/img/pepe.png", "color": "blue"},
+			{"turn": 2, "src": "Dialogs/img/sara.png", "color": "rgb(206, 0, 143)"}
+		]
+	]
+
+}

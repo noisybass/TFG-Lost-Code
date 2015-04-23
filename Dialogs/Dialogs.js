@@ -28,32 +28,38 @@
 */
 
 
-////////////////////////////////////////////////
-// Datos que se cargan desde un JSON externo
-////////////////////////////////////////////////
-var config = [
-	{"turn": 1, "src": "Dialogs/img/pepe.png", "color": "blue"},
-	{"turn": 2, "src": "Dialogs/img/sara.png", "color": "rgb(206, 0, 143)"}
-];
-
-var txt = [
-	{"turn": 1, "text": "Hola Sara" },
-	{"turn": 2, "text": "Hola Pepe" },
-	{"turn": 2, "text": "Ayer no pare" },
-	{"turn": 1, "text": "¿Que tal estas?" },
-	{"turn": 2, "text": "Bien, ¿y tu?" },
-	{"turn": 1, "text": "Bien tambien, aunque anoche se lio un poco" },
-	{"turn": 2, "text": "¿y eso?" },
-	{"turn": 1, "text": "¿Tu que crees..?" },
-];
-
+var dialogs;	// All dialogs, loaded from JSON
+var configs;	// All dialog's config, loaded from JSON
+var txt;		// Current dialog
+var config;		// Current dialog's config
 var pos = 0;
-////////////////////////////////////////////////
 
 
 $(document).ready(function(){
-	init();	
+
+	// Load JSON file with dialogs
+	$.getJSON( "js/game/others/dialogs.json", function(data) {
+		dialogs = data.dialogs;
+		configs = data.configs;
+		loadDialog(1);	
+	});
+
+	
 });
+
+function loadDialog(number) {
+	txt = dialogs[number];
+	config = configs[number];
+	init();
+};
+
+function showDialog() {
+	$('#dialog_container').fadeIn(500);
+}
+
+function hideDialog() {
+	$('#dialog_container').fadeOut(500);	
+}
 
 
 /* 
@@ -69,6 +75,7 @@ function init(configuration, data, position) {
 	$('#dialog_container').prepend('<div id="text_container"><p class="text"></p></div>');
 	$('#dialog_container').prepend('<img id="right_person" class="gray" src="' + config[0].src + '" />');
 	$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + config[1].src +'" />');
+	showDialog();
 	next();
 }
 
@@ -100,7 +107,7 @@ $('.dialog_button').click(function(){
 	else {
 		// Lanzar evento que notifique al juego de que ha terminado el dialogo
 		// Ejemplo: los dialogos desaparecen	
-		$('#dialog_container').fadeOut(500);
+		hideDialog();
 	}
 });
 
