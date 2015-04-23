@@ -1,9 +1,0 @@
-div#dialog {
-	min-width: 50px;
-	min-height: 100px;
-	border: 2px solid black;
-}
-
-div#dialog > button {
-	position: fixed;
-}

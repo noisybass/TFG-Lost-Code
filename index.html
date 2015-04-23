@@ -25,7 +25,6 @@
         <script type="text/javascript" src="js/game/others/Blocks.js"></script>
 
         <!-- Fonts -->
-        <!-- <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'> -->
         <link href='fonts/IndieFlower.ttf'>
 
         <!-- JQuery -->
@@ -40,6 +39,7 @@
 
         <!-- ACE -->
         <script type="text/javascript" src="ace/ace-functions.js"></script>
+        <link href="Dialogs/dialogs_style.css" rel="stylesheet">
 
 	</head>
 
@@ -71,8 +71,16 @@
 			
 			<div class="row">
 				<div class="col-md-7">
+					<!-- Game canvas -->
 					<div id="game-canvas"></div>
 					<h3><span class="glyphicon glyphicon-check"></span> Test / Tareas</h3>
+
+					<!-- Dialogs -->
+			        <div id="dialog_container">
+			            <button class="dialog_button">Continue</button>
+			        </div>
+
+					<!-- Test TWUnit-->
 					<div id="twunit"></div>
 				</div>	
 
@@ -112,5 +120,8 @@
 
 		<!-- ACE CONFIGURATION -->
 		<script src="ace/conf.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript" src="Dialogs/Dialogs.js"></script>
+
 	</body>
 </html>
