@@ -3,18 +3,17 @@
 
 		[
 			{"turn": 1, "text": "Hola Sara" },
-			{"turn": 2, "text": "Hola Pepe" },
-			{"turn": 2, "text": "Ayer no pare" },
-			{"turn": 1, "text": "¿Que tal estas?" },
-			{"turn": 2, "text": "Bien, ¿y tu?" },
-			{"turn": 1, "text": "Bien tambien, aunque anoche se lio un poco" },
-			{"turn": 2, "text": "¿y eso?" },
-			{"turn": 1, "text": "¿Tu que crees..?" }
+			{"turn": 1, "text": "Para comenzar, camina a la derecha" },
+			{"turn": 2, "text": "Hola Pepe, de acuerdo!!" }
 		
 		],
 
 		[
-			{"turn": 1, "text": "Dialogo 2" }
+			{"turn": 1, "text": "Como ves, cuando topas con un cartel significa que hay algo que tienes que resolver programando." },
+			{"turn": 2, "text": "Entiendo" },
+			{"turn": 1, "text": "En ese momento, nuestro mundo se pausará y entonces se activará el editor de texto de la derecha" },
+			{"turn": 2, "text": "Que guay!!" },
+			{"turn": 1, "text": "El recuadro de debajo te informará sobre los errores que hayas cometido en el código" }
 		]
 	],
 

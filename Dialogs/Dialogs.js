@@ -41,12 +41,14 @@ $(document).ready(function(){
 	$.getJSON( "js/game/others/dialogs.json", function(data) {
 		dialogs = data.dialogs;
 		configs = data.configs;
-		loadDialog(1);	
+		//loadDialog(1);	
 	});
 
 	
 });
 
+// This will load on screen the dialog loaded form Dialog.json at number position.
+// when dialog is over, then dialog window will be hidden automaticaly.
 function loadDialog(number) {
 	txt = dialogs[number];
 	config = configs[number];
@@ -62,16 +64,8 @@ function hideDialog() {
 }
 
 
-/* 
- * Parameters:
- *   - configuration : { turn, src, color }
- *   - data          : { turn, text }
- *   - position      : default 0
- */
-function init(configuration, data, position) {
-	// config = configuration;
-	// txt = data;
-	// pos = pos;
+function init() {
+
 	$('#dialog_container').prepend('<div id="text_container"><p class="text"></p></div>');
 	$('#dialog_container').prepend('<img id="right_person" class="gray" src="' + config[0].src + '" />');
 	$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + config[1].src +'" />');
@@ -108,6 +102,7 @@ $('.dialog_button').click(function(){
 		// Lanzar evento que notifique al juego de que ha terminado el dialogo
 		// Ejemplo: los dialogos desaparecen	
 		hideDialog();
+		setTask();	
 	}
 });
 
