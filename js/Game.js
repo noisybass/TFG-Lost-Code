@@ -67,17 +67,25 @@ TFG.Game.prototype = {
 
 
 var testMoveLeft = function (text) {
-
+    tw = new TWUnit();
     var fakePlayer = player;
 
-    eval("fakePlayer.move =" + text);
+    try {
+        eval("fakePlayer.move =" + text);
+    }
+    catch(e){
+        console.log(e);
+        tw.addAssert("Error de compilación", true == false, "", e.message);
+        tw.runAsserts();
+        return false;
+    }
 
     fakePlayer.cursors.left.isDown = true;
-    fakePlayer.move();
+        fakePlayer.move();
     fakePlayer.cursors.left.isDown = false;
 
-    tw = new TWUnit();
-    tw.addAssert("Animation", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
+    
+    tw.addAssert("Animación", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
     tw.addAssert("Direccion", fakePlayer.direction == State.LOOKINGLEFT, "Cambiar sprite para que mire hacia la izquierda.", "Podrías mirar el objeto State, aver que se te ocurre...");
     tw.addAssert("Velocidad", fakePlayer.sprite.body.velocity.x == fakePlayer.MAX_VELOCITY_X * (-1), "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
     tw.runAsserts();
