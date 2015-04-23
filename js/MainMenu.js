@@ -28,16 +28,13 @@ TFG.MainMenu.prototype = {
 
   
     var button_play = this.game.add.button(this.w/2 - 50, this.h/2, 'button_play_img', this.playGame, this);
-    console.log(button_play);
 
-
-
-    /*
-    var text = "Tap to begin";
-    var style = { font: "30px Arial", fill: "#000", align: "center" };
-    var t = this.game.add.text(this.game.width/2, this.game.height/2, text, style);
+    
+    var text = "Desarrollado por: \nLaura María de Castro Saturio \nMariano Hernández García \nSamuel García Segador";
+    var style = { font: "14px Arial", fill: "#000", align: "left" };
+    var t = this.game.add.text(this.w - 110, this.h - 40, text, style);
     t.anchor.set(0.5);
-    */
+    
   },
 
   update: function() {
