@@ -99,6 +99,7 @@ $('.dialog_button').click(function(){
 	}
 	else {
 		// Lanzar evento que notifique al juego de que ha terminado el dialogo
+		// Ejemplo: los dialogos desaparecen	
 		$('#dialog_container').fadeOut(500);
 	}
 });

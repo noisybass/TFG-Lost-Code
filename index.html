@@ -30,16 +30,19 @@
         <!-- JQuery -->
         <script src="jQuery/jQuery.js" type="text/javascript" charset="utf-8"></script>
 
-        <!-- Boostrap -->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- TWUnit -->
         <script type="text/javascript" src="TWUnit/TWUnit.js"></script>
 
         <!-- ACE -->
         <script type="text/javascript" src="ace/ace-functions.js"></script>
+
+        <!-- Dialogs -->
         <link href="Dialogs/dialogs_style.css" rel="stylesheet">
+
+        <!-- Boostrap -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
 	</head>
 
@@ -68,17 +71,24 @@
 				</button>
 			</div>
 
+			<!-- Body -->
 			
-			<div class="row">
+			<div id="content" class="row">
+
 				<div class="col-md-7">
+					
 					<!-- Game canvas -->
-					<div id="game-canvas"></div>
+					<div id="game-canvas">
+						<!-- Dialogs -->
+				        <div id="dialog_container">
+				            <button class="dialog_button">Continue</button>
+				        </div>
+					</div>
+					
+
 					<h3><span class="glyphicon glyphicon-check"></span> Test / Tareas</h3>
 
-					<!-- Dialogs -->
-			        <div id="dialog_container">
-			            <button class="dialog_button">Continue</button>
-			        </div>
+					
 
 					<!-- Test TWUnit-->
 					<div id="twunit"></div>
@@ -116,11 +126,11 @@
 		</div>
 		<!-- ****************************** -->
 
-
+		<!-- For better performance, scripts will go at the end-->
 
 		<!-- ACE CONFIGURATION -->
 		<script src="ace/conf.js" type="text/javascript" charset="utf-8"></script>
-
+		<!-- Dialogs -->
 		<script type="text/javascript" src="Dialogs/Dialogs.js"></script>
 
 	</body>
