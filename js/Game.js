@@ -26,11 +26,20 @@ TFG.Game.prototype = {
     // Ejecutar la funcion de test correspondiente y obtener el resultado
 
     /* 3.1- Si ha acertado ejecutamos su codigo, eliminamos el codigo del editor, currentTask = null y desbloqueamos el juego */
-    if (eval(currentTask.test)) {
-        eval(currentTask.target + "=" + text);
-        editor.getSession().setValue("", -1);
-        currentTask = null;
-        this.game.paused = false;
+    
+    try{
+        if (eval(currentTask.test)) {
+            eval(currentTask.target + "=" + text);
+            editor.getSession().setValue("", -1);
+            currentTask = null;
+            this.game.paused = false;
+        }
+    }
+    catch(e){
+        console.log(e);
+        tw = new TWUnit();
+        tw.addAssert("Error de compilación", true == false, "", e.message);
+        tw.runAsserts();
     }
 
   },
@@ -70,15 +79,7 @@ var testMoveLeft = function (text) {
     tw = new TWUnit();
     var fakePlayer = player;
 
-    try {
-        eval("fakePlayer.move =" + text);
-    }
-    catch(e){
-        console.log(e);
-        tw.addAssert("Error de compilación", true == false, "", e.message);
-        tw.runAsserts();
-        return false;
-    }
+    eval("fakePlayer.move =" + text);
 
     fakePlayer.cursors.left.isDown = true;
         fakePlayer.move();
