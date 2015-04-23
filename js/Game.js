@@ -22,6 +22,11 @@ TFG.Game.prototype = {
     /* 1- Obtener el codigo */
     var text = editor.getValue();
 
+    //habilitamos los eventos para poder lanzar eventos virtuales
+    this.game.input.disabled = false;
+    clearListeners.call(this);
+
+
     /* 2- Testear el codigo */
     // Ejecutar la funcion de test correspondiente y obtener el resultado
 
@@ -34,12 +39,18 @@ TFG.Game.prototype = {
             currentTask = null;
             this.game.paused = false;
         }
+        else {
+            // volver a deshabilitar los eventos para poder escribir bien en ace
+            this.game.input.disabled = true;
+        }
     }
     catch(e){
         console.log(e);
         tw = new TWUnit();
         tw.addAssert("Error de compilación", true == false, "", e.message);
         tw.runAsserts();
+        // volver a deshabilitar los eventos para poder escribir bien en ace
+        this.game.input.disabled = true;
     }
 
   },
@@ -120,4 +131,21 @@ var testJump = function (text) {
 
     return tw.modulesOk();
 
+}
+
+/*
+Suposicion: al deshabilitar los eventos, si pulsas las teclas quedan registrados
+como pulsada, pero no se ejecuta, y por lo tanto cuando lo habilitas siguen estando 
+ahí los eventos, por lo tanto lo que se me ha ocurrido es coger todos las teclas que 
+se pueden pulsar y ponerlas a false como voy a hacer a continuacion.
+
+Probablemente lo mejor es que esta función la tenga la clase Player, pero lo dejo
+aquí ahora para que lo veais.
+*/
+var clearListeners = function (){
+    this.cursors.left.isDown = false;
+    this.cursors.down.isDown = false;
+    this.cursors.up.isDown = false;
+    this.cursors.right.isDown = false;
+    this.runButton.isDown = false;
 }

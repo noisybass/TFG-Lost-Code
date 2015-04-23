@@ -65,6 +65,7 @@ Player.prototype = {
     currentTask = block.data;
     block.destroy();
     setTask();
+    player.game.input.disabled = true;
   },
 
   /* */
