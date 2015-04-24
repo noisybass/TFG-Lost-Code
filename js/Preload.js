@@ -15,6 +15,7 @@ TFG.Preload.prototype = {
     this.load.setPreloadSprite(this.preloadBar);
 
     // Load Assets
+    this.loadMainMenuAssets();
     this.loadPlayerAssets();
     this.loadLevelAssets();
     this.loadEnemiesAssets();
@@ -24,6 +25,12 @@ TFG.Preload.prototype = {
   create:function() {
 
     this.game.state.start('MainMenu');
+  },
+
+  loadMainMenuAssets: function() {
+      this.game.load.image('menu', 'assets/img/mainScreen.png');
+      this.game.load.image('title', 'assets/img/mainTitle.png');
+      this.game.load.image('button_play_img', 'assets/img/button.png');
   },
 
   loadPlayerAssets: function() {
@@ -69,6 +76,7 @@ TFG.Preload.prototype = {
 
     this.game.load.spritesheet('buildings-sheet', 'assets/img/map-tiles/buildings-sheet.png', 70, 70, 98);
     this.game.load.spritesheet('items-sheet', 'assets/img/map-tiles/items-sheet.png', 70, 70, 72);
+    this.game.load.spritesheet('clouds', 'assets/img/map-tiles/clouds.png', 136, 70, 3);
 
     /*this.game.load.spritesheet('coin_spritesheet', 'assets/images/coins.png', 34, 34, 3);
     this.game.load.spritesheet('eBlock_spritesheet', 'assets/images/eBlocks.png', 34, 32, 3);

@@ -4,14 +4,11 @@ TFG.MainMenu = function() {};
 
   var w;
   var h;
+  var cloud_group;
 
 TFG.MainMenu.prototype = {
 
   preload: function() {
-    this.game.load.image('menu', 'assets/img/mainScreen.png');
-    this.game.load.image('title', 'assets/img/mainTitle.png');
-    this.game.load.image('button_play_img', 'assets/img/button.png');
-
     this.w = this.game.width;
     this.h = this.game.height;
   },
@@ -19,16 +16,21 @@ TFG.MainMenu.prototype = {
   create: function() {
     
     // Menu settings...
-    // Start game text
     this.game.stage.backgroundColor = '#009DFF';
+
+    // Background
     var bg = this.game.add.sprite(this.w/2,this.h/2,'menu');
     bg.anchor.setTo(0.5,0.5);
 
+    // Game title
     var title = this.game.add.sprite(this.w/2 - 250,this.h/2-200,'title');
 
-  
+    // Buttons
     var button_play = this.game.add.button(this.w/2 - 50, this.h/2, 'button_play_img', this.playGame, this);
 
+    // Clouds
+    this.cloud_group = this.game.add.group();
+    this.cloud_group.create(0,0,'clouds');
     
     var text = "Desarrollado por: \nLaura María de Castro Saturio \nMariano Hernández García \nSamuel García Segador";
     var style = { font: "14px Arial", fill: "#000", align: "left" };
@@ -38,11 +40,16 @@ TFG.MainMenu.prototype = {
   },
 
   update: function() {
-    /*
-    if(this.game.input.activePointer.justPressed()) {
-      this.game.state.start('Game');
-    }
-    */
+    var that = this;
+    this.cloud_group.forEach(function(cloud){
+      cloud.vx = 0.5;
+      cloud.z = -5;
+      cloud.x -= cloud.vx;
+      if ( cloud.x < -140 ) {
+        cloud.destroy();
+        that.cloud_group.create(this.game.width, that.game.rnd.integer() % this.game.height, 'clouds');
+      }
+    }, this);
   },
 
   playGame: function() {

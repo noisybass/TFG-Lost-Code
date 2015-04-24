@@ -33,7 +33,7 @@ Player.prototype = {
 		this.sprite = this.game.add.sprite(x,y,key,frame);
     this.game.physics.enable(this.sprite);
     this.game.camera.follow(this.sprite);
-    //this.game.camera.view.height = 100;
+    this.game.camera.view.height = 200;
     this.addAnimations();
     this.sprite.body.collideWorldBounds = true; //Should the Body collide with the World bounds?
   
