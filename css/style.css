@@ -33,6 +33,11 @@ div#dialog_container {
 	/* display: none; */
 }
 
+img#dialog_box {
+	width: 750px;
+	height: 80px;
+}
+
 div#text_container {
 	min-width: 750px;
 }

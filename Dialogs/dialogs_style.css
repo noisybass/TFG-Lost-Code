@@ -4,14 +4,15 @@ div#dialog_container {
 	display: none;		/* Para ocultarlo */
 }
 
+
 div#text_container{
 	max-width: 500px;
 	min-height: 80px;
-	border: 2px solid rgb(128,128,128);
-	background-color: rgb(230,230,230);
-	border-radius: 10px;
-	padding-left: 10px;
-	margin-top: 220px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 25px;
+	margin-top: 225px;
+	background-image: url("./img/box_yellow.png");
 }
 
 img#left_person {
@@ -29,7 +30,7 @@ img#right_person {
 
 img#left_person, img#right_person {
 	-webkit-transition: all 500ms;
-	margin-top: 80px;
+	margin-top: 100px;
 	position: absolute;
 	z-index: -1;
 }

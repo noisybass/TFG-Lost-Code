@@ -65,7 +65,6 @@ function hideDialog() {
 
 
 function init() {
-
 	$('#dialog_container').prepend('<div id="text_container"><p class="text"></p></div>');
 	$('#dialog_container').prepend('<img id="right_person" class="gray" src="' + config[0].src + '" />');
 	$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + config[1].src +'" />');
