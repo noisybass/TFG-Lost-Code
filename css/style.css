@@ -11,6 +11,10 @@ div#menu {
 	margin-bottom: 	5px;
 }
 
+div#content  {
+
+}
+
 button#button_menu {
 	border: none;
 	background-color: rgba(0,0,0,0);
@@ -19,6 +23,23 @@ button#button_menu {
 
 #game-canvas {
 	
+}
+
+div#dialog_container {
+	/* max-height: 50px; */
+	margin-top: 198px;
+	position: absolute;
+	z-index: 2;
+	/* display: none; */
+}
+
+img#dialog_box {
+	width: 750px;
+	height: 80px;
+}
+
+div#text_container {
+	min-width: 750px;
 }
 
 div#statement {

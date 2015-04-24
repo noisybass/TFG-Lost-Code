@@ -21,6 +21,9 @@ Player = function(game) {
   // Player constants
   this.walkSpeed = 150;
   this.jumpSpeed = -250;
+
+  //Dialog
+  this.dialogIndex = 1;
 };
 
 Player.prototype = {
@@ -37,6 +40,8 @@ Player.prototype = {
     // Create the player's input controls
     this.cursors    = this.game.input.keyboard.createCursorKeys();
     this.runButton  = this.game.input.keyboard.addKey(Phaser.Keyboard.C);
+
+    //loadDialog(0);
 	},
 
 
@@ -64,8 +69,9 @@ Player.prototype = {
     this.game.paused = true;
     currentTask = block.data;
     block.destroy();
-    setTask();
     player.game.input.disabled = true;
+    loadDialog(this.dialogIndex);
+    this.dialogIndex++;
   },
 
   /* */

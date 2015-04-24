@@ -1,0 +1,49 @@
+div#dialog_container {
+	min-width: 750px;
+	max-width: 750px;
+	display: none;		/* Para ocultarlo */
+}
+
+
+div#text_container{
+	max-width: 500px;
+	min-height: 80px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 25px;
+	margin-top: 225px;
+	background-image: url("./img/box_yellow.png");
+}
+
+img#left_person {
+	margin-right: 0px;
+}
+
+img#left_person.gray, img#right_person.gray {
+	-webkit-filter: grayscale(100%);
+}
+
+img#right_person {
+	margin-left: 630px;
+}
+
+
+img#left_person, img#right_person {
+	-webkit-transition: all 500ms;
+	margin-top: 100px;
+	position: absolute;
+	z-index: -1;
+}
+
+.text {
+	font-family: 'Indie Flower', cursive;
+}
+
+div#dialog_container > button {
+	border-radius: 10px;
+	background-color: rgb(240,240,240);	
+	float: right;
+	margin-top: -30px;
+	margin-right: 10px;
+}
+
