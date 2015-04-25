@@ -70,6 +70,7 @@ Player.prototype = {
     currentTask = block.data;
     block.destroy();
     player.game.input.disabled = true;
+    $('#task').html("<span class=\"glyphicon glyphicon-exclamation-sign\"></span>" + currentTask.task);
     loadDialog(this.dialogIndex);
     this.dialogIndex++;
   },

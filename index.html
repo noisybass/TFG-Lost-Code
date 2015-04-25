@@ -5,7 +5,30 @@
 		<meta charset="UTF-8">
 		<title> Game </title>
 
-		<script type="text/javascript" src="js/phaser.js"></script>
+		<!-- Phaser -->
+		<script type="text/javascript" src="utils/Phaser/phaser.js"></script>
+
+		<!-- JQuery -->
+        <script type="text/javascript" src="utils/jQuery/jQuery.js" charset="utf-8" ></script>
+
+        <!-- TWUnit -->
+        <script type="text/javascript" src="utils/TWUnit/TWUnit.js"></script>
+
+        <!-- Ace extra functions-->
+        <script type="text/javascript" src="utils/ace/ace-functions.js"></script>
+
+        <!-- Boostrap -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Dialogs -->
+        <link href="Dialogs/dialogs_style.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href='fonts/IndieFlower.ttf'>
+
+
+
 		<script type="text/javascript" src="js/Boot.js"></script>
 		<script type="text/javascript" src="js/Preload.js"></script>
 		<script type="text/javascript" src="js/MainMenu.js"></script>
@@ -24,35 +47,19 @@
         <script type="text/javascript" src="js/game/others/EndLevel.js"></script>
         <script type="text/javascript" src="js/game/others/Blocks.js"></script>
 
-        <!-- Fonts -->
-        <link href='fonts/IndieFlower.ttf'>
-
-        <!-- JQuery -->
-        <script src="jQuery/jQuery.js" type="text/javascript" charset="utf-8"></script>
-
-
-        <!-- TWUnit -->
-        <script type="text/javascript" src="TWUnit/TWUnit.js"></script>
-
-        <!-- ACE -->
-        <script type="text/javascript" src="ace/ace-functions.js"></script>
-
-        <!-- Dialogs -->
-        <link href="Dialogs/dialogs_style.css" rel="stylesheet">
-
-        <!-- Boostrap -->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
 	</head>
 
 	<body>
-		<!-- SCRIPTS -->
-		<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
-		<script src="ace/theme-monokai.js" type="text/javascript" charset="utf-8"></script>
-		<script src="ace/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
-		<script src="ace/worker-javascript.js" type="text/javascript" charset="utf-8"></script>
-		<script src="bootstrap/bootstrap.min.js"></script>
+		<!-- Ace -->
+		<script src="utils/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="utils/ace/theme-monokai.js" type="text/javascript" charset="utf-8"></script>
+		<script src="utils/ace/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+		<script src="utils/ace/worker-javascript.js" type="text/javascript" charset="utf-8"></script>
+
+		<!-- Bootstrap -->
+		<script src="utils/bootstrap/bootstrap.min.js"></script>
+
+		<!-- Main -->
 		<script src="js/Main.js" type="text/javascript" charset="utf-8"></script>
 
 		<!-- STRUCTURE -->
@@ -72,7 +79,6 @@
 			</div>
 
 			<!-- Body -->
-			
 			<div id="content" class="row">
 
 				<div class="col-md-7">
@@ -97,10 +103,8 @@
 				<div class="col-md-5">
 
 					<div id="code-editor" class="row">
-						<div id="statement">
-							<span class="glyphicon glyphicon-exclamation-sign"></span>
-							Haz que el jugador camine a la izquierda
-						</div>
+						<div id="task">	</div>
+						
 						<div id="editor"> </div>
 						
 						<div id="editor-buttons" class="row">
@@ -129,7 +133,7 @@
 		<!-- For better performance, scripts will go at the end-->
 
 		<!-- ACE CONFIGURATION -->
-		<script src="ace/conf.js" type="text/javascript" charset="utf-8"></script>
+		<script src="utils/ace/conf.js" type="text/javascript" charset="utf-8"></script>
 		<!-- Dialogs -->
 		<script type="text/javascript" src="Dialogs/Dialogs.js"></script>
 

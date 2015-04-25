@@ -1,8 +1,7 @@
 {
 	"goals": [
 		{
-			"goal": "moveLeft",
-			"description": "Aprende a moverte hacia la izquierda",
+			"task": "Haz que el jugador se mueva hacia la izquierda",
 			"code": "function move() {\n\n\tif (this.cursors.right.isDown) {\n\t\tthis.sprite.play('player_animation_moveRight', 5, true);\n\t\tthis.sprite.body.velocity.x = this.walkSpeed;\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.direction = State.LOOKINGRIGHT;\n\t\t}\n\t}\n\n\n\n\telse {\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.sprite.play('player_animation_standUpLeft');\n\t\t}\n\t\telse if (this.direction == State.LOOKINGRIGHT) {\n\t\t\tthis.sprite.play('player_animation_standUpRight');\n\t\t}\n\t\tthis.sprite.body.velocity.x = 0;\n\t}\n}\n",
 			"target": "move",
 			"range1": [0,0,8,2],
@@ -10,8 +9,7 @@
 			"test": "testMoveLeft(text)"
 		},
 		{
-			"goal": "jump",
-			"description": "Aprende a saltar",
+			"goal": "Haz que el jugador pueda saltar",
 			"code": "function jump(){\n\n\t if ( this.cursors.up.isDown && this.playerCanJump() ) { \n\t\t if (this.direction == State.LOOKINGLEFT) { \n\t\t\t  this.sprite.play('player_animation_jumpLeft'); \n\t\t } \n\t\t else if (this.direction == State.LOOKINGRIGHT) { \n\t\t\t  this.sprite.play('player_animation_jumpRight'); \n\t\t } \n\t\t if (this.runButton.isDown) { \n\t\t\t  this.sprite.body.velocity.y = this.jumpSpeed * (1.2); \n\t\t } \n\t\t else { \n\t\t\t  this.sprite.body.velocity.y = this.jumpSpeed; \n\t\t } \n\t\t this.jumpTime = this.game.time.now + 750; \n\t}\n}\n",
 			"target": "jump",
 			"range1": [0,0,0,0],
