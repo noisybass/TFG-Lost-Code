@@ -30,7 +30,7 @@ TFG.Preload.prototype = {
   loadMainMenuAssets: function() {
       this.game.load.image('menu', 'assets/img/mainScreen.png');
       this.game.load.image('title', 'assets/img/mainTitle.png');
-      this.game.load.image('button_play_img', 'assets/img/button.png');
+      this.game.load.image('play-button', 'assets/img/play-button.png');
   },
 
   loadPlayerAssets: function() {

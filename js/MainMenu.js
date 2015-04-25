@@ -26,7 +26,7 @@ TFG.MainMenu.prototype = {
     var title = this.game.add.sprite(this.w/2 - 250,this.h/2-200,'title');
 
     // Buttons
-    var button_play = this.game.add.button(this.w/2 - 50, this.h/2, 'button_play_img', this.playGame, this);
+    var button_play = this.game.add.button(this.w/2 - 50, this.h/2, 'play-button', this.playGame, this);
 
     // Clouds
     this.cloud_group = this.game.add.group();
