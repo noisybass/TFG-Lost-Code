@@ -12,7 +12,8 @@ div#text_container{
 	padding-right: 20px;
 	padding-top: 25px;
 	margin-top: 225px;
-	background-image: url("./img/box_yellow.png");
+	background-image: url("./img/glassPanel.png");
+	background-repeat: no-repeat;
 }
 
 img#left_person {
@@ -41,9 +42,9 @@ img#left_person, img#right_person {
 
 div#dialog_container > button {
 	border-radius: 10px;
-	background-color: rgb(240,240,240);	
 	float: right;
 	margin-top: -30px;
 	margin-right: 10px;
+
 }
 
