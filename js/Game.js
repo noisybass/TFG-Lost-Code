@@ -29,7 +29,7 @@ TFG.Game.prototype = {
 
 
         // 3- Testear el código
-        //try{
+        try{
             if (eval(currentTask.test)) {
                 eval(currentTask.target + "=" + text);
                 editor.getSession().setValue("", -1);
@@ -40,7 +40,7 @@ TFG.Game.prototype = {
                 // volver a deshabilitar los eventos para poder escribir bien en ace
                 this.game.input.disabled = true;
             }
-        /*}
+        }
         catch(e){
             console.log(e);
             tw = new TWUnit();
@@ -48,7 +48,7 @@ TFG.Game.prototype = {
             tw.runAsserts();
             // volver a deshabilitar los eventos para poder escribir bien en ace
             this.game.input.disabled = true;
-        }*/
+        }
 
         }
 
@@ -88,6 +88,7 @@ TFG.Game.prototype = {
 var testMoveLeft = function (text) {
 
     tw = new TWUnit();
+    //var fakePlayer = jQuery.extend(true, {}, player);
     var fakePlayer = player;
 
     eval("fakePlayer.move =" + text);
@@ -109,6 +110,7 @@ var testMoveLeft = function (text) {
 var testJump = function (text) {
 
     tw = new TWUnit();
+    //var fakePlayer = jQuery.extend(true, {}, player);
     var fakePlayer = player;
 
     eval("fakePlayer.jump =" + text);

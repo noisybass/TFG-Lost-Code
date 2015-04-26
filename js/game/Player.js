@@ -64,6 +64,11 @@ Player.prototype = {
     currentTask = block.data;
     block.destroy();
     player.game.input.disabled = true;
+
+    /*
+    En el primer desafio todo correcto, pero cuando va a ejecuat el segundo
+    desafio salta un error. Por esta razó lo he comentado para poder seguir.
+    */
     //loadDialog(this.dialogIndex);
     //this.dialogIndex++;
     setTask();
@@ -133,8 +138,8 @@ Player.prototype = {
     this.sprite.animations.add('player_animation_moveRight', [13,14]);
     this.sprite.animations.add('player_animation_standUpLeft', [6]);
     this.sprite.animations.add('player_animation_standUpRight', [12]);
-    this.sprite.animations.add('player_animation_jumpLeft', [18]);
-    this.sprite.animations.add('player_animation_jumpRight', [4]);
+    this.sprite.animations.add('player_animation_jumpLeft', [19]);
+    this.sprite.animations.add('player_animation_jumpRight', [21]);
     this.sprite.animations.add('player_animation_goDownLeft', [26]);
     this.sprite.animations.add('player_animation_goDownRight', [12]);
   },
@@ -142,20 +147,28 @@ Player.prototype = {
 
   move: function() {
     if (this.cursors.right.isDown) {
-      this.sprite.play('player_animation_moveRight', 5, true);
       this.sprite.body.velocity.x = this.walkSpeed;
-      if (this.direction == State.LOOKINGLEFT) {
+
+      if (this.sprite.body.onFloor()){
+        this.sprite.play('player_animation_moveRight', 5, true);
+      }
+      
+      if (this.direction == State.LOOKINGLEFT ) {
         this.direction = State.LOOKINGRIGHT;
       }
     }
     /*
     else if (this.cursors.left.isDown) {
-      this.sprite.play('player_animation_moveLeft', 5, true);
       this.sprite.body.velocity.x = -this.walkSpeed;
+
+      if (this.sprite.body.onFloor()){
+        this.sprite.play('player_animation_moveLeft', 5, true);
+      }
+
       if (this.direction == State.LOOKINGRIGHT) {
         this.direction = State.LOOKINGLEFT;
       }
-    }
+    } 
     */
 		else {
       if (this.direction == State.LOOKINGLEFT) {
