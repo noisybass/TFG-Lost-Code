@@ -48,12 +48,15 @@ var addRanges = function(r1, r2) {
 }
 
 var setTask = function() {
-    if (markerId1 || markerId2) {
-        restartEditor();
+    if(currentTask) {
+        if (markerId1 || markerId2) {
+            restartEditor();
+        }
+        $('#task').html("<span class=\"glyphicon glyphicon-exclamation-sign\"></span>" + currentTask.task);
+        editor.getSession().setValue(currentTask.code, -1);
+        addRanges(currentTask.range1, currentTask.range2);
+        editor.setReadOnly(false);
     }
-    editor.getSession().setValue(currentTask.code, -1);
-    addRanges(currentTask.range1, currentTask.range2);
-    editor.setReadOnly(false);
 }
 
 var restartEditor = function() {

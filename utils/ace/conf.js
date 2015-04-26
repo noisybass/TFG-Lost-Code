@@ -1,4 +1,5 @@
 var editor = ace.edit("editor");
+editor.$blockScrolling = Infinity;
 editor.setTheme("ace/theme/monokai");
 var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
 editor.getSession().setMode(new JavaScriptMode());

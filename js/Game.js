@@ -19,39 +19,38 @@ TFG.Game.prototype = {
 
   submitCode: function() {
 
-    /* 1- Obtener el codigo */
-    var text = editor.getValue();
+    if(currentTask) {
+        // 1- Si tenemos una tarea pendiente obtenemos el codigo del editor 
+        var text = editor.getValue();
 
-    //habilitamos los eventos para poder lanzar eventos virtuales
-    this.game.input.disabled = false;
-    clearListeners.call(this);
+        // 2- Habilitamos los eventos para poder lanzar eventos virtuales
+        this.game.input.disabled = false;
+        clearListeners.call(this);
 
 
-    /* 2- Testear el codigo */
-    // Ejecutar la funcion de test correspondiente y obtener el resultado
-
-    /* 3.1- Si ha acertado ejecutamos su codigo, eliminamos el codigo del editor, currentTask = null y desbloqueamos el juego */
-    
-    try{
-        if (eval(currentTask.test)) {
-            eval(currentTask.target + "=" + text);
-            editor.getSession().setValue("", -1);
-            currentTask = null;
-            this.game.paused = false;
-        }
-        else {
+        // 3- Testear el código
+        //try{
+            if (eval(currentTask.test)) {
+                eval(currentTask.target + "=" + text);
+                editor.getSession().setValue("", -1);
+                currentTask = null;
+                this.game.paused = false;
+            }
+            else {
+                // volver a deshabilitar los eventos para poder escribir bien en ace
+                this.game.input.disabled = true;
+            }
+        /*}
+        catch(e){
+            console.log(e);
+            tw = new TWUnit();
+            tw.addAssert("Error de compilación", true == false, "", e.message);
+            tw.runAsserts();
             // volver a deshabilitar los eventos para poder escribir bien en ace
             this.game.input.disabled = true;
+        }*/
+
         }
-    }
-    catch(e){
-        console.log(e);
-        tw = new TWUnit();
-        tw.addAssert("Error de compilación", true == false, "", e.message);
-        tw.runAsserts();
-        // volver a deshabilitar los eventos para poder escribir bien en ace
-        this.game.input.disabled = true;
-    }
 
   },
 
@@ -87,6 +86,7 @@ TFG.Game.prototype = {
 
 
 var testMoveLeft = function (text) {
+
     tw = new TWUnit();
     var fakePlayer = player;
 
@@ -99,7 +99,7 @@ var testMoveLeft = function (text) {
     
     tw.addAssert("Animación", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
     tw.addAssert("Direccion", fakePlayer.direction == State.LOOKINGLEFT, "Cambiar sprite para que mire hacia la izquierda.", "Podrías mirar el objeto State, aver que se te ocurre...");
-    tw.addAssert("Velocidad", fakePlayer.sprite.body.velocity.x == fakePlayer.MAX_VELOCITY_X * (-1), "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
+    tw.addAssert("Velocidad", fakePlayer.sprite.body.velocity.x == -fakePlayer.walkSpeed, "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
     tw.runAsserts();
 
 
@@ -114,23 +114,16 @@ var testJump = function (text) {
     eval("fakePlayer.jump =" + text);
 
     fakePlayer.cursors.up.isDown = true;
-
-    fakePlayer.jump();
-    tw.addAssert("Animation", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "Cambiar la animación al saltar cuando el jugador mira a la derecha", "Porque no pruebas con el play....");
-    tw.addModule("Si el jugador esta mirando a la derecha");
+        fakePlayer.jump();
     fakePlayer.cursors.up.isDown = false;
 
-    /*fakePlayer.cursors.up.isDown = true;
-    fakePlayer.direction = State.LOOKINGLEFT;
-    fakePlayer.jump();
-    tw.addAssert("Animation", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "Cambiar la animación al saltar cuando el jugador mira a la izquierda", "Porque no pruebas con el play....");
-    tw.addModule("Si el jugador esta mirando a la izquierda");
-    fakePlayer.cursors.up.isDown = false;*/
+    /*Cuando choca con el cartel esta mirando hacia la derecha, por tanto va a saltar hacia la derecha*/
+    tw.addAssert("Animación", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "Cambiar la animación para saltar", "Porque no pruebas con el play...");
+    tw.addAssert("Velocidad", fakePlayer.sprite.body.velocity.y == fakePlayer.jumpSpeed, "Cambiar la velocidad vertical del personaje", "Para caminar cambiabamos la velocidad en la x, para saltar prueba a modificar la velocidad en la y");
+    tw.runAsserts();
 
-    tw.runModules();
 
     return tw.modulesOk();
-
 }
 
 /*

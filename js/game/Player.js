@@ -11,12 +11,8 @@ Player = function(game) {
 	this.game       = game;
   this.sprite     = null;
   this.cursors    = null;
-  this.runButton  = null;
-  this.jumpButton = null;
-  this.jumpTime   = null;
+  this.jumpTimer  = 0;
   this.direction  = State.LOOKINGRIGHT;
-  
-  this.player_velocity_x = 0;
 
   // Player constants
   this.walkSpeed = 150;
@@ -57,9 +53,7 @@ Player.prototype = {
     this.game.physics.arcade.overlap(this.sprite, blocks, this.blockOverlap, null, this);
 
     this.move();
-    this.run();
     this.jump();
-    this.goDown();
 	},
 
   blockOverlap: function(player, block) {
@@ -70,9 +64,9 @@ Player.prototype = {
     currentTask = block.data;
     block.destroy();
     player.game.input.disabled = true;
-    $('#task').html("<span class=\"glyphicon glyphicon-exclamation-sign\"></span>" + currentTask.task);
-    loadDialog(this.dialogIndex);
-    this.dialogIndex++;
+    //loadDialog(this.dialogIndex);
+    //this.dialogIndex++;
+    setTask();
   },
 
   /* */
@@ -199,46 +193,19 @@ Player.prototype = {
   /* */
   jump: function() {
 
-    
-    /*if ( this.cursors.up.isDown && this.playerCanJump() ) {
-      if (this.direction == State.LOOKINGLEFT) {
-        this.sprite.play('player_animation_jumpLeft');
-      }
-      else if (this.direction == State.LOOKINGRIGHT) {
-        this.sprite.play('player_animation_jumpRight');
-      }
-      if (this.runButton.isDown) {
-        this.sprite.body.velocity.y = this.jumpSpeed * (1.2);
-      }
-      else {
+    if (this.cursors.up.isDown && this.sprite.body.onFloor() && this.game.time.now > this.jumpTimer) {
+        /*
+        if (this.direction == State.LOOKINGLEFT) {
+          this.sprite.play('player_animation_jumpLeft');
+        }
+        else {
+          this.sprite.play('player_animation_jumpRight');
+        }
         this.sprite.body.velocity.y = this.jumpSpeed;
-      }
-      this.jumpTime = this.game.time.now + 750;
-     }*/
-     
-   },
-
-   /* */
-  playerCanJump: function() {
-    return (this.sprite.body.onFloor() || this.sprite.body.touching.down) && this.game.time.now > this.jumpTime;
-  },
-
-  /* */
-  run: function() {
-
-    if (this.runButton.isDown) {
-      if (this.direction == State.LOOKINGLEFT) {
-        this.sprite.play('player_animation_moveLeft', 10);
-      }
-      else if (this.direction == State.LOOKINGRIGHT) {
-       this.sprite.play('player_animation_moveRight', 10);
-      }
-      this.MAX_VELOCITY_X = 250;
+        */
+        this.jumpTimer = this.game.time.now + 750;
     }
-
-    else {
-      this.MAX_VELOCITY_X = 150;
-    }
+    
   },
 
   /* */
