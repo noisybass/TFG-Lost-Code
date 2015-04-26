@@ -62,6 +62,7 @@ Player.prototype = {
 
     this.game.paused = true;
     currentTask = block.data;
+
     block.destroy();
     player.game.input.disabled = true;
 
@@ -71,8 +72,12 @@ Player.prototype = {
     */
     //loadDialog(this.dialogIndex);
     //this.dialogIndex++;
+
+    //currentTask.initPlayer = this.createCopyPlayer();
+
     setTask();
   },
+
 
   /* */
   collectHeart: function(player, heart) {

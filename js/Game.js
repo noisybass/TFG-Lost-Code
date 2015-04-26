@@ -85,47 +85,88 @@ TFG.Game.prototype = {
 }
 
 
-var testMoveLeft = function (text) {
+var testMoveLeft = function (text, initPlayer) {
 
     tw = new TWUnit();
-    //var fakePlayer = jQuery.extend(true, {}, player);
-    var fakePlayer = player;
+    //var player = jQuery.extend(true, {}, player);
+    //var player = clone(player.);
 
-    eval("fakePlayer.move =" + text);
+    eval("player.move =" + text);
 
-    fakePlayer.cursors.left.isDown = true;
-        fakePlayer.move();
-    fakePlayer.cursors.left.isDown = false;
+    // Si el jugador no esta en el suelo.
+    player.cursors.left.isDown = true;
+    player.sprite.body.blocked.down = false;
+        player.move();
+    player.sprite.body.blocked.down = true;
+    player.cursors.left.isDown = false;
 
+    tw.addAssert("Animación en el suelo", player.sprite.animations.currentAnim != player.sprite.animations._anims["player_animation_moveLeft"], "No ejecutar una animación si no estas en el suelo", "No puedes ejecutar una animación en el aire! ¿Porque no compruebas si el player esta en el suelo?");
     
-    tw.addAssert("Animación", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
-    tw.addAssert("Direccion", fakePlayer.direction == State.LOOKINGLEFT, "Cambiar sprite para que mire hacia la izquierda.", "Podrías mirar el objeto State, aver que se te ocurre...");
-    tw.addAssert("Velocidad", fakePlayer.sprite.body.velocity.x == -fakePlayer.walkSpeed, "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
+    reInitMove();
+
+    // Si el jugador esta en el suelo.
+    player.cursors.left.isDown = true;
+        player.move();
+    player.cursors.left.isDown = false;
+    
+    tw.addAssert("Animación", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
+    tw.addAssert("Direccion", player.direction == State.LOOKINGLEFT, "Cambiar sprite para que mire hacia la izquierda.", "Podrías mirar el objeto State, aver que se te ocurre...");
+    tw.addAssert("Velocidad", player.sprite.body.velocity.x == -player.walkSpeed, "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
+    
+    reInitMove();
+
     tw.runAsserts();
 
 
     return tw.assertsOk();
 }
 
+
+var reInitMove = function(){
+    player.sprite.play('player_animation_standUpRight');
+    player.sprite.body.velocity.x = 0;
+    player.direction = State.LOOKINGRIGHT;
+}
+
 var testJump = function (text) {
 
     tw = new TWUnit();
-    //var fakePlayer = jQuery.extend(true, {}, player);
-    var fakePlayer = player;
+    //var player = jQuery.extend(true, {}, player);
+    //var player = clone(player);
 
-    eval("fakePlayer.jump =" + text);
+    eval("player.jump =" + text);
 
-    fakePlayer.cursors.up.isDown = true;
-        fakePlayer.jump();
-    fakePlayer.cursors.up.isDown = false;
+    // Saltar mirando hacia la derecha
+    player.cursors.up.isDown = true;
+        player.jump();
+    player.cursors.up.isDown = false;
 
     /*Cuando choca con el cartel esta mirando hacia la derecha, por tanto va a saltar hacia la derecha*/
-    tw.addAssert("Animación", fakePlayer.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "Cambiar la animación para saltar", "Porque no pruebas con el play...");
-    tw.addAssert("Velocidad", fakePlayer.sprite.body.velocity.y == fakePlayer.jumpSpeed, "Cambiar la velocidad vertical del personaje", "Para caminar cambiabamos la velocidad en la x, para saltar prueba a modificar la velocidad en la y");
+    tw.addAssert("Animación hacia la derecha", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "Cambiar la animación para saltar", "Porque no pruebas con el play...");
+    tw.addAssert("Velocidad", player.sprite.body.velocity.y == player.jumpSpeed, "Cambiar la velocidad vertical del personaje", "Para caminar cambiabamos la velocidad en la x, para saltar prueba a modificar la velocidad en la y");
+
+    reInitJump();
+
+    // Saltar mirando hacia la izquierda
+    player.cursors.up.isDown = true;
+    player.direction = State.LOOKINGLEFT;
+        player.jump();
+    player.cursors.up.isDown = false;
+    tw.addAssert("Animación hacia la izquierda", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "Cambiar la animación para saltar", "Porque no pruebas con el play...");
+
+    reInitJump();
+
     tw.runAsserts();
 
 
-    return tw.modulesOk();
+    return tw.assertsOk();
+}
+
+var reInitJump = function(){
+    player.sprite.play('player_animation_standUpRight');
+    player.sprite.body.velocity.y = 0;
+    player.jumpTimer = 0;
+    player.direction = State.LOOKINGRIGHT;
 }
 
 /*

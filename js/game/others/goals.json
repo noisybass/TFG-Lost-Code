@@ -6,7 +6,7 @@
 			"target": "player.move",
 			"range1": [0,0,0,0],
 			"range2": [0,0,0,0],
-			"test": "testMoveLeft(text)"
+			"test": "testMoveLeft(text, currentTask.initPlayer)"
 		},
 		{
 			"goal": "Haz que el jugador pueda saltar",
