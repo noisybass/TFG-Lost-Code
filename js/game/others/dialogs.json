@@ -20,13 +20,13 @@
 	"configs": [
 
 		[
-			{"turn": 1, "src": "Dialogs/img/pepe.png", "color": "blue"},
-			{"turn": 2, "src": "Dialogs/img/sara.png", "color": "rgb(206, 0, 143)"}
+			{"turn": 1, "src": "utils/Dialogs/img/pepe.png", "color": "blue"},
+			{"turn": 2, "src": "utils/Dialogs/img/sara.png", "color": "rgb(206, 0, 143)"}
 		],
 
 		[	
-			{"turn": 1, "src": "Dialogs/img/pepe.png", "color": "blue"},
-			{"turn": 2, "src": "Dialogs/img/sara.png", "color": "rgb(206, 0, 143)"}
+			{"turn": 1, "src": "utils/Dialogs/img/pepe.png", "color": "blue"},
+			{"turn": 2, "src": "utils/Dialogs/img/sara.png", "color": "rgb(206, 0, 143)"}
 		]
 	]
 

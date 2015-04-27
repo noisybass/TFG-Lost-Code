@@ -1,5 +1,5 @@
 /*
-* Dialogs 1.0
+* Dialogs 1.0.1
 *
 * Dialogs allow create speechs between two people. You can configure
 * their names and speech text color.
@@ -32,8 +32,9 @@ var dialogs;	// All dialogs, loaded from JSON
 var configs;	// All dialog's config, loaded from JSON
 var txt;		// Current dialog
 var config;		// Current dialog's config
+var callback;	// Callback that will be invoque after showing dialog
 var pos = 0;
-
+var initialize = false;
 
 $(document).ready(function(){
 
@@ -41,7 +42,6 @@ $(document).ready(function(){
 	$.getJSON( "js/game/others/dialogs.json", function(data) {
 		dialogs = data.dialogs;
 		configs = data.configs;
-		//loadDialog(1);	
 	});
 
 	
@@ -49,10 +49,18 @@ $(document).ready(function(){
 
 // This will load on screen the dialog loaded form Dialog.json at number position.
 // when dialog is over, then dialog window will be hidden automaticaly.
-function loadDialog(number) {
-	txt = dialogs[number];
-	config = configs[number];
-	init();
+function loadDialog(number, call) {
+	if ( number < dialogs.length ) {
+		txt       = dialogs[number];
+		config    = configs[number];
+		callback  = call;
+		pos       = 0;
+		init();	
+	}
+	else {
+		eval( call + '()' );
+	}
+	
 };
 
 function showDialog() {
@@ -63,11 +71,22 @@ function hideDialog() {
 	$('#dialog_container').fadeOut(500);	
 }
 
+function showNextButton() {
+	$('.dialog_button').fadeIn(500);
+}
+
+function hideNextButton() {
+	$('.dialog_button').fadeOut(500);	
+}
 
 function init() {
-	$('#dialog_container').prepend('<div id="text_container"><p class="text"></p></div>');
-	$('#dialog_container').prepend('<img id="right_person" class="gray" src="' + config[0].src + '" />');
-	$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + config[1].src +'" />');
+	if ( initialize == false ) {
+		$('#dialog_container').prepend('<div id="text_container"><p class="text"></p></div>');
+		$('#dialog_container').prepend('<img id="right_person" class="gray" src="' + config[0].src + '" />');
+		$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + config[1].src +'" />');	
+		initialize = true;
+	}
+	hideNextButton();
 	showDialog();
 	next();
 }
@@ -88,20 +107,27 @@ function next() {
 		}
         $('.text').text( txt[pos].text );
         pos++;
-        $('.text').fadeIn(1000);    
+     
+        $('.text').fadeIn(1000, function(){
+        	showNextButton();
+        });    
     });
  
 };
 
 $('.dialog_button').click(function(){
+	
+	hideNextButton();
 	if ( pos < txt.length ) {
 		next();
 	}
 	else {
-		// Lanzar evento que notifique al juego de que ha terminado el dialogo
-		// Ejemplo: los dialogos desaparecen	
-		hideDialog();
-		setTask();	
+	
+		hideDialog();			
+		if ( callback ) {
+			eval( callback + '()' );
+		}
+
 	}
 });
 
