@@ -74,6 +74,7 @@ TFG.Preload.prototype = {
 
   loadObjectsAssets: function() {
 
+    this.game.load.spritesheet('bridge-sheet', 'assets/img/objects/bridge.png', 70, 26);
     this.game.load.spritesheet('buildings-sheet', 'assets/img/map-tiles/buildings-sheet.png', 70, 70, 98);
     this.game.load.spritesheet('items-sheet', 'assets/img/map-tiles/items-sheet.png', 70, 70, 72);
     this.game.load.spritesheet('clouds', 'assets/img/map-tiles/clouds.png', 136, 70, 3);

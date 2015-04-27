@@ -18,24 +18,31 @@
  <tileset firstgid="253" name="slime" tilewidth="59" tileheight="28">
   <image source="../img/spritesheets/slime.png" width="177" height="28"/>
  </tileset>
+ <tileset firstgid="256" name="bridge" tilewidth="70" tileheight="26">
+  <image source="../img/objects/bridge.png" width="70" height="26"/>
+ </tileset>
  <layer name="Tile Layer 1" width="100" height="15">
   <data encoding="base64" compression="zlib">
-   eJztlT0LwjAQhoOTXUQQBz/AQXAQBOf+BkFwcVc3f77+ABNIIBx3l2vTqin3wENJm6/eSxtjFEVRlCFS/3oDA+FhfTHP31E/jJBDBdpKc5bWldCZHwPrnmorPCPrMWrvrJuEB2Qequ4wlz5x3+zlC+t0DcwA4jKZEmJZxFDfR1+4d1lEcu/1T6QyyAXWncrh7A1wZ5UjdV6VRG4GNWKgAlcpTc4ozqef74SskZudG38FGuJeii6/A/gv6Op/IDmjUm4NndXeevdy/STjOaV7KMFxZh436xy5v/bPYrF+lNh4TukeSrBJnbA84BxcHSRrta2jdA8l2DYTOIekDq7fhDC3jtI9lGCbTD5SzIpI
+   eJztlUsKwjAQhosruxFBXPgAF4KLguC6ZxAEj6DuPL4ewAQSCMPMZNqkasp88CGxeXV+0lSVoiiKMkbaX29gJDyML+b5O+iH4XOoQVvpztq4EbpwY2DdY22FZ2I8Be2DcRfxiMxD1R3mMiT2zF6/sE5uYAYQm8mcEMsihDofQ2HfZRXIvdc/EcsgFVh3KoeL08PdVZbYfVUSqRm0iJ4a/ErpckdxPt18Z2SN1OxyZp/zHMBvQa7vgeSOirmv6Kwa493J9ZOM55TuoQSniXncjEvk/617For1o8TGc0r3UIJd6oTlAefg6iBZq28dpXsowb6ZwDkkdbD9ZoSpdZTuoQT7ZPIBRKCHkA==
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object gid="249" x="2038" y="742"/>
-  <object gid="249" x="2109" y="742"/>
-  <object gid="249" x="2178" y="742"/>
-  <object gid="249" x="2245" y="741"/>
+  <object gid="249" x="2041" y="766"/>
+  <object gid="249" x="2107" y="765"/>
+  <object gid="249" x="2178" y="764"/>
+  <object gid="249" x="2245" y="763"/>
   <object gid="249" x="6167" y="627"/>
   <object gid="253" x="6445" y="627"/>
-  <object gid="1" x="349" y="560"/>
-  <object gid="1" x="492" y="774"/>
-  <object gid="1" x="1609" y="766"/>
   <object gid="1" x="4059" y="347"/>
   <object gid="1" x="4761" y="347"/>
   <object gid="1" x="6719" y="626"/>
   <object gid="253" x="4345" y="348"/>
+  <object gid="256" x="1681" y="796"/>
+  <object gid="256" x="1752" y="796"/>
+  <object gid="256" x="1823" y="795"/>
+  <object gid="256" x="2031" y="795"/>
+  <object gid="256" x="2101" y="794"/>
+  <object gid="256" x="2171" y="794"/>
+  <object gid="256" x="2241" y="793"/>
  </objectgroup>
 </map>

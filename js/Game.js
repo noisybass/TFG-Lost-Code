@@ -169,6 +169,8 @@ var reInitJump = function(){
     player.direction = State.LOOKINGRIGHT;
 }
 
+
+
 /*
 Suposicion: al deshabilitar los eventos, si pulsas las teclas quedan registrados
 como pulsada, pero no se ejecuta, y por lo tanto cuando lo habilitas siguen estando 

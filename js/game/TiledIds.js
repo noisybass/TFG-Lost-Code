@@ -1,8 +1,9 @@
 var tiledId = function() {};
 
 tiledId.voidBlockId  = 1;
-tiledId.snailId     = 249;
+tiledId.snailId      = 249;
 tiledId.slimeId      = 253;
+tiledId.bridgeId     = 256;
 
 /*tiledId.goombaId      			= 78;
 tiledId.coinId 	      			= 28;

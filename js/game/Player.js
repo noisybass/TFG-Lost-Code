@@ -50,7 +50,7 @@ Player.prototype = {
     this.game.physics.arcade.overlap(this.sprite, throwers_hammer, this.throwerHammerCollision, null, this);*/
     //this.game.physics.arcade.overlap(this.sprite, end_level, this.endLevelCollision, null, this);
 
-    this.game.physics.arcade.overlap(this.sprite, blocks, this.blockOverlap, null, this);
+    this.game.physics.arcade.collide(this.sprite, bridges);
 
     this.move();
     this.jump();
@@ -76,6 +76,7 @@ Player.prototype = {
 
     En este caso, se muestra el dialogo y despues el desafio.
     */
+
     loadDialog(this.dialogIndex, "setTask");
     this.dialogIndex++;
 
@@ -168,7 +169,9 @@ Player.prototype = {
         this.direction = State.LOOKINGRIGHT;
       }
     }
-    /*
+    
+
+
     else if (this.cursors.left.isDown) {
       this.sprite.body.velocity.x = -this.walkSpeed;
 
@@ -180,7 +183,9 @@ Player.prototype = {
         this.direction = State.LOOKINGLEFT;
       }
     } 
-    */
+    
+
+
 		else {
       if (this.direction == State.LOOKINGLEFT) {
         this.sprite.play('player_animation_standUpLeft');
@@ -218,7 +223,8 @@ Player.prototype = {
   jump: function() {
 
     if (this.cursors.up.isDown && this.sprite.body.onFloor() && this.game.time.now > this.jumpTimer) {
-        /*
+        
+
         if (this.direction == State.LOOKINGLEFT) {
           this.sprite.play('player_animation_jumpLeft');
         }
@@ -226,7 +232,9 @@ Player.prototype = {
           this.sprite.play('player_animation_jumpRight');
         }
         this.sprite.body.velocity.y = this.jumpSpeed;
-        */
+        
+
+
         this.jumpTimer = this.game.time.now + 750;
     }
     
