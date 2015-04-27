@@ -88,9 +88,8 @@
 
 				<div class="col-md-7">
 
-				<iframe id="doc-container" src="https://phaser.io/learn/chains">
-  					<p>Your browser does not support iframes.</p>
-				</iframe>
+					<iframe id="doc-container" src="https://phaser.io/learn/chains"></iframe>
+					<!-- <iframe id="doc-container" src="about:blank"></iframe> -->
 					
 					<!-- Game canvas -->
 					<div id="game-canvas">
@@ -147,7 +146,7 @@
 		<script>
 			function loadDoc() {
 				$('#game-canvas').fadeOut(500);
-    			$('iframe#doc-container').fadeIn(500);
+    			$('iframe#doc-container').toggle( "slide" );
     			$('#button_menu_3').fadeOut(500);
     			$('#button_menu_4').fadeIn(500);
 			}
@@ -159,6 +158,15 @@
 				$('#button_menu_4').fadeOut(500);
 			}
 		</script>
+
+		<!--
+		<script type="text/javascript">
+			var doc = document.getElementById('doc-container').contentWindow.document;
+			doc.open();
+			doc.write('<html><head><title></title></head><body>Hello world.</body></html>');
+			doc.close();
+		</script>
+		-->
 
 		<!-- ACE CONFIGURATION -->
 		<script src="utils/ace/conf.js" type="text/javascript" charset="utf-8"></script>
