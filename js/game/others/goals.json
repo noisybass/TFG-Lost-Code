@@ -2,7 +2,7 @@
 	"goals": [
 		{
 			"task": "Haz que el jugador se mueva hacia la izquierda",
-			"code": "function move(){\n\n\tif (this.cursors.right.isDown) {\n\t\tthis.sprite.body.velocity.x = this.walkSpeed;\n\n\t\tif (this.sprite.body.onFloor()){\n\t\t\tthis.sprite.play('player_animation_moveRight', 5, true);\n\t\t}\n\n\t\tif (this.direction == State.LOOKINGLEFT ) {\n\t\t\tthis.direction = State.LOOKINGRIGHT;\n\t\t}\n\t}\n\n\n\telse {\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.sprite.play('player_animation_standUpLeft');\n\t\t}\n\t\telse if (this.direction == State.LOOKINGRIGHT) {\n\t\t\tthis.sprite.play('player_animation_standUpRight');\n\t\t}\n\t\tthis.sprite.body.velocity.x = 0;\n\t}\n}\n\n",
+			"code": "function move(){\n\n\tif (this.cursors.right.isDown) {\n\t\tthis.sprite.body.velocity.x = this.walkSpeed;\n\n\t\tif (this.sprite.body.onFloor() || this.sprite.body.touching.down){\n\t\t\tthis.sprite.play('player_animation_moveRight', 5, true);\n\t\t}\n\n\t\tif (this.direction == State.LOOKINGLEFT ) {\n\t\t\tthis.direction = State.LOOKINGRIGHT;\n\t\t}\n\t}\n\n\n\telse {\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.sprite.play('player_animation_standUpLeft');\n\t\t}\n\t\telse if (this.direction == State.LOOKINGRIGHT) {\n\t\t\tthis.sprite.play('player_animation_standUpRight');\n\t\t}\n\t\tthis.sprite.body.velocity.x = 0;\n\t}\n}\n\n",
 			"target": "player.move",
 			"range1": [0,0,0,0],
 			"range2": [0,0,0,0],
@@ -10,7 +10,7 @@
 		},
 		{
 			"goal": "Haz que el jugador pueda saltar",
-			"code": "function jump() {\n\n\tif (this.cursors.up.isDown && this.sprite.body.onFloor() && this.game.time.now > this.jumpTimer) {\n\n\n\n\t\tthis.jumpTimer = this.game.time.now + 750;\n\t}\n}",
+			"code": "function jump() {\n\n\tif (this.cursors.up.isDown && (this.sprite.body.onFloor() || this.sprite.body.touching.down) && this.game.time.now > this.jumpTimer) {\n\n\n\n\t\tthis.jumpTimer = this.game.time.now + 750;\n\t}\n}",
 			"target": "player.jump",
 			"range1": [0,0,2,99],
 			"range2": [6,0,8,1],

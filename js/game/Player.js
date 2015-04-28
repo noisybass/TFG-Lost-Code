@@ -8,7 +8,7 @@ State = {
 
 Player = function(game) {
 
-	this.game       = game;
+  this.game       = game;
   this.sprite     = null;
   this.cursors    = null;
   this.jumpTimer  = 0;
@@ -16,7 +16,7 @@ Player = function(game) {
 
   // Player constants
   this.walkSpeed = 150;
-  this.jumpSpeed = -300;
+  this.jumpSpeed = -250;
 
   //Dialog
   this.dialogIndex = 1;
@@ -24,9 +24,9 @@ Player = function(game) {
 
 Player.prototype = {
 
-	create: function(x,y,key,frame) {
+  create: function(x,y,key,frame) {
 
-		this.sprite = this.game.add.sprite(x,y,key,frame);
+    this.sprite = this.game.add.sprite(x,y,key,frame);
     this.game.physics.enable(this.sprite);
     this.game.camera.follow(this.sprite);
     this.game.camera.view.height = 200;
@@ -38,10 +38,10 @@ Player.prototype = {
     this.runButton  = this.game.input.keyboard.addKey(Phaser.Keyboard.C);
 
     loadDialog(0);
-	},
+  },
 
 
-	update: function() {
+  update: function() {
 
     /*this.game.physics.arcade.overlap(this.sprite, hearts, this.collectHeart, null, this);
     this.game.physics.arcade.overlap(this.sprite, coins, this.pickCoin, null, this);
@@ -55,7 +55,7 @@ Player.prototype = {
 
     this.move();
     this.jump();
-	},
+  },
 
   blockOverlap: function(player, block) {
     //console.log("------------Colision con bloque-------------- ");
@@ -77,13 +77,12 @@ Player.prototype = {
 
     En este caso, se muestra el dialogo y despues el desafio.
     */
-
     loadDialog(this.dialogIndex, "setTask");
     this.dialogIndex++;
 
     //currentTask.initPlayer = this.createCopyPlayer();
 
-    setTask();
+    //setTask();
   },
 
 
@@ -170,9 +169,7 @@ Player.prototype = {
         this.direction = State.LOOKINGRIGHT;
       }
     }
-    
-/*
-
+    /*
     else if (this.cursors.left.isDown) {
       this.sprite.body.velocity.x = -this.walkSpeed;
 
@@ -184,18 +181,16 @@ Player.prototype = {
         this.direction = State.LOOKINGLEFT;
       }
     } 
-    
-*/
-
-		else {
+    */
+    else {
       if (this.direction == State.LOOKINGLEFT) {
         this.sprite.play('player_animation_standUpLeft');
       }
       else if (this.direction == State.LOOKINGRIGHT) {
        this.sprite.play('player_animation_standUpRight');
       }
-			this.sprite.body.velocity.x = 0;
-		}
+      this.sprite.body.velocity.x = 0;
+    }
   },
 
   /* */
@@ -224,8 +219,7 @@ Player.prototype = {
   jump: function() {
 
     if (this.cursors.up.isDown && (this.sprite.body.onFloor() || this.sprite.body.touching.down) && this.game.time.now > this.jumpTimer) {
-   /*     
-
+        /*
         if (this.direction == State.LOOKINGLEFT) {
           this.sprite.play('player_animation_jumpLeft');
         }
@@ -233,9 +227,7 @@ Player.prototype = {
           this.sprite.play('player_animation_jumpRight');
         }
         this.sprite.body.velocity.y = this.jumpSpeed;
-        
-  */
-
+        */
         this.jumpTimer = this.game.time.now + 750;
     }
     

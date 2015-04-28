@@ -33,7 +33,6 @@
   <object gid="249" x="2245" y="763"/>
   <object gid="249" x="6167" y="627"/>
   <object gid="253" x="6445" y="627"/>
-  <object gid="1" x="4059" y="347"/>
   <object gid="253" x="4345" y="348"/>
   <object gid="256" x="1680" y="797"/>
   <object gid="256" x="1751" y="797"/>
@@ -42,15 +41,11 @@
   <object gid="256" x="2097" y="795"/>
   <object gid="256" x="2168" y="795"/>
   <object gid="256" x="2026" y="795"/>
-  <object gid="1" x="4759" y="345"/>
-  <object gid="1" x="6719" y="624"/>
-  <object gid="1" x="351" y="556"/>
-  <object gid="1" x="489" y="767"/>
-  <object gid="1" x="1610" y="764"/>
-  <object gid="1" x="4059" y="343"/>
-  <object gid="1" x="4762" y="342"/>
-  <object gid="1" x="6719" y="625"/>
-  <object gid="1" x="-2" y="762"/>
-  <object gid="1" x="348" y="562"/>
+  <object gid="1" x="350" y="562"/>
+  <object gid="1" x="490" y="768"/>
+  <object gid="1" x="1610" y="767"/>
+  <object gid="1" x="4060" y="344"/>
+  <object gid="1" x="4761" y="348"/>
+  <object gid="1" x="6720" y="627"/>
  </objectgroup>
 </map>
