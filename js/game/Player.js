@@ -16,7 +16,7 @@ Player = function(game) {
 
   // Player constants
   this.walkSpeed = 150;
-  this.jumpSpeed = -250;
+  this.jumpSpeed = -300;
 
   //Dialog
   this.dialogIndex = 1;
@@ -50,6 +50,7 @@ Player.prototype = {
     this.game.physics.arcade.overlap(this.sprite, throwers_hammer, this.throwerHammerCollision, null, this);*/
     //this.game.physics.arcade.overlap(this.sprite, end_level, this.endLevelCollision, null, this);
 
+    this.game.physics.arcade.overlap(this.sprite, blocks, this.blockOverlap, null, this);
     this.game.physics.arcade.collide(this.sprite, bridges);
 
     this.move();
@@ -82,7 +83,7 @@ Player.prototype = {
 
     //currentTask.initPlayer = this.createCopyPlayer();
 
-    //setTask();
+    setTask();
   },
 
 
@@ -161,7 +162,7 @@ Player.prototype = {
     if (this.cursors.right.isDown) {
       this.sprite.body.velocity.x = this.walkSpeed;
 
-      if (this.sprite.body.onFloor()){
+      if (this.sprite.body.onFloor() || this.sprite.body.touching.down){
         this.sprite.play('player_animation_moveRight', 5, true);
       }
       
@@ -170,12 +171,12 @@ Player.prototype = {
       }
     }
     
-
+/*
 
     else if (this.cursors.left.isDown) {
       this.sprite.body.velocity.x = -this.walkSpeed;
 
-      if (this.sprite.body.onFloor()){
+      if (this.sprite.body.onFloor() || this.sprite.body.touching.down){
         this.sprite.play('player_animation_moveLeft', 5, true);
       }
 
@@ -184,7 +185,7 @@ Player.prototype = {
       }
     } 
     
-
+*/
 
 		else {
       if (this.direction == State.LOOKINGLEFT) {
@@ -222,8 +223,8 @@ Player.prototype = {
   /* */
   jump: function() {
 
-    if (this.cursors.up.isDown && this.sprite.body.onFloor() && this.game.time.now > this.jumpTimer) {
-        
+    if (this.cursors.up.isDown && (this.sprite.body.onFloor() || this.sprite.body.touching.down) && this.game.time.now > this.jumpTimer) {
+   /*     
 
         if (this.direction == State.LOOKINGLEFT) {
           this.sprite.play('player_animation_jumpLeft');
@@ -233,7 +234,7 @@ Player.prototype = {
         }
         this.sprite.body.velocity.y = this.jumpSpeed;
         
-
+  */
 
         this.jumpTimer = this.game.time.now + 750;
     }
