@@ -16,7 +16,7 @@ Player = function(game) {
 
   // Player constants
   this.walkSpeed = 150;
-  this.jumpSpeed = -250;
+  this.jumpSpeed = -300;
 
   //Dialog
   this.dialogIndex = 1;
