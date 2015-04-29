@@ -1,8 +1,8 @@
 /*
 * Dialogs 1.0.1
 *
-* Dialogs allow create speechs between two people. You can configure
-* their names and speech text color.
+* Dialogs allow create speechs between two characters. You can configure
+* their names, speech text color and avatars.
 *
 * The MIT License (MIT)
 *
@@ -95,6 +95,9 @@ function init() {
 function next() {
 
     $('.text').fadeOut(500, function() {
+
+    	if ( txt[pos] == undefined ) return;
+
 		if ( txt[pos].turn == 1 ) {
 			$('.text').css('color', config[0].color);
 			$('img#left_person').addClass('gray');

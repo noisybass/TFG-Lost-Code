@@ -28,7 +28,6 @@
         <link href='fonts/IndieFlower.ttf'>
 
 
-
 		<script type="text/javascript" src="js/Boot.js"></script>
 		<script type="text/javascript" src="js/Preload.js"></script>
 		<script type="text/javascript" src="js/MainMenu.js"></script>
@@ -38,6 +37,7 @@
         <script type="text/javascript" src="js/game/Level.js"></script>
         <script type="text/javascript" src="js/game/HUD.js"></script>
         <script type="text/javascript" src="js/game/TiledIds.js"></script>
+        <script type="text/javascript" src="js/game/Cloud.js"></script>
 
         <script type="text/javascript" src="js/game/collectables/Coins.js"></script>
         <script type="text/javascript" src="js/game/collectables/Hearts.js"></script>
@@ -88,8 +88,8 @@
 
 				<div class="col-md-7">
 
-					<iframe id="doc-container" src="https://phaser.io/learn/chains"></iframe>
-					<!-- <iframe id="doc-container" src="about:blank"></iframe> -->
+					<!-- Doc -->
+					<iframe id="doc-container" src="https://phaser.io/learn/chains" scrolling="yes"></iframe>
 					
 					<!-- Game canvas -->
 					<div id="game-canvas">
@@ -143,7 +143,11 @@
 
 		<!-- For better performance, scripts will go at the end-->
 
+
+		<!-- ################################################################  -->
+		<!-- Documentacion -->
 		<script>
+
 			function loadDoc() {
 				$('#game-canvas').fadeOut(500);
     			$('iframe#doc-container').toggle( "slide" );
@@ -157,16 +161,18 @@
 				$('#button_menu_3').fadeIn(500);
 				$('#button_menu_4').fadeOut(500);
 			}
+
+			
+			// When iframe doc has been loaded
+    		$(function(){
+    			$('iframe#doc-container').load(function(){
+    				
+    			});
+    		});
+
 		</script>
 
-		<!--
-		<script type="text/javascript">
-			var doc = document.getElementById('doc-container').contentWindow.document;
-			doc.open();
-			doc.write('<html><head><title></title></head><body>Hello world.</body></html>');
-			doc.close();
-		</script>
-		-->
+		<!-- ################################################################  -->
 
 		<!-- ACE CONFIGURATION -->
 		<script src="utils/ace/conf.js" type="text/javascript" charset="utf-8"></script>
