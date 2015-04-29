@@ -1,9 +1,13 @@
 /* Create snails enemies*/
-createsnails = function(game) {
+createSnails = function(game) {
 
   snails = game.add.group();
+  snails.physicsBodyType = Phaser.Physics.ARCADE;
   snails.enableBody = true;
   level.map.createFromObjects('Object Layer 1', tiledId.snailId , 'snail_spritesheet', 0, true, false, this.snails);
+  snails.callAll('animations.add', 'animations', 'anim_snail', [0,1], 5, true);
+  snails.callAll('animations.play', 'animations', 'anim_snail');
+
   snails.forEach(
     function(enemy) {  
         enemy.animations.add('snail_animation_move', [1,0], 5, true);
@@ -16,7 +20,7 @@ createsnails = function(game) {
 
 
 /* Updates  snails*/
-goombaMove = function(enemy) {
+snailsMove = function(enemy) {
 
   if (enemy.body.blocked.left || enemy.body.touching.left) {
     enemy.direction = State.LOOKINGRIGHT;
@@ -25,7 +29,7 @@ goombaMove = function(enemy) {
     enemy.direction = State.LOOKINGLEFT;
   }
 
-  enemy.play('snail_animation_move');
+  enemy.play('anim_snail');
 
   if (enemy.direction == State.LOOKINGLEFT) {
     enemy.body.velocity.x = -50;

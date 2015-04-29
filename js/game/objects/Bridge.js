@@ -4,7 +4,7 @@ createBridges = function(game) {
   bridges = game.add.group();
   bridges.physicsBodyType = Phaser.Physics.ARCADE;
   bridges.enableBody = true;
-  level.map.createFromObjects('Object Layer 1', tiledId.bridgeId , 'bridge-sheet', 0 , true, false, this.bridges);
+  level.map.createFromObjects('Object Layer 1', tiledId.bridgeId , 'bridge-image', 0 , true, false, this.bridges);
   bridges.forEach(
     function(bridge) {  
         //Initialize

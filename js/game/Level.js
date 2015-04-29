@@ -23,15 +23,26 @@ Level.prototype = {
     this.map.addTilesetImage('void-block', 'void-block');
     this.map.addTilesetImage('snail', 'snail_spritesheet');
     this.map.addTilesetImage('slime', 'slime_spritesheet');
-    //this.map.addTilesetImage('goomba', 'goomba_spritesheet');
-    //this.map.addTilesetImage('heart', 'heart_image');
-    //this.map.setCollision([0,1,2,3,4,5,6,7,8,9,10,11,12]);
     this.map.setCollisionBetween(2,50);
     this.map.setCollision([82 // Caja con una equis dibujada
                            ]);
 
     this.layer = this.map.createLayer('Tile Layer 1');
     this.layer.resizeWorld();
+
+    // Enemies
+    createSlimes(this.game);
+    createSnails(this.game);
+
+    // Objects
+    createBridges(this.game);
+    createCoins(this.game);
+    createRocks(this.game);
+    createSpikes(this.game);
+
+    // Tutorial Blocks
+    createBlocks(this.game);
+
 
     //createCoins(this.game);
     //createHearts(this.game);
@@ -40,8 +51,6 @@ Level.prototype = {
     //createThrowers(this.game);
     //createShiftingPlatforms(this.game);
     //createEndLevel(this.game);
-    createBridges(this.game);
-    createBlocks(this.game);
 	},
 
 
@@ -55,6 +64,28 @@ Level.prototype = {
     //this.game.physics.arcade.collide(throwers, this.layer);
     //this.game.physics.arcade.collide(end_level, this.layer);
 
+    // Enemies
+    this.game.physics.arcade.collide(snails, this.layer);
+    this.game.physics.arcade.collide(snails); // Snails collide with themselfs
+    this.game.physics.arcade.collide(snails, bridges);
+    this.game.physics.arcade.collide(snails, rocks);
+    this.game.physics.arcade.collide(snails, spikes);
+
+    this.game.physics.arcade.collide(slimes, this.layer);
+    this.game.physics.arcade.collide(slimes); // Slimes collide with themselfs
+    this.game.physics.arcade.collide(slimes, bridges);
+    this.game.physics.arcade.collide(slimes, rocks);
+    this.game.physics.arcade.collide(slimes, spikes);
+
+    // Start Enemies
+    snails.forEach(snailsMove, this);
+    slimes.forEach(slimesMove, this);
+
+    // Objects
+    this.game.physics.arcade.collide(rocks, this.layer);
+    this.game.physics.arcade.collide(spikes, this.layer);
+
+    // Tutorial Blocks
     this.game.physics.arcade.collide(blocks, this.layer);
 
     player.update();
@@ -64,6 +95,7 @@ Level.prototype = {
     if(player.fallingDown()) {
       player.die();
     }
+
 
     //goombas.forEach(goombaMove,this);
     //throwers.forEach(throwerMove, this);
