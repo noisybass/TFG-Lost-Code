@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="15" tilewidth="70" tileheight="70" nextobjectid="36">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="15" tilewidth="70" tileheight="70" nextobjectid="40">
  <tileset firstgid="1" name="void-block" tilewidth="70" tileheight="70">
   <image source="../img/map-tiles/void-block.png" width="70" height="70"/>
  </tileset>
@@ -35,7 +35,7 @@
  </tileset>
  <layer name="Tile Layer 1" width="100" height="15">
   <data encoding="base64" compression="zlib">
-   eJztlb8KAjEMh4uTXUQQB/+Ag+BwINyDOPkI6ub777bQoYQkzbWRu0I++AY1bUN+0jpnGIZhGAbFR6nOtzZiuGPwJHSX1sC5z5lD/I88Zzxfg1VwzD7fgpeCd2QfLgcvqKkl9n/IHPnyRQIzgMRMtoRYFhR2Z9GUMtDEO/0spO/akvlnBtgdJMlgyhvF+U37PZAzWrPTzF4zA3g3a93Pkjeq5NXRWQ3Bd5Krk6znlPbQg+vGPF7BPfL9Of2Wi9VRYus5pT304JQ5YXnAPbg5SM6qnaO0hx6szQTuIZlDrNsQts5R2kMP1mTyAxXgf/g=
+   eJztlT8LwyAQxaVTXUqgdOgfyFDoECjkg3TqR2i79fvvVXAQOfWpVxLhHvyGJJfncU9UKZFIJBKJRDF9mOp0ayMidTKcQfbun3DuS+Zg98hzwfU5tDHM3vPNMGa4Ez6pHDRQUyvb/9FjTpevUmEGoWwmQwQqi5jkzIorlwGntOLPAr3X1qx/ZkCdQUgGJXdUiq/zexBrcGbX6sWZQXg2c53PyB2V46riWU2GtyNVh+B7haA99MC2MY+X4UC8v7hvPlQdAuWFeCP/rZHaOY0Rj9QcStcqmSnaQw/UZhJ6oHt5l2GonCnaQw/UZPIDXmR8lA==
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
@@ -46,13 +46,10 @@
   <object id="5" gid="249" x="6167" y="627"/>
   <object id="6" gid="253" x="6445" y="627"/>
   <object id="7" gid="253" x="4345" y="348"/>
-  <object id="8" gid="256" x="1680" y="797"/>
-  <object id="9" gid="256" x="1751" y="797"/>
-  <object id="10" gid="256" x="1821" y="797"/>
-  <object id="11" gid="256" x="2239" y="794.76"/>
-  <object id="12" gid="256" x="2098" y="794.76"/>
-  <object id="13" gid="256" x="2169" y="794.76"/>
-  <object id="14" gid="256" x="2027" y="794.76"/>
+  <object id="11" gid="256" x="2240.5" y="794.25"/>
+  <object id="12" gid="256" x="2099.5" y="794.25"/>
+  <object id="13" gid="256" x="2170.33" y="794.25"/>
+  <object id="14" gid="256" x="2030.25" y="794.25"/>
   <object id="15" gid="259" x="4620" y="350"/>
   <object id="16" gid="258" x="4130" y="350"/>
   <object id="17" gid="258" x="6020" y="630"/>
@@ -73,5 +70,7 @@
   <object id="33" gid="260" x="5690" y="402"/>
   <object id="34" gid="90" x="6860" y="630"/>
   <object id="35" gid="91" x="6860" y="560"/>
+  <object id="36" gid="256" x="1958.75" y="794.25"/>
+  <object id="37" gid="256" x="1890.25" y="794.25"/>
  </objectgroup>
 </map>
