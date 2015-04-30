@@ -78,7 +78,7 @@ Level.prototype = {
     this.game.physics.arcade.collide(slimes, spikes);
 
     // Start Enemies
-    snails.forEach(snailsMove, this);
+    //snails.forEach(snailsMove, this);
     slimes.forEach(slimesMove, this);
 
     // Objects
