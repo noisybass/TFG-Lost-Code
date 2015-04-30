@@ -58,6 +58,7 @@ TFG.Preload.prototype = {
     this.game.load.spritesheet('snow-sheet','assets/img/map-tiles/snow-sheet.png',  70, 70, 49);
     this.game.load.spritesheet('tundra-sheet','assets/img/map-tiles/tundra-sheet.png',70, 70, 49);
     this.game.load.spritesheet('void-block','assets/img/map-tiles/void-block.png',70, 70, 1);
+    this.game.load.spritesheet('half-grass-sheet','assets/img/map-tiles/half-grass-sheet.png',70, 40, 4);
 
     //this.game.load.tilemap('map_tilemap', 'assets/level/mario-level2.json', null, Phaser.Tilemap.TILED_JSON);
     //this.game.load.spritesheet('sheet_spritesheet','assets/images/sheet.png', 34, 34, 49);
