@@ -41,8 +41,7 @@ Player.prototype = {
     //this.gray_filter = this.game.add.filter('Gray');
 
     this.game.paused = true;
-    loadDialog(0);
-    this.game.paused = false;
+    loadDialog(0, this.game);
   },
 
 
@@ -83,9 +82,9 @@ Player.prototype = {
     block.destroy();
     player.game.input.disabled = true;
 
-    loadDialog(this.dialogIndex, "setTask");
+    loadDialog(this.dialogIndex, this.game, "setTask");
     this.dialogIndex++;
-    this.game.paused = false;
+    
 
     //currentTask.initPlayer = this.createCopyPlayer();
 
