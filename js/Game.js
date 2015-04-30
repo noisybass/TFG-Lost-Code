@@ -69,7 +69,7 @@ TFG.Game.prototype = {
 
     // Creates player
     player = new Player(this.game);
-    player.create(150, 480 ,'player_spritesheet', 0);
+    player.create(150, 410 ,'player_spritesheet', 0);
 
     var that = this;
     $('#submit-button').click(function() {that.submitCode.call(player)});

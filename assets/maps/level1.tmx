@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="15" tilewidth="70" tileheight="70">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="15" tilewidth="70" tileheight="70" nextobjectid="40">
  <tileset firstgid="1" name="void-block" tilewidth="70" tileheight="70">
   <image source="../img/map-tiles/void-block.png" width="70" height="70"/>
  </tileset>
@@ -35,40 +35,39 @@
  </tileset>
  <layer name="Tile Layer 1" width="100" height="15">
   <data encoding="base64" compression="zlib">
-   eJztlbsKAjEQRYOVaUQQCx9gIVgsCH6IlZ+gdv5/bwIplmFmMklmlw3MgcO+8tq57MY5wzAMwzAovkrtPDga5RyDJ6G71AfW2+rfxir4GF3fgpeMd2QcT5xj11MRv9nXTHNpAjOAxEy2hFgWFHPkEN/lMJJ7ryWRy0AT7/SzkO5rS2bKDLD9WpJByR7F+UvjPZE5WrPTzF4zA/gv0PofSPaonFdHZzUEP0munaQ/p3QNPbhuzOMd3CP3z+nZWKwdJdafU7qGHiypE5YHHIOrg2Su2jpK19CDtZnAMSR1iO02hK11lK6hB2sy+QPGooAB
+   eJztlbsKAjEQRYOVaUQQCx9gIW4hCPshVn6C2vn/vROIEIaZZNaMbhbmwC1cr5MlRxLnDMMwDMPgeCr1fO2LGG4L2Qmzir/B+z6mh/AfuY24vgYzSJ987iCHQi7EnJwHL+h8S3j/TZI+X28S7AATnCyZUC447MziKTnQxDt9F9J7rWV+6YA6gyQOhtxRubzivCuxhqa72lmaDvDZrHU+S+6oUo6Od3WGPGK4XtqR9nJrlua3nnmljztkTTzfx+/S4B7VkfZC50REMr/1UPs5xAeekduH0FsI9krSo5xM3UWtEzzj3/vw8ZZm6i5qnLwBbd5/ng==
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object gid="249" x="2041" y="766"/>
-  <object gid="249" x="2107" y="765"/>
-  <object gid="249" x="2178" y="764"/>
-  <object gid="249" x="2245" y="763"/>
-  <object gid="249" x="6167" y="627"/>
-  <object gid="253" x="6445" y="627"/>
-  <object gid="253" x="4345" y="348"/>
-  <object gid="256" x="1680" y="797"/>
-  <object gid="256" x="1751" y="797"/>
-  <object gid="256" x="1821" y="797"/>
-  <object gid="256" x="2239" y="794.76"/>
-  <object gid="256" x="2098" y="794.76"/>
-  <object gid="256" x="2169" y="794.76"/>
-  <object gid="256" x="2027" y="794.76"/>
-  <object gid="259" x="4620" y="350"/>
-  <object gid="258" x="4130" y="350"/>
-  <object gid="258" x="6020" y="630"/>
-  <object gid="259" x="6580" y="630"/>
-  <object gid="257" x="5740" y="630"/>
-  <object gid="260" x="4286.5" y="684"/>
-  <object gid="260" x="4563.5" y="684.5"/>
-  <object gid="260" x="4424.5" y="684.5"/>
-  <object gid="260" x="4354" y="684"/>
-  <object gid="260" x="4495.5" y="684.5"/>
-  <object gid="260" x="5335.67" y="266"/>
-  <object gid="260" x="5196.33" y="336"/>
-  <object gid="260" x="5055.67" y="400.667"/>
-  <object gid="260" x="5337" y="545.333"/>
-  <object gid="260" x="5546" y="406"/>
-  <object gid="260" x="5473.67" y="267.667"/>
-  <object gid="260" x="5372" y="420.667"/>
+  <object id="1" gid="249" x="2039" y="768"/>
+  <object id="2" gid="249" x="2107" y="767.667"/>
+  <object id="3" gid="249" x="2176" y="768"/>
+  <object id="4" gid="249" x="2247" y="768.333"/>
+  <object id="5" gid="249" x="6167" y="627"/>
+  <object id="6" gid="253" x="6445" y="627"/>
+  <object id="7" gid="253" x="4345" y="348"/>
+  <object id="14" gid="256" x="1330.92" y="794.25"/>
+  <object id="15" gid="259" x="4620" y="350"/>
+  <object id="16" gid="258" x="4130" y="350"/>
+  <object id="17" gid="258" x="6020" y="630"/>
+  <object id="18" gid="259" x="6580" y="630"/>
+  <object id="19" gid="257" x="5740" y="630"/>
+  <object id="20" gid="257" x="5810" y="630"/>
+  <object id="21" gid="260" x="4286.5" y="684"/>
+  <object id="22" gid="260" x="4563.5" y="684.5"/>
+  <object id="23" gid="260" x="4424.5" y="684.5"/>
+  <object id="24" gid="260" x="4354" y="684"/>
+  <object id="25" gid="260" x="4495.5" y="684.5"/>
+  <object id="26" gid="260" x="5335.67" y="266"/>
+  <object id="27" gid="260" x="5196.33" y="336"/>
+  <object id="28" gid="260" x="5055.67" y="400.667"/>
+  <object id="29" gid="260" x="5337" y="545.333"/>
+  <object id="30" gid="260" x="5547" y="400"/>
+  <object id="32" gid="260" x="5406" y="468.667"/>
+  <object id="33" gid="260" x="5690" y="402"/>
+  <object id="34" gid="90" x="6860" y="630"/>
+  <object id="35" gid="91" x="6860" y="560"/>
+  <object id="36" gid="256" x="1259.42" y="794.25"/>
+  <object id="37" gid="256" x="1190.92" y="794.25"/>
  </objectgroup>
 </map>
