@@ -20,12 +20,10 @@ Level.prototype = {
     this.map.addTilesetImage('items-sheet', 'items-sheet');
     this.map.addTilesetImage('buildings-sheet', 'buildings-sheet');
     this.map.addTilesetImage('grass-sheet', 'grass-sheet');
-    this.map.addTilesetImage('half-grass-sheet', 'half-grass-sheet');
     this.map.addTilesetImage('void-block', 'void-block');
     this.map.addTilesetImage('snail', 'snail_spritesheet');
     this.map.addTilesetImage('slime', 'slime_spritesheet');
     this.map.setCollisionBetween(2,50);
-    this.map.setCollisionBetween(263,266);
     this.map.setCollision([82 // Caja con una equis dibujada
                            ]);
 
@@ -80,7 +78,7 @@ Level.prototype = {
     this.game.physics.arcade.collide(slimes, spikes);
 
     // Start Enemies
-    snails.forEach(snailsMove, this);
+    //snails.forEach(snailsMove, this);
     slimes.forEach(slimesMove, this);
 
     // Objects
