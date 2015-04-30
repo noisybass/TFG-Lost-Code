@@ -12,7 +12,7 @@ createSnails = function(game) {
     function(enemy) {  
         enemy.animations.add('snail_animation_move', [1,0], 5, true);
         //Initialize
-        enemy.body.velocity.x = -50;
+        //enemy.body.velocity.x = -50;
         enemy.direction       = State.LOOKINGLEFT;
     });
 };
@@ -20,6 +20,7 @@ createSnails = function(game) {
 
 
 /* Updates  snails*/
+
 snailsMove = function(enemy) {
 
   if (enemy.body.blocked.left || enemy.body.touching.left) {

@@ -138,7 +138,7 @@ Player.prototype = {
     
     if (enemy.body.touching.up) {
       enemy.destroy();
-      this.sprite.body.velocity.y = this.MAX_VELOCITY_Y * (-1);
+      this.sprite.body.velocity.y = this.jumpSpeed;
       this.jumpTime = this.game.time.now + 750;
     }
     else {
