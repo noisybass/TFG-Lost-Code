@@ -29,6 +29,6 @@ cloudsMove = function(game) {
 
 addCloud = function(game) {
 	var c = clouds.create(game.width + (game.rnd.integer() % 100), (game.rnd.integer() % game.height) - 300, 'clouds');	
-	c.vx = 1 + (1 / (game.rnd.integer() % 5 + 1));
-	c.z = -1;
+	c.vx  = 1 + (1 / (game.rnd.integer() % 5 + 1));
+	c.z   = -1;
 };

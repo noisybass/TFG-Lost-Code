@@ -1,3 +1,5 @@
+
+
 body {
 	font-family: 'Indie Flower', cursive;
 }
@@ -22,7 +24,6 @@ div#content  {
 button#button_menu {
 	border: none;
 	background-color: rgba(0,0,0,0);
-	font-family: 'Indie Flower', cursive;
 }
 
 div#dialog_container {
@@ -42,7 +43,6 @@ div#text_container {
 }
 
 div#statement {
-	font-family: 'Indie Flower', cursive;
 	font-size: 20px;
 }
 
@@ -58,19 +58,17 @@ div#twunit {
 	width: 100%;
 	max-height: 120px;
 	min-height: 120px;
-	font-family: 'Indie Flower', cursive;
 	border-top: 5px solid #DFE8EB;
 	overflow-y:scroll;
 }
 
 h3 {
-	font-family: 'Indie Flower', cursive;
+
 }
 
 div.positive_test {
 	border-right: 10px solid rgb(0,200,0);
 	padding: 5px;
-	font-family: 'Indie Flower', cursive;
 }
 
 span.glyphicon.glyphicon-ok-sign {
@@ -80,7 +78,6 @@ span.glyphicon.glyphicon-ok-sign {
 div.negative_test {
 	border-right: 10px solid rgb(200,0,0);
 	padding: 5px;
-	font-family: 'Indie Flower', cursive;
 }
 
 span.glyphicon.glyphicon-remove-sign {
@@ -89,9 +86,7 @@ span.glyphicon.glyphicon-remove-sign {
 
 #editor-buttons {
 	margin: 0;
-	font-family: 'Indie Flower', cursive;
 	margin-top: 10px;
-
 }
 
 #restart-button {
