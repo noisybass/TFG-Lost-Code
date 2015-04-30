@@ -213,7 +213,7 @@ Player.prototype = {
 
   /* */
   fallingDown: function () {
-    return this.game.world.bounds.bottom - this.sprite.body.height == this.sprite.world.y;
+    return this.sprite.body.y >= 980;
   },
 
   /* */

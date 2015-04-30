@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="15" tilewidth="70" tileheight="70" nextobjectid="40">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="70" tileheight="70" nextobjectid="40">
  <tileset firstgid="1" name="void-block" tilewidth="70" tileheight="70">
   <image source="../img/map-tiles/void-block.png" width="70" height="70"/>
  </tileset>
@@ -33,9 +33,9 @@
  <tileset firstgid="260" name="coin" tilewidth="35" tileheight="36">
   <image source="../img/objects/coin.png" width="106" height="36"/>
  </tileset>
- <layer name="Tile Layer 1" width="100" height="15">
+ <layer name="Tile Layer 1" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJztlbsKAjEQRYOVaUQQCx9gIW4hCPshVn6C2vn/vROIEIaZZNaMbhbmwC1cr5MlRxLnDMMwDMPgeCr1fO2LGG4L2Qmzir/B+z6mh/AfuY24vgYzSJ987iCHQi7EnJwHL+h8S3j/TZI+X28S7AATnCyZUC447MziKTnQxDt9F9J7rWV+6YA6gyQOhtxRubzivCuxhqa72lmaDvDZrHU+S+6oUo6Od3WGPGK4XtqR9nJrlua3nnmljztkTTzfx+/S4B7VkfZC50REMr/1UPs5xAeekduH0FsI9krSo5xM3UWtEzzj3/vw8ZZm6i5qnLwBbd5/ng==
+   eJztlbsKAjEQRYOVaUQQCx9gIW4hCPshVn6C2vn/vQlECMMkmTWjm4V74RSu10nIkawxCIIgCIKk8lTq2dqNIGbr2AlZhd/Qcx/Tg/+P3EZcXyMzRx997hyHAhdmTs6DFXS+jd//JqLP15sMdUDjnSwTcC5SwZ2VTsmBZqzRdyF9r7WcXzrg7iCJgyHvqByvMO/KrKHprnaWpgN6N2vdz5J3VImjSbs6Ox6BVC/uSHu5NUvzW2de6ePuWDPP9+G7GNrjOtKe75wYJPNbhzvPIT7ojNw5+N5CcFaSHudk6i5qndAZ/z6Hj7eYqbuocTL2ngEAAABQzxsDqz8V
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
