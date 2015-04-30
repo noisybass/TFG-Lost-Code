@@ -22,11 +22,10 @@ button#button_menu {
 }
 
 div#dialog_container {
-	/* max-height: 50px; */
-	margin-top: 198px;
+	height: 500px;
 	position: absolute;
 	z-index: 2;
-	/* display: none; */
+	padding-top: 179px;
 }
 
 img#dialog_box {

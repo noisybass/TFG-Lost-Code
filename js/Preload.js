@@ -20,6 +20,9 @@ TFG.Preload.prototype = {
     this.loadLevelAssets();
     this.loadEnemiesAssets();
     this.loadObjectsAssets();
+
+    // Load scripts
+    this.game.load.script('gray', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Gray.js');
   },
 
   create:function() {

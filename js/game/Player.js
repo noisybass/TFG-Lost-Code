@@ -20,6 +20,7 @@ Player = function(game) {
 
   //Dialog
   this.dialogIndex = 1;
+  this.gray_filter;
 };
 
 Player.prototype = {
@@ -37,7 +38,11 @@ Player.prototype = {
     this.cursors    = this.game.input.keyboard.createCursorKeys();
     this.runButton  = this.game.input.keyboard.addKey(Phaser.Keyboard.C);
 
+    //this.gray_filter = this.game.add.filter('Gray');
+
+    this.game.paused = true;
     loadDialog(0);
+    this.game.paused = false;
   },
 
 
@@ -78,18 +83,9 @@ Player.prototype = {
     block.destroy();
     player.game.input.disabled = true;
 
-    /*
-    En el primer desafio todo correcto, pero cuando va a ejecuat el segundo
-    desafio salta un error. Por esta razó lo he comentado para poder seguir.
-
-    Ahora deberia funcionar. Cuando se carga un dialogo se puede pasar el nombre
-    de la funcion de callback que se desea ejecutar. De momento no toma argumentos,
-    solo admite funciones sin ellos.
-
-    En este caso, se muestra el dialogo y despues el desafio.
-    */
     loadDialog(this.dialogIndex, "setTask");
     this.dialogIndex++;
+    this.game.paused = false;
 
     //currentTask.initPlayer = this.createCopyPlayer();
 

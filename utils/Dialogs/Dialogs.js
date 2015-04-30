@@ -86,6 +86,7 @@ function init() {
 		$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + config[1].src +'" />');	
 		initialize = true;
 	}
+	$('#dialog_container').css('background-color', 'rgba(0,0,0,0.3)');
 	hideNextButton();
 	showDialog();
 	next();
@@ -99,12 +100,12 @@ function next() {
     	if ( txt[pos] == undefined ) return;
 
 		if ( txt[pos].turn == 1 ) {
-			$('.text').css('color', config[0].color);
+			$('.text').css('color', 'white');	// config[0].color
 			$('img#left_person').addClass('gray');
 			$('img#right_person').removeClass('gray');
 		}
 		else {
-			$('.text').css('color', config[1].color);		
+			$('.text').css('color', 'white');		
 			$('img#right_person').addClass('gray');
 			$('img#left_person').removeClass('gray');
 		}
@@ -125,8 +126,8 @@ $('.dialog_button').click(function(){
 		next();
 	}
 	else {
-	
 		hideDialog();			
+		$('#dialog_container').css('background-color', 'rgba(0,0,0,0)');
 		if ( callback ) {
 			eval( callback + '()' );
 		}
