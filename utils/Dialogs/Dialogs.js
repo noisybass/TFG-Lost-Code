@@ -35,6 +35,7 @@ var config;		// Current dialog's config
 var callback;	// Callback that will be invoque after showing dialog
 var pos = 0;
 var initialize = false;
+var context;
 
 $(document).ready(function(){
 
@@ -49,12 +50,13 @@ $(document).ready(function(){
 
 // This will load on screen the dialog loaded form Dialog.json at number position.
 // when dialog is over, then dialog window will be hidden automaticaly.
-function loadDialog(number, call) {
+function loadDialog(number, g, call) {
 	if ( number < dialogs.length ) {
 		txt       = dialogs[number];
 		config    = configs[number];
 		callback  = call;
 		pos       = 0;
+		context   = g;
 		init();	
 	}
 	else {
@@ -126,10 +128,15 @@ $('.dialog_button').click(function(){
 		next();
 	}
 	else {
-		hideDialog();			
+		hideDialog();
 		$('#dialog_container').css('background-color', 'rgba(0,0,0,0)');
+		
 		if ( callback ) {
 			eval( callback + '()' );
+		}
+		
+		if ( context ) {
+			context.paused = false;
 		}
 
 	}
