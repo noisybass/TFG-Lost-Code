@@ -4,7 +4,7 @@ TFG.MainMenu = function() {};
 
   var w;
   var h;
-  var cloud_group;
+  var clouds;
 
 TFG.MainMenu.prototype = {
 
@@ -29,9 +29,8 @@ TFG.MainMenu.prototype = {
     var button_play = this.game.add.button(this.w/2 - 50, this.h/2, 'play-button', this.playGame, this);
 
     // Clouds
-    this.cloud_group = this.game.add.group();
-    this.cloud_group.create(0,0,'clouds');
-    
+    this.clouds = createCloud(this.game, 5);
+  
     var text = "Desarrollado por: \nLaura María de Castro Saturio \nMariano Hernández García \nSamuel García Segador";
     var style = { font: "14px Arial", fill: "#000", align: "left" };
     var t = this.game.add.text(this.w - 110, this.h - 40, text, style);
@@ -40,16 +39,7 @@ TFG.MainMenu.prototype = {
   },
 
   update: function() {
-    var that = this;
-    this.cloud_group.forEach(function(cloud){
-      cloud.vx = 0.5;
-      cloud.z = -5;
-      cloud.x -= cloud.vx;
-      if ( cloud.x < -140 ) {
-        cloud.destroy();
-        that.cloud_group.create(this.game.width, that.game.rnd.integer() % this.game.height, 'clouds');
-      }
-    }, this);
+    cloudsMove(this.game);
   },
 
   playGame: function() {

@@ -104,3 +104,14 @@ span.glyphicon.glyphicon-remove-sign {
 	opacity: 0.2;
 	position: absolute;
 }
+
+iframe#doc-container {
+	display: none;
+	width: 800px;
+	height: 500px;
+}
+
+
+#button_menu_4 {
+	display: none;
+}

@@ -28,7 +28,6 @@
         <link href='fonts/IndieFlower.ttf'>
 
 
-
 		<script type="text/javascript" src="js/Boot.js"></script>
 		<script type="text/javascript" src="js/Preload.js"></script>
 		<script type="text/javascript" src="js/MainMenu.js"></script>
@@ -38,6 +37,7 @@
         <script type="text/javascript" src="js/game/Level.js"></script>
         <script type="text/javascript" src="js/game/HUD.js"></script>
         <script type="text/javascript" src="js/game/TiledIds.js"></script>
+        <script type="text/javascript" src="js/game/Cloud.js"></script>
 
         <script type="text/javascript" src="js/game/collectables/Coins.js"></script>
         <script type="text/javascript" src="js/game/collectables/Hearts.js"></script>
@@ -78,15 +78,24 @@
 				<button id="button_menu_2" type="button">
 					<span class="glyphicon glyphicon-repeat"></span> Repetir nivel
 				</button>
-				<button id="button_menu_3" type="button">
-					<span class="glyphicon glyphicon-list"></span> Seleccionar nivel
+				<button id="button_menu_3" type="button" onClick="loadDoc()">
+					<span class="glyphicon glyphicon-list"></span> Mostrar documentación
 				</button>
+
+				<button id="button_menu_4" type="button" onClick="closeDoc()">
+					<span class="glyphicon glyphicon-list"></span> Cerrar documentación
+				</button>
+
 			</div>
 
 			<!-- Body -->
 			<div id="content" class="row">
 
 				<div class="col-md-7">
+
+					<!-- Doc -->
+					<!-- <iframe id="doc-container" src="https://phaser.io/learn/chains" scrolling="yes"></iframe> -->
+					<iframe id="doc-container" src="docs/index.html" scrolling="yes"></iframe>
 					
 					<!-- Game canvas -->
 					<div id="game-canvas">
@@ -103,6 +112,9 @@
 
 					<!-- Test TWUnit-->
 					<div id="twunit"></div>
+
+
+
 				</div>	
 
 				<div class="col-md-5">
@@ -136,6 +148,37 @@
 		<!-- ****************************** -->
 
 		<!-- For better performance, scripts will go at the end-->
+
+
+		<!-- ################################################################  -->
+		<!-- Documentacion -->
+		<script>
+
+			function loadDoc() {
+				$('#game-canvas').fadeOut(500);
+    			$('iframe#doc-container').toggle( "slide" );
+    			$('#button_menu_3').fadeOut(500);
+    			$('#button_menu_4').fadeIn(500);
+			}
+
+			function closeDoc() {
+				$('iframe#doc-container').fadeOut(500);
+				$('#game-canvas').fadeIn(500);	
+				$('#button_menu_3').fadeIn(500);
+				$('#button_menu_4').fadeOut(500);
+			}
+
+			
+			// When iframe doc has been loaded
+    		$(function(){
+    			$('iframe#doc-container').load(function(){
+    				
+    			});
+    		});
+
+		</script>
+
+		<!-- ################################################################  -->
 
 		<!-- ACE CONFIGURATION -->
 		<script src="utils/ace/conf.js" type="text/javascript" charset="utf-8"></script>
