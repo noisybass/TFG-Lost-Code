@@ -57,7 +57,7 @@ Player.prototype = {
     // Objects
     this.game.physics.arcade.collide(this.sprite, bridges);
     this.game.physics.arcade.collide(this.sprite, rocks);
-    this.game.physics.arcade.collide(this.sprite, spikes);
+    this.game.physics.arcade.collide(this.sprite, spikes, this.die, null, this);
     this.game.physics.arcade.overlap(this.sprite, coins, this.pickCoin, null, this);
 
     // Tutorial Blocks
