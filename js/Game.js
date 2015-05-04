@@ -173,67 +173,73 @@ var reInitJump = function(){
 var testJumpOverEnemy = function(text){
     tw = new TWUnit();
     enemy = slimes.children[0]; // Cogemos el enemigo con el que vamos a luchar
+    
+    // Hago esto para que controlar de alguna manera que el jugador muere
+    // sin que tenga que volver al inicio de la pantalla si se le acaban las 
+    // vidas como pasa en player.die
+    var originalDie = player.die;
+    var originalLives = hud.lives;
+    player.die = function(){hud.lives--;};
 
     eval("player.upCollision =" + text);
-
 
     // Si el jugador a saltado encima del enemigo
     enemy.body.touching.up = true;
         player.upCollision(player, enemy);
-    // enemy.body.touching.up = false;
+    enemy.body.touching.up = false;
 
-    tw.addAssert("Enemigo muere", !enemy.alive, "Enemigo muere al saltar encima de él", "¿Has probado a eliminar al enemigo al comprobar que has saltado encima de él?");
-    tw.addAssert("Cuanto sube en el eje y",player.sprite.body.velocity.y == player.jumpSpeed, "La velocidad del player es igual a la velocidad de salto", "¿El player tiene la velocidad de salto asiganada en su eje y al saltar encima del enemigo?");
-    tw.addAssert("Cuanto dura el salto", player.jumpTime == player.game.time.now + 750, "Asignad el tiempo de salto", "error en tiempo de salto, cambiar esta quest despues poniendo un rango y no un valor estatico como 700");
+    tw.addAssert("Enemigo muere", !enemy.alive && originalLives == hud.lives, "Enemigo muere al saltar encima de él", "¿Has probado a eliminar al enemigo al comprobar que has saltado encima de él?");
+    tw.addAssert("Cuanto sube en el eje y",player.sprite.body.velocity.y == player.jumpSpeed && originalLives == hud.lives, "La velocidad del player es igual a la velocidad de salto", "¿El player tiene la velocidad de salto asiganada en su eje y al saltar encima del enemigo?");
+    tw.addAssert("Cuanto dura el salto", player.jumpTime == player.game.time.now + 750 && originalLives == hud.lives, "Asignad el tiempo de salto", "error en tiempo de salto, cambiar esta quest despues poniendo un rango y no un valor estatico como 700");
 
-    reInitJumpOverEnemy(enemy);
+    reInitJumpOverEnemy(enemy, originalLives);
 
     // Si el jugador es golpeado por la izquierda
     enemy.body.touching.left = true;
         player.upCollision(player, enemy);
     enemy.body.touching.left = false;
 
-    tw.addAssert("Jugador muere si es tocado por la izquierda", !player.sprite.alive, "Jugador muere si choca con un enemigo por la izquierda", "La unica manera de matar a un enemigo es por arriba... se te ocurre como puede morir el jugador?");
+    tw.addAssert("Jugador muere si es tocado por la izquierda", originalLives - 1 == hud.lives, "Jugador muere si choca con un enemigo por la izquierda", "La unica manera de matar a un enemigo es por arriba... se te ocurre como puede morir el jugador?");
 
-    reInitJumpOverEnemy(enemy);
+    reInitJumpOverEnemy(enemy, originalLives);
 
     // Si el jugador es golpeado por la derecha
     enemy.body.touching.right = true;
         player.upCollision(player, enemy);
     enemy.body.touching.right = false;
 
-    tw.addAssert("Jugador muere si es tocado por la derecha", !player.sprite.alive, "Jugador muere si choca con un enemigo por la derecha", "La unica manera de matar a un enemigo es por arriba... se te ocurre como puede morir el jugador?");
+    tw.addAssert("Jugador muere si es tocado por la derecha", originalLives - 1 == hud.lives, "Jugador muere si choca con un enemigo por la derecha", "La unica manera de matar a un enemigo es por arriba... se te ocurre como puede morir el jugador?");
 
-    reInitJumpOverEnemy(enemy);
+    reInitJumpOverEnemy(enemy, originalLives);
 
     // Si el jugador es golpeado por abajo
     enemy.body.touching.down = true;
         player.upCollision(player, enemy);
     enemy.body.touching.down = false;
 
-    tw.addAssert("Jugador muere si es tocado por abajo", !player.sprite.alive, "Jugador muere si choca con un enemigo por abajo", "La unica manera de matar a un enemigo es por arriba... se te ocurre como puede morir el jugador?");
+    tw.addAssert("Jugador muere si es tocado por abajo", originalLives - 1 == hud.lives, "Jugador muere si choca con un enemigo por abajo", "La unica manera de matar a un enemigo es por arriba... se te ocurre como puede morir el jugador?");
 
-    reInitJumpOverEnemy(enemy);
+    reInitJumpOverEnemy(enemy, originalLives);
 
     tw.runAsserts();
 
+    player.die = originalDie;
 
     return tw.assertsOk();
 }
 
-var reInitJumpOverEnemy = function(enemy){
-    player.sprite.body.velocity.y = 0;
-    player.jumpTime = player.game.time.now;
+var reInitJumpOverEnemy = function(enemy, originalLives){
+    
     if (!enemy.alive){
         enemy.revive();
-        enemy.body.touching.up = false;
-        enemy.body.touching.down = false;
-        enemy.body.touching.left = false;
         enemy.body.touching.right = false;
+        enemy.body.touching.up = false;
+        enemy.body.touching.left = false;
+        enemy.body.touching.down = false;
     }
 
-    if (!player.sprite.alive){
-        player.sprite.revive();
+    if (hud.lives != originalLives){
+        hud.lives = originalLives; 
     }
 
     player.sprite.body.velocity.y = 0;
