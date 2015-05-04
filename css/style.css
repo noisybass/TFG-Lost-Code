@@ -1,5 +1,16 @@
+@font-face {
+	font-family: "customFont";
+	font-style: normal;
+	font-weight: normal;
+	src: url("../fonts/IndieFlower.ttf");
+}						
+
 body {
-	font-family: 'Indie Flower', cursive;
+	font-family: "customFont";
+}
+
+h4 {
+	font-family: "customFont";
 }
 
 div.container {
@@ -64,7 +75,7 @@ div#twunit {
 }
 
 h3 {
-
+	font-family: "customFont";
 }
 
 div.positive_test {
