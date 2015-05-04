@@ -131,14 +131,16 @@ Player.prototype = {
 
   upCollision: function(player, enemy) {
     
+    /*
     if (enemy.body.touching.up) {
-      enemy.destroy();
+      enemy.kill();
       this.sprite.body.velocity.y = this.jumpSpeed;
       this.jumpTime = this.game.time.now + 750;
     }
     else {
+      */
       this.die();
-    }
+    //}
   },
 
   /* */
