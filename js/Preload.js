@@ -18,6 +18,7 @@ TFG.Preload.prototype = {
     this.loadMainMenuAssets();
     this.loadPlayerAssets();
     this.loadLevelAssets();
+    this.loadHUDAssets();
     this.loadEnemiesAssets();
     this.loadObjectsAssets();
 
@@ -36,6 +37,10 @@ TFG.Preload.prototype = {
       this.game.load.image('play-button', 'assets/img/play-button.png');
       this.game.load.image('credits-button', 'assets/img/credits-button.png');
       this.game.load.image('back-button', 'assets/img/back-button.png');
+  },
+
+  loadHUDAssets: function(){
+    this.game.load.image('heart', 'assets/img/HUD/hud_heartFull.png');
   },
 
   loadPlayerAssets: function() {
