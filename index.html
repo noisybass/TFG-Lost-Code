@@ -74,22 +74,22 @@
 			<!-- Header -->
 			<div id="menu" class="row">
 
-				<div class="col-md-1">
-					<h4>Game title</h4>
+				<div class="col-md-2">
+					<h1>Game title</h1>
 				</div>
 
-				<div id="buttons_menu" class="col-md-11">
-					<button id="button_menu_1" class="btn btn-primary" type="button" onClick="goMenu()">
+				<div id="buttons_menu" class="col-md-10">
+					<button id="button_menu_1" class="btn" type="button" onClick="goMenu()">
 					<span class="glyphicon glyphicon-home"></span> Volver al menu
 					</button>
-					<button id="button_menu_2" class="btn btn-primary" type="button" onClick="restartLevel()">
+					<button id="button_menu_2" class="btn" type="button" onClick="restartLevel()">
 						<span class="glyphicon glyphicon-repeat"></span> Repetir nivel
 					</button>
-					<button id="button_menu_3" class="btn btn-primary" type="button" onClick="loadDoc()">
+					<button id="button_menu_3" class="btn" type="button" onClick="loadDoc()">
 						<span class="glyphicon glyphicon-list "></span> Mostrar documentación
 					</button>
 
-					<button id="button_menu_4" class="btn btn-primary" type="button" onClick="closeDoc()">
+					<button id="button_menu_4" class="btn" type="button" onClick="closeDoc()">
 						<span class="glyphicon glyphicon-list"></span> Cerrar documentación
 					</button>
 				</div>
@@ -103,10 +103,10 @@
 				<div class="col-md-7">
 
 					<!-- Doc -->
-					<iframe id="doc-container" src="docs/Phaser.html" scrolling="yes"></iframe>
+					<iframe class="row" id="doc-container" src="docs/Phaser.html" scrolling="yes"></iframe>
 					
 					<!-- Game canvas -->
-					<div id="game-canvas">
+					<div id="game-canvas" class="row">
 						<!-- Dialogs -->
 				        <div id="dialog_container">
 				        	<button class="btn btn-danger dialog_skip_button">
@@ -118,10 +118,16 @@
 				        </div>
 					</div>
 					
-					<h3><span class="glyphicon glyphicon-check"></span> Test / Tareas</h3>
 
-					<!-- Test TWUnit-->
-					<div id="twunit"></div>
+					<div id="test-container" class="row">
+
+						<div id="test">
+							<h3><span class="glyphicon glyphicon-check"></span> Test / Tareas</h3>
+						</div>
+						<!-- Test TWUnit-->
+						<div id="twunit"></div>
+					</div>
+					
 
 				</div>	
 
