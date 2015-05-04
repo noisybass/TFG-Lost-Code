@@ -116,29 +116,18 @@ Player.prototype = {
     //this.audio_coin.play();
   },
 
-  /* */
-  /*goombaCollision: function(player, goomba) {
-    
-    if (goomba.body.touching.up) {
-      goomba.destroy();
-      this.sprite.body.velocity.y = this.MAX_VELOCITY_Y * (-1);
-      this.jumpTime = this.game.time.now + 750;
-    }
-    else {
-      this.die();
-    }
-  },*/
-
   upCollision: function(player, enemy) {
     
+    /*
     if (enemy.body.touching.up) {
-      enemy.destroy();
+      enemy.kill();
       this.sprite.body.velocity.y = this.jumpSpeed;
       this.jumpTime = this.game.time.now + 750;
     }
     else {
+      */
       this.die();
-    }
+    //}
   },
 
   /* */
