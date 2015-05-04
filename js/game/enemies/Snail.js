@@ -9,28 +9,24 @@ createSnails = function(game) {
   snails.callAll('animations.play', 'animations', 'anim_snail');
 
   snails.forEach(
-    function(enemy) {  
-        enemy.animations.add('snail_animation_move', [1,0], 5, true);
-        //Initialize
-        //enemy.body.velocity.x = -50;
-        enemy.direction       = State.LOOKINGLEFT;
+    function(snail) {  
+        snail.animations.add('snail_animation_move', [1,0], 5, true);
+        snail.direction = State.LOOKINGLEFT;
     });
 };
 
 
-
 /* Updates  snails*/
+snailMove = function(snail) {
 
-snailsMove = function(enemy) {
-
-  if (enemy.body.blocked.left || enemy.body.touching.left) {
-    enemy.direction = State.LOOKINGRIGHT;
+  if (snail.body.blocked.left || snail.body.touching.left) {
+    snail.direction = State.LOOKINGRIGHT;
   }
-  else if (enemy.body.blocked.right || enemy.body.touching.right) {
-    enemy.direction = State.LOOKINGLEFT;
+  else if (snail.body.blocked.right || snail.body.touching.right) {
+    snail.direction = State.LOOKINGLEFT;
   }
 
-  enemy.play('anim_snail');
+  snail.play('anim_snail');
 
   if (enemy.direction == State.LOOKINGLEFT) {
     enemy.body.velocity.x = -50;

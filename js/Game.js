@@ -169,6 +169,16 @@ var reInitJump = function(){
     player.direction = State.LOOKINGRIGHT;
 }
 
+var testSnailMove = function(text) {
+
+    tw = new TWUnit();
+
+    eval(text);
+
+    snails.forEach(snailMove, this);
+
+}
+
 
 
 /*

@@ -73,22 +73,25 @@ Player.prototype = {
   },
 
   blockOverlap: function(player, block) {
-    //console.log("------------Colision con bloque-------------- ");
-    //console.log(block.data);
 
-    this.game.paused = true;
-    currentTask = block.data;
+    if(!block.data.pasarDesafio) {
+      this.game.paused = true;
+      currentTask = block.data;
 
-    block.destroy();
-    player.game.input.disabled = true;
+      block.destroy();
+      player.game.input.disabled = true;
 
-    loadDialog(this.dialogIndex, this.game, "setTask");
-    this.dialogIndex++;
-    
+      loadDialog(this.dialogIndex, this.game, "setTask");
+      this.dialogIndex++;
+      
 
-    //currentTask.initPlayer = this.createCopyPlayer();
+      //currentTask.initPlayer = this.createCopyPlayer();
 
-    //setTask();
+      //setTask();
+    }
+    else {
+      block.destroy();
+    }
   },
 
 
@@ -187,18 +190,23 @@ Player.prototype = {
         this.direction = State.LOOKINGRIGHT;
       }
     }
-    
-    else if (this.cursors.left.isDown) {
-      this.sprite.body.velocity.x = -this.walkSpeed;
 
-      if (this.sprite.body.onFloor() || this.sprite.body.touching.down){
-        this.sprite.play('player_animation_moveLeft', 5, true);
-      }
+    /***** DESAFIO 0 *****/
 
-      if (this.direction == State.LOOKINGRIGHT) {
-        this.direction = State.LOOKINGLEFT;
-      }
-    } 
+else if (this.cursors.left.isDown) {
+  this.sprite.body.velocity.x = -this.walkSpeed;
+
+  if (this.sprite.body.onFloor() || this.sprite.body.touching.down){
+    this.sprite.play('player_animation_moveLeft', 5, true);
+  }
+
+  if (this.direction == State.LOOKINGRIGHT) {
+    this.direction = State.LOOKINGLEFT;
+  }
+} 
+
+/*********************/
+/*********************/
     
     else {
       if (this.direction == State.LOOKINGLEFT) {
@@ -238,14 +246,19 @@ Player.prototype = {
 
     if (this.cursors.up.isDown && (this.sprite.body.onFloor() || this.sprite.body.touching.down) && this.game.time.now > this.jumpTimer) {
         
-        if (this.direction == State.LOOKINGLEFT) {
-          this.sprite.play('player_animation_jumpLeft');
-        }
-        else {
-          this.sprite.play('player_animation_jumpRight');
-        }
-        this.sprite.body.velocity.y = this.jumpSpeed;
-        
+        /***** DESAFIO 1 *****/
+
+if (this.direction == State.LOOKINGLEFT) {
+  this.sprite.play('player_animation_jumpLeft');
+}
+else {
+  this.sprite.play('player_animation_jumpRight');
+}
+this.sprite.body.velocity.y = this.jumpSpeed;
+
+/*********************/
+/*********************/
+
         this.jumpTimer = this.game.time.now + 750;
     }
     

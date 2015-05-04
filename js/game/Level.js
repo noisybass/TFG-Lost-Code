@@ -70,7 +70,7 @@ Level.prototype = {
 
         //cloudsMove(this.game);
 
-        // Enemies
+        // Enemy collisions
         this.game.physics.arcade.collide(snails, this.layer);
         this.game.physics.arcade.collide(snails); // Snails collide with themselfs
         this.game.physics.arcade.collide(snails, bridges);
@@ -83,8 +83,8 @@ Level.prototype = {
         this.game.physics.arcade.collide(slimes, rocks);
         this.game.physics.arcade.collide(slimes, spikes);
 
-        // Start Enemies
-        //snails.forEach(snailsMove, this);
+        // Update enemies
+        snails.forEach(snailMove, this);
         slimes.forEach(slimesMove, this);
 
         // Objects
