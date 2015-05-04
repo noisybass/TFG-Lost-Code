@@ -74,6 +74,8 @@ TFG.Game.prototype = {
     var that = this;
     $('#submit-button').click(function() {that.submitCode.call(player)});
     $('#restart-button').click(setTask);
+
+    $('#submit-button').click(function() {that.submitCode.call(player)});
     
   },
 

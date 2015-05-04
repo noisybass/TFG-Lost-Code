@@ -15,6 +15,8 @@ TFG.game.state.add('Preload', TFG.Preload);
 // so they can quickly accessed.
 TFG.game.state.add('MainMenu', TFG.MainMenu);
 
+TFG.game.state.add('ClosingCredits', TFG.ClosingCredits);
+
 // Game State: the actual game.
 TFG.game.state.add('Game', TFG.Game);
 
