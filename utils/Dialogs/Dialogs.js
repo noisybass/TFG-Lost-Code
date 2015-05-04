@@ -142,5 +142,18 @@ $('.dialog_button').click(function(){
 	}
 });
 
+$('.dialog_skip_button').click(function(){
+	hideDialog();
+	$('#dialog_container').css('background-color', 'rgba(0,0,0,0)');
+	
+	if ( callback ) {
+		eval( callback + '()' );
+	}
+	
+	if ( context ) {
+		context.paused = false;
+	}	
+});
+
 
 

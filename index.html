@@ -31,6 +31,7 @@
 		<script type="text/javascript" src="js/Boot.js"></script>
 		<script type="text/javascript" src="js/Preload.js"></script>
 		<script type="text/javascript" src="js/MainMenu.js"></script>
+		<script type="text/javascript" src="js/ClosingCredits.js"></script>
 		<script type="text/javascript" src="js/Game.js"></script>
 
         <script type="text/javascript" src="js/game/Player.js"></script>
@@ -72,55 +73,65 @@
 
 			<!-- Header -->
 			<div id="menu" class="row">
-				<button id="button_menu_1" type="button">
-					<span class="glyphicon glyphicon-home"></span> Volver al menu
-				</button>
-				<button id="button_menu_2" type="button">
-					<span class="glyphicon glyphicon-repeat"></span> Repetir nivel
-				</button>
-				<button id="button_menu_3" type="button" onClick="loadDoc()">
-					<span class="glyphicon glyphicon-list"></span> Mostrar documentación
-				</button>
 
-				<button id="button_menu_4" type="button" onClick="closeDoc()">
-					<span class="glyphicon glyphicon-list"></span> Cerrar documentación
-				</button>
+				<div class="col-md-1">
+					<h4>Game title</h4>
+				</div>
+
+				<div id="buttons_menu" class="col-md-11">
+					<button id="button_menu_1" class="btn btn-primary" type="button" onClick="goMenu()">
+					<span class="glyphicon glyphicon-home"></span> Volver al menu
+					</button>
+					<button id="button_menu_2" class="btn btn-primary" type="button" onClick="restartLevel()">
+						<span class="glyphicon glyphicon-repeat"></span> Repetir nivel
+					</button>
+					<button id="button_menu_3" class="btn btn-primary" type="button" onClick="loadDoc()">
+						<span class="glyphicon glyphicon-list "></span> Mostrar documentación
+					</button>
+
+					<button id="button_menu_4" class="btn btn-primary" type="button" onClick="closeDoc()">
+						<span class="glyphicon glyphicon-list"></span> Cerrar documentación
+					</button>
+				</div>
 
 			</div>
 
 			<!-- Body -->
 			<div id="content" class="row">
 
+				<!-- Left -->
 				<div class="col-md-7">
 
 					<!-- Doc -->
-					<!-- <iframe id="doc-container" src="https://phaser.io/learn/chains" scrolling="yes"></iframe> -->
-					<iframe id="doc-container" src="docs/index.html" scrolling="yes"></iframe>
+					<iframe id="doc-container" src="docs/Phaser.html" scrolling="yes"></iframe>
 					
 					<!-- Game canvas -->
 					<div id="game-canvas">
 						<!-- Dialogs -->
 				        <div id="dialog_container">
-				            <button class="btn btn-info dialog_button">Continue</button>
+				        	<button class="btn btn-danger dialog_skip_button">
+				        		<span class="glyphicon glyphicon-remove"></span>
+				        	</button>
+				            <button class="btn btn-success dialog_button">
+				            	<span class="glyphicon glyphicon-forward"></span>
+				            </button>
 				        </div>
 					</div>
 					
-
 					<h3><span class="glyphicon glyphicon-check"></span> Test / Tareas</h3>
-
-					
 
 					<!-- Test TWUnit-->
 					<div id="twunit"></div>
 
-
-
 				</div>	
 
+				<!-- Right -->
 				<div class="col-md-5">
 
 					<div id="code-editor" class="row">
-						<div id="task">	</div>
+						<div id="task">
+							<h3><span class="glyphicon glyphicon-pencil"></span>Aqui va la tarea</h3>
+						</div>
 						
 						<div id="editor"> </div>
 						
@@ -147,43 +158,29 @@
 		</div>
 		<!-- ****************************** -->
 
-		<!-- For better performance, scripts will go at the end-->
-
-
-		<!-- ################################################################  -->
-		<!-- Documentacion -->
 		<script>
 
-			function loadDoc() {
-				$('#game-canvas').fadeOut(500);
-    			$('iframe#doc-container').toggle( "slide" );
-    			$('#button_menu_3').fadeOut(500);
-    			$('#button_menu_4').fadeIn(500);
-			}
+			function goMenu() {
+				TFG.game.state.start('MainMenu');
+				$('#button_menu_1').fadeOut(500);
+    			$('#button_menu_2').fadeOut(500);	
+			};
 
-			function closeDoc() {
-				$('iframe#doc-container').fadeOut(500);
-				$('#game-canvas').fadeIn(500);	
-				$('#button_menu_3').fadeIn(500);
-				$('#button_menu_4').fadeOut(500);
-			}
-
-			
-			// When iframe doc has been loaded
-    		$(function(){
-    			$('iframe#doc-container').load(function(){
-    				
-    			});
-    		});
+			function restartLevel() {
+				TFG.game.state.start('Game');
+				player.restartPosition();
+			};
 
 		</script>
 
-		<!-- ################################################################  -->
+
+		<!-- For better performance, scripts will go at the end-->
 
 		<!-- ACE CONFIGURATION -->
 		<script src="utils/ace/conf.js" type="text/javascript" charset="utf-8"></script>
 		<!-- Dialogs -->
 		<script type="text/javascript" src="utils/Dialogs/Dialogs.js"></script>
-
+		<!-- Documentation -->
+		<script type="text/javascript" src="utils/docu.js"></script>
 	</body>
 </html>

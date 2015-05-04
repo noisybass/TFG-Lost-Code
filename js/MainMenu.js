@@ -4,7 +4,7 @@ TFG.MainMenu = function() {};
 
   var w;
   var h;
-  var clouds;
+  
 
 TFG.MainMenu.prototype = {
 
@@ -26,16 +26,13 @@ TFG.MainMenu.prototype = {
     var title = this.game.add.sprite(this.w/2 - 250,this.h/2-200,'title');
 
     // Buttons
-    var button_play = this.game.add.button(this.w/2 - 50, this.h/2, 'play-button', this.playGame, this);
+    var button_play    = this.game.add.button(this.w/2 - 50, this.h/2, 'play-button', this.playGame, this); // admite 3 paramatros mas, int frame: over, out down 
+    var button_credits = this.game.add.button(this.w/2-50, this.h/2+100, 'credits-button', this.showCredits, this);
 
     // Clouds
-    this.clouds = createCloud(this.game, 5);
+    createCloud(this.game, 2);
   
-    var text = "Desarrollado por: \nLaura María de Castro Saturio \nMariano Hernández García \nSamuel García Segador";
-    var style = { font: "14px Arial", fill: "#000", align: "left" };
-    var t = this.game.add.text(this.w - 110, this.h - 40, text, style);
-    t.anchor.set(0.5);
-    
+  
   },
 
   update: function() {
@@ -43,7 +40,13 @@ TFG.MainMenu.prototype = {
   },
 
   playGame: function() {
+    $('#button_menu_1').fadeIn(500);
+    $('#button_menu_2').fadeIn(500);
     this.game.state.start('Game');
-  }
+  },
 
+  showCredits: function() {
+    this.game.state.start('ClosingCredits');
+  }
+ 
 }
