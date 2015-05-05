@@ -37,6 +37,7 @@ TFG.Preload.prototype = {
       this.game.load.image('play-button', 'assets/img/play-button.png');
       this.game.load.image('credits-button', 'assets/img/credits-button.png');
       this.game.load.image('back-button', 'assets/img/back-button.png');
+      this.game.load.image('credits', 'assets/img/credits.png');
   },
 
   loadHUDAssets: function(){

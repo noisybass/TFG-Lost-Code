@@ -26,7 +26,7 @@ TFG.MainMenu.prototype = {
     createCloud(this.game, 2);
 
     // Game title
-    var title = this.game.add.sprite(this.w/2 - 250,this.h/2-200,'title');
+    var title = this.game.add.sprite(this.w/2 - 272,this.h/2-200,'title');
 
     // Buttons
     var button_play    = this.game.add.button(this.w/2 - 50, this.h/2, 'play-button', this.playGame, this); // admite 3 paramatros mas, int frame: over, out down 

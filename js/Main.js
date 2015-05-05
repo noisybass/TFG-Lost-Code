@@ -29,7 +29,6 @@ function goMenu() {
 };
 
 function restartLevel() {
+	// No funciona nada de lo que he encontrado...
 	TFG.game.state.start('Game');
-	player.sprite.body.x = 150;
-	player.sprite.body.y = 400;
 };
