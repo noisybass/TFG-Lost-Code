@@ -105,8 +105,13 @@ div#task, div#test, div#doc {
 	margin-bottom: 0px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-	width: 50%;
+	width: 98%;
 }
+
+div#test, div#doc {
+	width: 100%;
+}
+
 
 div#task h3, div#test h3, div#doc-container.row h3 {
 	margin-top: 0px;
