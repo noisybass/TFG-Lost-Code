@@ -6,7 +6,7 @@
 			"target": "player.move",
 			"range1": [0,0,0,0],
 			"range2": [0,0,0,0],
-			"test": "testMoveLeft(text, currentTask.initPlayer)"
+			"test": "testMoveLeft(text)"
 		},
 		{
 			"goal": "Haz que el jugador pueda saltar",
@@ -23,6 +23,14 @@
 			"range1": [0,0,0,0],
 			"range2": [0,0,0,0],
 			"test": "testMoveEnemies(text)"
+		},
+		{
+			"task": "Haz que el jugador pueda saltar sobre los enemigos",
+			"code": "function upCollision(player, enemy) {\n\n\t this.die();\n}\n\n",
+			"target": "player.upCollision",
+			"range1": [0,0,0,0],
+			"range2": [0,0,0,0],
+			"test": "testJumpOverEnemy(text)"
 		}
 	]
 }
