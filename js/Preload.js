@@ -42,6 +42,7 @@ TFG.Preload.prototype = {
 
   loadHUDAssets: function(){
     this.game.load.image('heart', 'assets/img/HUD/hud_heartFull.png');
+    this.load.spritesheet('hud-font', 'assets/img/HUD/hud_fontScore.png', 50,50, 15);
   },
 
   loadPlayerAssets: function() {
@@ -97,6 +98,7 @@ TFG.Preload.prototype = {
     /*this.game.load.spritesheet('coin_spritesheet', 'assets/images/coins.png', 34, 34, 3);
     this.game.load.spritesheet('eBlock_spritesheet', 'assets/images/eBlocks.png', 34, 32, 3);
     this.game.load.image('heart_image', 'assets/images/heart.png');
-    this.game.load.image('shifting_platform_image', 'assets/images/platform.png*/  }
+    this.game.load.image('shifting_platform_image', 'assets/images/platform.png*/  
+  }
 
 }

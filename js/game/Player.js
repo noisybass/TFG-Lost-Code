@@ -99,8 +99,6 @@ Player.prototype = {
     heart.destroy();
 
     // Add and update the lives
-    /*hud.lives++;
-    hud.livesText.text = hud.livesString + hud.lives;*/
     hud.addLives();
   },
 
@@ -111,8 +109,7 @@ Player.prototype = {
     coin.destroy();
 
     // Add and update the score
-    hud.score++;
-    hud.scoreText.text = hud.scoreString + hud.score;
+    hud.addNumber(1);
     
     //this.audio_coin.play();
   },
@@ -214,8 +211,6 @@ Player.prototype = {
       this.sprite.body.y = 490;
 
       // Update the lives
-      /*hud.lives--;
-      hud.livesText.text = hud.livesString + hud.lives;*/
       hud.removeLives();
     }
     else{
