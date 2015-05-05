@@ -22,3 +22,14 @@ TFG.game.state.add('Game', TFG.Game);
 
 TFG.game.state.start('Boot');
 
+function goMenu() {
+	TFG.game.state.start('MainMenu');
+	$('#button_menu_1').fadeOut(500);
+	$('#button_menu_2').fadeOut(500);	
+};
+
+function restartLevel() {
+	TFG.game.state.start('Game');
+	player.sprite.body.x = 150;
+	player.sprite.body.y = 400;
+};
