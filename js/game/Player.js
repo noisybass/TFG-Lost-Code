@@ -99,8 +99,9 @@ Player.prototype = {
     heart.destroy();
 
     // Add and update the lives
-    hud.lives++;
-    hud.livesText.text = hud.livesString + hud.lives;
+    /*hud.lives++;
+    hud.livesText.text = hud.livesString + hud.lives;*/
+    hud.addLives();
   },
 
   /* Called when player collides with a coin*/
@@ -213,8 +214,9 @@ Player.prototype = {
       this.sprite.body.y = 490;
 
       // Update the lives
-      hud.lives--;
-      hud.livesText.text = hud.livesString + hud.lives;
+      /*hud.lives--;
+      hud.livesText.text = hud.livesString + hud.lives;*/
+      hud.removeLives();
     }
     else{
       // NOTA: Have I to erase the object?? or it erases itself?
