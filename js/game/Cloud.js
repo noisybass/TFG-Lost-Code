@@ -1,4 +1,4 @@
-/* Create cloud */
+/* Create clouds */
 
 var clouds;
 
