@@ -41,14 +41,14 @@ TFG.ClosingCredits.prototype = {
 
   showCredits: function() {
 
-    this.credits = this.game.add.text(this.w - 110, this.h - 40, 
-              "This game has been develop by:" +  
-              "\n* Laura María de Castro Saturio" + 
-              "\n* Mariano Hernández García" + 
-              "\n* Samuel García Segador" +
-              "\n with our [COODINADOR EN INGLES]" +
-              " Guillermo Jiménez",
-              { font: "14px Indie Flower", fill: "#000", align: "left" });
+    this.credits = this.game.add.text(this.w/2, this.h/2, 
+              "ESTE JUEGO HA SIDO DESARROLLADO POR:" +  
+              "\nLaura María de Castro Saturio" + 
+              "\nMariano Hernández García" + 
+              "\nSamuel García Segador" +
+              "\nCOORDINADOR DEL PROYECTO:" +
+              "\nGuillermo Jiménez",
+              { font: "30px Indie Flower", fill: "#000", align: "center", fontWeight: "bold" });
 
     this.credits.anchor.set(0.5);
   }
