@@ -71,8 +71,12 @@ div#statement {
 div#editor {
 	width: 		98%;
 	max-width: 	98%;
-	height: 	500px;
-	max-height: 500px;
+	height: 	560px;
+	max-height: 560px;
+}
+
+div#code-editor {
+	height: 675px;
 }
 
 div#code-editor, div#game-canvas, div#test-container, div#doc-container {
