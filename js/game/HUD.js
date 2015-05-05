@@ -34,7 +34,7 @@ HUD.prototype = {
 		for (i = 0; i < this.scoreCharacters.length; ++i){
 			this.configureCharacter(this.scoreCharacters[i]);
 		}
-		this.addNumber(12);
+		this.addNumber(0);
 
 		/*this.scoreString = 'Score: ';
 		this.scoreText = this.game.add.text(0, 0, this.scoreString + this.score, { fontSize: '32px', fill: '#FFF' });
