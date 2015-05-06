@@ -1,26 +1,38 @@
-// Pongo TFG de momento hasta que tengamos el nombre del juego
+
+// Este js hace que el juego se adapte al tamaño del div game-canvas
+// segun la resolucion del monitor en el momento q carga la pagina.
+// No lo cargo pq luego el juego se ve mal, pq se conoce que no usamos
+// game.width ni game.height sino que lo pusimos a mano.
+// Si lo arreglamos esto podria valernos.
+
 var TFG = TFG || {};
 
-TFG.game = new Phaser.Game(750, 500, Phaser.AUTO, 'game-canvas');
 
-// Boot State: general game settings are defined, and the assets of the preloading screen are loaded (example the loading bar).
-// Nothing is shown to the user.
-TFG.game.state.add('Boot', TFG.Boot);
+setTimeout(function(){
+ 	var dx = $('#game-canvas').width();
+	var dy = 500;   
+    TFG.game = new Phaser.Game(dx, dy, Phaser.AUTO, 'game-canvas');
 
-// Preload State: the game assets (images, spritesheets, audio, textures, etc) are loaded into the memory (from the disk). The 
-// preloading screen is shown to the user, which usually includes a loading bar to show the progress.
-TFG.game.state.add('Preload', TFG.Preload);
+	// Boot State: general game settings are defined, and the assets of the preloading screen are loaded (example the loading bar).
+	// Nothing is shown to the user.
+	TFG.game.state.add('Boot', TFG.Boot);
 
-// MainMenu State: game's welcome screen. After the preload state, all the game images are already loaded into the memory,
-// so they can quickly accessed.
-TFG.game.state.add('MainMenu', TFG.MainMenu);
+	// Preload State: the game assets (images, spritesheets, audio, textures, etc) are loaded into the memory (from the disk). The 
+	// preloading screen is shown to the user, which usually includes a loading bar to show the progress.
+	TFG.game.state.add('Preload', TFG.Preload);
 
-TFG.game.state.add('ClosingCredits', TFG.ClosingCredits);
+	// MainMenu State: game's welcome screen. After the preload state, all the game images are already loaded into the memory,
+	// so they can quickly accessed.
+	TFG.game.state.add('MainMenu', TFG.MainMenu);
 
-// Game State: the actual game.
-TFG.game.state.add('Game', TFG.Game);
+	TFG.game.state.add('ClosingCredits', TFG.ClosingCredits);
 
-TFG.game.state.start('Boot');
+	// Game State: the actual game.
+	TFG.game.state.add('Game', TFG.Game);
+
+	TFG.game.state.start('Boot');
+
+}, 100);
 
 function goMenu() {
 	TFG.game.state.start('MainMenu');
@@ -29,6 +41,5 @@ function goMenu() {
 };
 
 function restartLevel() {
-	// No funciona nada de lo que he encontrado...
 	TFG.game.state.start('Game');
 };
