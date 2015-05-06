@@ -108,10 +108,13 @@ div#task, div#test, div#doc {
 	width: 98%;
 }
 
-div#test, div#doc {
+div#test {
 	width: 100%;
 }
 
+div#doc {
+	width: 101.5%;	
+}
 
 div#task h3, div#test h3, div#doc-container.row h3 {
 	margin-top: 0px;
@@ -170,18 +173,18 @@ span.glyphicon.glyphicon-remove-sign {
 }
 
 iframe#doc-iframe {
-	width: 100%;
+	width: 101.5%;
 	height: 500px;
-	margin-left: -50px;
+
 }
 
 div#doc-container {
 	display: none;
-	padding-left: 55px;
+	padding-left: 20px;
 }
 
 div#doc {
-	margin-left: -50px;
+	margin-left: -14px;
 }
 
 
