@@ -2,9 +2,34 @@
 	"dialogs": [
 
 		[
-			{"turn": 1, "text": "Hola Sara" },
-			{"turn": 1, "text": "Para comenzar, camina a la derecha" },
-			{"turn": 2, "text": "Hola Pepe, de acuerdo!!" }
+			{"turn": 1, "text": "Hola. Mi nombre es Bersara." },
+			{"turn": 2, "text": "Hola Bersara" },
+			{"turn": 1, "text": "Como sabrás, a programar se aprende programando y no todo el mundo está capacitado para ello." },
+			{"turn": 1, "text": "Es por ello por lo que he estado buscando a la persona adecuada." },
+			{"turn": 1, "text": "Y esa persona eres tú." },
+			{"turn": 2, "text": "Oo" },
+			{"turn": 1, "text": "Necesito que me ayudes a encontrar una puerta." },
+			{"turn": 1, "text": "Una puerta que me saque de este mundo y permita continuar mi misión." },
+			{"turn": 1, "text": "Claro que..." },
+			{"turn": 1, "text": "...tengo un problema..." },
+			{"turn": 2, "text": "..." },
+			{"turn": 1, "text": "...me da vergüenza admitirlo..." },
+			{"turn": 1, "text": "...pero se que puedo confiar en ti." },
+			{"turn": 1, "text": "He olvidado cómo hacer ciertas cosas..." },
+			{"turn": 1, "text": "saltar" },
+			{"turn": 1, "text": "recoger monedas" },
+			{"turn": 2, "text": "xD" },
+			{"turn": 1, "text": "ya sabes..." },
+			{"turn": 1, "text": "...las típicas cosas que una persona debe ser capaz de hacer en un mundo poligonal como este." },
+			{"turn": 1, "text": "Bueno, dejémonos de cháchara y vayamos al lío." },
+			{"turn": 1, "text": "¿Me ayudarás?" },
+			{"turn": 2, "text": "Síí!!" },
+			{"turn": 1, "text": "Genial :)" },
+			{"turn": 1, "text": "Ahora solo recuerdo cómo se camina a la derecha..." },
+			{"turn": 1, "text": "...sí, ya se que es triste." },
+			{"turn": 1, "text": "Pero es lo que hay..." },
+			{"turn": 1, "text": "Para que camine a la derecha tienes que pulsar la flecha derecha." },
+			{"turn": 2, "text": "Valee." }
 		
 		],
 
