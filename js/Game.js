@@ -249,6 +249,30 @@ var reInitJumpOverEnemy = function(enemy, originalLives){
 
 }
 
+var testPickCoins = function(text){
+    tw = new TWUnit();
+    coin = coins.children[0]; // Cogemos una moneda
+    var originScore = hud.score;
+    var originText = hud.scoreText.text;
+    eval("player.pickCoin =" + text);
+
+    player.pickCoin(player, coin);
+
+    tw.addAssert("Moneda destruida", !coin.alive, "Destruir la moneda", "¿Te acuerdas de como eliminabamos al enemigo que saltamos encima de él?");
+    tw.addAssert("Modificar la puntuación", originScore + 1 == hud.score, "Puntuación modificada", "la clase hud tiene un atributo score para poder modificarlo");
+    tw.addAssert("Modificar texto del score", hud.scoreText.text == "Score: " + hud.score.toString(), "Texto del score cambiado correctamente", "El hud debe mostrarse de la siguiente manera, Score: Numero  donde el numero es nuestra puntuación");
+
+    if (!coin.alive){
+        coin.revive();
+    }
+    hud.score = originScore;
+    hud.scoreText.text = originText;
+
+    tw.runAsserts();
+
+    return tw.assertsOk();
+}
+
 /*
 Suposicion: al deshabilitar los eventos, si pulsas las teclas quedan registrados
 como pulsada, pero no se ejecuta, y por lo tanto cuando lo habilitas siguen estando 
