@@ -11,14 +11,14 @@ HUD = function(game) {
 
 	this.hearts      = null;
 	this.heartSpace  = 20;
-	this.heartsX     = $('#game-canvas').width() - 30;
+	this.heartsX     = $('#game-canvas').width() - 100;
 	this.heartsY     = 30;
 
 	this.scoreCharacters = new Array();
 	this.scoreNumbers    = new Array();
 	this.scoreSpace  = 17;
 	this.spaceLetterToNumber = 30;
-	this.scoreX      = 20;
+	this.scoreX      = 60;
 	this.scoreY      = 30;
 };
 
@@ -79,7 +79,6 @@ HUD.prototype = {
 		var string = this.score.toString();
 
 		for (i = 0; i < string.length; ++i){
-			console.log(string[i]);
 			var number = this.game.add.sprite(this.scoreX + this.spaceLetterToNumber + this.scoreSpace*(4+i),this.scoreY, 'hud-font', parseInt(string[i]));
 			this.configureCharacter(number);
 			this.scoreNumbers.push(number);
