@@ -109,7 +109,8 @@ Player.prototype = {
     coin.destroy();
 
     // Add and update the score
-    hud.addNumber(1);
+    hud.score++;
+    hud.scoreText.text = hud.scoreString + hud.score;
     
     //this.audio_coin.play();
   },
