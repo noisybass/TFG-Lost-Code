@@ -84,7 +84,6 @@ Player.prototype = {
 
     loadDialog(this.dialogIndex, this.game, "setTask");
     this.dialogIndex++;
-    
 
     //currentTask.initPlayer = this.createCopyPlayer();
 

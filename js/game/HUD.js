@@ -14,17 +14,17 @@ HUD = function(game) {
 	this.scoreText   = null;
 	this.scoreX      = 60;
 	this.scoreY      = 30;
+	this.scoreString = 'Score: ';
 };
 
 HUD.prototype = {
 
 	create: function() {
+		this.createScore();
+		this.createHearts();
+	},
 
-		this.scoreString = 'Score: ';
-		this.scoreText = this.game.add.text(0, 0, this.scoreString + this.score, { fontSize: '32px', fill: '#FFF' });
-		this.scoreText.fixedToCamera = true;
-		this.scoreText.cameraOffset.setTo(16, 16);
-
+	createHearts: function(){
 		this.hearts = [this.game.add.sprite(this.heartsX                    , this.heartsY, 'heart'),
 					   this.game.add.sprite(this.heartsX + this.heartSpace  , this.heartsY, 'heart'),
 					   this.game.add.sprite(this.heartsX + this.heartSpace*2, this.heartsY, 'heart')];
@@ -32,6 +32,13 @@ HUD.prototype = {
 		for (i = 0; i < this.lives; ++i){
 			this.addHearts(i);
 		}
+	},
+
+	createScore: function(){
+		/*
+		this.scoreText = this.game.add.text(16, 16, this.scoreString + this.score, { fontSize: '32px', fill: '#FFF' });
+		this.scoreText.fixedToCamera = true;
+		*/
 	},
 
 	addHearts: function(i){

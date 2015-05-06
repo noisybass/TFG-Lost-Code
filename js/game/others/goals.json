@@ -1,6 +1,14 @@
 {
 	"goals": [
 		{
+			"task": "Mostrar Score en el Hud",
+			"code": "function createScore(){\n\n\t// Creamos el texto\n\n\t// Fijar el texto a la camara\n\n    \n}\n\n",
+			"target": "hud.createScore",
+			"range1": [0,0,0,0],
+			"range2": [0,0,0,0],
+			"test": "testCreateScore(text)"
+		},
+		{
 			"task": "Haz que el jugador pueda recoger monedas",
 			"code": "function pickCoin(player, coin) {\n\n\t //Eliminar la moneda de la pantalla\n\n\t //Actualizar la puntuación y el texto para mostrarlo  \n}\n\n",
 			"target": "player.pickCoin",
