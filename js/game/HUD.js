@@ -11,7 +11,7 @@ HUD = function(game) {
 
 	this.hearts      = null;
 	this.heartSpace  = 20;
-	this.heartsX     = 580;
+	this.heartsX     = $('#game-canvas').width() - 30;
 	this.heartsY     = 30;
 
 	this.scoreCharacters = new Array();

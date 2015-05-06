@@ -9,7 +9,7 @@ var TFG = TFG || {};
 
 
 setTimeout(function(){
- 	var sx = $('#game-canvas').width();;
+ 	var sx = $('#game-canvas').width();
 	var sy = 500;   
     TFG.game = new Phaser.Game(sx, sy, Phaser.AUTO, 'game-canvas');
 
