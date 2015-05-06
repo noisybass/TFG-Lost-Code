@@ -33,6 +33,7 @@ TFG.Game.prototype = {
             if (eval(currentTask.test)) {
                 eval(currentTask.target + "=" + text);
                 editor.getSession().setValue("", -1);
+                $('#task').html("<h3><span class=\"glyphicon glyphicon-pencil\"></span>Aqui va la tarea</h3>");
                 currentTask = null;
                 this.game.paused = false;
             }
@@ -50,7 +51,7 @@ TFG.Game.prototype = {
             this.game.input.disabled = true;
         }
 
-        }
+    }
 
   },
 
@@ -59,24 +60,21 @@ TFG.Game.prototype = {
     // Set background color
     this.game.stage.backgroundColor = '#009DFF';
 
-    // Creates the HUD
-    hud = new HUD(this.game);
-    hud.create();
-
     // Creates the level
     level = new Level(this.game);
     level.create();
 
     // Creates player
     player = new Player(this.game);
-    player.create(5000, 0 ,'player_spritesheet', 0);
+    player.create(150, 410 ,'player_spritesheet', 0);
+
+    // Creates the HUD
+    hud = new HUD(this.game);
+    hud.create();
 
     var that = this;
     $('#submit-button').click(function() {that.submitCode.call(player)});
     $('#restart-button').click(setTask);
-
-    $('#submit-button').click(function() {that.submitCode.call(player)});
-    
   },
 
   update: function(){
@@ -93,7 +91,7 @@ var testMoveLeft = function (text) {
     //var player = jQuery.extend(true, {}, player);
     //var player = clone(player.);
 
-    eval("player.move =" + text);
+    eval(currentTask.target + "=" + text);
 
     // Si el jugador no esta en el suelo.
     player.cursors.left.isDown = true;
@@ -136,7 +134,7 @@ var testJump = function (text) {
     //var player = jQuery.extend(true, {}, player);
     //var player = clone(player);
 
-    eval("player.jump =" + text);
+    eval(currentTask.target + "=" + text);
 
     // Saltar mirando hacia la derecha
     player.cursors.up.isDown = true;
@@ -164,11 +162,72 @@ var testJump = function (text) {
     return tw.assertsOk();
 }
 
-var reInitJump = function(){
+var reInitJump = function() {
     player.sprite.play('player_animation_standUpRight');
     player.sprite.body.velocity.y = 0;
     player.jumpTimer = 0;
     player.direction = State.LOOKINGRIGHT;
+}
+
+var testMoveSnails = function(text) {
+
+    tw = new TWUnit();
+    enemy = snails.children[0]; // La funcion snailsMove se ejecuta igual para todos, asi que nos basta con comprobar uno
+
+    eval(currentTask.target + "=" + text);
+
+    // Comprobamos que se mueven bien hacia la izquierda
+    snailsMove(enemy);
+
+    tw.addAssert("Velocidad", enemy.body.velocity.x === -enemy.walkSpeed, "");
+    tw.addAssert("Escala", enemy.scale.x === 1, "");
+
+    reInitMoveSnails(enemy);
+
+
+    // y que se mueven bien hacia la derecha
+    enemy.direction = State.LOOKINGRIGHT;
+    snailsMove(enemy);
+
+    tw.addAssert("Velocidad", enemy.body.velocity.x === enemy.walkSpeed, "");
+    tw.addAssert("Escala", enemy.scale.x === -1, "");
+
+    reInitMoveSnails(enemy);
+
+
+    // Si su  y < 980 estaran vivos
+    enemy.body.y = 979;
+    snailsMove(enemy);
+
+    tw.addAssert("Viven", enemy.alive, "");
+
+    reInitMoveSnails(enemy);
+
+    // pero si su y >= 980 tienen que morir
+    enemy.body.y = 980;
+    snailsMove(enemy);
+
+    tw.addAssert("Mueren", !enemy.alive, "");
+
+    reInitMoveSnails(enemy);
+
+
+
+    tw.runAsserts();
+
+    return tw.assertsOk();
+}
+
+var reInitMoveSnails = function () {
+
+    if (!enemy.alive) {
+        enemy.revive();
+    }
+    enemy.walkSpeed = 50;
+    enemy.direction = State.LOOKINGLEFT;
+    enemy.anchor.setTo(0.5, 1);
+    enemy.body.velocity.x = -enemy.walkSpeed;
+    enemy.scale.x = 1;
 }
 
 
