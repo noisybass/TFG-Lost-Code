@@ -2,18 +2,60 @@
 	"dialogs": [
 
 		[
-			{"turn": 1, "text": "Hola Sara" },
-			{"turn": 1, "text": "Para comenzar, camina a la derecha" },
-			{"turn": 2, "text": "Hola Pepe, de acuerdo!!" }
+			{"turn": 1, "text": "Hola. Mi nombre es Bersara." },
+			{"turn": 2, "text": "Hola Bersara" },
+			{"turn": 1, "text": "Como sabrás, a programar se aprende programando y no todo el mundo está capacitado para ello." },
+			{"turn": 1, "text": "Es por ello por lo que he estado buscando a la persona adecuada." },
+			{"turn": 1, "text": "Y esa persona eres tú." },
+			{"turn": 2, "text": "Oo" },
+			{"turn": 1, "text": "Necesito que me ayudes a encontrar una puerta." },
+			{"turn": 1, "text": "Una puerta que me saque de este mundo y permita continuar mi misión." },
+			{"turn": 1, "text": "Claro que..." },
+			{"turn": 1, "text": "...tengo un problema..." },
+			{"turn": 2, "text": "..." },
+			{"turn": 1, "text": "...me da vergüenza admitirlo..." },
+			{"turn": 1, "text": "...pero se que puedo confiar en ti." },
+			{"turn": 1, "text": "He olvidado cómo hacer ciertas cosas..." },
+			{"turn": 1, "text": "saltar" },
+			{"turn": 1, "text": "recoger monedas" },
+			{"turn": 2, "text": "xD" },
+			{"turn": 1, "text": "ya sabes..." },
+			{"turn": 1, "text": "...las típicas cosas que una persona debe ser capaz de hacer en un mundo poligonal como este." },
+			{"turn": 1, "text": "Bueno, dejémonos de cháchara y vayamos al lío." },
+			{"turn": 1, "text": "¿Me ayudarás?" },
+			{"turn": 2, "text": "Síí!!" },
+			{"turn": 1, "text": "Genial :)" },
+			{"turn": 1, "text": "Ahora solo recuerdo cómo se camina a la derecha..." },
+			{"turn": 1, "text": "...sí, ya se que es triste." },
+			{"turn": 1, "text": "Pero es lo que hay..." },
+			{"turn": 1, "text": "Para que camine a la derecha tienes que pulsar la flecha derecha." },
+			{"turn": 2, "text": "Valee." }
 		
 		],
 
 		[
 			{"turn": 1, "text": "Como ves, cuando topas con un cartel significa que hay algo que tienes que resolver programando." },
-			{"turn": 2, "text": "Entiendo" },
-			{"turn": 1, "text": "En ese momento, nuestro mundo se pausará y entonces se activará el editor de texto de la derecha" },
+			{"turn": 1, "text": "Yo te daré algún consejo sobre lo que tienes que escribir." },
+			{"turn": 1, "text": "Pero no te diré qué es porque no soy programadora...de serlo lo haría yo misma, como mujer autosuficiente y moderna que soy xD" },
+			{"turn": 2, "text": "xD" },
+			{"turn": 1, "text": "Una vez que hayas leído mi consejo se activará el editor de texto que ves a la derecha y mi mundo se detendrá." },
 			{"turn": 2, "text": "Que guay!!" },
-			{"turn": 1, "text": "El recuadro de debajo te informará sobre los errores que hayas cometido en el código" }
+			{"turn": 1, "text": "Una vez que hayas escrito el código que crees correcto, pulsa sobre el botón \"ejecutar\"". },
+			{"turn": 1, "text": "No te preocupes si lo has hecho mal:" }
+			{"turn": 1, "text": "si hay alguna cosa que se te haya podido escapar la verás en el recuadro \"Test / tareas\"." },
+			{"turn": 2, "text": "Ook." },
+			{"turn": 1, "text": "Por otro lado, si en algún momento no sabes cómo funciona alguna función de Phaser, puedes pulsar sobre el botón \"Mostrar documentación\"" },
+			{"turn": 1, "text": "Se abrirá una ventana en la que tendrás toda la documentación oficial que podrás consultar." },
+			{"turn": 2, "text": "De acuerdo." },
+			{"turn": 1, "text": "Si ves que se te va de las manos, puedes pulsar sobre el botón \"reiniciar\" para dejar el editor de código en su estado inicial." },
+			{"turn": 1, "text": "Eso sí, perderás lo que hayas escrito antes. Así que ten cuidado." },
+			{"turn": 2, "text": "Valee." },
+			{"turn": 1, "text": "Por último, si el código es correcto, mi mundo volverá a la vida y yo podré realizar alguna nueva acción." },
+			{"turn": 2, "text": ";)" },
+			{"turn": 1, "text": "Bien, vamos a ponerte a prueba con el primer desafío." },
+			{"turn": 1, "text": "Ayúdame a caminar a la izquierda." },
+			{"turn": 2, "text": "Vooy" }
+			
 		]
 	],
 
