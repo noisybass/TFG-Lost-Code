@@ -94,6 +94,7 @@ Level.prototype = {
         // Objects
         this.game.physics.arcade.collide(rocks, this.layer);
         this.game.physics.arcade.collide(spikes, this.layer);
+        this.game.physics.arcade.collide(doors, this.layer);
 
         // Tutorial Blocks
         this.game.physics.arcade.collide(blocks, this.layer);

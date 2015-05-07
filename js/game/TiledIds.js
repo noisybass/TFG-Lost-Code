@@ -8,8 +8,7 @@ tiledId.spikeId      = 257;
 tiledId.rock1Id      = 258;
 tiledId.rock2Id      = 259;
 tiledId.coinId       = 260;
-tiledId.doorDownId   = 90;
-tiledId.doorUpId     = 91;
+tiledId.doorId       = 263;
 
 
 

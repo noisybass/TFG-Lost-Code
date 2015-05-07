@@ -90,6 +90,7 @@ TFG.Preload.prototype = {
     this.game.load.spritesheet('spike-image', 'assets/img/objects/spike.png', 70, 34);
     this.game.load.spritesheet('rock1-image', 'assets/img/objects/rock1.png', 70, 41);
     this.game.load.spritesheet('rock2-image', 'assets/img/objects/rock2.png', 57, 48);
+    this.game.load.spritesheet('door-image', 'assets/img/objects/door.png', 70, 110);
     this.game.load.spritesheet('buildings-sheet', 'assets/img/map-tiles/buildings-sheet.png', 70, 70, 98);
     this.game.load.spritesheet('items-sheet', 'assets/img/map-tiles/items-sheet.png', 70, 70, 72);
 
