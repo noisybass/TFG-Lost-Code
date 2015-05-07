@@ -65,9 +65,11 @@ function loadDialog(number, g, call) {
 		callback  = call;
 		pos       = 0;
 		context   = g;
+		$('#button_menu_1').fadeOut(500);
 		init();	
 	}
 	else {
+		$('#button_menu_1').fadeIn(500);
 		eval( call + '()' );
 	}
 	
@@ -139,7 +141,8 @@ $('.dialog_button').click(function(){
 	else {
 		hideDialog();
 		$('#dialog_container').css('background-color', 'rgba(0,0,0,0)');
-		
+		$('#button_menu_1').fadeIn(500);
+			
 		if ( callback ) {
 			eval( callback + '()' );
 		}
@@ -154,7 +157,8 @@ $('.dialog_button').click(function(){
 $('.dialog_skip_button').click(function(){
 	hideDialog();
 	$('#dialog_container').css('background-color', 'rgba(0,0,0,0)');
-	
+	$('#button_menu_1').fadeIn(500);
+
 	if ( callback ) {
 		eval( callback + '()' );
 	}
