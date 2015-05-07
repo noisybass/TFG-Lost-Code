@@ -57,19 +57,6 @@
 			{"turn": 2, "text": "Vooy" }
 			
 		]
-	],
-
-	"configs": [
-
-		[
-			{"turn": 1, "src": "utils/Dialogs/img/pepe.png" },
-			{"turn": 2, "src": "utils/Dialogs/img/sara.png" }
-		],
-
-		[	
-			{"turn": 1, "src": "utils/Dialogs/img/pepe.png" },
-			{"turn": 2, "src": "utils/Dialogs/img/sara.png" }
-		]
 	]
 
 }
