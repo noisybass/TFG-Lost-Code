@@ -43,8 +43,9 @@ $(document).ready(function(){
 	$.getJSON( "js/game/others/dialogs.json", function(data) {
 		dialogs = data.dialogs;
 		configs = data.configs;
+
+		// Adjust dialog container to canvas width
 		var w = $('#game-canvas').width();
-		console.log(w);
 		$("#dialog_container").css({
 		     "min-width":  w + "px", 
 		     "max-width": "50px"
@@ -90,8 +91,9 @@ function hideNextButton() {
 
 function init() {
 	if ( initialize == false ) {
+		var w = $('#game-canvas').width();
 		$('#dialog_container').prepend('<div id="text_container"><p class="text"></p></div>');
-		$('#dialog_container').prepend('<img id="right_person" class="gray" src="' + config[0].src + '" />');
+		$('#dialog_container').prepend('<img id="right_person" style="margin-left:' + (w-120) + 'px;" class="gray" src="' + config[0].src + '" />');
 		$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + config[1].src +'" />');	
 		initialize = true;
 	}

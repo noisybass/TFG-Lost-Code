@@ -22,9 +22,11 @@ img#left_person.gray, img#right_person.gray {
 	-webkit-filter: grayscale(100%);
 }
 
+/*
 img#right_person {
-	margin-left: 630px;
+	margin-left: 87%;
 }
+*/
 
 
 img#left_person, img#right_person {
@@ -35,7 +37,7 @@ img#left_person, img#right_person {
 }
 
 .text {
-	font-family: 'Indie Flower', cursive;
+	font-size: 22px;
 }
 
 .dialog_skip_button {
