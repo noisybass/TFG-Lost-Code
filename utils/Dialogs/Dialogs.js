@@ -43,6 +43,13 @@ $(document).ready(function(){
 	$.getJSON( "js/game/others/dialogs.json", function(data) {
 		dialogs = data.dialogs;
 		configs = data.configs;
+		var w = $('#game-canvas').width();
+		console.log(w);
+		$("#dialog_container").css({
+		     "min-width":  w + "px", 
+		     "max-width": "50px"
+		 });
+
 	});
 
 	

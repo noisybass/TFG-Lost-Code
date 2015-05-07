@@ -1,12 +1,10 @@
 div#dialog_container {
-	min-width: 750px;
-	max-width: 750px;
 	display: none;		/* Para ocultarlo */
 }
 
 
 div#text_container{
-	max-width: 500px;
+	background-size: 100% 100%;
 	min-height: 100px;
 	padding-left: 20px;
 	padding-right: 20px;
