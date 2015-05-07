@@ -24,8 +24,39 @@
 			"target": "snailsMove",
 			"range1": [0,0,7,2],
 			"range2": [11,0,11,1],
-			"test": "testMoveSnails(text)",
-			"false": false
+			"test": "testMoveSnails(text)"
+		},
+		{
+			"task": "Haz que el jugador pueda saltar sobre los enemigos",
+			"code": "function upCollision(player, enemy) {\n\n\t this.die();\n}\n\n",
+			"target": "player.upCollision",
+			"range1": [0,0,0,0],
+			"range2": [0,0,0,0],
+			"test": "testJumpOverEnemy(text)"
+		},
+		{
+			"task": "Mostrar Score en el Hud",
+			"code": "function createScore(){\n\n\t// Creamos el texto\n\n\t// Fijar el texto a la camara\n\n    \n}\n\n",
+			"target": "hud.createScore",
+			"range1": [0,0,0,0],
+			"range2": [0,0,0,0],
+			"test": "testCreateScore(text)"
+		},
+		{
+			"task": "Haz que el jugador pueda recoger monedas",
+			"code": "function pickCoin(player, coin) {\n\n\t //Eliminar la moneda de la pantalla\n\n\t //Actualizar la puntuación y el texto para mostrarlo  \n}\n\n",
+			"target": "player.pickCoin",
+			"range1": [0,0,0,0],
+			"range2": [0,0,0,0],
+			"test": "testPickCoins(text)"
+		},
+		{
+			"task": "Crea la puerta para salir del nivel",
+			"code": "function createDoors(game) {\n\n\n\tif (!doors){\n\t\treturn;\n\t}\n\tlevel.map.createFromObjects('Object Layer 1', tiledId.doorDownId , 'items-sheet', 39 , true, false, this.doors);\n\tlevel.map.createFromObjects('Object Layer 1', tiledId.doorUpId , 'items-sheet', 40 , true, false, this.doors);\n\tdoors.forEach(\n\t\tfunction(door) { \n \t\t\t//Initialize\n\n\t\t});\n}\n",
+			"target": "createDoors",
+			"range1": [0,0,0,0],
+			"range2": [0,0,0,0],
+			"test": "testCreateDoor(text)"
 		}
 	]
 }

@@ -67,6 +67,7 @@ Player.prototype = {
     this.game.physics.arcade.collide(this.sprite, rocks);
     this.game.physics.arcade.collide(this.sprite, spikes, this.die, null, this);
     this.game.physics.arcade.overlap(this.sprite, coins, this.pickCoin, null, this);
+    this.game.physics.arcade.overlap(this.sprite, doors, this.doorColision, null, this);
 
     // Tutorial Blocks
     this.game.physics.arcade.overlap(this.sprite, blocks, this.blockOverlap, null, this);
@@ -88,6 +89,11 @@ Player.prototype = {
     this.dialogIndex++;
   },
 
+  doorColision: function(player, door){
+  //Pongo algo para probar
+  door.destroy();
+  },
+
 
   /* */
   collectHeart: function(player, heart) {
@@ -101,12 +107,14 @@ Player.prototype = {
 
   /* Called when player collides with a coin*/
   pickCoin: function(player, coin) {
-
+    /*
     // Removes the coin from the screen
-    coin.destroy();
+    coin.kill();
 
     // Add and update the score
-    hud.addNumber(1);
+    hud.score++;
+    hud.scoreText.text = hud.scoreString + hud.score;
+    */ 
     
     //this.audio_coin.play();
   },

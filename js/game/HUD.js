@@ -1,10 +1,6 @@
 HUD = function(game) {
 	this.game        = game;
 
-	this.score       = 0;
-	this.scoreString = '';
-	this.scoreText   = null;
-
 	this.lives       = 3;
 	this.livesString = '';
 	this.livesText   = null;
@@ -14,37 +10,21 @@ HUD = function(game) {
 	this.heartsX     = $('#game-canvas').width() - 100;
 	this.heartsY     = 30;
 
-	this.scoreCharacters = new Array();
-	this.scoreNumbers    = new Array();
-	this.scoreSpace  = 17;
-	this.spaceLetterToNumber = 30;
+	this.score       = 0;
+	this.scoreText   = null;
 	this.scoreX      = 60;
 	this.scoreY      = 30;
+	this.scoreString = 'Score: ';
 };
 
 HUD.prototype = {
 
 	create: function() {
+		this.createScore();
+		this.createHearts();
+	},
 
-		this.scoreCharacters.push(this.game.add.sprite(this.scoreX                    ,this.scoreY, 'hud-font', 10));
-		this.scoreCharacters.push(this.game.add.sprite(this.scoreX + this.scoreSpace  ,this.scoreY, 'hud-font', 11));
-		this.scoreCharacters.push(this.game.add.sprite(this.scoreX + this.scoreSpace*2,this.scoreY, 'hud-font', 12));
-		this.scoreCharacters.push(this.game.add.sprite(this.scoreX + this.scoreSpace*3,this.scoreY, 'hud-font', 13));
-		this.scoreCharacters.push(this.game.add.sprite(this.scoreX + this.scoreSpace*4,this.scoreY, 'hud-font', 14));
-		for (i = 0; i < this.scoreCharacters.length; ++i){
-			this.configureCharacter(this.scoreCharacters[i]);
-		}
-		this.addNumber(0);
-
-		/*this.scoreString = 'Score: ';
-		this.scoreText = this.game.add.text(0, 0, this.scoreString + this.score, { fontSize: '32px', fill: '#FFF' });
-		this.scoreText.fixedToCamera = true;
-		this.scoreText.cameraOffset.setTo(16, 16);*/
-
-		/*this.livesString = 'Lives: ';
-		this.livesText = this.game.add.text(0, 0, this.livesString + this.lives, { fontSize: '32px', fill: '#FFF' });
-		this.livesText.fixedToCamera = true;
-		this.livesText.cameraOffset.setTo(580, 16);*/
+	createHearts: function(){
 		this.hearts = [this.game.add.sprite(this.heartsX                    , this.heartsY, 'heart'),
 					   this.game.add.sprite(this.heartsX + this.heartSpace  , this.heartsY, 'heart'),
 					   this.game.add.sprite(this.heartsX + this.heartSpace*2, this.heartsY, 'heart')];
@@ -54,35 +34,11 @@ HUD.prototype = {
 		}
 	},
 
-	configureCharacter: function(character){
-		
-		character.anchor.setTo(0.5, 0.5); // centro de la rotacion
-		character.fixedToCamera = true;
-		character.scale.x = 0.45;
-		character.scale.y = 0.45;
-
-    	var sinusoidal = this.game.add.tween(character)
-    	.to({ angle: character.angle + 360 }, 4000, Phaser.Easing.Sinusoidal.InOut).loop();
-
-	    sinusoidal.start();
-		
-	},
-
-	addNumber: function(number){
-
-		this.score+= number;
-		
-		for (i = 0; i < this.scoreNumbers.length; ++i){
-			this.scoreNumbers[i].destroy();
-		}
-
-		var string = this.score.toString();
-
-		for (i = 0; i < string.length; ++i){
-			var number = this.game.add.sprite(this.scoreX + this.spaceLetterToNumber + this.scoreSpace*(4+i),this.scoreY, 'hud-font', parseInt(string[i]));
-			this.configureCharacter(number);
-			this.scoreNumbers.push(number);
-		}
+	createScore: function(){
+		/*
+		this.scoreText = this.game.add.text(16, 16, this.scoreString + this.score, { fontSize: '32px', fill: '#FFF' });
+		this.scoreText.fixedToCamera = true;
+		*/
 	},
 
 	addHearts: function(i){
@@ -113,6 +69,8 @@ HUD.prototype = {
 		var heart = this.hearts.pop();
 		heart.destroy();
 	},
+
+
 
 
 };

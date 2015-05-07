@@ -44,6 +44,10 @@ Level.prototype = {
         createRocks(this.game);
         createSpikes(this.game);
 
+        // Door
+        doors = this.game.add.group();
+        //createDoors(this.game);
+
         // Tutorial Blocks
         createBlocks(this.game);
 
