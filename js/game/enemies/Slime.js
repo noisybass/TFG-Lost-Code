@@ -7,12 +7,12 @@ createSlimes = function(game) {
   level.map.createFromObjects('Object Layer 1', tiledId.slimeId , 'slime_spritesheet', 0, true, false, this.slimes);
   slimes.callAll('animations.add', 'animations', 'anim_slime', [0,1], 5, true);
   slimes.callAll('animations.play', 'animations', 'anim_slime');
+
   slimes.forEach(
     function(enemy) {  
-        enemy.animations.add('slime_animation_move', [1,0], 5, true);
-        //Initialize
-        enemy.body.velocity.x = -50;
-        enemy.direction       = State.LOOKINGLEFT;
+        enemy.walkSpeed = 50;
+        enemy.direction = State.LOOKINGLEFT;
+        enemy.anchor.setTo(0.5, 1);
     });
 };
 
@@ -28,13 +28,13 @@ slimesMove = function(enemy) {
     enemy.direction = State.LOOKINGLEFT;
   }
 
-  enemy.play('anim_slime');
-
   if (enemy.direction == State.LOOKINGLEFT) {
-    enemy.body.velocity.x = -50;
+    enemy.body.velocity.x = -enemy.walkSpeed;
+    enemy.scale.x = 1;
   }
   else if (enemy.direction == State.LOOKINGRIGHT) {
-    enemy.body.velocity.x = 50;
+    enemy.body.velocity.x = enemy.walkSpeed;
+    enemy.scale.x = -1;
   }
 
 };

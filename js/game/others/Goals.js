@@ -90,6 +90,68 @@ var reInitJump = function(){
 
 //-----------Goal 3-----------\\
 
+
+var testMoveSnails = function(text) {
+
+    tw = new TWUnit();
+    enemy = snails.children[0]; // La funcion snailsMove se ejecuta igual para todos, asi que nos basta con comprobar uno
+
+    eval(currentTask.target + "=" + text);
+
+    // Comprobamos que se mueven bien hacia la izquierda
+    snailsMove(enemy);
+
+    tw.addAssert("Velocidad", enemy.body.velocity.x === -enemy.walkSpeed, "");
+    tw.addAssert("Escala", enemy.scale.x === 1, "");
+
+    reInitMoveSnails(enemy);
+
+
+    // y que se mueven bien hacia la derecha
+    enemy.direction = State.LOOKINGRIGHT;
+    snailsMove(enemy);
+
+    tw.addAssert("Velocidad", enemy.body.velocity.x === enemy.walkSpeed, "");
+    tw.addAssert("Escala", enemy.scale.x === -1, "");
+
+    reInitMoveSnails(enemy);
+
+
+    // Si su  y < 980 estaran vivos
+    enemy.body.y = 979;
+    snailsMove(enemy);
+
+    tw.addAssert("Viven", enemy.alive, "");
+
+    reInitMoveSnails(enemy);
+
+    // pero si su y >= 980 tienen que morir
+    enemy.body.y = 980;
+    snailsMove(enemy);
+
+    tw.addAssert("Mueren", !enemy.alive, "");
+
+    reInitMoveSnails(enemy);
+
+
+
+    tw.runAsserts();
+
+    return tw.assertsOk();
+}
+
+var reInitMoveSnails = function () {
+
+    if (!enemy.alive) {
+        enemy.revive();
+    }
+    enemy.walkSpeed = 50;
+    enemy.direction = State.LOOKINGLEFT;
+    enemy.anchor.setTo(0.5, 1);
+    enemy.body.velocity.x = -enemy.walkSpeed;
+    enemy.scale.x = 1;
+}
+
 //-----------Goal 4-----------\\
 
 var testJumpOverEnemy = function(text){

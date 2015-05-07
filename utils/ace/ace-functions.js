@@ -48,11 +48,14 @@ var addRanges = function(r1, r2) {
 }
 
 var setTask = function() {
+
     if(currentTask) {
         if (markerId1 || markerId2) {
             restartEditor();
         }
-        $('#task').html("<span class=\"glyphicon glyphicon-exclamation-sign\"></span>" + currentTask.task);
+
+        console.log(currentTask.task);
+        $('#task').html("<h3><span class=\"glyphicon glyphicon-exclamation-sign\"></span>" + currentTask.task + "</h3>");
         editor.getSession().setValue(currentTask.code, -1);
         addRanges(currentTask.range1, currentTask.range2);
         editor.setReadOnly(false);
@@ -60,6 +63,7 @@ var setTask = function() {
 }
 
 var restartEditor = function() {
+
     var session = editor.getSession();
     var Range = require("ace/range").Range;
     session.removeMarker(markerId1);
