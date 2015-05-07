@@ -63,6 +63,7 @@ Player.prototype = {
     this.game.physics.arcade.collide(this.sprite, rocks);
     this.game.physics.arcade.collide(this.sprite, spikes, this.die, null, this);
     this.game.physics.arcade.overlap(this.sprite, coins, this.pickCoin, null, this);
+    this.game.physics.arcade.overlap(this.sprite, doors, this.doorColision, null, this);
 
     // Tutorial Blocks
     this.game.physics.arcade.overlap(this.sprite, blocks, this.blockOverlap, null, this);
@@ -88,6 +89,11 @@ Player.prototype = {
     //currentTask.initPlayer = this.createCopyPlayer();
 
     //setTask();
+  },
+
+  doorColision: function(player, door){
+  //Pongo algo para probar
+  door.destroy();
   },
 
 

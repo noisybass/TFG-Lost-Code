@@ -225,3 +225,33 @@ var testPickCoins = function(text){
 
 //-----------Goal 7-----------\\
 
+var testCreateDoor = function(text){
+    tw = new TWUnit();
+    var originDoors = doors;
+    doors = null;
+    
+    eval("createDoors =" + text);
+
+    createDoors(player.game);
+
+    if (!doors){
+        tw.addAssert("Inicializar doors", doors, "Inicicializado doors", "doors es un grupo que contiene un monton de puertas ¿Porque no pruebas a añadir al game un grupo?");
+    }
+    else{
+        door = doors.children[0]; // Cogemos una puerta
+        tw.addAssert("Establecer fisica ARCADE al grupo", doors.physicsBodyType == Phaser.Physics.ARCADE, "Fisica ARCADE inicializada", "Phaser tiene un 3 tipos de fisicas, pero nosotros nos vamos a centrar en la ARCADE ¿Porque no pruebas a añadirla?");
+        tw.addAssert("Nuestro grupo tiene sprites que son cuerpos", doors.enableBody, "Los sprites del grupo son cuerpos", "Para que un sprite pueda colisionar con los demás sprites, hay que decirle al grupo que sus elementos son cuerpos");
+        if (doors.physicsBodyType == Phaser.Physics.ARCADE && doors.enableBody){
+            tw.addAssert("Cada uno de nuestros sprites no tienen gravedad", !door.body.allowGravity, "Los sprites no tienen gravedad", "Porque no pruebas a mirar los atributos de la clase Sprite?");
+            tw.addAssert("Cada uno de nuestros sprites son inmovibles", door.body.immovable, "Los sprites son inmovibles", "Porque no pruebas a mirar los atributos de la clase Sprite?");
+        }
+    }
+
+    tw.runAsserts();
+    if (!tw.assertsOk()){
+        if (doors) doors.destroy();
+        doors = originDoors;
+    }
+
+    return tw.assertsOk();
+}
