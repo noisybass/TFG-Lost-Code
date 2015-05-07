@@ -31,7 +31,7 @@ div#buttons_menu {
 	margin-top: 8px;
 }
 
-div#buttons_menu > button {
+div#buttons_menu > button {	
 	background-color: rgb(100,115,127);
 	color: white;
 }
