@@ -47,6 +47,10 @@ Player.prototype = {
 
   update: function() {
 
+    if(this.fallingDown()) {
+      this.die();
+    }
+
     /*this.game.physics.arcade.overlap(this.sprite, hearts, this.collectHeart, null, this);
     this.game.physics.arcade.overlap(this.sprite, coins, this.pickCoin, null, this);
     this.game.physics.arcade.overlap(this.sprite, goombas, this.goombaCollision, null, this);
@@ -74,8 +78,6 @@ Player.prototype = {
   },
 
   blockOverlap: function(player, block) {
-    //console.log("------------Colision con bloque-------------- ");
-    //console.log(block.data);
 
     this.game.paused = true;
     currentTask = block.data;
@@ -85,10 +87,6 @@ Player.prototype = {
 
     loadDialog(this.dialogIndex, this.game, "setTask");
     this.dialogIndex++;
-
-    //currentTask.initPlayer = this.createCopyPlayer();
-
-    //setTask();
   },
 
   doorColision: function(player, door){

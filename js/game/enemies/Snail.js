@@ -10,17 +10,13 @@ createSnails = function(game) {
 
   snails.forEach(
     function(enemy) {  
-        enemy.animations.add('snail_animation_move', [1,0], 5, true);
-        //Initialize
-        //enemy.body.velocity.x = -50;
-        enemy.direction       = State.LOOKINGLEFT;
+        enemy.walkSpeed = 50;
+        enemy.direction = State.LOOKINGLEFT;
+        enemy.anchor.setTo(0.5, 1);
     });
 };
 
-
-
-/* Updates  snails*/
-
+/* Update snails */
 snailsMove = function(enemy) {
 
   if (enemy.body.blocked.left || enemy.body.touching.left) {
@@ -30,13 +26,17 @@ snailsMove = function(enemy) {
     enemy.direction = State.LOOKINGLEFT;
   }
 
-  enemy.play('anim_snail');
-
+/*
   if (enemy.direction == State.LOOKINGLEFT) {
-    enemy.body.velocity.x = -50;
+    enemy.body.velocity.x = -enemy.walkSpeed;
+    enemy.scale.x = 1;
   }
   else if (enemy.direction == State.LOOKINGRIGHT) {
-    enemy.body.velocity.x = 50;
+    enemy.body.velocity.x = enemy.walkSpeed;
+    enemy.scale.x = -1;
   }
 
+  if(enemy.body.y >= 980)
+    enemy.kill();
+*/
 };

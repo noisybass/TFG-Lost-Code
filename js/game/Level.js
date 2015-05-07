@@ -88,7 +88,7 @@ Level.prototype = {
         this.game.physics.arcade.collide(slimes, spikes);
 
         // Start Enemies
-        //snails.forEach(snailsMove, this);
+        snails.forEach(snailsMove, this);
         slimes.forEach(slimesMove, this);
 
         // Objects
@@ -100,15 +100,9 @@ Level.prototype = {
 
         player.update();
 
-        //platformsMove(this.game);
+        
 
-        if(player.fallingDown()) {
-          player.die();
-        }
-
-
-        //goombas.forEach(goombaMove,this);
-        //throwers.forEach(throwerMove, this);
+        
 	},
 
 };

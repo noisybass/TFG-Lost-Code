@@ -33,6 +33,7 @@ TFG.Game.prototype = {
             if (eval(currentTask.test)) {
                 eval(currentTask.target + "=" + text);
                 editor.getSession().setValue("", -1);
+                $('#task').html("<h3><span class=\"glyphicon glyphicon-pencil\"></span>Aqui va la tarea</h3>");
                 currentTask = null;
                 this.game.paused = false;
             }
@@ -50,7 +51,7 @@ TFG.Game.prototype = {
             this.game.input.disabled = true;
         }
 
-        }
+    }
 
   },
 
@@ -59,24 +60,21 @@ TFG.Game.prototype = {
     // Set background color
     this.game.stage.backgroundColor = '#009DFF';
 
-    // Creates the HUD
-    hud = new HUD(this.game);
-    hud.create();
-
     // Creates the level
     level = new Level(this.game);
     level.create();
 
     // Creates player
     player = new Player(this.game);
-    player.create(7000, 0 ,'player_spritesheet', 0);
+    player.create(150, 410 ,'player_spritesheet', 0);
+
+    // Creates the HUD
+    hud = new HUD(this.game);
+
 
     var that = this;
     $('#submit-button').click(function() {that.submitCode.call(player)});
     $('#restart-button').click(setTask);
-
-    $('#submit-button').click(function() {that.submitCode.call(player)});
-    
   },
 
   update: function(){
@@ -85,7 +83,6 @@ TFG.Game.prototype = {
     level.update();
   }
 }
-
 
 /*
 Suposicion: al deshabilitar los eventos, si pulsas las teclas quedan registrados
