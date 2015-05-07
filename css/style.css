@@ -27,10 +27,6 @@ div#menu {
 	margin-bottom: 	5px;
 }
 
-div#content  {
-
-}
-
 div#buttons_menu {
 	margin-top: 8px;
 }
@@ -42,6 +38,11 @@ div#buttons_menu > button {
 
 div#buttons_menu > button:hover {
 	background-color: rgb(151,172,191);	
+}
+
+button#button_menu_1, button#button_menu_2, button#button_menu_3, button#button_menu_4 {
+	font-family: "customFont";
+	font-weight: bolder;
 }
 
 button#button_menu_1, button#button_menu_2 {
@@ -135,9 +136,11 @@ div#twunit {
 
 
 
-div.positive_test {
+div.positive_test, div.negative_test {
 	border-right: 10px solid rgb(0,200,0);
 	padding: 5px;
+	font-family: "customFont";
+	font-weight: bolder;
 }
 
 span.glyphicon.glyphicon-ok-sign {
@@ -160,10 +163,14 @@ span.glyphicon.glyphicon-remove-sign {
 
 #restart-button {
 	width: 100%;
+	font-family: "customFont";
+	font-weight: bolder;
 }
 
 #submit-button {
 	width: 100%;
+	font-family: "customFont";
+	font-weight: bolder;
 }
 
 .readonly-highlight{

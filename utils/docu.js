@@ -4,6 +4,7 @@ function loadDoc() {
 	$('div#doc-container').toggle( "slide" );
 	$('#button_menu_3').fadeOut(500);
 	$('#button_menu_4').fadeIn(500);
+	$('#button_menu_1').fadeOut(500);
 }
 
 // Fades out documentation's iframe and close doc button, and shows game
@@ -11,7 +12,10 @@ function closeDoc() {
 	$('div#doc-container').fadeOut(500, function(){
 		$('#game-canvas').fadeIn(500);	
 		$('#button_menu_3').fadeIn(500);
-		$('#button_menu_4').fadeOut(500);	
+		$('#button_menu_4').fadeOut(500);
+		if( TFG.game.state.current != "MainMenu" ) {
+			$('#button_menu_1').fadeIn(500);
+		}
 	});
 	
 }
