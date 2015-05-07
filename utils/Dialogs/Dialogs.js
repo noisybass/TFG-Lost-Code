@@ -1,5 +1,5 @@
 /*
-* Dialogs 1.0.1
+* Dialogs 1.0.4
 *
 * Dialogs allow create speechs between two characters. You can configure
 * their names, speech text color and avatars.
@@ -31,21 +31,19 @@
 var dialogs;	// All dialogs, loaded from JSON
 var configs;	// All dialog's config, loaded from JSON
 var txt;		// Current dialog
-//var config;		// Current dialog's config
 var callback;	// Callback that will be invoque after showing dialog
 var pos = 0;
 var initialize = false;
 var context;
 
 var left_img = "utils/Dialogs/img/bersara.png";
-var right_img = "utils/Dialogs/img/dark.png";
+var right_img = "utils/Dialogs/img/programmer.png";
 
 $(document).ready(function(){
 
 	// Load JSON file with dialogs
 	$.getJSON( "js/game/others/dialogs.json", function(data) {
 		dialogs = data.dialogs;
-		//configs = data.configs;
 
 		// Adjust dialog container to canvas width
 		var w = $('#game-canvas').width();
@@ -64,7 +62,6 @@ $(document).ready(function(){
 function loadDialog(number, g, call) {
 	if ( number < dialogs.length ) {
 		txt       = dialogs[number];
-		//config    = configs[number];
 		callback  = call;
 		pos       = 0;
 		context   = g;
@@ -96,8 +93,6 @@ function init() {
 	if ( initialize == false ) {
 		var w = $('#game-canvas').width();
 		$('#dialog_container').prepend('<div id="text_container"><p class="text"></p></div>');
-		//$('#dialog_container').prepend('<img id="right_person" style="margin-left:' + (w-120) + 'px;" class="gray" src="' + config[0].src + '" />');
-		//$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + config[1].src +'" />');	
 		$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + left_img +'" />');	
 		$('#dialog_container').prepend('<img id="right_person" style="margin-left:' + (w-120) + 'px;" class="gray" src="' + right_img + '" />');
 		initialize = true;
