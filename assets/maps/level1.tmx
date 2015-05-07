@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="70" tileheight="70" nextobjectid="26">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="70" tileheight="70" nextobjectid="28">
  <tileset firstgid="1" name="void-block" tilewidth="70" tileheight="70">
   <image source="../img/map-tiles/void-block.png" width="70" height="70"/>
  </tileset>
@@ -35,7 +35,7 @@
  </tileset>
  <layer name="Tile Layer 1" width="100" height="20">
   <data encoding="base64" compression="zlib">
-   eJztlj0LwjAQhqOTXUQQBz820UEQhP4GF+2is5N28//v5iDF87gm1w+NLffCQzE5k8u9aVJjVCqVStVHZbET6Ilypi0lvzMUR/tO7pm0mVQFXSPN+w0tLEshU/cfWvcYPhR7AvYI+DGIkENTFWsYWg6ofWvZBNgz43E+pKTvG15B/nPEwR/+N8LnOfWACjyZlMB5UTZXrDOrCwp5UFdnpi0xMi+4Ox/a6J0EylF83W+FGHcLrk9bHnB14M4giQdV7igfTyano/n81sD5gxcX90wN72lq3nsB+k/MWEUc9N8Y6Lhtvgf0bG7rfJbcUSHWptyrneXhKIvDMdI435yh8f+dUUM/7pYZ075yfRgax8VI47g5JTl0AcnafH7QMXx1gLixoFaSOF/eXfWiqSd0jF/XofAN03UvfGsLETtnRVEURVGa8wJmz0vO
+   eJztlj0LwjAQhqOTXUQQBz820UEQhP4GF+2is5N28//v5iDF87gm1w+NLffCQzF5Ta5526TGqFQqlaqPymIX0BPlTFtKfmfIR/0nd03aLKqCrpHm/YYWlqWQqfsPXfcYORTPCzwbkMcgQg1NVdzD0HJA7VvLJsCeGY/LISV938gK6p8jDn773wjv5zQDKshkUgKXRdlcsfasLiiUQV2dmbbEyLLgznxoo+cVKEf+ut8KMc4WvD5tZcCtA7cHSTKockb5eDI1Hc3ntwauH7K4uGtq+ExT834WoP/EjFX4oP/GQMdt8z2ge3Nb+7PkjAqxNuVZ7SwPR5kPe6Q+35yh8f+dUcM87pYZ075yfRjq4zxSHzenpIYuILk3Xx50DN86gG8sWCuJz1d3V7Nomgkd49frUOSG6XoWvnsLEbtmRVEURVGa8wL6c0v/
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
@@ -64,5 +64,7 @@
   <object id="23" gid="249" x="2107" y="767"/>
   <object id="24" gid="1" x="4060" y="350"/>
   <object id="25" gid="1" x="4760" y="350"/>
+  <object id="26" gid="1" x="4900" y="350"/>
+  <object id="27" gid="1" x="6720" y="630"/>
  </objectgroup>
 </map>
