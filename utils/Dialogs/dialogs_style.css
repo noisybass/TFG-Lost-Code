@@ -1,12 +1,10 @@
 div#dialog_container {
-	min-width: 750px;
-	max-width: 750px;
 	display: none;		/* Para ocultarlo */
 }
 
 
 div#text_container{
-	max-width: 500px;
+	background-size: 100% 100%;
 	min-height: 100px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -24,8 +22,8 @@ img#left_person.gray, img#right_person.gray {
 	-webkit-filter: grayscale(100%);
 }
 
-img#right_person {
-	margin-left: 630px;
+p.text {
+	margin-right: 10px;
 }
 
 
@@ -37,7 +35,7 @@ img#left_person, img#right_person {
 }
 
 .text {
-	font-family: 'Indie Flower', cursive;
+	font-size: 22px;
 }
 
 .dialog_skip_button {
