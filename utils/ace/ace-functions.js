@@ -59,6 +59,7 @@ var setTask = function() {
         editor.getSession().setValue(currentTask.code, -1);
         addRanges(currentTask.range1, currentTask.range2);
         editor.setReadOnly(false);
+        editor.gotoLine(currentTask.line);
     }
 }
 

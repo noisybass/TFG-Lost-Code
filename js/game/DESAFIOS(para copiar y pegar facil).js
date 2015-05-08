@@ -1,4 +1,4 @@
-/***** DESAFIO 0 *****/
+/***** DESAFIO 1 *****/ player.create(150, 410 ,'player_spritesheet', 0);
 
 else if (this.cursors.left.isDown) {
   this.sprite.body.velocity.x = -this.walkSpeed;
@@ -16,7 +16,7 @@ else if (this.cursors.left.isDown) {
 /*********************/
 
 
-/***** DESAFIO 1 *****/
+/***** DESAFIO 2 *****/ player.create(150, 700 ,'player_spritesheet', 0);
 
 if (this.direction == State.LOOKINGLEFT) {
   this.sprite.play('player_animation_jumpLeft');
@@ -30,7 +30,7 @@ this.sprite.body.velocity.y = this.jumpSpeed;
 /*********************/
 
 
-/***** DESAFIO 2 *****/
+/***** DESAFIO 3 *****/
 
 if (enemy.direction == State.LOOKINGLEFT) {
 	enemy.body.velocity.x = -enemy.walkSpeed;
@@ -49,8 +49,41 @@ if(enemy.body.y >= 980)
 /*********************/
 
 
-/***** DESAFIO 3 *****/
+/***** DESAFIO 4 *****/
 
+if (enemy.body.touching.up) {
+      enemy.kill();
+      this.sprite.body.velocity.y = this.jumpSpeed;
+      this.jumpTime = this.game.time.now + 750;
+}
+else 
+
+/*********************/
+/*********************/
+
+
+/***** DESAFIO 5 *****/
+
+this.scoreText = this.game.add.text(16, 16, this.scoreString + this.score, { fontSize: '32px', fill: '#FFF' });
+this.scoreText.fixedToCamera = true;
+
+/*********************/
+/*********************/
+
+
+/***** DESAFIO 6 *****/
+
+coin.kill();
+
+hud.score++;
+hud.scoreText.text = hud.scoreString + hud.score;
+
+/*********************/
+/*********************/
+
+/***** DESAFIO 6 *****/
+
+doors.enableBody = true;
 
 /*********************/
 /*********************/

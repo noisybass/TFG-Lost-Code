@@ -66,7 +66,7 @@ TFG.Game.prototype = {
 
     // Creates player
     player = new Player(this.game);
-    player.create(7000, 410 ,'player_spritesheet', 0);//150 400
+    player.create(150, 700 ,'player_spritesheet', 0);
 
     // Creates the HUD
     hud = new HUD(this.game);
