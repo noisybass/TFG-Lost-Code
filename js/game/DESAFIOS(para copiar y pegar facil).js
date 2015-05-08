@@ -30,7 +30,7 @@ this.sprite.body.velocity.y = this.jumpSpeed;
 /*********************/
 
 
-/***** DESAFIO 3 *****/
+/***** DESAFIO 3 *****/ player.create(1700, 650 ,'player_spritesheet', 0);
 
 if (enemy.direction == State.LOOKINGLEFT) {
 	enemy.body.velocity.x = -enemy.walkSpeed;

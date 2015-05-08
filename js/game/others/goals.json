@@ -20,11 +20,12 @@
 		},
 		{
 			"task": "Haz que los enemigos caigan al agua y mueran",
-			"code": "function snailsMove(enemy) {\n\n\tif (enemy.body.blocked.left || enemy.body.touching.left) {\n\t\tenemy.direction = State.LOOKINGRIGHT;\n\t}\n\telse if (enemy.body.blocked.right || enemy.body.touching.right) {\n\t\tenemy.direction = State.LOOKINGLEFT;\n\t}\n\n\n\n}",
+			"code": "function snailsMove(enemy) {\n\n\t// Si el caracol choca con algo por la izquierda cambia su sentido\n\tif (enemy.body.blocked.left || enemy.body.touching.left) {\n\t\tenemy.direction = State.LOOKINGRIGHT;\n\t}\n\t// E igualmente en el caso contrario, si choca con algo por la \n\t// derecha cambia de sentido\n\telse if (enemy.body.blocked.right || enemy.body.touching.right) {\n\t\tenemy.direction = State.LOOKINGLEFT;\n\t}\n\n\t// Si el caracol esta mirando hacia la izquierda su velocidad sera \n\t// negativa y su escala positiva\n\n\t// En cambio si esta mirando hacia la derecha su velocidad sera \n\t// positiva y su escala negativa\n\n\t// También debemos programar que se muera cuando caiga al agua y \n\t// alcance cierta profundidad. Para ello comprobaremos si su 'y' es \n\t// mayor que 980, y si es así lo mataremos\n\n\n}",
 			"target": "snailsMove",
-			"range1": [0,0,7,2],
-			"range2": [11,0,11,1],
-			"test": "testMoveSnails(text)"
+			"range1": [0,0,11,0],
+			"range2": [23,0,24,0],
+			"test": "testMoveSnails(text)",
+			"line": 15
 		},
 		{
 			"task": "Haz que los enemigos mueran al saltar encima",
