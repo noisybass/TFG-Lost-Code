@@ -61,10 +61,6 @@ img#dialog_box {
 	height: 80px;
 }
 
-div#text_container {
-	min-width: 750px;
-}
-
 div#statement {
 	font-size: 20px;
 }
