@@ -29,11 +29,12 @@
 		},
 		{
 			"task": "Haz que los enemigos mueran al saltar encima",
-			"code": "function upCollision(player, enemy) {\n\n\t this.die();\n}\n\n",
+			"code": "function upCollision(player, enemy) {\n\n\t// Comprobamos si hemos tocado al enemigo por arriba\n\n\t// Si es asi le matamos y saltamos\n\n\t// Para saltar haremos algo muy parecido a lo que hicimos en la \n\t// funcion Jump(), cambiamos su velocidad vertical y actualizamos \n\t// el jumpTime\n\n\n\t// Y si hemos tocado al enemigo por otro lado entonces moriremos nosotros\n\telse {\n\t\tthis.die();\n\t}\n}",
 			"target": "player.upCollision",
-			"range1": [0,0,0,0],
-			"range2": [0,0,0,0],
-			"test": "testJumpOverEnemy(text)"
+			"range1": [0,0,2,0],
+			"range2": [11,0,16,0],
+			"test": "testJumpOverEnemy(text)",
+			"line": 4
 		},
 		{
 			"task": "Mostrar Score en el Hud",

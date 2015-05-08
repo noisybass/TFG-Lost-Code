@@ -49,14 +49,13 @@ if(enemy.body.y >= 980)
 /*********************/
 
 
-/***** DESAFIO 4 *****/
+/***** DESAFIO 4 *****/ player.create(3950, 260 ,'player_spritesheet', 0);
 
 if (enemy.body.touching.up) {
       enemy.kill();
       this.sprite.body.velocity.y = this.jumpSpeed;
       this.jumpTime = this.game.time.now + 750;
 }
-else 
 
 /*********************/
 /*********************/
