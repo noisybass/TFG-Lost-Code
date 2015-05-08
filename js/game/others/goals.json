@@ -2,7 +2,7 @@
 	"goals": [
 		{
 			"task": "Haz que el jugador se mueva hacia la izquierda",
-			"code": "function move() {\n\n\t// Comprobamos que la flecha derecha haya sido pulsada\n\tif (this.cursors.right.isDown) {\n\t\t// Si es asi establecemos la nueva velocidad del jugador, en \n\t\t// este caso al moverse a la derecha sera positiva\n\t\tthis.sprite.body.velocity.x = this.walkSpeed;\n\n\t\t// Comprobamos que el jugador este en el suelo, ya que en esta \n\t\t// función no contemplamos el caso de que este saltando\n\t\tif (this.sprite.body.onFloor() || this.sprite.body.touching.down){\n\t\t\t// Y en el caso de que no este saltando ejecutamos la \n\t\t\t// animación correspondiente\n\t\t\tthis.sprite.play('player_animation_moveRight', 5, true);\n\t\t}\n\n\t\t// Si el jugador estaba mirando a la izquierda le ponemos \n\t\t// mirando a la derecha\n\t\tif (this.direction == State.LOOKINGLEFT ) {\n\t\t\tthis.direction = State.LOOKINGRIGHT;\n\t\t}\n\t}\n\n\n\t// Si la flecha derecha no ha sido pulsado comprobamos si la flecha \n\t// izquierda ha sido pulsada\n\n\t// Si es asi establecemos la nueva velocidad del jugador, en este \n\t// caso como nos movemos hacia la izquierda la velocidad tiene \n\t// que ser negativa\n\n\t// Al igual que hemos hecho en el caso de movernos hacia la derecha \n\t// comprobamos que el jugador esta en el suelo\n\n\t// Y cambiamos su animacion\n\n\t// Por último, si el jugador estaba mirando hacia la derecha le \n\t// ponemos mirando hacia la izquierda\n\n\n\t// Si no hemos pulsado ningun control tenemos que ejecutar las \n\t// animaciones correspondientes\n\telse {\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.sprite.play('player_animation_standUpLeft');\n\t\t}\n\t\telse if (this.direction == State.LOOKINGRIGHT) {\n\t\t\tthis.sprite.play('player_animation_standUpRight');\n\t\t}\n\t\t// Y por ultimos ponemos su velocidad a 0 ya que no debe \n\t\t// moverse\n\t\tthis.sprite.body.velocity.x = 0;\n\t}\n}\n\n",
+			"code": "function move() {\n\n\t// Comprobamos que la flecha derecha haya sido pulsada\n\tif (this.cursors.right.isDown) {\n\t\t// Si es asi establecemos la nueva velocidad del jugador, en \n\t\t// este caso al moverse a la derecha sera positiva\n\t\tthis.sprite.body.velocity.x = this.walkSpeed;\n\n\t\t// Comprobamos que el jugador este en el suelo, ya que en esta \n\t\t// función no contemplamos el caso de que este saltando\n\t\tif (this.sprite.body.onFloor() || this.sprite.body.touching.down){\n\t\t\t// Y en el caso de que no este saltando ejecutamos la \n\t\t\t// animación correspondiente\n\t\t\tthis.sprite.play('player_animation_moveRight', 5, true);\n\t\t}\n\n\t\t// Si el jugador estaba mirando a la izquierda le ponemos \n\t\t// mirando a la derecha\n\t\tif (this.direction == State.LOOKINGLEFT ) {\n\t\t\tthis.direction = State.LOOKINGRIGHT;\n\t\t}\n\t}\n\n\n\t// Si la flecha derecha no ha sido pulsado comprobamos si la flecha \n\t// izquierda ha sido pulsada\n\n\t// Si es asi establecemos la nueva velocidad del jugador, en este \n\t// caso como nos movemos hacia la izquierda la velocidad tiene \n\t// que ser negativa\n\n\t// Al igual que hemos hecho en el caso de movernos hacia la derecha \n\t// comprobamos que el jugador esta en el suelo\n\n\t// Y cambiamos su animacion\n\n\t// Por último, si el jugador estaba mirando hacia la derecha le \n\t// ponemos mirando hacia la izquierda\n\n\n\t// Si no hemos pulsado ningun control tenemos que ejecutar las \n\t// animaciones correspondientes\n\telse {\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.sprite.play('player_animation_standUpLeft');\n\t\t}\n\t\telse if (this.direction == State.LOOKINGRIGHT) {\n\t\t\tthis.sprite.play('player_animation_standUpRight');\n\t\t}\n\t\t// Y por ultimos ponemos su velocidad a 0 ya que no debe \n\t\t// moverse\n\t\tthis.sprite.body.velocity.x = 0;\n\t}\n}\n",
 			"target": "player.move",
 			"range1": [0,0,22,0],
 			"range2": [40,0,55,0],
@@ -11,7 +11,7 @@
 		},
 		{
 			"task": "Haz que el jugador pueda saltar",
-			"code": "function jump() {\n\n\t// Para poder saltar tenemos que comprobar primero que hemos pulsado \n\t// la flecha hacia arriba, que nuestro jugador esta en el suelo y que no estamos ya saltando\n\tif (this.cursors.up.isDown && (this.sprite.body.onFloor() || this.sprite.body.touching.down) && this.game.time.now > this.jumpTimer) {\n\n\t// Si estamos mirando hacia la izquierda ponemos la animación que \n\t// salta hacia la izquierda\n\n\t// Y si estamos mirando hacia la derecha la de saltar hacia la derecha\n\n\t// Por último cambiamos su velocidad vertical que es 0 a jumpSpeed\n\n\n\t\tthis.jumpTimer = this.game.time.now + 750;\n\t}\n}",
+			"code": "function jump() {\n\n\t// Para poder saltar tenemos que comprobar primero que hemos pulsado \n\t// la flecha hacia arriba, que nuestro jugador esta en el suelo y que no estamos ya saltando\n\tif (this.cursors.up.isDown && (this.sprite.body.onFloor() || this.sprite.body.touching.down) && this.game.time.now > this.jumpTimer) {\n\n\t// Si estamos mirando hacia la izquierda ponemos la animación que \n\t// salta hacia la izquierda\n\n\t// Y si estamos mirando hacia la derecha la de saltar hacia la derecha\n\n\t// Por último cambiamos su velocidad vertical que es 0 a jumpSpeed\n\n\n\t\tthis.jumpTimer = this.game.time.now + 750;\n\t}\n}\n",
 			"target": "player.jump",
 			"range1": [0,0,5, 0],
 			"range2": [14,0,17,0],
@@ -20,7 +20,7 @@
 		},
 		{
 			"task": "Haz que los enemigos caigan al agua y mueran",
-			"code": "function snailsMove(enemy) {\n\n\t// Si el caracol choca con algo por la izquierda cambia su sentido\n\tif (enemy.body.blocked.left || enemy.body.touching.left) {\n\t\tenemy.direction = State.LOOKINGRIGHT;\n\t}\n\t// E igualmente en el caso contrario, si choca con algo por la \n\t// derecha cambia de sentido\n\telse if (enemy.body.blocked.right || enemy.body.touching.right) {\n\t\tenemy.direction = State.LOOKINGLEFT;\n\t}\n\n\t// Si el caracol esta mirando hacia la izquierda su velocidad sera \n\t// negativa y su escala positiva\n\n\t// En cambio si esta mirando hacia la derecha su velocidad sera \n\t// positiva y su escala negativa\n\n\t// También debemos programar que se muera cuando caiga al agua y \n\t// alcance cierta profundidad. Para ello comprobaremos si su 'y' es \n\t// mayor que 980, y si es así lo mataremos\n\n\n}",
+			"code": "function snailsMove(enemy) {\n\n\t// Si el caracol choca con algo por la izquierda cambia su sentido\n\tif (enemy.body.blocked.left || enemy.body.touching.left) {\n\t\tenemy.direction = State.LOOKINGRIGHT;\n\t}\n\t// E igualmente en el caso contrario, si choca con algo por la \n\t// derecha cambia de sentido\n\telse if (enemy.body.blocked.right || enemy.body.touching.right) {\n\t\tenemy.direction = State.LOOKINGLEFT;\n\t}\n\n\t// Si el caracol esta mirando hacia la izquierda su velocidad sera \n\t// negativa y su escala positiva\n\n\t// En cambio si esta mirando hacia la derecha su velocidad sera \n\t// positiva y su escala negativa\n\n\t// También debemos programar que se muera cuando caiga al agua y \n\t// alcance cierta profundidad. Para ello comprobaremos si su 'y' es \n\t// mayor que 980, y si es así lo mataremos\n\n\n}\n",
 			"target": "snailsMove",
 			"range1": [0,0,11,0],
 			"range2": [23,0,24,0],
@@ -29,28 +29,30 @@
 		},
 		{
 			"task": "Haz que los enemigos mueran al saltar encima",
-			"code": "function upCollision(player, enemy) {\n\n\t// Comprobamos si hemos tocado al enemigo por arriba\n\n\t// Si es asi le matamos y saltamos\n\n\t// Para saltar haremos algo muy parecido a lo que hicimos en la \n\t// funcion Jump(), cambiamos su velocidad vertical y actualizamos \n\t// el jumpTime\n\n\n\t// Y si hemos tocado al enemigo por otro lado entonces moriremos nosotros\n\telse {\n\t\tthis.die();\n\t}\n}",
+			"code": "function upCollision(player, enemy) {\n\n\t// Comprobamos si hemos tocado al enemigo por arriba\n\n\t// Si es asi le matamos y saltamos\n\n\t// Para saltar haremos algo muy parecido a lo que hicimos en la \n\t// funcion Jump(), cambiamos su velocidad vertical y actualizamos \n\t// el jumpTime\n\n\n\t// Y si hemos tocado al enemigo por otro lado entonces moriremos nosotros\n\telse {\n\t\tthis.die();\n\t}\n}\n",
 			"target": "player.upCollision",
-			"range1": [0,0,2,0],
+			"range1": [0,0,3,0],
 			"range2": [11,0,16,0],
 			"test": "testJumpOverEnemy(text)",
 			"line": 4
 		},
 		{
 			"task": "Mostrar Score en el Hud",
-			"code": "function createScore(){\n\n\t// Creamos el texto\n\n\t// Fijar el texto a la camara\n\n    \n}\n\n",
+			"code": "function createScore(){\n\n\t// Creamos el texto en la posición (16, 16)\n\t// Te aconsejamos que pongas como tamaño a la fuente 32px \n\t// y color blanco\n\n\t// Fijamos el texto a la camara\n\n\n\n}\n",
 			"target": "hud.createScore",
-			"range1": [0,0,0,0],
-			"range2": [0,0,0,0],
-			"test": "testCreateScore(text)"
+			"range1": [0,0,1,0],
+			"range2": [10,0,11,0],
+			"test": "testCreateScore(text)",
+			"line": 6
 		},
 		{
 			"task": "Haz que el jugador pueda recoger monedas",
-			"code": "function pickCoin(player, coin) {\n\n\t //Eliminar la moneda de la pantalla\n\n\t //Actualizar la puntuación y el texto para mostrarlo  \n}\n\n",
+			"code": "function pickCoin(player, coin) {\n\n\t// Eliminamos la moneda del juego\n\n\t// Actualizamos la puntuación en el hud y actualizamos el texto \n\t// que muestra la puntuación\n\n\n}\n",
 			"target": "player.pickCoin",
-			"range1": [0,0,0,0],
-			"range2": [0,0,0,0],
-			"test": "testPickCoins(text)"
+			"range1": [0,0,2,0],
+			"range2": [8,0,9,0],
+			"test": "testPickCoins(text)",
+			"line": "4"
 		},
 		{
 			"task": "Crea la puerta para salir del nivel",

@@ -61,7 +61,7 @@ if (enemy.body.touching.up) {
 /*********************/
 
 
-/***** DESAFIO 5 *****/
+/***** DESAFIO 5 *****/ player.create(4650, 260 ,'player_spritesheet', 0);
 
 this.scoreText = this.game.add.text(16, 16, this.scoreString + this.score, { fontSize: '32px', fill: '#FFF' });
 this.scoreText.fixedToCamera = true;
