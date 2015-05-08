@@ -56,11 +56,12 @@
 		},
 		{
 			"task": "Crea la puerta para salir del nivel",
-			"code": "function createDoors(game) {\n\n\n\tlevel.map.createFromObjects('Object Layer 1', tiledId.doorId , 'door-image', 0 , true, false, this.doors);\n\t\n}\n",
+			"code": "function createDoors(game) {\n\n\t// Lo primero es dar cuerpo a la puerta con la propiedad 'enableBody'\n\n\n\t// Y despues obtenemos los objetos 'puerta' de nuestro mapa\n\t// En este caso sólo contamos con una puerta\n\tlevel.map.createFromObjects('Object Layer 1', tiledId.doorId , 'door-image', 0 , true, false, this.doors);\n}\n",
 			"target": "createDoors",
-			"range1": [0,0,0,0],
-			"range2": [0,0,0,0],
-			"test": "testCreateDoor(text)"
+			"range1": [0,0,3,0],
+			"range2": [5,0,9,0],
+			"test": "testCreateDoor(text)",
+			"line": 4
 		}
 	]
 }

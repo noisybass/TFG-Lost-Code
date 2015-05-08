@@ -70,7 +70,7 @@ this.scoreText.fixedToCamera = true;
 /*********************/
 
 
-/***** DESAFIO 6 *****/
+/***** DESAFIO 6 *****/ player.create(4650, 260 ,'player_spritesheet', 0);
 
 coin.kill();
 
@@ -80,7 +80,7 @@ hud.scoreText.text = hud.scoreString + hud.score;
 /*********************/
 /*********************/
 
-/***** DESAFIO 6 *****/
+/***** DESAFIO 6 *****/ player.create(6600, 500 ,'player_spritesheet', 0);
 
 doors.enableBody = true;
 
