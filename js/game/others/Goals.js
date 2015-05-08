@@ -8,7 +8,7 @@ var testMoveLeft = function (text) {
     //var player = jQuery.extend(true, {}, player);
     //var player = clone(player.);
 
-    eval("player.move =" + text);
+    eval(currentTask.target + "=" + text);
 
     // Si el jugador no esta en el suelo.
     player.cursors.left.isDown = true;
@@ -53,7 +53,7 @@ var testJump = function (text) {
     //var player = jQuery.extend(true, {}, player);
     //var player = clone(player);
 
-    eval("player.jump =" + text);
+    eval(currentTask.target + "=" + text);
 
     // Saltar mirando hacia la derecha
     player.cursors.up.isDown = true;
@@ -165,7 +165,7 @@ var testJumpOverEnemy = function(text){
     var originalLives = hud.lives;
     player.die = function(){hud.lives--;};
 
-    eval("player.upCollision =" + text);
+    eval(currentTask.target + "=" + text);
 
     // Si el jugador a saltado encima del enemigo
     enemy.body.touching.up = true;
@@ -236,7 +236,7 @@ var reInitJumpOverEnemy = function(enemy, originalLives){
 var testCreateScore = function(text){
 
 	tw = new TWUnit();
-    eval("hud.createScore =" + text);
+    eval(currentTask.target + "=" + text);
 
     hud.createScore();
 
@@ -266,7 +266,7 @@ var testPickCoins = function(text){
     coin = coins.children[0]; // Cogemos una moneda
     var originScore = hud.score;
     var originText = hud.scoreText.text;
-    eval("player.pickCoin =" + text);
+    eval(currentTask.target + "=" + text);
 
     player.pickCoin(player, coin);
 
@@ -289,7 +289,7 @@ var testPickCoins = function(text){
 
 var testCreateDoor = function(text){
     tw = new TWUnit();
-    eval("createDoors =" + text);
+    eval(currentTask.target + "=" + text);
 
     createDoors(player.game);
 

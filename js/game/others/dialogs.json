@@ -1,6 +1,7 @@
 {
 	"dialogs": [
 
+
 		[
 			{"turn": 1, "text": "Hola. Mi nombre es Bersara." },
 			{"turn": 2, "text": "Hola Bersara" },
@@ -42,7 +43,7 @@
 			{"turn": 2, "text": "Que guay!!" },
 			{"turn": 1, "text": "Una vez que hayas escrito el código que crees correcto, pulsa sobre el botón \"ejecutar\"." },
 			{"turn": 1, "text": "No te preocupes si lo has hecho mal:" },
-			{"turn": 1, "text": "si hay alguna cosa que se te haya podido escapar la verás en el recuadro \"Test / tareas\"." },
+			{"turn": 1, "text": "si hay alguna cosa que se te haya podido escapar la verás en el recuadro \"Pistas & errores\"." },
 			{"turn": 2, "text": "Ook." },
 			{"turn": 1, "text": "Por otro lado, si en algún momento no sabes cómo funciona alguna función de Phaser, puedes pulsar sobre el botón \"Mostrar documentación\"" },
 			{"turn": 1, "text": "Se abrirá una ventana en la que tendrás toda la documentación oficial que podrás consultar." },
@@ -51,7 +52,7 @@
 			{"turn": 1, "text": "Eso sí, perderás lo que hayas escrito antes. Así que ten cuidado." },
 			{"turn": 2, "text": "Valee." },
 			{"turn": 1, "text": "Por último, si el código es correcto, mi mundo volverá a la vida y yo podré realizar alguna nueva acción." },
-			{"turn": 2, "text": ";)" },
+			{"turn": 2, "text": "; )" },
 			{"turn": 1, "text": "Bien, vamos a ponerte a prueba con el primer desafío." },
 			{"turn": 1, "text": "Ayúdame a caminar a la izquierda." },
 			{"turn": 2, "text": "Vooy" }
