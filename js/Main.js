@@ -36,6 +36,10 @@ setTimeout(function(){
 
 
 function goMenu() {
+	TWUnit.HtmlInteract.htmlClear();
+	editor.getSession().setValue("", -1);
+	currentTask = null;
+	TFG.game.input.disabled = false;
 	TFG.game.state.start('MainMenu');
 	$('#button_menu_1').fadeOut(500);
 	$('#button_menu_2').fadeOut(500);	
