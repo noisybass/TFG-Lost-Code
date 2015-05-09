@@ -80,12 +80,16 @@ Player.prototype = {
   blockOverlap: function(player, block) {
 
     this.game.paused = true;
-    currentTask = block.data;
+    /*currentTask = block.data;
 
     block.destroy();
-    player.game.input.disabled = true;
+    player.game.input.disabled = true;*/
 
-    loadDialog(this.dialogIndex, this.game, "setTask");
+    loadDialog(this.dialogIndex, this.game, 
+            function(){currentTask = block.data;
+                       block.destroy();
+                       player.game.input.disabled = true;
+                       setTask();});
     this.dialogIndex++;
   },
 
@@ -179,7 +183,7 @@ Player.prototype = {
         this.direction = State.LOOKINGRIGHT;
       }
     }
-    
+    /*
     else if (this.cursors.left.isDown) {
       this.sprite.body.velocity.x = -this.walkSpeed;
 
@@ -191,7 +195,7 @@ Player.prototype = {
         this.direction = State.LOOKINGLEFT;
       }
     } 
-    
+    */
     else {
       if (this.direction == State.LOOKINGLEFT) {
         this.sprite.play('player_animation_standUpLeft');
@@ -229,6 +233,7 @@ Player.prototype = {
 
     if (this.cursors.up.isDown && (this.sprite.body.onFloor() || this.sprite.body.touching.down) && this.game.time.now > this.jumpTimer) {
         
+        /*
         if (this.direction == State.LOOKINGLEFT) {
           this.sprite.play('player_animation_jumpLeft');
         }
@@ -236,7 +241,7 @@ Player.prototype = {
           this.sprite.play('player_animation_jumpRight');
         }
         this.sprite.body.velocity.y = this.jumpSpeed;
-        
+        */
         this.jumpTimer = this.game.time.now + 750;
     }
     

@@ -70,7 +70,7 @@ function loadDialog(number, g, call) {
 	}
 	else {
 		$('#button_menu_1').fadeIn(500);
-		eval( call + '()' );
+		eval( call /*+ '()'*/ );
 	}
 	
 };
@@ -144,7 +144,8 @@ $('.dialog_button').click(function(){
 		$('#button_menu_1').fadeIn(500);
 			
 		if ( callback ) {
-			eval( callback + '()' );
+			//eval( callback /*+ '()'*/ );
+			callback();
 		}
 		
 		if ( context ) {
@@ -160,7 +161,8 @@ $('.dialog_skip_button').click(function(){
 	$('#button_menu_1').fadeIn(500);
 
 	if ( callback ) {
-		eval( callback + '()' );
+		//eval( callback + '()' );
+		callback();
 	}
 	
 	if ( context ) {
