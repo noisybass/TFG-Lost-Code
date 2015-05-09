@@ -6,6 +6,16 @@ TFG.Preload.prototype = {
 
   preload:function() {
 
+    this.game.stage.backgroundColor = '#009DFF';
+
+    // Show Loading text
+    var txt = this.add.text(this.game.world.centerX, this.game.world.centerY, "Cargando",
+              { font: "72px customFont", fill: "#fff", align: "center" });
+    txt.anchor.setTo(0.5);
+    txt.shadowColor = "#000";
+    txt.shadowBlur = 10;
+    txt.shadowOffsetX = 0.2;
+
     // Show the load bar
     this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY + 128, 'preloadbar_image');
     this.preloadBar.anchor.setTo(0.5);

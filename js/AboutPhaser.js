@@ -2,10 +2,6 @@ var TFG = TFG || {};
 
 TFG.AboutPhaser = function() {};
 
-  var w;
-  var h;
-  var box;
-  var txt;
 
 TFG.AboutPhaser.prototype = {
 
@@ -13,7 +9,7 @@ TFG.AboutPhaser.prototype = {
     this.w = this.game.width;
     this.h = this.game.height;
     this.txt = [
-      'Phaser es un motor de videojuegos en 2D \npara crear videojuegos en HTML5 para navegadores,\nya sea para teléfonos móviles o para escritorio.\nSoporta el renderizado de Canvas y de WebGL',
+      'Phaser es un motor de videojuegos en 2D \npara crear videojuegos en HTML5 para navegadores,\nya sea para teléfonos móviles o para escritorio.\n\nSoporta el renderizado de Canvas y de WebGL',
       'En Phaser, las diferentes fases por las que va a pasar\nun juego se representan mediante estados. \n\nAunque Phaser nos proporciona bastante flexibilidad \na la hora de establecer qué estados queremos que tenga \nnuestro juego, hay una convención a la hora de elegir\n cuáles van a ser estos estados.',
       'Como vemos a continuación, esta convención coincide\ncon la estructura general de cualquier videojuego : ',
       '# Boot State : estado que define la configuración general \ndel juego. Si se va a mostrar una pantalla de carga, \ncomo ocurre en la mayoría de videojuegos, se aprovecha \npara cargar aquí los assets necesarios.',
@@ -24,7 +20,7 @@ TFG.AboutPhaser.prototype = {
       '# Create : en esta función se crean los objetos que se \nvayan a utilizar en el juego.\n#Update: este método es el que llamará el bucle del juego \ncada cierto tiempo.\n#Paused: esta función es llamada cuando el bucle \nprincipal del juego está parado.'     
 
       ];
-      this.pos = 0;
+      this.pos = 2;
   },
 
   create: function() {
@@ -33,36 +29,34 @@ TFG.AboutPhaser.prototype = {
     this.game.stage.backgroundColor = '#009DFF';
 
     // Background
-    var bg = this.game.add.sprite(this.w/2,this.h/2,'menu');
-    bg.anchor.setTo(0.5,0.5);
+    this.bg = this.game.add.sprite(this.w/2,this.h/2,'menu');
+    this.bg.anchor.setTo(0.5,0.5);
 
     // Game title
-    var title = this.game.add.sprite(this.w/2 - 272, this.h/2-200, 'title');
-
-    // Credits box
-    this.box = this.game.add.sprite(this.w/2 - 250, this.h/2 + 300, 'credits');
-    //this.box.anchor.setTo(0.5, 0.5);
-
+    this.title = this.game.add.sprite(this.w/2 - 272, this.h/2-200, 'title');
 
     // Clouds
     this.clouds = createCloud(this.game, 2);
     
     // Buttons
-    var skip = this.game.add.button(20, this.h - 70, 'skip-button', this.skipCredits, this);
-    var next = this.game.add.button(620, this.h - 70, 'next-button', this.nextCredit, this);
+    var skip = this.game.add.button(0, this.h - 70, 'skip-button', this.skipCredits, this);
+    var next = this.game.add.button(this.w - 100, this.h - 70, 'next-button', this.nextCredit, this);
 
     // About Phaser
     this.showAboutPhaser();
   },
 
   update: function() {
+    
     cloudsMove(this.game);
-    
-    if ( this.box.y > 285 ) {
-      this.box.y--;  
-      this.about.y--;
+    this.bg.y+=5;
+    if ( this.bg.y > this.h ) {
+      this.bg.destroy();
     }
-    
+    this.about.y-= 0.5;  
+    if ( this.about.y < 0 ) {
+      this.nextCredit();
+    }
   },
 
   skipCredits: function() {
@@ -74,11 +68,10 @@ TFG.AboutPhaser.prototype = {
 
 
     if ( this.pos < this.txt.length )  {
-      this.box.x = this.w/2 - 250;
-      this.box.y = this.h/2 + 300
       this.about.destroy();
-      this.about = this.game.add.text(this.box.x + 10, this.box.y + 10, this.txt[this.pos],
-                { font: "20px customFont", fill: "#fff" });
+      this.about = this.game.add.text(this.w/2 - 250 , this.h/2+300, this.txt[this.pos],
+                { font: "22px customFont", fill: "#fff" });
+      this.configText();
       this.pos++;  
     }
     else {
@@ -89,11 +82,17 @@ TFG.AboutPhaser.prototype = {
 
   showAboutPhaser: function() {
 
-    this.about = this.game.add.text(this.box.x + 10, this.box.y + 10, this.txt[this.pos],
-              { font: "20px customFont", fill: "#fff" });
+    this.about = this.game.add.text(this.w/2 - 250 , this.h/2+300, this.txt[this.pos],
+              { font: "22px customFont", fill: "#fff" });
     this.pos++;
+    this.configText();
+    
+  },
 
-    //this.about.anchor.setTo(0.5, 0.5);
+  configText: function() {
+    this.about.shadowColor = "#000";
+    this.about.shadowBlur = 10;
+    this.about.shadowOffsetX = 0.2;
   }
 }
 
