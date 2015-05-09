@@ -121,7 +121,7 @@ var testClear = function(){
         .to({ x: star.scale.x + 1.5, y: star.scale.y + 1.5 }, 3500, Phaser.Easing.Linear.None);
 
     splash.onComplete.add(function(){
-        var starText = this.game.add.text(this.game.canvas.width/2, this.game.canvas.height/2, "¡Lo has conseguido!", { fontSize: '32px', fill: '#FFF' });
+        var starText = this.game.add.text(this.game.canvas.width/2, this.game.canvas.height/2, "¡Lo has conseguido!", { font: "25px customFont", fill: "#fff" });
         starText.fixedToCamera = true;
         starText.anchor.setTo(0.5, 0.5);
         
