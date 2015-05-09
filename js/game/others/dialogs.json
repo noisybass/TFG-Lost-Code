@@ -42,7 +42,7 @@
 			{"turn": 1, "text": "Una vez que hayas leído mi consejo se activará el editor de texto que ves a la derecha y mi mundo se detendrá." },
 			{"turn": 2, "text": "Que guay!!" },
 			{"turn": 1, "text": "Una vez que hayas escrito el código que crees correcto, pulsa sobre el botón \"ejecutar\"." },
-			{"turn": 1, "text": "No te preocupes si lo has hecho mal:" },
+			{"turn": 1, "text": "No te preocupes si lo has hecho mal." },
 			{"turn": 1, "text": "si hay alguna cosa que se te haya podido escapar la verás en el recuadro \"Pistas & errores\"." },
 			{"turn": 2, "text": "Ook." },
 			{"turn": 1, "text": "Por otro lado, si en algún momento no sabes cómo funciona alguna función de Phaser, puedes pulsar sobre el botón \"Mostrar documentación\"" },

@@ -5,8 +5,6 @@
 var testMoveLeft = function (text) {
 
     tw = new TWUnit();
-    //var player = jQuery.extend(true, {}, player);
-    //var player = clone(player.);
 
     eval(currentTask.target + "=" + text);
 
@@ -17,7 +15,7 @@ var testMoveLeft = function (text) {
     player.sprite.body.blocked.down = true;
     player.cursors.left.isDown = false;
 
-    tw.addAssert("Animación en el suelo", player.sprite.animations.currentAnim != player.sprite.animations._anims["player_animation_moveLeft"], "No ejecutar una animación si no estas en el suelo", "No puedes ejecutar una animación en el aire! ¿Porque no compruebas si el player esta en el suelo?");
+    tw.addAssert("No ejecutar una animación si no estas en el suelo ", player.sprite.animations.currentAnim != player.sprite.animations._anims["player_animation_moveLeft"], "", "No puedes ejecutar una animación en el aire! ¿Porque no compruebas si el player esta en el suelo?");
     
     reInitMove();
 
@@ -26,9 +24,9 @@ var testMoveLeft = function (text) {
         player.move();
     player.cursors.left.isDown = false;
     
-    tw.addAssert("Animación", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
-    tw.addAssert("Direccion", player.direction == State.LOOKINGLEFT, "Cambiar sprite para que mire hacia la izquierda.", "Podrías mirar el objeto State, aver que se te ocurre...");
-    tw.addAssert("Velocidad", player.sprite.body.velocity.x == -player.walkSpeed, "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
+    tw.addAssert("Cambiar la animación para moverse a la izquierda ", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "", "Porque no pruebas con el play...");
+    tw.addAssert("Cambiar sprite para que mire hacia la izquierda ", player.direction == State.LOOKINGLEFT, "", "Podrías mirar el objeto State, aver que se te ocurre...");
+    tw.addAssert("Mover personaje a la izquierda ", player.sprite.body.velocity.x == -player.walkSpeed, "", "Si ir a la derecha es positivo, a la izquierda será...");
     
     reInitMove();
 

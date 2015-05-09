@@ -70,6 +70,7 @@ TFG.Game.prototype = {
 
     // Creates the HUD
     hud = new HUD(this.game);
+    hud.create();
 
 
     var that = this;
