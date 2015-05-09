@@ -1,10 +1,3 @@
-
-// Este js hace que el juego se adapte al tamaño del div game-canvas
-// segun la resolucion del monitor en el momento q carga la pagina.
-// No lo cargo pq luego el juego se ve mal, pq se conoce que no usamos
-// game.width ni game.height sino que lo pusimos a mano.
-// Si lo arreglamos esto podria valernos.
-
 var TFG = TFG || {};
 
 
@@ -25,6 +18,10 @@ setTimeout(function(){
 	// so they can quickly accessed.
 	TFG.game.state.add('MainMenu', TFG.MainMenu);
 
+	// aboutPhaser State: game's screen that contains things about Phaser.
+	TFG.game.state.add('AboutPhaser', TFG.AboutPhaser);
+
+	// ClosingCredits State: game's credits screen.
 	TFG.game.state.add('ClosingCredits', TFG.ClosingCredits);
 
 	// Game State: the actual game.

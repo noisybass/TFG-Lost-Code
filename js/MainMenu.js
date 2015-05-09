@@ -39,8 +39,9 @@ TFG.MainMenu.prototype = {
   },
 
   playGame: function() {
-    $('#button_menu_2').fadeIn(500);
-    this.game.state.start('Game');
+    //$('#button_menu_2').fadeIn(500);
+    //this.game.state.start('Game');
+    this.game.state.start('AboutPhaser');
   },
 
   showCredits: function() {
