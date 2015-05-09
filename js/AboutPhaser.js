@@ -20,7 +20,7 @@ TFG.AboutPhaser.prototype = {
       '# Create : en esta función se crean los objetos que se \nvayan a utilizar en el juego.\n#Update: este método es el que llamará el bucle del juego \ncada cierto tiempo.\n#Paused: esta función es llamada cuando el bucle \nprincipal del juego está parado.'     
 
       ];
-      this.pos = 2;
+      this.pos = 0;
   },
 
   create: function() {
