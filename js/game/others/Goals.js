@@ -15,7 +15,7 @@ var testMoveLeft = function (text) {
     player.sprite.body.blocked.down = true;
     player.cursors.left.isDown = false;
 
-    tw.addAssert("No ejecutar una animación si no estas en el suelo ", player.sprite.animations.currentAnim != player.sprite.animations._anims["player_animation_moveLeft"], "", "No puedes ejecutar una animación en el aire! ¿Porque no compruebas si el player esta en el suelo?");
+    tw.addAssert("No ejecutar una animación si no estas en el suelo ", player.sprite.animations.currentAnim != player.sprite.animations._anims["player_animation_moveLeft"], "", "No puedes ejecutar una animación en el aire! ¿Porque no compruebas si el player esta en el suelo?.");
     
     reInitMove();
 
@@ -24,9 +24,9 @@ var testMoveLeft = function (text) {
         player.move();
     player.cursors.left.isDown = false;
     
-    tw.addAssert("Cambiar la animación para moverse a la izquierda ", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "", "Porque no pruebas con el play...");
-    tw.addAssert("Cambiar sprite para que mire hacia la izquierda ", player.direction == State.LOOKINGLEFT, "", "Podrías mirar el objeto State, aver que se te ocurre...");
-    tw.addAssert("Mover personaje a la izquierda ", player.sprite.body.velocity.x == -player.walkSpeed, "", "Si ir a la derecha es positivo, a la izquierda será...");
+    tw.addAssert("Cambiar la animación para moverse a la izquierda ", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "", "Un sprite tiene un monton de funcionalidades, una de ellas es poder ejecutar una animación. ¿Porque no pruebas a ejecutar una animación con este id 'player_animation_moveLeft'?.");
+    tw.addAssert("Cambiar sprite para que mire hacia la izquierda ", player.direction == State.LOOKINGLEFT, "", "Cuando vas a pulsar la tecla derecha, el sprite puede estar mirando para el lado contrario, por lo tanto tienes que asignar la dirección correcta a la dirección del sprite.");
+    tw.addAssert("Mover personaje a la izquierda ", player.sprite.body.velocity.x == -player.walkSpeed, "", "En los juegos 2D de plataformas el jugador se mueve por el eje de coordenadas x, siendo positivo si el sprite se desplaza a la derecha, y negativo si se desplaza hacia la izquierda. Despues de esta explicación, ¿Se te ocurre como hacer que el jugador se desplace hacia la izquierda?.");
     
     reInitMove();
 

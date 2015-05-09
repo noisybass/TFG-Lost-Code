@@ -69,8 +69,5 @@ HUD.prototype = {
 		var heart = this.hearts.pop();
 		heart.destroy();
 	},
-
-
-
-
+	
 };

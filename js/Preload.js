@@ -87,6 +87,7 @@ TFG.Preload.prototype = {
   loadObjectsAssets: function() {
     this.game.load.spritesheet('bridge-image', 'assets/img/objects/bridge.png', 70, 26);
     this.game.load.spritesheet('coin-image', 'assets/img/objects/coin.png', 35, 36, 3);
+    this.game.load.spritesheet('star-image', 'assets/img/objects/star.png', 256, 256);
     this.game.load.spritesheet('spike-image', 'assets/img/objects/spike.png', 70, 34);
     this.game.load.spritesheet('rock1-image', 'assets/img/objects/rock1.png', 70, 41);
     this.game.load.spritesheet('rock2-image', 'assets/img/objects/rock2.png', 57, 48);

@@ -55,8 +55,12 @@
 			{"turn": 2, "text": "; )" },
 			{"turn": 1, "text": "Bien, vamos a ponerte a prueba con el primer desafío." },
 			{"turn": 1, "text": "Ayúdame a caminar a la izquierda." },
-			{"turn": 2, "text": "Vooy" }
-			
+			{"turn": 2, "text": "Vooy" },
+			{"turn": 1, "text": "¡Un momento!" },
+			{"turn": 1, "text": "Se me ha olvidado darte el consejo" },
+			{"turn": 1, "text": "Creo que necesitarás echarle un vistazo a las clases Sprite, Keyboard y la clase Body de la fisica Arcade." },
+			{"turn": 1, "text": "¡No dudes en consultar la documentación! !Programar no consiste solo en teclear código!" },
+			{"turn": 1, "text": "Necesito llegar a esa puerta como sea, confio en ti" }	
 		]
 	]
 
