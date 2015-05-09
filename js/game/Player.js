@@ -80,15 +80,13 @@ Player.prototype = {
   blockOverlap: function(player, block) {
 
     this.game.paused = true;
-    /*currentTask = block.data;
+    currentTaskAux = block.data;
 
     block.destroy();
-    player.game.input.disabled = true;*/
+    player.game.input.disabled = true;
 
     loadDialog(this.dialogIndex, this.game, 
-            function(){currentTask = block.data;
-                       block.destroy();
-                       player.game.input.disabled = true;
+            function(){currentTask = currentTaskAux;
                        setTask();});
     this.dialogIndex++;
   },
