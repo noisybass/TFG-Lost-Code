@@ -5,8 +5,6 @@
 var testMoveLeft = function (text) {
 
     tw = new TWUnit();
-    //var player = jQuery.extend(true, {}, player);
-    //var player = clone(player.);
 
     eval(currentTask.target + "=" + text);
 
@@ -17,7 +15,7 @@ var testMoveLeft = function (text) {
     player.sprite.body.blocked.down = true;
     player.cursors.left.isDown = false;
 
-    tw.addAssert("Animación en el suelo", player.sprite.animations.currentAnim != player.sprite.animations._anims["player_animation_moveLeft"], "No ejecutar una animación si no estas en el suelo", "No puedes ejecutar una animación en el aire! ¿Porque no compruebas si el player esta en el suelo?");
+    tw.addAssert("No ejecutar una animación si no estas en el suelo ", player.sprite.animations.currentAnim != player.sprite.animations._anims["player_animation_moveLeft"], "", "No puedes ejecutar una animación en el aire! ¿Porque no compruebas si el player esta en el suelo?.");
     
     reInitMove();
 
@@ -26,9 +24,9 @@ var testMoveLeft = function (text) {
         player.move();
     player.cursors.left.isDown = false;
     
-    tw.addAssert("Animación", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "Cambiar la animación para moverse a la izquierda", "Porque no pruebas con el play...");
-    tw.addAssert("Direccion", player.direction == State.LOOKINGLEFT, "Cambiar sprite para que mire hacia la izquierda.", "Podrías mirar el objeto State, aver que se te ocurre...");
-    tw.addAssert("Velocidad", player.sprite.body.velocity.x == -player.walkSpeed, "Mover personaje a la izquierda.", "Si ir a la derecha es positivo, a la izquierda será...");
+    tw.addAssert("Cambiar la animación para moverse a la izquierda ", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "", "Un sprite tiene un monton de funcionalidades, una de ellas es poder ejecutar una animación. ¿Porque no pruebas a ejecutar una animación con este id 'player_animation_moveLeft'?.");
+    tw.addAssert("Cambiar sprite para que mire hacia la izquierda ", player.direction == State.LOOKINGLEFT, "", "Cuando vas a pulsar la tecla derecha, el sprite puede estar mirando para el lado contrario, por lo tanto tienes que asignar la dirección correcta a la dirección del sprite.");
+    tw.addAssert("Mover personaje a la izquierda ", player.sprite.body.velocity.x == -player.walkSpeed, "", "En los juegos 2D de plataformas el jugador se mueve por el eje de coordenadas x, siendo positivo si el sprite se desplaza a la derecha, y negativo si se desplaza hacia la izquierda. Despues de esta explicación, ¿Se te ocurre como hacer que el jugador se desplace hacia la izquierda?.");
     
     reInitMove();
 
@@ -61,8 +59,8 @@ var testJump = function (text) {
     player.cursors.up.isDown = false;
 
     /*Cuando choca con el cartel esta mirando hacia la derecha, por tanto va a saltar hacia la derecha*/
-    tw.addAssert("Animación hacia la derecha", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "Cambiar la animación para saltar", "Porque no pruebas con el play...");
-    tw.addAssert("Velocidad", player.sprite.body.velocity.y == player.jumpSpeed, "Cambiar la velocidad vertical del personaje", "Para caminar cambiabamos la velocidad en la x, para saltar prueba a modificar la velocidad en la y");
+    tw.addAssert("Cambiar la animación para saltar hacia la derecha ", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "", "¡Esto es pan comido! Ya lo hemos realizado antes, de todas maneras si no te acuerdas echa un vistazo a la clase Body de la fisica Arcade de Phaser. ¡Acuerdate de poner el id correcto cuando ejecutes la animación! es player_animation_jumpRight");
+    tw.addAssert("Cambiar la velocidad de salto del sprite ", player.sprite.body.velocity.y == player.jumpSpeed, "", "Para caminar cambiábamos la velocidad en la x, para saltar prueba a modificar la velocidad en la y asignandole la velocidad this.jumpSpeed");
 
     reInitJump();
 
@@ -71,7 +69,7 @@ var testJump = function (text) {
     player.direction = State.LOOKINGLEFT;
         player.jump();
     player.cursors.up.isDown = false;
-    tw.addAssert("Animación hacia la izquierda", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "Cambiar la animación para saltar", "Porque no pruebas con el play...");
+    tw.addAssert("Cambiar la animación para saltar hacia la izquierda", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "", "¡Esto es pan comido! Ya lo hemos realizado antes, de todas maneras si no te acuerdas echa un vistazo a la clase Body de la fisica Arcade de Phaser. ¡Acuerdate de poner el id correcto cuando ejecutes la animación! es player_animation_jumpLeft");
 
     reInitJump();
 

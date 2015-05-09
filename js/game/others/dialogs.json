@@ -42,7 +42,7 @@
 			{"turn": 1, "text": "Una vez que hayas leído mi consejo se activará el editor de texto que ves a la derecha y mi mundo se detendrá." },
 			{"turn": 2, "text": "Que guay!!" },
 			{"turn": 1, "text": "Una vez que hayas escrito el código que crees correcto, pulsa sobre el botón \"ejecutar\"." },
-			{"turn": 1, "text": "No te preocupes si lo has hecho mal:" },
+			{"turn": 1, "text": "No te preocupes si lo has hecho mal." },
 			{"turn": 1, "text": "si hay alguna cosa que se te haya podido escapar la verás en el recuadro \"Pistas & errores\"." },
 			{"turn": 2, "text": "Ook." },
 			{"turn": 1, "text": "Por otro lado, si en algún momento no sabes cómo funciona alguna función de Phaser, puedes pulsar sobre el botón \"Mostrar documentación\"" },
@@ -55,8 +55,36 @@
 			{"turn": 2, "text": "; )" },
 			{"turn": 1, "text": "Bien, vamos a ponerte a prueba con el primer desafío." },
 			{"turn": 1, "text": "Ayúdame a caminar a la izquierda." },
-			{"turn": 2, "text": "Vooy" }
-			
+			{"turn": 2, "text": "Vooy" },
+			{"turn": 1, "text": "¡Un momento!" },
+			{"turn": 1, "text": "Se me ha olvidado darte el consejo." },
+			{"turn": 1, "text": "Creo que necesitarás echarle un vistazo a las clases Sprite, Keyboard y la clase Body de la fisica Arcade." },
+			{"turn": 1, "text": "Ten en cuenta que un sprite para que se pueda chocar con los demás objetos del entorno, necesita tener una fisica." },
+			{"turn": 1, "text": "En phaser existen tres tipos de fisicas, Arcade, Ninja y P2." },
+			{"turn": 1, "text": "Yo tengo la fisica Arcade, si no fuese así, no podría andar por ningún terreno." },
+			{"turn": 1, "text": "Es importante que sepas que todas las características que poseo, están en la clase Body, la cuál podrás acceder de la siguiente manera, this.sprite.body ." },
+			{"turn": 1, "text": "¡No dudes en consultar la documentación! !Programar no consiste solo en teclear código!." },
+			{"turn": 1, "text": "Necesito llegar a esa puerta como sea, confio en ti." }	
+		],
+
+		[
+			{"turn": 1, "text": "¡Ya puedo volver a andar hacia la izquierda!."},
+			{"turn": 1, "text": "Muchas gracias de verdad, pero me temo que me vas a tener que seguir ayudando para poder llegar a la puerta para cumplir mi misión."},
+			{"turn": 2, "text": "¿Qué misión?"},
+			{"turn": 1, "text": "Lo siento, pero todavía es demasiado pronto."},
+			{"turn": 1, "text": "...no puedo decirte que esta pasando en este mundo poligonal, antes debo recuperar algunas de mis características principales."},
+			{"turn": 2, "text": "..."},
+			{"turn": 1, "text": "Lo siento... te prometo que te lo contaré."},
+			{"turn": 2, "text": "Valee, ¿Qué característica necesitas ahora?."},
+			{"turn": 1, "text": "Pues... aquí hay un precipicio, osea que deberia de poder pasarlo si lo salto."},
+			{"turn": 1, "text": "Cuando podía saltar lo hacia pulsando la flecha hacia arriba."},
+			{"turn": 1, "text": "¿Me ayudarás?."},
+			{"turn": 2, "text": "¿No me queda otra no? además, me intriga la misión que tienes que hacer y el porque perdiste algunas de tus características."},
+			{"turn": 1, "text": "Te prometo que haré de ti un gran programador."},
+			{"turn": 2, "text": "Bueno, al lio, ¿Qué información deberia saber para poder programarlo?."},
+			{"turn": 1, "text": "Mmm, dejame que piense..."},
+			{"turn": 1, "text": "Vas a tener que seguir profundizando en las clases Sprite y Body sobretodo."},
+			{"turn": 2, "text": "No necesito más, en un momento podrás saltar ¡Dejamelo a mi!"}
 		]
 	]
 

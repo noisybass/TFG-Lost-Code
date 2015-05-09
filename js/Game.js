@@ -35,7 +35,9 @@ TFG.Game.prototype = {
                 editor.getSession().setValue("", -1);
                 $('#task').html("<h3><span class=\"glyphicon glyphicon-pencil\"></span>Aqui va la tarea</h3>");
                 currentTask = null;
-                this.game.paused = false;
+                TWUnit.HtmlInteract.htmlClear();
+                testClear.call(this);
+                //this.game.paused = false;
             }
             else {
                 // volver a deshabilitar los eventos para poder escribir bien en ace
@@ -70,6 +72,7 @@ TFG.Game.prototype = {
 
     // Creates the HUD
     hud = new HUD(this.game);
+    hud.create();
 
 
     var that = this;
@@ -99,4 +102,53 @@ var clearListeners = function (){
     this.cursors.up.isDown = false;
     this.cursors.right.isDown = false;
     this.runButton.isDown = false;
+}
+
+
+var testClear = function(){
+    this.game.input.disabled = true;
+    star = this.game.add.sprite(this.game.canvas.width/2, this.game.canvas.height/2, 'star-image');
+    star.anchor.setTo(0.5, 0.5); // centro de la rotacion
+    star.fixedToCamera = true;
+    star.scale.x -= 0.8;
+    star.scale.y -= 0.8;
+
+    // Animacion que se agranda y gira
+    var rotate = this.game.add.tween(star)
+        .to({ angle: star.angle + 720 }, 3500, Phaser.Easing.Linear.None);
+
+    var splash = this.game.add.tween(star.scale)
+        .to({ x: star.scale.x + 1.5, y: star.scale.y + 1.5 }, 3500, Phaser.Easing.Linear.None);
+
+    splash.onComplete.add(function(){
+        var starText = this.game.add.text(this.game.canvas.width/2, this.game.canvas.height/2, "¡Lo has conseguido!", { fontSize: '32px', fill: '#FFF' });
+        starText.fixedToCamera = true;
+        starText.anchor.setTo(0.5, 0.5);
+        
+        // Animación que se encoge y gira 
+        setTimeout(function(){
+            starText.destroy();
+            rotate1 = TFG.game.add.tween(star)
+                .to({ angle: star.angle - 720 }, 3500, Phaser.Easing.Linear.None);
+
+            splash1 = TFG.game.add.tween(star.scale)
+                .to({ x: star.scale.x - 1.5, y: star.scale.y - 1.5 }, 3500, Phaser.Easing.Linear.None);
+
+            rotate1.onComplete.add(function(){
+                star.destroy();
+                TFG.game.paused = false;
+                TFG.game.input.disabled = false;
+            }, this);
+
+            splash1.start();
+            rotate1.start();
+
+        }, 2000);
+
+        
+    }, this);
+        
+
+    splash.start();
+    rotate.start();
 }
