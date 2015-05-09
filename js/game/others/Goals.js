@@ -59,8 +59,8 @@ var testJump = function (text) {
     player.cursors.up.isDown = false;
 
     /*Cuando choca con el cartel esta mirando hacia la derecha, por tanto va a saltar hacia la derecha*/
-    tw.addAssert("Animación hacia la derecha", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "Cambiar la animación para saltar", "Porque no pruebas con el play...");
-    tw.addAssert("Velocidad", player.sprite.body.velocity.y == player.jumpSpeed, "Cambiar la velocidad vertical del personaje", "Para caminar cambiabamos la velocidad en la x, para saltar prueba a modificar la velocidad en la y");
+    tw.addAssert("Cambiar la animación para saltar hacia la derecha ", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "", "¡Esto es pan comido! Ya lo hemos realizado antes, de todas maneras si no te acuerdas echa un vistazo a la clase Body de la fisica Arcade de Phaser. ¡Acuerdate de poner el id correcto cuando ejecutes la animación! es player_animation_jumpRight");
+    tw.addAssert("Cambiar la velocidad de salto del sprite ", player.sprite.body.velocity.y == player.jumpSpeed, "", "Para caminar cambiábamos la velocidad en la x, para saltar prueba a modificar la velocidad en la y asignandole la velocidad this.jumpSpeed");
 
     reInitJump();
 
@@ -69,7 +69,7 @@ var testJump = function (text) {
     player.direction = State.LOOKINGLEFT;
         player.jump();
     player.cursors.up.isDown = false;
-    tw.addAssert("Animación hacia la izquierda", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "Cambiar la animación para saltar", "Porque no pruebas con el play...");
+    tw.addAssert("Cambiar la animación para saltar hacia la izquierda", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "", "¡Esto es pan comido! Ya lo hemos realizado antes, de todas maneras si no te acuerdas echa un vistazo a la clase Body de la fisica Arcade de Phaser. ¡Acuerdate de poner el id correcto cuando ejecutes la animación! es player_animation_jumpLeft");
 
     reInitJump();
 
