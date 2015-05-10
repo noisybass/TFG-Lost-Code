@@ -136,6 +136,16 @@
 			{"turn": 2, "text": "Aaahh, ya se lo que es : )"},
 			{"turn": 1, "text": "Genial. Ahora ayúdame para que veamos mi HUD de nuevo."},
 			{"turn": 2, "text": "Valee"}
+		],
+
+		[
+			{"turn": 1, "text": "Que chulo!! Muchas gracias ;)"},
+			{"turn": 2, "text": "De nada : )"},
+			{"turn": 1, "text": "Ahora necesito poder recoger monedas."},
+			{"turn": 2, "text": "Una pregunta, ¿para qué las quieres?"},
+			{"turn": 1, "text": "Si te soy sincera no lo se..."},
+			{"turn": 1, "text": "Pero en muchos juegos el protagonista las recoge sin cesar."},
+			{"turn": 2, "text": "Me has convencido"}
 		]
 	]
 
