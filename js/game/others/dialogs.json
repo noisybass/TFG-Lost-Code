@@ -124,6 +124,18 @@
 			{"turn": 1, "text": "Creo que la mejor forma sería saltando encima de él. Como ves, no tiene concha."},
 			{"turn": 2, "text": "Está bien, haré que muera cuando saltes sobre él."},
 			{"turn": 1, "text": "Perfecto."}
+		],
+
+		[
+			{"turn": 1, "text": "Una cosa..."},
+			{"turn": 1, "text": "Acabo de recordar que antes podía recoger monedas."},
+			{"turn": 1, "text": "Pero antes de ello necesito ver mi HUD."},
+			{"turn": 2, "text": "¿HUD? ¿Qué es eso?"},
+			{"turn": 1, "text": "Un HUD es la forma más habitual que tienen los videojuegos de mostrar al jugador ciertos parámetros."},
+			{"turn": 1, "text": "Tales como las vidas restantes, el número de puntos y todas esas cosas"},
+			{"turn": 2, "text": "Aaahh, ya se lo que es : )"},
+			{"turn": 1, "text": "Genial. Ahora ayúdame para que veamos mi HUD de nuevo."},
+			{"turn": 2, "text": "Valee"}
 		]
 	]
 
