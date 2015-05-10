@@ -41,8 +41,7 @@ Player.prototype = {
     //this.gray_filter = this.game.add.filter('Gray');
 
     this.game.paused = true;
-    loadDialog(6, this.game);
-    //loadDialog(0, this.game);
+    loadDialog(0, this.game);
   },
 
 

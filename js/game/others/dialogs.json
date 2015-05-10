@@ -146,6 +146,15 @@
 			{"turn": 1, "text": "Si te soy sincera no lo se..."},
 			{"turn": 1, "text": "Pero en muchos juegos el protagonista las recoge sin cesar."},
 			{"turn": 2, "text": "Me has convencido"}
+		],
+
+		[
+			{"turn": 1, "text": "Genial!! Ya hemos llegado al final."},
+			{"turn": 2, "text": ": )"},
+			{"turn": 1, "text": "Lo último que necesito que hagas es crear una puerta que me lleve a mi siguiente destino."},
+			{"turn": 2, "text": "Suena fácil."},
+			{"turn": 1, "text": "Lo es."},
+			{"turn": 2, "text": "Pues hagamóslo"}
 		]
 	]
 
