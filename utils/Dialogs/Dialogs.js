@@ -96,7 +96,7 @@ function init() {
 		var w = $('#game-canvas').width();
 		$('#dialog_container').prepend('<div id="text_container"><p class="text"></p></div>');
 		$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + left_img +'" />');	
-		$('#dialog_container').prepend('<img id="right_person" style="margin-left:' + (w-120) + 'px;" class="gray" src="' + right_img + '" />');
+		$('#dialog_container').prepend('<img id="right_person" style="margin-left:' + (w-150) + 'px;" class="gray" src="' + right_img + '" />');
 		initialize = true;
 	}
 	$('#dialog_container').css('background-color', 'rgba(0,0,0,0.3)');
