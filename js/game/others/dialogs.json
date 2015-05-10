@@ -85,6 +85,58 @@
 			{"turn": 1, "text": "Mmm, dejame que piense..."},
 			{"turn": 1, "text": "Vas a tener que seguir profundizando en las clases Sprite y Body sobretodo."},
 			{"turn": 2, "text": "No necesito más, en un momento podrás saltar ¡Dejamelo a mi!"}
+		],
+
+		[
+			{"turn": 1, "text": "Mmmm...parece que tenemos otro problema."},
+			{"turn": 1, "text": "Si salto a la otra orilla desde aquí caeré sobre los monstruos y me matarán."},
+			{"turn": 2, "text": "¿Y qué podemos hacer?"},
+			{"turn": 1, "text": "¡Ya lo tengo! Haz que los caracoles se muevan y caigan al agua."},
+			{"turn": 2, "text": "Me parece buena idea, pero...¿como se supone que voy a hacer eso?"},
+			{"turn": 1, "text": "Es muy fácil, el codigo es muy parecido al que hiciste para que me pudiese mover hacia la izquierda."},
+			{"turn": 1, "text": "Lo primero es fijarse en la dirección en la que cada caracol esta mirando para saber que velocidad tienes que asignarles."},
+			{"turn": 1, "text": "En este caso tienes que prestar mucha atención a la propiedad 'scale' de un sprite. Utilizamos esta propiedad cuando solo tenemos las animaciones para caminar en un sentido."},
+			{"turn": 1, "text": "Los caracoles solo tienen una animación para andar hacia la izquierda, pero si cambiamos su escala podemos invertirla y parecerá que se mueve hacia la derecha."},
+			{"turn": 2, "text": "¡Vaya, que interesante!"},
+			{"turn": 1, "text": "También tenemos que asegurarnos de que los caracoles se mueran al llegar a cierta profundidad."},
+			{"turn": 2, "text": "¿Y cómo lo hago?"},
+			{"turn": 1, "text": "Sólo puedo darte una pista. Busca en la documentación la función 'kill'."}
+		],
+
+		[
+			{"turn": 1, "text": "¡Oh vaya! Más enemigos. Y esta vez no parece que podamos tirarles por ningún sitio..."},
+			{"turn": 2, "text": "¿Y por qué no les atacas?"},
+			{"turn": 1, "text": "No puedo atacarles... Sino ya lo habría hecho antes..."},
+			{"turn": 2, "text": "¡Yo haré que puedas!"},
+			{"turn": 1, "text": "¡Claro! ¡Esa es la actitud!"},
+			{"turn": 1, "text": "Puedes hacer que se mueran cuando salto encima de ellos. No es muy difícil y es muy efectivo."},
+			{"turn": 2, "text": "Bien, pues dame alguna pista sobre como hacerlo."},
+			{"turn": 1, "text": "Veamos... Para empezar necesitas saber si he saltado encima de ellos, para ellos tendrás que comprobar la propiedad 'touching' de 'body'."},
+			{"turn": 1, "text": "Una vez que sepamos eso es fácil, si he tocado a uno por encima se morirá, al igual que en el anterior desafío."},
+			{"turn": 1, "text": "Sino me moriré yo :("}
+		],
+
+		[
+			{"turn": 1, "text": "Es hora de que aprendas otra cosa que también es muy útil."},
+			{"turn": 2, "text": "¡Sorprendeme!"},
+			{"turn": 1, "text": "Necesito poder recoger objetos, más concretamente monedas."},
+			{"turn": 2, "text": "Te ayudo, pero sólo sí me llevo un porcentaje."},
+			{"turn": 1, "text": "Vale, vale. Que remedio. "},
+			{"turn": 1, "text": "Primero, antes que recoger las monedas necesito saber la cantidad de monedas que tengo."},
+			{"turn": 1, "text": "Para eso vamos a utilizar el HUD."},
+			{"turn": 2, "text": "¿HUD?"},
+			{"turn": 1, "text": "Sí, el HUD es la información que podemos ver en la pantalla mientras jugamos (puntuación, vidas, etc). Seguro que lo has visto en algún juego."},
+			{"turn": 2, "text": "Ah, claro. Ya lo entiendo."},
+			{"turn": 1, "text": "Para ello necesitarás añadir un objeto de tipo texto al juego con 'game.add.text', y guardar su valor en 'this.scoreText' para poder usarlo después."},
+			{"turn": 1, "text": "También necesitarás que el texto esté siempre visible, para ello puedes utilizar la propiedad 'fixedtoCamera'."},
+			{"turn": 2, "text": "¡Entendido!"}
+		],
+
+		[
+			{"turn": 1, "text": "Ahora sí, ya que podemos ver cuantas monedas tengo sólo queda poder cogerlas."},
+			{"turn": 1, "text": "Cuando choque con una moneda tendrás que destruirla y actualizar el HUD para que aparezca una moneda más."},
+			{"turn": 2, "text": "¿Cómo hago eso?"},
+			{"turn": 1, "text": "Es muy sencillo, sólo tienes que cumar uno a 'hud.score' y actualizar 'hud.scoreText'."}
 		]
 	]
 

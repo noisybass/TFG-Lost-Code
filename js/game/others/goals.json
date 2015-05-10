@@ -5,7 +5,7 @@
 			"code": "function move() {\n\n\t//\tClases clave para ayudar a Bersara \n\t//\n\t//\tPhaser.Sprite\n\t//\tPhaser.Keyboard\n\t//\tPhaser.Physics.Arcade\n\t//\tPhaser.Physics.Arcade.Body\n\t//\n\t//\t¡Buena Suerte! \n\n\n\n\n\t// Comprobamos que la flecha derecha haya sido pulsada\n\tif (this.cursors.right.isDown) {\n\t\t// Si es asi establecemos la nueva velocidad del jugador, en \n\t\t// este caso al moverse a la derecha sera positiva\n\t\tthis.sprite.body.velocity.x = this.walkSpeed;\n\n\t\t// Comprobamos que el jugador este en el suelo, ya que en esta \n\t\t// función no contemplamos el caso de que este saltando\n\t\tif (this.sprite.body.onFloor() || this.sprite.body.touching.down){\n\t\t\t// Y en el caso de que no este saltando ejecutamos la \n\t\t\t// animación correspondiente\n\t\t\tthis.sprite.play('player_animation_moveRight', 5, true);\n\t\t}\n\n\t\t// Si el jugador estaba mirando a la izquierda le ponemos \n\t\t// mirando a la derecha\n\t\tif (this.direction == State.LOOKINGLEFT ) {\n\t\t\tthis.direction = State.LOOKINGRIGHT;\n\t\t}\n\t}\n\n\n\t// Si la flecha derecha no ha sido pulsada comprobamos si la flecha \n\t// izquierda ha sido pulsada\n\n\t// Si es asi establecemos la nueva velocidad del jugador, en este \n\t// caso como nos movemos hacia la izquierda la velocidad tiene \n\t// que ser negativa\n\n\t// Al igual que hemos hecho en el caso de movernos hacia la derecha \n\t// comprobamos que el jugador esta en el suelo\n\n\t// Y cambiamos su animacion\n\n\t// Por último, si el jugador estaba mirando hacia la derecha le \n\t// ponemos mirando hacia la izquierda\n\n\n\t// Si no hemos pulsado ningun control tenemos que ejecutar las \n\t// animaciones correspondientes\n\telse {\n\t\tif (this.direction == State.LOOKINGLEFT) {\n\t\t\tthis.sprite.play('player_animation_standUpLeft');\n\t\t}\n\t\telse if (this.direction == State.LOOKINGRIGHT) {\n\t\t\tthis.sprite.play('player_animation_standUpRight');\n\t\t}\n\t\t// Y por ultimos ponemos su velocidad a 0 ya que no debe \n\t\t// moverse\n\t\tthis.sprite.body.velocity.x = 0;\n\t}\n}\n",
 			"target": "player.move",
 			"range1": [0,0,34,0],
-			"range2": [54,0,67,0],
+			"range2": [52,0,67,0],
 			"test": "testMoveLeft(text)",
 			"line": 39
 		},
@@ -31,7 +31,7 @@
 			"task": "Haz que los enemigos mueran al saltar encima",
 			"code": "function upCollision(player, enemy) {\n\n\t// Comprobamos si hemos tocado al enemigo por arriba\n\n\t// Si es asi le matamos y saltamos\n\n\t// Para saltar haremos algo muy parecido a lo que hicimos en la \n\t// funcion Jump(), cambiamos su velocidad vertical y actualizamos \n\t// el jumpTime\n\n\n\t// Y si hemos tocado al enemigo por otro lado entonces moriremos nosotros\n\telse {\n\t\tthis.die();\n\t}\n}\n",
 			"target": "player.upCollision",
-			"range1": [0,0,3,0],
+			"range1": [0,0,2,0],
 			"range2": [11,0,16,0],
 			"test": "testJumpOverEnemy(text)",
 			"line": 4
@@ -40,7 +40,7 @@
 			"task": "Mostrar Score en el Hud",
 			"code": "function createScore(){\n\n\t// Creamos el texto en la posición (16, 16)\n\t// Te aconsejamos que pongas como tamaño a la fuente 32px \n\t// y color blanco\n\n\t// Fijamos el texto a la camara\n\n\n\n}\n",
 			"target": "hud.createScore",
-			"range1": [0,0,1,0],
+			"range1": [0,0,2,0],
 			"range2": [10,0,11,0],
 			"test": "testCreateScore(text)",
 			"line": 6
