@@ -66,7 +66,6 @@ TFG.AboutPhaser.prototype = {
 
   nextCredit: function() {
 
-
     if ( this.pos < this.txt.length )  {
       this.about.destroy();
       this.about = this.game.add.text(this.w/2 - 250 , this.h/2+300, this.txt[this.pos],

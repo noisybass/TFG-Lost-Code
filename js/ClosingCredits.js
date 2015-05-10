@@ -66,13 +66,16 @@ TFG.ClosingCredits.prototype = {
   },
 
   update: function() {
-
     cloudsMove(this.game);
     this.bg.y+=5;
     if ( this.bg.y > this.h ) {
       this.bg.destroy();
     }
     this.credits.y--;    
+    if ( this.credits.y < -this.credits._height ) {
+      this.credits.destroy();
+      this.closeCredits();
+    }
   },
 
   closeCredits: function() {
@@ -87,6 +90,7 @@ TFG.ClosingCredits.prototype = {
     this.credits.shadowColor = "#000";
     this.credits.shadowBlur = 10;
     this.credits.shadowOffsetX = 0.2;
+    console.log(this.credits._height);
   }
 }
 
