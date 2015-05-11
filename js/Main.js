@@ -27,6 +27,9 @@ setTimeout(function(){
 	// Game State: the actual game.
 	TFG.game.state.add('Game', TFG.Game);
 
+	// EndGame State: the final screen.
+	TFG.game.state.add('EndGame', TFG.EndGame);
+
 	TFG.game.state.start('Boot');
 
 }, 100);

@@ -90,8 +90,8 @@ Player.prototype = {
   },
 
   doorColision: function(player, door){
-  //Pongo algo para probar
-  door.destroy();
+
+    TFG.game.state.start('EndGame');
   },
 
 

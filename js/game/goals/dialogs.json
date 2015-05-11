@@ -149,12 +149,26 @@
 		],
 
 		[
-			{"turn": 1, "text": "Genial!! Ya hemos llegado al final."},
+			{"turn": 1, "text": "Genial!! Ya casi hemos terminado!!."},
 			{"turn": 2, "text": ": )"},
 			{"turn": 1, "text": "Lo último que necesito que hagas es crear una puerta que me lleve a mi siguiente destino."},
 			{"turn": 2, "text": "Suena fácil."},
-			{"turn": 1, "text": "Lo es."},
-			{"turn": 2, "text": "Pues hagamóslo"}
+			{"turn": 1, "text": "Lo es : )"},
+			{"turn": 2, "text": "Pues hagamóslo ; )"}
+		],
+
+		[
+			{"turn": 1, "text": "Bueno...ya hemos llegado al final."},
+			{"turn": 1, "text": "Por ahora ya no puedes hacer nada más para ayudarme"},
+			{"turn": 1, "text": "No porque me hayas caído mal, sino porque mi mundo acaba aquí."},
+			{"turn": 1, "text": "Mi mundo ha sido creado de la nada por personas como tú..."},
+			{"turn": 1, "text": "...personas que han querido enseñarte una pequeñísima parte de lo que es programar un videojuego"},
+			{"turn": 1, "text": "Si realmente te ha gustado la experiencia, descárgate la última versión de Phaser"},
+			{"turn": 1, "text": "explora la documentación"},
+			{"turn": 1, "text": "busca ejemplos y tutoriales"},
+			{"turn": 1, "text": "y crea tus propios juegos."},
+			{"turn": 1, "text": "Seguramente alguien disfrutará de tu obra"},
+			{"turn": 1, "text": "Gracias por ayudarme!!"}
 		]
 	]
 

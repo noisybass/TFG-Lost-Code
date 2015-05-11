@@ -90,7 +90,6 @@ TFG.ClosingCredits.prototype = {
     this.credits.shadowColor = "#000";
     this.credits.shadowBlur = 10;
     this.credits.shadowOffsetX = 0.2;
-    console.log(this.credits._height);
   }
 }
 
