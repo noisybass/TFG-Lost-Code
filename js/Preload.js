@@ -33,7 +33,7 @@ TFG.Preload.prototype = {
     this.loadObjectsAssets();
 
     // Load scripts
-    this.game.load.script('gray', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Gray.js');
+    //this.game.load.script('gray', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Gray.js');
   },
 
   create:function() {
