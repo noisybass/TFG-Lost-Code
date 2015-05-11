@@ -11,6 +11,9 @@ var coins = null;
 
 var currentTask = null;
 
+var star = null;
+var starText = null;
+
 TFG.Game.prototype = {
 
   submitCode: function() {
@@ -26,6 +29,8 @@ TFG.Game.prototype = {
 
         // 3- Testear el código
         try{
+            //Esto sirve para solucionar algunos problemas con las excepciones.
+            var originFunction = eval(currentTask.target );
             if (eval(currentTask.test)) {
                 eval(currentTask.target + "=" + text);
                 editor.getSession().setValue("", -1);
@@ -43,6 +48,9 @@ TFG.Game.prototype = {
         catch(e){
             console.log(e);
             tw = new TWUnit();
+            //volvemos a asignar la funcion original para evitar problemas con errores
+            //sintacticos.
+            eval(currentTask.target + "=" + originFunction);
             tw.addAssert("Error de compilación", true == false, "", e.message);
             tw.runAsserts();
             // volver a deshabilitar los eventos para poder escribir bien en ace
@@ -64,8 +72,8 @@ TFG.Game.prototype = {
 
     // Creates player
     player = new Player(this.game);
-    player.create(150, 410 ,'player_spritesheet', 0);
-
+    //player.create(150, 410 ,'player_spritesheet', 0);
+    player.create(150, 700 ,'player_spritesheet', 0);
     // Creates the HUD
     hud = new HUD(this.game);
     hud.create();
@@ -102,8 +110,8 @@ var clearListeners = function (){
 
 
 var testClear = function(){
-    this.game.input.disabled = true;
-    star = this.game.add.sprite(this.game.canvas.width/2, this.game.canvas.height/2, 'star-image');
+    this.game.input.disabled = false;
+    var star = this.game.add.sprite(this.game.canvas.width/2, this.game.canvas.height/2, 'star-image');
     star.anchor.setTo(0.5, 0.5); // centro de la rotacion
     star.fixedToCamera = true;
     star.scale.x -= 0.8;
@@ -139,16 +147,15 @@ var testClear = function(){
             splash1.start();
             rotate1.start();*/
 
-            starText.destroy();
-            star.destroy();
-            TFG.game.paused = false;
-            TFG.game.input.disabled = false;
+        starText.destroy();
+        star.destroy();
+        TFG.game.paused = false;
+        TFG.game.input.disabled = false;
 
         }, 1000);
 
         
     }, this);
-        
 
     splash.start();
     rotate.start();
