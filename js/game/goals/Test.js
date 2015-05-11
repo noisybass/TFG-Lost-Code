@@ -28,6 +28,11 @@ var testMoveLeft = function (text) {
     tw.addAssert("Cambiar sprite para que mire hacia la izquierda ", player.direction == State.LOOKINGLEFT, "", "Cuando vas a pulsar la tecla derecha, el sprite puede estar mirando para el lado contrario, por lo tanto tienes que asignar la dirección correcta a la dirección del sprite.");
     tw.addAssert("Mover personaje a la izquierda ", player.sprite.body.velocity.x == -player.walkSpeed, "", "En los juegos 2D de plataformas el jugador se mueve por el eje de coordenadas x, siendo positivo si el sprite se desplaza a la derecha, y negativo si se desplaza hacia la izquierda. Despues de esta explicación, ¿Se te ocurre como hacer que el jugador se desplace hacia la izquierda?.");
     
+    player.cursors.left.isDown = true;
+        player.move();
+    player.cursors.left.isDown = false;
+
+    tw.addAssert("Mover personaje a la izquierda a una velocidad constante ", player.sprite.body.velocity.x == -player.walkSpeed, "", "No estas poniendo una velocidad constante a la variable this.sprite.body.velocity.x. ¿Estas seguro que no utilizas una instrucción aditiva para asignar la velocidad?");
     reInitMove();
 
     tw.runAsserts();
