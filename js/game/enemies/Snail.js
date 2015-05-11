@@ -25,18 +25,4 @@ snailsMove = function(enemy) {
   else if (enemy.body.blocked.right || enemy.body.touching.right) {
     enemy.direction = State.LOOKINGLEFT;
   }
-
-/*
-  if (enemy.direction == State.LOOKINGLEFT) {
-    enemy.body.velocity.x = -enemy.walkSpeed;
-    enemy.scale.x = 1;
-  }
-  else if (enemy.direction == State.LOOKINGRIGHT) {
-    enemy.body.velocity.x = enemy.walkSpeed;
-    enemy.scale.x = -1;
-  }
-
-  if(enemy.body.y >= 980)
-    enemy.kill();
-*/
 };

@@ -7,11 +7,7 @@ var player = null;
 var level  = null;
 
 var coins = null;
-var hearts = null;
 
-var goombas = null;
-var throwers = null;
-var throwers_hammer = null;
 
 var currentTask = null;
 

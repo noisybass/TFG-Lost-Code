@@ -42,7 +42,7 @@ var right_img = "utils/Dialogs/img/programmer.png";
 $(document).ready(function(){
 
 	// Load JSON file with dialogs
-	$.getJSON( "js/game/others/dialogs.json", function(data) {
+	$.getJSON( "js/game/goals/dialogs.json", function(data) {
 		dialogs = data.dialogs;
 
 		// Adjust dialog container to canvas width
