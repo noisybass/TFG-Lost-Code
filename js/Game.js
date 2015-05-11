@@ -111,10 +111,10 @@ var testClear = function(){
 
     // Animacion que se agranda y gira
     var rotate = this.game.add.tween(star)
-        .to({ angle: star.angle + 720 }, 3500, Phaser.Easing.Linear.None);
+        .to({ angle: star.angle + 360 }, 1500, Phaser.Easing.Linear.None);
 
     var splash = this.game.add.tween(star.scale)
-        .to({ x: star.scale.x + 1.5, y: star.scale.y + 1.5 }, 3500, Phaser.Easing.Linear.None);
+        .to({ x: star.scale.x + 1.5, y: star.scale.y + 1.5 }, 1500, Phaser.Easing.Linear.None);
 
     splash.onComplete.add(function(){
         var starText = this.game.add.text(this.game.canvas.width/2, this.game.canvas.height/2, "¡Lo has conseguido!", { font: "25px customFont", fill: "#fff" });
@@ -123,7 +123,7 @@ var testClear = function(){
         
         // Animación que se encoge y gira 
         setTimeout(function(){
-            starText.destroy();
+           /* starText.destroy();
             rotate1 = TFG.game.add.tween(star)
                 .to({ angle: star.angle - 720 }, 3500, Phaser.Easing.Linear.None);
 
@@ -137,9 +137,14 @@ var testClear = function(){
             }, this);
 
             splash1.start();
-            rotate1.start();
+            rotate1.start();*/
 
-        }, 2000);
+            starText.destroy();
+            star.destroy();
+            TFG.game.paused = false;
+            TFG.game.input.disabled = false;
+
+        }, 1000);
 
         
     }, this);

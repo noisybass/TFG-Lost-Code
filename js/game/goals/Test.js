@@ -28,11 +28,26 @@ var testMoveLeft = function (text) {
     tw.addAssert("Cambiar sprite para que mire hacia la izquierda ", player.direction == State.LOOKINGLEFT, "", "Cuando vas a pulsar la tecla derecha, el sprite puede estar mirando para el lado contrario, por lo tanto tienes que asignar la dirección correcta a la dirección del sprite.");
     tw.addAssert("Mover personaje a la izquierda ", player.sprite.body.velocity.x == -player.walkSpeed, "", "En los juegos 2D de plataformas el jugador se mueve por el eje de coordenadas x, siendo positivo si el sprite se desplaza a la derecha, y negativo si se desplaza hacia la izquierda. Despues de esta explicación, ¿Se te ocurre como hacer que el jugador se desplace hacia la izquierda?.");
     
+
+    // Comprobamos si ha puesto una instruccion del tipo If-elseIf-Else
+    player.cursors.right.isDown = true;
+    player.cursors.left.isDown = true;
+        player.move();
+    player.cursors.right.isDown = false;
+    player.cursors.left.isDown = false;
+
+    tw.addAssert("Tipo de instrucción de control incorrecta ", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveRight"] /*&&
+                                                               player.direction == State.LOOKINGRIGHT &&
+                                                               player.sprite.body.velocity.x != player.walkSpeed*/, "", "¿Seguro que estas utilizando if (Condicion) { Instrucciones } else if (Condicion) { Instrucciones } else { Instrucciones }? Solo puede pasar una de las tres cosas a la vez, o que el jugador se mueva a la izquierda o que se mueva a la derecha o que este quieto mirando hacia uno de los dos lados.");
+    
+
+    // Para comprobar si ha puesto en velocidad una instruccion aditiva.
     player.cursors.left.isDown = true;
         player.move();
     player.cursors.left.isDown = false;
 
     tw.addAssert("Mover personaje a la izquierda a una velocidad constante ", player.sprite.body.velocity.x == -player.walkSpeed, "", "No estas poniendo una velocidad constante a la variable this.sprite.body.velocity.x. ¿Estas seguro que no utilizas una instrucción aditiva para asignar la velocidad?");
+
     reInitMove();
 
     tw.runAsserts();
