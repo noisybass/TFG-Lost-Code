@@ -51,13 +51,6 @@ Player.prototype = {
       this.die();
     }
 
-    /*this.game.physics.arcade.overlap(this.sprite, hearts, this.collectHeart, null, this);
-    this.game.physics.arcade.overlap(this.sprite, coins, this.pickCoin, null, this);
-    this.game.physics.arcade.overlap(this.sprite, goombas, this.goombaCollision, null, this);
-    this.game.physics.arcade.overlap(this.sprite, throwers, this.throwerCollision, null, this);
-    this.game.physics.arcade.overlap(this.sprite, throwers_hammer, this.throwerHammerCollision, null, this);*/
-    //this.game.physics.arcade.overlap(this.sprite, end_level, this.endLevelCollision, null, this);
-
     // Enemies
     this.game.physics.arcade.overlap(this.sprite, snails, this.upCollision, null, this);
     this.game.physics.arcade.overlap(this.sprite, slimes, this.upCollision, null, this);
@@ -80,12 +73,15 @@ Player.prototype = {
   blockOverlap: function(player, block) {
 
     this.game.paused = true;
-    currentTask = block.data;
+    currentTaskAux = block.data;
 
     block.destroy();
     player.game.input.disabled = true;
 
-    loadDialog(this.dialogIndex, this.game, "setTask");
+    loadDialog(this.dialogIndex, this.game, 
+            function(){currentTask = currentTaskAux;
+                       setTask();});
+
     this.dialogIndex++;
   },
 
@@ -241,28 +237,6 @@ Player.prototype = {
         this.jumpTimer = this.game.time.now + 750;
     }
     
-  },
-
-  /* */
-  goDown: function() {
-
-    if ( this.cursors.down.isDown && this.playerCanGoDown() ) {    
-      if (this.direction == State.LOOKINGLEFT) {
-        this.sprite.play('player_animation_goDownLeft', 1);
-      }
-      else if (this.direction == State.LOOKINGRIGHT){
-        this.sprite.play('player_animation_goDownRight', 1);
-        this.player_velocity_x = 80;
-      }
-    }
-    else {
-      this.player_velocity_x = 150;
-    }
-  },
-
-  /* */
-  playerCanGoDown: function() {    // AGACHARSE
-    return this.sprite.body.onFloor();
   },
 
   endLevelCollision: function() {
