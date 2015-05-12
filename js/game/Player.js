@@ -78,9 +78,10 @@ Player.prototype = {
     block.destroy();
     player.game.input.disabled = true;
 
-    loadDialog(this.dialogIndex, this.game, 
-            function(){currentTask = currentTaskAux;
-                       setTask();});
+    loadDialog(this.dialogIndex, this.game, function() {
+      currentTask = currentTaskAux;
+      setTask();
+    });
 
     this.dialogIndex++;
   },
@@ -158,8 +159,6 @@ Player.prototype = {
     this.sprite.animations.add('player_animation_standUpRight', [12]);
     this.sprite.animations.add('player_animation_jumpLeft', [19]);
     this.sprite.animations.add('player_animation_jumpRight', [21]);
-    this.sprite.animations.add('player_animation_goDownLeft', [26]);
-    this.sprite.animations.add('player_animation_goDownRight', [12]);
   },
 
 

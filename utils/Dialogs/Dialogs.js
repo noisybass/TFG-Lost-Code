@@ -70,7 +70,7 @@ function loadDialog(number, g, call) {
 	}
 	else {
 		$('#button_menu_1').fadeIn(500);
-		eval( call + '()' );
+		eval( call /*+ '()'*/ );
 	}
 	
 };
@@ -96,7 +96,7 @@ function init() {
 		var w = $('#game-canvas').width();
 		$('#dialog_container').prepend('<div id="text_container"><p class="text"></p></div>');
 		$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + left_img +'" />');	
-		$('#dialog_container').prepend('<img id="right_person" style="margin-left:' + (w-150) + 'px;" class="gray" src="' + right_img + '" />');
+		$('#dialog_container').prepend('<img id="right_person" style="margin-left:' + (w-120) + 'px;" class="gray" src="' + right_img + '" />');
 		initialize = true;
 	}
 	$('#dialog_container').css('background-color', 'rgba(0,0,0,0.3)');
@@ -144,7 +144,8 @@ $('.dialog_button').click(function(){
 		$('#button_menu_1').fadeIn(500);
 			
 		if ( callback ) {
-			eval( callback + '()' );
+			//eval( callback /*+ '()'*/ );
+			callback();
 		}
 		
 		if ( context ) {
@@ -160,13 +161,11 @@ $('.dialog_skip_button').click(function(){
 	$('#button_menu_1').fadeIn(500);
 
 	if ( callback ) {
-		eval( callback + '()' );
+		//eval( callback + '()' );
+		callback();
 	}
 	
 	if ( context ) {
 		context.paused = false;
 	}	
 });
-
-
-

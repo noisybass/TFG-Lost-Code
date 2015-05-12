@@ -9,7 +9,11 @@ function jump() {
 	//                                        //
 	/******************************************/
 
-	/*  */
+	/* Para saltar tenemos que comprobar tres cosas:
+	   -> Que hayamos pulsado la flecha arriba (this.cursors.up) 
+	   -> Que estemos tocando el suelo 
+	   -> Que no estemos ya saltando. Esto lo comprobamos con un
+	   timer (this.jumpTimer)*/
 	if (this.cursors.up.isDown && (this.sprite.body.onFloor() || this.sprite.touching.down) && this.game.time.now > this.jumpTimer) {
 
 
