@@ -15,7 +15,7 @@ var testMoveLeft = function (text) {
     player.sprite.body.blocked.down = true;
     player.cursors.left.isDown = false;
 
-    tw.addAssert("No ejecutar una animación si no estas en el suelo ", player.sprite.animations.currentAnim != player.sprite.animations._anims["player_animation_moveLeft"], "", "No puedes ejecutar una animación en el aire! ¿Porque no compruebas si el player esta en el suelo?.");
+    tw.addAssert("No podemos ejecutar las animaciones de andar si estamos en el aire. Solo si la condición (this.sprite.body.onFloor() || this.sprite.body.touching.down) es verdadera ejecutaremos las animaciones", player.sprite.animations.currentAnim != player.sprite.animations._anims["player_animation_moveLeft"], "", "");
     
     reInitMove();
 
@@ -24,9 +24,9 @@ var testMoveLeft = function (text) {
         player.move();
     player.cursors.left.isDown = false;
     
-    tw.addAssert("Cambiar la animación para moverse a la izquierda ", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "", "Un sprite tiene un monton de funcionalidades, una de ellas es poder ejecutar una animación. ¿Porque no pruebas a ejecutar una animación con este id 'player_animation_moveLeft'?.");
-    tw.addAssert("Cambiar sprite para que mire hacia la izquierda ", player.direction == State.LOOKINGLEFT, "", "Cuando vas a pulsar la tecla derecha, el sprite puede estar mirando para el lado contrario, por lo tanto tienes que asignar la dirección correcta a la dirección del sprite.");
-    tw.addAssert("Mover personaje a la izquierda ", player.sprite.body.velocity.x == -player.walkSpeed, "", "En los juegos 2D de plataformas el jugador se mueve por el eje de coordenadas x, siendo positivo si el sprite se desplaza a la derecha, y negativo si se desplaza hacia la izquierda. Despues de esta explicación, ¿Se te ocurre como hacer que el jugador se desplace hacia la izquierda?.");
+    tw.addAssert("La animación no es correcta. Cuando Bersara camine hacia la izquierda ejecutará la animación 'player_animation_moveLeft'", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveLeft"], "", "");
+    tw.addAssert("La dirección a la que mira Bersara no es correcta. Si se mueve hacia la izquierda su dirección debería ser 'State.LOOKIGNLEFT'", player.direction == State.LOOKINGLEFT, "", "");
+    tw.addAssert("Al movernos hacia la izquierda nos estamos moviendo en el sentido negativo del eje X, por lo que tenemos que asignarle a Bersara una velocidad negativa, más concretamente '-this.walkSpeed'", player.sprite.body.velocity.x == -player.walkSpeed, "", "");
     
 
     // Comprobamos si ha puesto una instruccion del tipo If-elseIf-Else
@@ -36,9 +36,9 @@ var testMoveLeft = function (text) {
     player.cursors.right.isDown = false;
     player.cursors.left.isDown = false;
 
-    tw.addAssert("Tipo de instrucción de control incorrecta ", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveRight"] /*&&
+    tw.addAssert("La estructura de la función parece estar mal. Asegurate de que su estructura es if (Condicion para moverse a la derecha) { Nos movemos a la derecha } else if (Condicion para moverse a la izquierda) { Nos movemos a la izquierda } else { Nos quedamos quietos }", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveRight"] /*&&
                                                                player.direction == State.LOOKINGRIGHT &&
-                                                               player.sprite.body.velocity.x != player.walkSpeed*/, "", "¿Seguro que estas utilizando if (Condicion) { Instrucciones } else if (Condicion) { Instrucciones } else { Instrucciones }? Solo puede pasar una de las tres cosas a la vez, o que el jugador se mueva a la izquierda o que se mueva a la derecha o que este quieto mirando hacia uno de los dos lados.");
+                                                               player.sprite.body.velocity.x != player.walkSpeed*/, "", "");
     
 
     // Para comprobar si ha puesto en velocidad una instruccion aditiva.
@@ -77,8 +77,8 @@ var testJump = function (text) {
     player.cursors.up.isDown = false;
 
     /*Cuando choca con el cartel esta mirando hacia la derecha, por tanto va a saltar hacia la derecha*/
-    tw.addAssert("Cambiar la animación para saltar hacia la derecha ", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "", "¡Esto es pan comido! Ya lo hemos realizado antes, de todas maneras si no te acuerdas echa un vistazo a la clase Body de la fisica Arcade de Phaser. ¡Acuerdate de poner el id correcto cuando ejecutes la animación! es player_animation_jumpRight");
-    tw.addAssert("Cambiar la velocidad de salto del sprite ", player.sprite.body.velocity.y == player.jumpSpeed, "", "Para caminar cambiábamos la velocidad en la x, para saltar prueba a modificar la velocidad en la y asignandole la velocidad this.jumpSpeed");
+    tw.addAssert("No has puesto la animación correcta en el caso de que Bersara salte hacia la derecha. Tienes que poner 'player_animation_jumpRight'", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpRight"], "", "");
+    tw.addAssert("Parece que no has puesto la velocidad correcta. LA velocidad que tienes que asignar es 'this.jumpSpeed'", player.sprite.body.velocity.y == player.jumpSpeed, "", "");
 
     reInitJump();
 
@@ -87,7 +87,7 @@ var testJump = function (text) {
     player.direction = State.LOOKINGLEFT;
         player.jump();
     player.cursors.up.isDown = false;
-    tw.addAssert("Cambiar la animación para saltar hacia la izquierda", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "", "¡Esto es pan comido! Ya lo hemos realizado antes, de todas maneras si no te acuerdas echa un vistazo a la clase Body de la fisica Arcade de Phaser. ¡Acuerdate de poner el id correcto cuando ejecutes la animación! es player_animation_jumpLeft");
+    tw.addAssert("No has puesto la animación correcta en el caso de que Bersara salte hacia la izquierda. Tienes que poner 'player_animation_jumpLeft'", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_jumpLeft"], "", "");
 
     reInitJump();
 
