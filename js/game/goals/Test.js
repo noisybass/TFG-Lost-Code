@@ -36,9 +36,7 @@ var testMoveLeft = function (text) {
     player.cursors.right.isDown = false;
     player.cursors.left.isDown = false;
 
-    tw.addAssert("La estructura de la función parece estar mal. Asegurate de que su estructura es if (Condicion para moverse a la derecha) { Nos movemos a la derecha } else if (Condicion para moverse a la izquierda) { Nos movemos a la izquierda } else { Nos quedamos quietos }", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveRight"] /*&&
-                                                               player.direction == State.LOOKINGRIGHT &&
-                                                               player.sprite.body.velocity.x != player.walkSpeed*/, "", "");
+    tw.addAssert("La estructura de la función parece estar mal. Asegurate de que su estructura es if (Condicion para moverse a la derecha) { Nos movemos a la derecha } else if (Condicion para moverse a la izquierda) { Nos movemos a la izquierda } else { Nos quedamos quietos }", player.sprite.animations.currentAnim === player.sprite.animations._anims["player_animation_moveRight"] , "", "");
     
 
     // Para comprobar si ha puesto en velocidad una instruccion aditiva.

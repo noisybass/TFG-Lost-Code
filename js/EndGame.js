@@ -17,7 +17,7 @@ TFG.EndGame.prototype = {
     // Menu settings...
     this.game.stage.backgroundColor = '#000';
 
-    loadDialog(8, TFG.game, "TFG.game.state.start('MainMenu'); console.log"); // Truco para no cambiar Dialogs.js
+    loadDialog(8, TFG.game, function(){ TFG.game.state.start('MainMenu'); } );
     $('img#right_person').remove();
     $('img#left_person').css('margin-left', (this.w/2 - 60) + 'px');
   },
