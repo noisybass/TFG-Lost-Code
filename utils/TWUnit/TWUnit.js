@@ -307,12 +307,12 @@ TWUnit.prototype = {
 		for (assertElement in list) {
 			if (list[assertElement].assertValue){
 				
-				TWUnit.HtmlInteract.htmlAssertWrite(list[assertElement].name + ": " + list[assertElement].comment, it, true);
+				TWUnit.HtmlInteract.htmlAssertWrite(list[assertElement].name /*+ ": "*/ + list[assertElement].comment, it, true);
 				console.log(list[assertElement].comment);
 			}
 			else{
 				
-				TWUnit.HtmlInteract.htmlAssertWrite(list[assertElement].name + ": " + list[assertElement].clue, it, false);
+				TWUnit.HtmlInteract.htmlAssertWrite(list[assertElement].name /*+ ": "*/ + list[assertElement].clue, it, false);
 				console.log(list[assertElement].clue);
 				allAssertsOk = false;
 			}

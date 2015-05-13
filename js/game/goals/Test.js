@@ -44,7 +44,7 @@ var testMoveLeft = function (text) {
         player.move();
     player.cursors.left.isDown = false;
 
-    tw.addAssert("Mover personaje a la izquierda a una velocidad constante ", player.sprite.body.velocity.x == -player.walkSpeed, "", "No estas poniendo una velocidad constante a la variable this.sprite.body.velocity.x. ¿Estas seguro que no utilizas una instrucción aditiva para asignar la velocidad?");
+    tw.addAssert("No estas poniendo una velocidad constante, debes poner 'this.walkSpeed' o '-this.walkSpeed', dependiendo de hacia donde te muevas", player.sprite.body.velocity.x == -player.walkSpeed, "", "");
 
     reInitMove();
 
@@ -115,8 +115,8 @@ var testMoveSnails = function(text) {
     // Comprobamos que se mueven bien hacia la izquierda
     snailsMove(enemy);
 
-    tw.addAssert("Velocidad", enemy.body.velocity.x === -enemy.walkSpeed, "");
-    tw.addAssert("Escala", enemy.scale.x === 1, "");
+    tw.addAssert("La velocidad de los enemigos cuando se mueven hacia la izquierda es incorrecta. Recuerda que nos queremos mover en el sentido negativo del eje X, por lo que asignaremos '-enemy.walkSpeed'", enemy.body.velocity.x === -enemy.walkSpeed, "");
+    tw.addAssert("Por defecto tenemos la animación de caminar hacia la izquierda, por lo que no hace falta darle la vuelta al sprite. La escala debería ser 1", enemy.scale.x === 1, "");
 
     reInitMoveSnails(enemy);
 
@@ -125,8 +125,8 @@ var testMoveSnails = function(text) {
     enemy.direction = State.LOOKINGRIGHT;
     snailsMove(enemy);
 
-    tw.addAssert("Velocidad", enemy.body.velocity.x === enemy.walkSpeed, "");
-    tw.addAssert("Escala", enemy.scale.x === -1, "");
+    tw.addAssert("La velocidad de los enemigos cuando se mueven hacia la derecha es incorrecta. Recuerda que nos queremos mover en el sentido positivo del eje X, por lo que asignaremos 'enemy.walkSpeed'", enemy.body.velocity.x === enemy.walkSpeed, "");
+    tw.addAssert("Para conseguir la animacion de caminar hacia la derecha necesitamos darle la vuelta al sprite. Para ello utiliza como escala el valor -1", enemy.scale.x === -1, "");
 
     reInitMoveSnails(enemy);
 
@@ -135,7 +135,7 @@ var testMoveSnails = function(text) {
     enemy.body.y = 979;
     snailsMove(enemy);
 
-    tw.addAssert("Viven", enemy.alive, "");
+    tw.addAssert("Has puesto una profundidad demasiado baja para que mueran, prueba a poner en la condición que mueran a partir de 980", enemy.alive, "");
 
     reInitMoveSnails(enemy);
 
@@ -143,7 +143,7 @@ var testMoveSnails = function(text) {
     enemy.body.y = 980;
     snailsMove(enemy);
 
-    tw.addAssert("Mueren", !enemy.alive, "");
+    tw.addAssert("Así los enemigos no van a morir si llegan a mucha profundidad. Asegurate de haber puesto bien la condición y haber usado la función 'kill()'", !enemy.alive, "");
 
     reInitMoveSnails(enemy);
 
@@ -186,9 +186,9 @@ var testJumpOverEnemy = function(text){
         player.upCollision(player, enemy);
     enemy.body.touching.up = false;
 
-    tw.addAssert("Enemigo muere", !enemy.alive && originalLives == hud.lives, "Enemigo muere al saltar encima de él", "¿Has probado a eliminar al enemigo al comprobar que has saltado encima de él?");
-    tw.addAssert("Cuanto sube en el eje y",player.sprite.body.velocity.y == player.jumpSpeed && originalLives == hud.lives, "La velocidad del player es igual a la velocidad de salto", "¿El player tiene la velocidad de salto asiganada en su eje y al saltar encima del enemigo?");
-    tw.addAssert("Cuanto dura el salto", player.jumpTime == player.game.time.now + 750 && originalLives == hud.lives, "Asignad el tiempo de salto", "error en tiempo de salto, cambiar esta quest despues poniendo un rango y no un valor estatico como 700");
+    tw.addAssert("No estas matando bien a los enemigos, ¿Seguro que estás utilizando la funcion 'kill()'?", !enemy.alive && originalLives == hud.lives, "", "");
+    tw.addAssert("Bersara no rebota al saltar encima de un enemigo, asegúrate de que estás asignando 'this.jumpSpeed' a la velocidad de Bersara.",player.sprite.body.velocity.y == player.jumpSpeed && originalLives == hud.lives, "", "");
+    tw.addAssert("No estas actualizando 'this.jumpTime', asegúrate de asignarle 'this.game.time.now + 750'.", player.jumpTime == player.game.time.now + 750 && originalLives == hud.lives, "", "");
 
     reInitJumpOverEnemy(enemy, originalLives);
 
@@ -197,7 +197,7 @@ var testJumpOverEnemy = function(text){
         player.upCollision(player, enemy);
     enemy.body.touching.left = false;
 
-    tw.addAssert("Jugador muere si es tocado por la izquierda", originalLives - 1 == hud.lives, "Jugador muere si choca con un enemigo por la izquierda", "La unica manera de matar a un enemigo es por arriba... se te ocurre como puede morir el jugador?");
+    tw.addAssert("Si Bersara toca a un enemigo por la izquierda, debe morir.", originalLives - 1 == hud.lives, "", "");
 
     reInitJumpOverEnemy(enemy, originalLives);
 
@@ -206,7 +206,7 @@ var testJumpOverEnemy = function(text){
         player.upCollision(player, enemy);
     enemy.body.touching.right = false;
 
-    tw.addAssert("Jugador muere si es tocado por la derecha", originalLives - 1 == hud.lives, "Jugador muere si choca con un enemigo por la derecha", "La unica manera de matar a un enemigo es por arriba... se te ocurre como puede morir el jugador?");
+    tw.addAssert("Si Bersara toca a un enemigo por la derecha, debe morir.", originalLives - 1 == hud.lives, "", "");
 
     reInitJumpOverEnemy(enemy, originalLives);
 
@@ -215,7 +215,7 @@ var testJumpOverEnemy = function(text){
         player.upCollision(player, enemy);
     enemy.body.touching.down = false;
 
-    tw.addAssert("Jugador muere si es tocado por abajo", originalLives - 1 == hud.lives, "Jugador muere si choca con un enemigo por abajo", "La unica manera de matar a un enemigo es por arriba... se te ocurre como puede morir el jugador?");
+    tw.addAssert("Si Bersara toca a un enemigo por debajo, debe morir.", originalLives - 1 == hud.lives, "", "");
 
     reInitJumpOverEnemy(enemy, originalLives);
 
@@ -255,14 +255,13 @@ var testCreateScore = function(text){
     hud.createScore();
 
     if (!hud.scoreText){
-    	tw.addAssert("Inicializar this.scoreText", hud.scoreText, "Inicicializado this.scoreText", "Tienes que añadir un elemento text al game y este devolverá el objeto que tienes que asignar a this.scoreText");
+    	tw.addAssert("Tienes que añadir un elemento text al game y este devolverá el objeto que tienes que asignar a this.scoreText.", hud.scoreText, "", "");
     }
     else{
-    	tw.addAssert("Posicion x e y", hud.scoreText.x == 16 && hud.scoreText.y == 16, "Colocado en la posicion x e y correctas", "La posiciones que tienes que dar al añadir un texto al game son las siguientes: x = 16 e y = 16");
-    	tw.addAssert("Texto del score", hud.scoreText._text == "Score: 0" && hud.scoreString == "Score: " && hud.score == 0, "texto puesto correctamente", "¿Porque no pruebas a juntar las variables scoreString y score?");
-    	tw.addAssert("Texto centrado en la camara",hud.scoreText.fixedToCamera, "Camara fijada correctamente", "Mira en la documentación de phaser la clase Text algun atributo que pueda fijar la camara");
+    	tw.addAssert("La posicion que tienes que dar al añadir un texto al game es la siguiente: x = 16 e y = 16", hud.scoreText.x == 16 && hud.scoreText.y == 16, "", "");
+    	tw.addAssert("No estas creando el texto con el valo correcto, prueba con 'this.scoreString + this.score'", hud.scoreText._text == "Score: 0" && hud.scoreString == "Score: " && hud.score == 0, "");
+    	tw.addAssert("No estas fijando el texto a la cámara, revisa la clase Phaser.Text",hud.scoreText.fixedToCamera, "", "");
     }
-    
     tw.runAsserts();
 
     if (!tw.assertsOk){
@@ -284,9 +283,9 @@ var testPickCoins = function(text){
 
     player.pickCoin(player, coin);
 
-    tw.addAssert("Moneda destruida", !coin.alive, "Destruir la moneda", "¿Te acuerdas de como eliminabamos al enemigo que saltamos encima de él?");
-    tw.addAssert("Modificar la puntuación", originScore + 1 == hud.score, "Puntuación modificada", "la clase hud tiene un atributo score para poder modificarlo");
-    tw.addAssert("Modificar texto del score", hud.scoreText.text == "Score: " + hud.score.toString(), "Texto del score cambiado correctamente", "El hud debe mostrarse de la siguiente manera, Score: Numero  donde el numero es nuestra puntuación");
+    tw.addAssert("No estas utilizando la función correcta para destruir la moneda.", !coin.alive, "", "");
+    tw.addAssert("No estas modificando la puntuación correctamente, cada vez que coges una moneda el valor se incrementa en uno.", originScore + 1 == hud.score, "", "");
+    tw.addAssert("No estas actualizando el texto del HUD, prueba a asignarle 'hud.scoreString + hud.score'", hud.scoreText.text == "Score: " + hud.score.toString(), "", "");
 
     if (!coin.alive){
         coin.revive();
@@ -307,8 +306,7 @@ var testCreateDoor = function(text){
 
     createDoors(player.game);
 
-    tw.addAssert("Establecer fisica ARCADE al grupo", doors.physicsBodyType == Phaser.Physics.ARCADE, "Fisica ARCADE inicializada", "Phaser tiene un 3 tipos de fisicas, pero nosotros nos vamos a centrar en la ARCADE ¿Porque no pruebas a añadirla?");
-    tw.addAssert("Nuestro grupo tiene sprites que son cuerpos", doors.enableBody, "Los sprites del grupo son cuerpos", "Para que un sprite pueda colisionar con los demás sprites, hay que decirle al grupo que sus elementos son cuerpos");
+    tw.addAssert("Para que un sprite pueda colisionar con los demás sprites, hay que decirle al grupo que sus elementos son cuerpos", doors.enableBody, "", "");
     
 
     tw.runAsserts();
