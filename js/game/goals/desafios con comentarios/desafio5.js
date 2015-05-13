@@ -12,7 +12,7 @@ function createScore() {
 	   devolverá un objeto de la clase 'Phaser.Text'. Vamos a 
 	   guardar este texto en la variable 'this.scoreText', para 
 	   poder hacer referencia a el más adelante.
-	   Te aconsejamos que situes el texto en la posicion (16,16),
+	   Pon el texto en la posicion (16,16),
 	   con un tamaño de fuente de 32px y color blanco.
 	   El texto que necesitamos crear es 'this.scoreString' +
 	   'this.score'. 'this.scoreString' contiene el texto "score" 

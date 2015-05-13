@@ -19,8 +19,8 @@ function pickCoin(player, coin) {
 
 	/* Es muy importante actualizar el texto del HUD cada vez que
 	cojemos una moneda. Para ello tán sólo tenemos que asignarle a
-	'hud.scoreText.text' el valor actualizado, que será 'hud.scoreString'
-	+ 'hud.score' */
+	'hud.scoreText.text' el valor actualizado, que será 
+	'hud.scoreString' + 'hud.score' */
 
 
 
