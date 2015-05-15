@@ -20,48 +20,48 @@
 		},
 		{
 			"task": "Haz que los enemigos caigan al agua y mueran",
-			"code": "function snailsMove() {\n\n\t/*** Clases clave para ayudar a Bersara ***/\n\t//                                        //\n\t// Phaser.Group                           //\n\t// Phaser.Physics.Arcade                  //\n\t// Phaser.Physics.Arcade.Body             //\n\t//                                        //\n\t/******************************************/\n\n\t/* Cuando el enemigo choca contra algo se da la vuelta \n\t\ty cambia de sentido. Para saber si se ha chocado \n\t\tpodemos usar las propiedades 'blocked' o 'touching'\n\t\tde Body */\n\tif (enemy.body.blocked.left || enemy.body.touching.left) {\n\t\tenemy.direction = State.LOOKINGLEFT;\n\t}\n\t\telse if (enemy.body.blocked.right || enemy.body.touching.right) {\n\t\tenemy.direction = State.LOOKINGLEFT;\n\t}\n\n\t/* Lo siguiente es cambiar su velocidad según la dirección\n\t\ta la que este mirando, al igual que hicimos con Bersara.\n\t\tTambién tendremos que cambiar su escala. Con la escala \n\t\tpodemos dar la vuelta a nuestros sprites, como si se viesen\n\t\treflejados en un espejo. \n\t\tPara nuestros enemigos sólo tenemos en el spritesheet\n\t\t animaciones para andar hacia la izquierda, así que cambiaremos\n\t\tla escala cuando ande hacia la derecha y así no nos harán \n\t\tfalta más animaciones.\n\t\tPor tanto, si vamos a movernos hacia la izquierda tendremos\n\t\tque asignar una velocidad negativa (-enemy.walkSpeed) y una\n\t\tescala positiva (enemy.scale = 1) */\n\n\n\t/* Si vamos a movernos hacia la derecha tendremos que asignar una\n\t\tvelocidad positiva (enemy.walkSpeed) y una escala negativa \n\t\t(enemy.scale = -1) para darle la vuelta a nuestro sprite */\n\n\n\n\t/* Por último, y no por ello menos importante, tenemos que matar\n\t\ta los caracoles si llegan a cierta profundidad. Así que si la \n\t\t'y' es mayor o igual que 980 tendremos que matarles con el \n\t\tmétodo 'kill()' */\n\n\n\n}\n\n",
+			"code": "function snailsMove(enemy) {\n\n\t/*** Clases clave para ayudar a Bersara ***/\n\t//                                        //\n\t// Phaser.Group                           //\n\t// Phaser.Physics.Arcade                  //\n\t// Phaser.Physics.Arcade.Body             //\n\t//                                        //\n\t/******************************************/\n\n\t/* Cuando el enemigo choca contra algo se da la vuelta \n\t\ty cambia de sentido. Para saber si se ha chocado \n\t\tpodemos usar las propiedades 'blocked' o 'touching'\n\t\tde Body */\n\tif (enemy.body.blocked.left || enemy.body.touching.left) {\n\t\tenemy.direction = State.LOOKINGLEFT;\n\t}\n\t\telse if (enemy.body.blocked.right || enemy.body.touching.right) {\n\t\tenemy.direction = State.LOOKINGLEFT;\n\t}\n\n\t/* Lo siguiente es cambiar su velocidad según la dirección\n\t\ta la que este mirando, al igual que hicimos con Bersara.\n\t\tTambién tendremos que cambiar su escala. Con la escala \n\t\tpodemos dar la vuelta a nuestros sprites, como si se viesen\n\t\treflejados en un espejo. \n\t\tPara nuestros enemigos sólo tenemos en el spritesheet\n\t\t animaciones para andar hacia la izquierda, así que cambiaremos\n\t\tla escala cuando ande hacia la derecha y así no nos harán \n\t\tfalta más animaciones.\n\t\tPor tanto, si vamos a movernos hacia la izquierda tendremos\n\t\tque asignar una velocidad negativa (-enemy.walkSpeed) y una\n\t\tescala positiva (enemy.scale = 1) */\n\n\n\t/* Si vamos a movernos hacia la derecha tendremos que asignar una\n\t\tvelocidad positiva (enemy.walkSpeed) y una escala negativa \n\t\t(enemy.scale = -1) para darle la vuelta a nuestro sprite */\n\n\n\n\t/* Por último, y no por ello menos importante, tenemos que matar\n\t\ta los caracoles si llegan a cierta profundidad. Así que si la \n\t\t'y' es mayor o igual que 980 tendremos que matarles con el \n\t\tmetodo 'kill()' */\n\n\n\n}\n\n",
 			"target": "snailsMove",
-			"range1": [0,0,11,0],
-			"range2": [23,0,24,0],
+			"range1": [0,0,20,0],
+			"range2": [48,0,49,0],
 			"test": "testMoveSnails(text)",
-			"line": 15
+			"line": 34
 		},
 		{
 			"task": "Haz que los enemigos mueran al saltar encima",
-			"code": "function upCollision(player, enemy) {\n\n\t// Comprobamos si hemos tocado al enemigo por arriba\n\n\t// Si es asi le matamos y saltamos\n\n\t// Para saltar haremos algo muy parecido a lo que hicimos en la \n\t// funcion Jump(), cambiamos su velocidad vertical y actualizamos \n\t// el jumpTime\n\n\n\t// Y si hemos tocado al enemigo por otro lado entonces moriremos nosotros\n\telse {\n\t\tthis.die();\n\t}\n}\n",
+			"code": "function upCollision(player, enemy) {\n\n\t/*** Clases clave para ayudar a Bersara ***/\n\t//                                        //\n\t// Phaser.Group                           //\n\t// Phaser.Physics.Arcade                  //\n\t// Phaser.Physics.Arcade.Body             //\n\t//                                        //\n\t/******************************************/\n\n\t/* Sólo vamos a matar al enemigo si le hemos tocado por arriba\n\t   (ya que hemos saltado sobre el). Para saberlo podemos consultar\n\t   su propiedad 'touching.up'.\n\t   En caso afirmativo mataremos al enemigo, con la funcion 'kill()',\n\t   y luego haremos rebotar a Bersara. Para hacer que rebote tan solo\n\t   tenemos que hacer lo mismo que hicimos en la función 'jump()',\n\t   modificar su velocidad vertical y actualizar 'this.jumpTime' */\n\n\n\n\t/* En caso de que Bersara haya tocado a un enemigo pero no haya\n\t   sido por arriba, morirá y perderá una vida */\n\telse {\n\t\tthis.die();\n\t}\n\n}\n\n",
 			"target": "player.upCollision",
-			"range1": [0,0,3,0],
-			"range2": [11,0,16,0],
+			"range1": [0,0,9,0],
+			"range2": [20,0,27,0],
 			"test": "testJumpOverEnemy(text)",
-			"line": 4
+			"line": 18
 		},
 		{
 			"task": "Mostrar Score en el Hud",
-			"code": "function createScore(){\n\n\t// Creamos el texto en la posición (16, 16)\n\t// Te aconsejamos que pongas como tamaño a la fuente 32px \n\t// y color blanco\n\n\t// Fijamos el texto a la camara\n\n\n\n}\n",
+			"code": "function createScore() {\n\n\t/*** Clases clave para ayudar a Bersara ***/\n\t//                                        //\n\t// Phaser.Text                            //\n\t// Phaser.Sprite                          //\n\t//                                        //\n\t/******************************************/\n\n\t/* Para crear el texto vamos a usar la función \n\t   'Phaser.Game.add.text(x, y, text, style, group)', que nos \n\t   devolverá un objeto de la clase 'Phaser.Text'. Vamos a \n\t   guardar este texto en la variable 'this.scoreText', para \n\t   poder hacer referencia a el más adelante.\n\t   Pon el texto en la posicion (16,16),\n\t   con un tamaño de fuente de 32px y color blanco.\n\t   El texto que necesitamos crear es 'this.scoreString' +\n\t   'this.score'. 'this.scoreString' contiene el texto 'score' \n\t   y 'this.score' contiene la puntuación actual */\n\n\n\t/* Por otro lado queremos que el texto este siempre visible en\n\t   la pantalla. Para ello tenemos que fijar el texto a la cámara.\n\t   Podemos hacerlo con la propiedad 'fixedToCamera' del texto */\n\n\n\n}\n\n",
 			"target": "hud.createScore",
-			"range1": [0,0,1,0],
-			"range2": [10,0,11,0],
+			"range1": [0,0,8,0],
+			"range2": [27,0,28,0],
 			"test": "testCreateScore(text)",
-			"line": 6
+			"line": 20
 		},
 		{
 			"task": "Haz que el jugador pueda recoger monedas",
-			"code": "function pickCoin(player, coin) {\n\n\t// Eliminamos la moneda del juego\n\n\t// Actualizamos la puntuación en el hud y actualizamos el texto \n\t// que muestra la puntuación\n\n\n}\n",
+			"code": "function pickCoin(player, coin) {\n\n\t/*** Clases clave para ayudar a Bersara ***/\n\t//                                        //\n\t// Phaser.Group                           //\n\t// Phaser.Sprite                          //\n\t//                                        //\n\t/******************************************/\n\n\n\t/* Lo primero es eliminar la moneda. Como ya hemos hecho\n\t   en otros desafíos usaremos la función 'kill()' */\n\n\n\t/* También tenemos que actualizar el HUD. Necesitamos sumar\n\t   uno al número de monedas que llevamos recogidas, que esta en \n\t   'hud.score' */\n\n\n\t/* Es muy importante actualizar el texto del HUD cada vez que\n\t   cojemos una moneda. Para ello tán sólo tenemos que asignarle a\n\t   'hud.scoreText.text' el valor actualizado, que será \n\t   'hud.scoreString' + 'hud.score' */\n\n\n\n}\n\n",
 			"target": "player.pickCoin",
-			"range1": [0,0,2,0],
-			"range2": [8,0,9,0],
+			"range1": [0,0,9,0],
+			"range2": [26,0,27,0],
 			"test": "testPickCoins(text)",
-			"line": "4"
+			"line": 13
 		},
 		{
 			"task": "Crea la puerta para salir del nivel",
-			"code": "function createDoors(game) {\n\n\t// Lo primero es dar cuerpo a la puerta con la propiedad 'enableBody'\n\n\n\t// Y despues obtenemos los objetos 'puerta' de nuestro mapa\n\t// En este caso sólo contamos con una puerta\n\tlevel.map.createFromObjects('Object Layer 1', tiledId.doorId , 'door-image', 0 , true, false, this.doors);\n}\n",
+			"code": "function createDoors(game) {\n\n\t/*** Clases clave para ayudar a Bersara ***/\n\t//                                        //\n\t// Phaser.Tilemap                         //\n\t// Phaser.Group                           //\n\t//                                        //\n\t/******************************************/\n\n\t/* Para que los objetos de un grupo puedan verse y se pueda\n\t   chocar con ellos necesitamos darles un cuerpo físico. \n\t   Podemos hacer esto mediante la propiedad 'enableBody' de\n\t   la clase 'Phaser.Group' */\n\n\n\n\t/* Pero no sirve de nada darles física si no tenemos objetos\n\t   dentro de este grupo. En vez de crear los objetos manualmente\n\t   los vamos a obtener desde el mapa */\n\tlevel.map.createFromObjects('Object Layer 1', tiledId.doorId, 'door-image', 0, true, false, this.doors);\n}\n\n",
 			"target": "createDoors",
-			"range1": [0,0,3,0],
-			"range2": [5,0,9,0],
+			"range1": [0,0,8,0],
+			"range2": [16,0,21,0],
 			"test": "testCreateDoor(text)",
-			"line": 4
+			"line": 14
 		}
 	]
 }

@@ -53,8 +53,7 @@ var setTask = function() {
         if (markerId1 || markerId2) {
             restartEditor();
         }
-
-        console.log(currentTask.task);
+        
         $('#task').html("<h3><span class=\"glyphicon glyphicon-exclamation-sign\"></span>" + currentTask.task + "</h3>");
         editor.getSession().setValue(currentTask.code, -1);
         addRanges(currentTask.range1, currentTask.range2);
