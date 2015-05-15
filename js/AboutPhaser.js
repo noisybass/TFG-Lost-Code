@@ -68,7 +68,7 @@ TFG.AboutPhaser.prototype = {
 
     if ( this.pos < this.txt.length )  {
       this.about.destroy();
-      this.about = this.game.add.text(this.w/2 - 250 , this.h/2+300, this.txt[this.pos],
+      this.about = this.game.add.text(120, this.h/2+300, this.txt[this.pos],
                 { font: "22px customFont", fill: "#fff" });
       this.configText();
       this.pos++;  
@@ -81,7 +81,7 @@ TFG.AboutPhaser.prototype = {
 
   showAboutPhaser: function() {
 
-    this.about = this.game.add.text(this.w/2 - 250 , this.h/2+300, this.txt[this.pos],
+    this.about = this.game.add.text(120 , this.h/2+300, this.txt[this.pos],
               { font: "22px customFont", fill: "#fff" });
     this.pos++;
     this.configText();
