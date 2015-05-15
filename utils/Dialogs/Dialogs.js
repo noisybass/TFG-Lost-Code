@@ -36,6 +36,8 @@ var pos = 0;
 var initialize = false;
 var context;
 
+var time = 300;
+
 var left_img = "utils/Dialogs/img/bersara.png";
 var right_img = "utils/Dialogs/img/programmer.png";
 
@@ -70,25 +72,25 @@ function loadDialog(number, g, call) {
 	}
 	else {
 		$('#button_menu_1').fadeIn(500);
-		eval( call /*+ '()'*/ );
+		eval( call );
 	}
 	
 };
 
 function showDialog() {
-	$('#dialog_container').fadeIn(500);
+	$('#dialog_container').fadeIn(time);
 }
 
 function hideDialog() {
-	$('#dialog_container').fadeOut(500);	
+	$('#dialog_container').fadeOut(time);	
 }
 
 function showNextButton() {
-	$('.dialog_button').fadeIn(500);
+	$('.dialog_button').fadeIn(time);
 }
 
 function hideNextButton() {
-	$('.dialog_button').fadeOut(500);	
+	$('.dialog_button').fadeOut(time);	
 }
 
 function init() {
@@ -97,6 +99,7 @@ function init() {
 		$('#dialog_container').prepend('<div id="text_container"><p class="text"></p></div>');
 		$('#dialog_container').prepend('<img id="left_person" class="gray" src="' + left_img +'" />');	
 		$('#dialog_container').prepend('<img id="right_person" style="margin-left:' + (w-120) + 'px;" class="gray" src="' + right_img + '" />');
+		$('.text').css('color', 'white');
 		initialize = true;
 	}
 	$('#dialog_container').css('background-color', 'rgba(0,0,0,0.3)');
@@ -108,24 +111,22 @@ function init() {
 
 function next() {
 
-    $('.text').fadeOut(500, function() {
+    $('.text').fadeOut(time, function() {
 
     	if ( txt[pos] == undefined ) return;
 
 		if ( txt[pos].turn == 2 ) {
-			$('.text').css('color', 'white');	// config[0].color
 			$('img#left_person').addClass('gray');
 			$('img#right_person').removeClass('gray');
 		}
 		else {
-			$('.text').css('color', 'white');		
 			$('img#right_person').addClass('gray');
 			$('img#left_person').removeClass('gray');
 		}
         $('.text').text( txt[pos].text );
         pos++;	
      
-        $('.text').fadeIn(1000, function(){
+        $('.text').fadeIn(time*2, function(){
         	showNextButton();
         });    
     });
@@ -144,7 +145,6 @@ $('.dialog_button').click(function(){
 		$('#button_menu_1').fadeIn(500);
 			
 		if ( callback ) {
-			//eval( callback /*+ '()'*/ );
 			callback();
 		}
 		
@@ -161,7 +161,6 @@ $('.dialog_skip_button').click(function(){
 	$('#button_menu_1').fadeIn(500);
 
 	if ( callback ) {
-		//eval( callback + '()' );
 		callback();
 	}
 	
