@@ -1,0 +1,175 @@
+{
+	"dialogs": [
+
+
+		[
+			{"turn": 1, "text": "Hola. Mi nombre es Bersara." },
+			{"turn": 2, "text": "Hola Bersara" },
+			{"turn": 1, "text": "Como sabrás, a programar se aprende programando y no todo el mundo está capacitado para ello." },
+			{"turn": 1, "text": "Es por ello por lo que he estado buscando a la persona adecuada." },
+			{"turn": 1, "text": "Y esa persona eres tú." },
+			{"turn": 2, "text": "Ooh" },
+			{"turn": 1, "text": "Necesito que me ayudes a encontrar una puerta." },
+			{"turn": 1, "text": "Una puerta que me saque de este mundo y permita continuar mi misión." },
+			{"turn": 1, "text": "Claro que..." },
+			{"turn": 1, "text": "...tengo un problema..." },
+			{"turn": 2, "text": "..." },
+			{"turn": 1, "text": "...me da vergüenza admitirlo..." },
+			{"turn": 1, "text": "...pero se que puedo confiar en ti." },
+			{"turn": 1, "text": "He olvidado cómo hacer ciertas cosas..." },
+			{"turn": 1, "text": "saltar" },
+			{"turn": 1, "text": "recoger monedas" },
+			{"turn": 2, "text": "xD" },
+			{"turn": 1, "text": "ya sabes..." },
+			{"turn": 1, "text": "...las típicas cosas que una persona debe ser capaz de hacer en un mundo poligonal como este." },
+			{"turn": 1, "text": "Bueno, dejémonos de cháchara y vayamos al lío." },
+			{"turn": 1, "text": "¿Me ayudarás?" },
+			{"turn": 2, "text": "Síí!!" },
+			{"turn": 1, "text": "Genial :)" },
+			{"turn": 1, "text": "Ahora solo recuerdo cómo se camina a la derecha..." },
+			{"turn": 1, "text": "...sí, ya se que es triste." },
+			{"turn": 1, "text": "Pero es lo que hay..." },
+			{"turn": 1, "text": "Para que camine a la derecha tienes que pulsar la flecha derecha." },
+			{"turn": 2, "text": "Valee." }
+		
+		],
+
+		[
+			{"turn": 1, "text": "Como ves, cuando topas con un cartel significa que hay algo que tienes que resolver programando." },
+			{"turn": 1, "text": "Yo te daré algún consejo sobre lo que tienes que escribir." },
+			{"turn": 1, "text": "Pero no te diré qué es porque no soy programadora...de serlo lo haría yo misma, como mujer autosuficiente y moderna que soy xD" },
+			{"turn": 2, "text": "xD" },
+			{"turn": 1, "text": "Una vez que hayas leído mi consejo se activará el editor de texto que ves a la derecha y mi mundo se detendrá." },
+			{"turn": 2, "text": "Que guay!!" },
+			{"turn": 1, "text": "Una vez que hayas escrito el código que crees correcto, pulsa sobre el botón \"ejecutar\"." },
+			{"turn": 1, "text": "No te preocupes si lo has hecho mal." },
+			{"turn": 1, "text": "si hay alguna cosa que se te haya podido escapar la verás en el recuadro \"Pistas & errores\"." },
+			{"turn": 2, "text": "Ook." },
+			{"turn": 1, "text": "Por otro lado, si en algún momento no sabes cómo funciona alguna función de Phaser, puedes pulsar sobre el botón \"Mostrar documentación\"" },
+			{"turn": 1, "text": "Se abrirá una ventana en la que tendrás toda la documentación oficial que podrás consultar." },
+			{"turn": 2, "text": "De acuerdo." },
+			{"turn": 1, "text": "Si ves que se te va de las manos, puedes pulsar sobre el botón \"reiniciar\" para dejar el editor de código en su estado inicial." },
+			{"turn": 1, "text": "Eso sí, perderás lo que hayas escrito antes. Así que ten cuidado." },
+			{"turn": 2, "text": "Valee." },
+			{"turn": 1, "text": "Por último, si el código es correcto, mi mundo volverá a la vida y yo podré realizar alguna nueva acción." },
+			{"turn": 2, "text": "; )" },
+			{"turn": 1, "text": "Bien, vamos a ponerte a prueba con el primer desafío." },
+			{"turn": 1, "text": "Ayúdame a caminar a la izquierda." },
+			{"turn": 2, "text": "Vooy" },
+			{"turn": 1, "text": "¡Un momento!" },
+			{"turn": 1, "text": "Se me ha olvidado darte el consejo." },
+			{"turn": 1, "text": "Creo que necesitarás echarle un vistazo a las clases Sprite, Keyboard y la clase Body de la fisica Arcade." },
+			{"turn": 1, "text": "Ten en cuenta que un sprite para que se pueda chocar con los demás objetos del entorno, necesita tener una fisica." },
+			{"turn": 1, "text": "En phaser existen tres tipos de fisicas, Arcade, Ninja y P2." },
+			{"turn": 1, "text": "Yo tengo la fisica Arcade, si no fuese así, no podría andar por ningún terreno." },
+			{"turn": 1, "text": "Es importante que sepas que todas las características que poseo, están en la clase Body, la cuál podrás acceder de la siguiente manera, this.sprite.body ." },
+			{"turn": 1, "text": "¡No dudes en consultar la documentación! !Programar no consiste solo en teclear código!." },
+			{"turn": 1, "text": "Necesito llegar a esa puerta como sea, confio en ti." }	
+		],
+
+		[
+			{"turn": 1, "text": "¡Ya puedo volver a andar hacia la izquierda!."},
+			{"turn": 1, "text": "Muchas gracias, de verdad, pero me temo que me vas a tener que seguir ayudando para poder llegar a la puerta para cumplir mi misión."},
+			{"turn": 2, "text": "¿Qué misión?"},
+			{"turn": 1, "text": "Lo siento, pero todavía es demasiado pronto."},
+			{"turn": 1, "text": "...no puedo decirte qué esta pasando en este mundo poligonal. Antes debo recuperar algunas de mis características principales."},
+			{"turn": 2, "text": "..."},
+			{"turn": 1, "text": "Lo siento... te prometo que te lo sabrás cuando llegue el momento."},
+			{"turn": 2, "text": "Valee"},
+			{"turn": 2, "text": "¿Qué necesitas ahora?"},
+			{"turn": 1, "text": "Pues...aquí hay un precipicio y no recuerdo cómo saltar."},
+			{"turn": 1, "text": "Cuando podía saltar, lo hacia pulsando la flecha hacia arriba."},
+			{"turn": 1, "text": "¿Me ayudarás?."},
+			{"turn": 2, "text": "¿No me queda otra si quiero ayudarte, no?"},
+			{"turn": 2, "text": "Me intriga la misión que tienes que hacer y quiero saber por qué perdiste algunas de tus características."},
+			{"turn": 1, "text": "Te prometo que haré de ti un gran programador."},
+			{"turn": 2, "text": "Bueno, al lío, ¿Qué información deberia saber para poder programarlo?."},
+			{"turn": 1, "text": "Mmm, déjame que piense..."},
+			{"turn": 1, "text": "Vas a tener que seguir profundizando en las clases Sprite y Body."},
+			{"turn": 2, "text": "No necesito más, en un momento podrás saltar."},
+			{"turn": 2, "text": "¡Dejamelo a mi!"}
+			 
+		],
+
+		[
+			{"turn": 1, "text": "Oh oh..."},
+			{"turn": 2, "text": "¿Qué ocurre?"},
+			{"turn": 1, "text": "Hay unos malvados caracoles bloqueando el camino"},
+			{"turn": 2, "text": "¿Y..?"},
+			{"turn": 2, "text": "¿Por qué no saltas sobre ellos y los aplastas?"},
+			{"turn": 1, "text": "Eso no es buena idea"},
+			{"turn": 1, "text": "Estos caracoles tienen la concha tremendamente dura y resbaladiza"},
+			{"turn": 1, "text": "Si salto sobre ellos me resbalaré y podría caerme sobre el precipicio."},
+			{"turn": 2, "text": "Entiendo.."},
+			{"turn": 2, "text": "Entonces, ¿qué hacemos?"},
+			{"turn": 1, "text": "Déjame que piense..."},
+			{"turn": 1, "text": "..."},
+			{"turn": 1, "text": "Ya se!!"},
+			{"turn": 1, "text": "¿Por qué no haces que se muevan hacia la izquierda y se caigan ellos por el precipicio?"},
+			{"turn": 2, "text": "Jo, qué cruel eres"},
+			{"turn": 1, "text": "No seas blando, anda..."},
+			{"turn": 1, "text": "Al caer no les pasará nada. Ya te he dicho que su caparazón es muy duro."},
+			{"turn": 2, "text": "En ese caso, tiremóslos por el barranco."}
+		],
+
+		[
+			{"turn": 1, "text": "Cuidado!! Es un malvado blandipink"},
+			{"turn": 1, "text": "Son una de las criaturas mas peligrosas del mundo."},
+			{"turn": 2, "text": "Ese bicho rosa...en serio..."},
+			{"turn": 1, "text": "Sí. Nunca subestimes las apariencias."},
+			{"turn": 1, "text": "Este enemigo es capaz de colarse por cualquier hueco, por pequeño que sea, e introducirse en tu cerebro mientras duermes."},
+			{"turn": 2, "text": "¿Como cuando tienes que entregar una práctica que no sabes hacer y te tiras muchas noches dándole vueltas?"},
+			{"turn": 1, "text": "Más o menos. Solo que este bichejo podría hacer que te tiraras por la ventana mientras duermes."},
+			{"turn": 2, "text": "Que hardcore. Vamos a acabar con el. ¿Cómo le matamos?"},
+			{"turn": 1, "text": "Creo que la mejor forma sería saltando encima de él. Como ves, no tiene concha."},
+			{"turn": 2, "text": "Está bien, haré que muera cuando saltes sobre él."},
+			{"turn": 1, "text": "Perfecto."}
+		],
+
+		[
+			{"turn": 1, "text": "Una cosa..."},
+			{"turn": 1, "text": "Acabo de recordar que antes podía recoger monedas."},
+			{"turn": 1, "text": "Pero antes de ello necesito ver mi HUD."},
+			{"turn": 2, "text": "¿HUD? ¿Qué es eso?"},
+			{"turn": 1, "text": "Un HUD es la forma más habitual que tienen los videojuegos de mostrar al jugador ciertos parámetros."},
+			{"turn": 1, "text": "Tales como las vidas restantes, el número de puntos y todas esas cosas"},
+			{"turn": 2, "text": "Aaahh, ya se lo que es : )"},
+			{"turn": 1, "text": "Genial. Ahora ayúdame para que veamos mi HUD de nuevo."},
+			{"turn": 2, "text": "Valee"}
+		],
+
+		[
+			{"turn": 1, "text": "Que chulo!! Muchas gracias ;)"},
+			{"turn": 2, "text": "De nada : )"},
+			{"turn": 1, "text": "Ahora necesito poder recoger monedas."},
+			{"turn": 2, "text": "Una pregunta, ¿para qué las quieres?"},
+			{"turn": 1, "text": "Si te soy sincera no lo se..."},
+			{"turn": 1, "text": "Pero en muchos juegos el protagonista las recoge sin cesar."},
+			{"turn": 2, "text": "Me has convencido"}
+		],
+
+		[
+			{"turn": 1, "text": "Genial!! Ya casi hemos terminado!!."},
+			{"turn": 2, "text": ": )"},
+			{"turn": 1, "text": "Lo último que necesito que hagas es crear una puerta que me lleve a mi siguiente destino."},
+			{"turn": 2, "text": "Suena fácil."},
+			{"turn": 1, "text": "Lo es : )"},
+			{"turn": 2, "text": "Pues hagamóslo ; )"}
+		],
+
+		[
+			{"turn": 1, "text": "Bueno...ya hemos llegado al final."},
+			{"turn": 1, "text": "Por ahora ya no puedes hacer nada más para ayudarme"},
+			{"turn": 1, "text": "No porque me hayas caído mal, sino porque mi mundo acaba aquí."},
+			{"turn": 1, "text": "Mi mundo ha sido creado de la nada por personas como tú..."},
+			{"turn": 1, "text": "...personas que han querido enseñarte una pequeñísima parte de lo que es programar un videojuego"},
+			{"turn": 1, "text": "Si realmente te ha gustado la experiencia, descárgate la última versión de Phaser"},
+			{"turn": 1, "text": "explora la documentación"},
+			{"turn": 1, "text": "busca ejemplos y tutoriales"},
+			{"turn": 1, "text": "y crea tus propios juegos."},
+			{"turn": 1, "text": "Seguramente alguien disfrutará de tu obra"},
+			{"turn": 1, "text": "Gracias por ayudarme!!"}
+		]
+	]
+
+}
