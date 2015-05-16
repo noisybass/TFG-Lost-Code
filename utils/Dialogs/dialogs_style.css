@@ -1,0 +1,53 @@
+div#dialog_container {
+	display: none;		/* Para ocultarlo */
+}
+
+
+div#text_container{
+	background-size: 100% 100%;
+	min-height: 100px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 25px;
+	margin-top: 225px;
+	background-image: url("./img/glassPanel.png");
+	background-repeat: no-repeat;
+}
+
+img#left_person {
+	margin-right: 0px;
+}
+
+img#left_person.gray, img#right_person.gray {
+	-webkit-filter: grayscale(100%);
+}
+
+p.text {
+	margin-right: 10px;
+}
+
+
+img#left_person, img#right_person {
+	-webkit-transition: all 500ms;
+	margin-top: 100px;
+	position: absolute;
+	z-index: -1;
+}
+
+.text {
+	font-size: 22px;
+}
+
+.dialog_skip_button {
+	border-radius: 10px;
+	float: right;
+	margin-top: -95px;
+	margin-right: 10px;
+}
+
+.dialog_button {
+	border-radius: 10px;
+	float: right;
+	margin-top: -55px;
+	margin-right: 10px;
+}
