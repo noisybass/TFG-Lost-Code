@@ -67,11 +67,11 @@ function loadDialog(number, g, call) {
 		callback  = call;
 		pos       = 0;
 		context   = g;
-		$('#button_menu_1').fadeOut(500);
+		$('#button_menu_1').fadeOut(time);
 		init();	
 	}
 	else {
-		$('#button_menu_1').fadeIn(500);
+		$('#button_menu_1').fadeIn(time);
 		eval( call );
 	}
 	
