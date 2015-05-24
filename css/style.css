@@ -170,8 +170,8 @@ span.glyphicon.glyphicon-remove-sign {
 }
 
 .readonly-highlight{
-	background-color: #00AAAA;
-	opacity: 0.1;
+	background-color: #FF6600;
+	opacity: 0.2;
 	position: absolute;
 }
 
