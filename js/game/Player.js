@@ -207,8 +207,8 @@ Player.prototype = {
   die: function() {
 
     if (hud.lives > 1){
-      this.sprite.body.x = 0;
-      this.sprite.body.y = 490;
+      this.sprite.body.x = 150;
+      this.sprite.body.y = 480;
 
       // Update the lives
       hud.removeLives();
