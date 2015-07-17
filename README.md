@@ -7,4 +7,4 @@ Our final degree work it's about a written HTML5 video game that teaches you to 
 
 All thanks to the game development engine "Phaser.js" and knowledge we have acquired during these four years.
 
-If you want try our game, click on the follow link: http://lauradcs4.github.io/TFG/ 
+If you want try our game, click on the follow link: http://noisybass.github.io/TFG-Lost-Code 
